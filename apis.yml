@@ -2,15 +2,17 @@ aid: the-racing-api
 name: The Racing API
 description: >-
   High performance API for horse racing statistical modelling, application
-  development and web content. 
+  development and web content.
 type: Index
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API
+  - Horse Racing
+  - Sports
+  - Statistics
 created: '2025-02-06'
-modified: '2025-02-06'
+modified: '2026-03-16'
 url: >-
   https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
@@ -19,13 +21,26 @@ apis:
     name: The Racing API
     description: >-
       High performance API for horse racing statistical modelling, application
-      development and web content. 
-    humanURL: ' https://www.theracingapi.com/'
+      development and web content. Complete coverage of UK, Irish and Hong Kong
+      horse racing.
+    humanURL: https://www.theracingapi.com/
+    baseURL: https://api.theracingapi.com
     tags:
-      - API
+      - Horse Racing
+      - Sports
+      - Statistics
     properties:
       - type: Documentation
-        url: ' https://www.theracingapi.com/'
+        url: https://api.theracingapi.com/documentation
+      - type: Website
+        url: https://www.theracingapi.com/
+common:
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Sign Up
+    url: https://www.theracingapi.com/register
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
