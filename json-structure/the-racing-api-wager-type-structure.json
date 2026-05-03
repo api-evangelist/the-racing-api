@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-wager-type-structure.json",
+  "name": "WagerType",
+  "description": "WagerType schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "wager_type": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Wager Type"
+    },
+    "wager_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Wager Description"
+    },
+    "base_amount": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Base Amount"
+    }
+  }
+}

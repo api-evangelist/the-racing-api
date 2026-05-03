@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-runner-prev-owner-structure.json",
+  "name": "RunnerPrevOwner",
+  "description": "RunnerPrevOwner schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "owner": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Owner",
+      "default": ""
+    },
+    "owner_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Owner Id",
+      "default": ""
+    },
+    "change_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Change Date",
+      "default": ""
+    }
+  }
+}

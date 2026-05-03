@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-results-free-page-structure.json",
+  "name": "ResultsFreePage",
+  "description": "ResultsFreePage schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "results": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/ResultFree"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Results"
+    },
+    "total": {
+      "type": "integer",
+      "name": "Total"
+    },
+    "limit": {
+      "type": "integer",
+      "name": "Limit"
+    },
+    "skip": {
+      "type": "integer",
+      "name": "Skip"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "name": "Query"
+    }
+  },
+  "required": [
+    "results",
+    "total",
+    "limit",
+    "skip",
+    "query"
+  ]
+}

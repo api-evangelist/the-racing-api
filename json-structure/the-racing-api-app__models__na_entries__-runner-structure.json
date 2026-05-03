@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-app__models__na_entries__-runner-structure.json",
+  "name": "app__models__na_entries__Runner",
+  "description": "app__models__na_entries__Runner schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "claiming": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Claiming"
+    },
+    "coupled_type": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Coupled Type"
+    },
+    "dam_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Dam Name"
+    },
+    "dam_sire_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Dam Sire Name"
+    },
+    "description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Description"
+    },
+    "equipment": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Equipment"
+    },
+    "handicapper_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Handicapper Name"
+    },
+    "horse_data_pools": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/HorsePool"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Horse Data Pools"
+    },
+    "horse_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Horse Name"
+    },
+    "jockey": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/app__models__na_entries__Jockey"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "live_odds": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Live Odds"
+    },
+    "medication": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Medication"
+    },
+    "morning_line_odds": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Morning Line Odds"
+    },
+    "post_pos": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Post Pos"
+    },
+    "program_number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Program Number"
+    },
+    "program_number_stripped": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Program Number Stripped"
+    },
+    "registration_number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Registration Number"
+    },
+    "scratch_indicator": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Scratch Indicator"
+    },
+    "sire_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sire Name"
+    },
+    "trainer": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/app__models__na_entries__Trainer"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "weight": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Weight"
+    }
+  }
+}

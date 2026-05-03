@@ -1,0 +1,9 @@
+{
+  "current_temperature": "example-value",
+  "current_weather_description": "example-value",
+  "date": "2025-03-15",
+  "forecast_high": "example-value",
+  "forecast_low": "example-value",
+  "forecast_precipitation": "example-value",
+  "forecast_weather_description": "example-value"
+}

@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-app__models__racecards__-runner-basic-schema.json",
+  "title": "app__models__racecards__RunnerBasic",
+  "description": "app__models__racecards__RunnerBasic schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "horse": {
+      "type": "string",
+      "title": "Horse"
+    },
+    "horse_id": {
+      "type": "string",
+      "title": "Horse Id"
+    },
+    "age": {
+      "type": "string",
+      "title": "Age"
+    },
+    "sex": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Sex"
+    },
+    "sex_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Sex Code"
+    },
+    "colour": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Colour"
+    },
+    "region": {
+      "type": "string",
+      "title": "Region"
+    },
+    "dam": {
+      "type": "string",
+      "title": "Dam"
+    },
+    "dam_id": {
+      "type": "string",
+      "title": "Dam Id"
+    },
+    "sire": {
+      "type": "string",
+      "title": "Sire"
+    },
+    "sire_id": {
+      "type": "string",
+      "title": "Sire Id"
+    },
+    "damsire": {
+      "type": "string",
+      "title": "Damsire"
+    },
+    "damsire_id": {
+      "type": "string",
+      "title": "Damsire Id"
+    },
+    "trainer": {
+      "type": "string",
+      "title": "Trainer"
+    },
+    "trainer_id": {
+      "type": "string",
+      "title": "Trainer Id"
+    },
+    "owner": {
+      "type": "string",
+      "title": "Owner"
+    },
+    "owner_id": {
+      "type": "string",
+      "title": "Owner Id"
+    },
+    "number": {
+      "type": "string",
+      "title": "Number"
+    },
+    "draw": {
+      "type": "string",
+      "title": "Draw"
+    },
+    "headgear": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Headgear"
+    },
+    "lbs": {
+      "type": "string",
+      "title": "Lbs"
+    },
+    "ofr": {
+      "type": "string",
+      "title": "Ofr"
+    },
+    "jockey": {
+      "type": "string",
+      "title": "Jockey"
+    },
+    "jockey_id": {
+      "type": "string",
+      "title": "Jockey Id"
+    },
+    "last_run": {
+      "type": "string",
+      "title": "Last Run"
+    },
+    "form": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Form"
+    }
+  },
+  "required": [
+    "horse",
+    "horse_id",
+    "age",
+    "sex",
+    "sex_code",
+    "colour",
+    "region",
+    "dam",
+    "dam_id",
+    "sire",
+    "sire_id",
+    "damsire",
+    "damsire_id",
+    "trainer",
+    "trainer_id",
+    "owner",
+    "owner_id",
+    "number",
+    "draw",
+    "headgear",
+    "lbs",
+    "ofr",
+    "jockey",
+    "jockey_id",
+    "last_run",
+    "form"
+  ]
+}

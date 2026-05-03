@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-odds-history-structure.json",
+  "name": "OddsHistory",
+  "description": "OddsHistory schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "bookmaker": {
+      "type": "string",
+      "name": "Bookmaker"
+    },
+    "fractional": {
+      "type": "string",
+      "name": "Fractional"
+    },
+    "decimal": {
+      "type": "string",
+      "name": "Decimal"
+    },
+    "ew_places": {
+      "type": "string",
+      "name": "Ew Places"
+    },
+    "ew_denom": {
+      "type": "string",
+      "name": "Ew Denom"
+    },
+    "updated": {
+      "type": "string",
+      "name": "Updated"
+    },
+    "history": {
+      "anyOf": [
+        {
+          "items": {},
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "History",
+      "default": []
+    }
+  },
+  "required": [
+    "bookmaker",
+    "fractional",
+    "decimal",
+    "ew_places",
+    "ew_denom",
+    "updated"
+  ]
+}

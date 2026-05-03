@@ -1,0 +1,320 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-app__models__aus_races__-runner-structure.json",
+  "name": "app__models__aus_races__Runner",
+  "description": "app__models__aus_races__Runner schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "horse_id": {
+      "type": "string",
+      "name": "Horse Id"
+    },
+    "horse": {
+      "type": "string",
+      "name": "Horse"
+    },
+    "age": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Age"
+    },
+    "comment": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Comment"
+    },
+    "colour": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Colour"
+    },
+    "dam": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Dam"
+    },
+    "dam_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Dam Id"
+    },
+    "draw": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Draw"
+    },
+    "form": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Form"
+    },
+    "jockey": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Jockey"
+    },
+    "jockey_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Jockey Id"
+    },
+    "jockey_claim": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Jockey Claim"
+    },
+    "margin": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Margin"
+    },
+    "number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Number"
+    },
+    "odds": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/app__models__aus_races__RunnerOdds"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Odds"
+    },
+    "owner": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Owner"
+    },
+    "position": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Position"
+    },
+    "prize": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Prize"
+    },
+    "rating": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Rating"
+    },
+    "scratched": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Scratched"
+    },
+    "sex": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sex"
+    },
+    "silk_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Silk Url"
+    },
+    "sire": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sire"
+    },
+    "sire_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sire Id"
+    },
+    "sp": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sp"
+    },
+    "stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStats"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "trainer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Trainer"
+    },
+    "trainer_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Trainer Id"
+    },
+    "weight": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Weight"
+    }
+  },
+  "required": [
+    "horse_id",
+    "horse"
+  ]
+}

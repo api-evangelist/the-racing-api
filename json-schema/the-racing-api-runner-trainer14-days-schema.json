@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-runner-trainer14-days-schema.json",
+  "title": "RunnerTrainer14Days",
+  "description": "RunnerTrainer14Days schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "runs": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Runs",
+      "default": ""
+    },
+    "wins": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Wins",
+      "default": ""
+    },
+    "percent": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Percent",
+      "default": ""
+    }
+  }
+}

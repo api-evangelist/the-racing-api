@@ -1,0 +1,253 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-result-standard-structure.json",
+  "name": "ResultStandard",
+  "description": "ResultStandard schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "race_id": {
+      "type": "string",
+      "name": "Race Id"
+    },
+    "date": {
+      "type": "string",
+      "name": "Date"
+    },
+    "region": {
+      "type": "string",
+      "name": "Region"
+    },
+    "course": {
+      "type": "string",
+      "name": "Course"
+    },
+    "course_id": {
+      "type": "string",
+      "name": "Course Id"
+    },
+    "off": {
+      "type": "string",
+      "name": "Off"
+    },
+    "off_dt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Off Dt",
+      "default": ""
+    },
+    "race_name": {
+      "type": "string",
+      "name": "Race Name"
+    },
+    "type": {
+      "type": "string",
+      "name": "Type"
+    },
+    "class": {
+      "type": "string",
+      "name": "Class"
+    },
+    "pattern": {
+      "type": "string",
+      "name": "Pattern"
+    },
+    "rating_band": {
+      "type": "string",
+      "name": "Rating Band"
+    },
+    "age_band": {
+      "type": "string",
+      "name": "Age Band"
+    },
+    "sex_rest": {
+      "type": "string",
+      "name": "Sex Rest"
+    },
+    "dist": {
+      "type": "string",
+      "name": "Dist"
+    },
+    "dist_y": {
+      "type": "string",
+      "name": "Dist Y"
+    },
+    "dist_m": {
+      "type": "string",
+      "name": "Dist M"
+    },
+    "dist_f": {
+      "type": "string",
+      "name": "Dist F"
+    },
+    "going": {
+      "type": "string",
+      "name": "Going"
+    },
+    "surface": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Surface",
+      "default": ""
+    },
+    "jumps": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Jumps",
+      "default": ""
+    },
+    "runners": {
+      "items": {
+        "$ref": "#/components/schemas/RunnerStandard"
+      },
+      "type": "array",
+      "name": "Runners"
+    },
+    "winning_time_detail": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Winning Time Detail",
+      "default": ""
+    },
+    "comments": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Comments",
+      "default": ""
+    },
+    "non_runners": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Non Runners",
+      "default": ""
+    },
+    "tote_win": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Tote Win",
+      "default": ""
+    },
+    "tote_pl": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Tote Pl",
+      "default": ""
+    },
+    "tote_ex": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Tote Ex",
+      "default": ""
+    },
+    "tote_csf": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Tote Csf",
+      "default": ""
+    },
+    "tote_tricast": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Tote Tricast",
+      "default": ""
+    },
+    "tote_trifecta": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Tote Trifecta",
+      "default": ""
+    }
+  },
+  "required": [
+    "race_id",
+    "date",
+    "region",
+    "course",
+    "course_id",
+    "off",
+    "race_name",
+    "type",
+    "class",
+    "pattern",
+    "rating_band",
+    "age_band",
+    "sex_rest",
+    "dist",
+    "dist_y",
+    "dist_m",
+    "dist_f",
+    "going",
+    "runners"
+  ]
+}

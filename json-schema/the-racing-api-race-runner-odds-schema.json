@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-race-runner-odds-schema.json",
+  "title": "RaceRunnerOdds",
+  "description": "RaceRunnerOdds schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "race_id": {
+      "type": "string",
+      "title": "Race Id"
+    },
+    "horse_id": {
+      "type": "string",
+      "title": "Horse Id"
+    },
+    "horse": {
+      "type": "string",
+      "title": "Horse"
+    },
+    "odds": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/RaceRunnerOddsBookmakers"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Odds",
+      "default": []
+    }
+  },
+  "required": [
+    "race_id",
+    "horse_id",
+    "horse"
+  ]
+}

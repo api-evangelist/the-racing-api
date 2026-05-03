@@ -1,0 +1,13 @@
+{
+  "date": "2025-03-15",
+  "region": "gb",
+  "course_id": "315222",
+  "course": "Cheltenham",
+  "race_id": "740383",
+  "race_name": "Example Name",
+  "race_class": "class_1",
+  "off_time": "example-value",
+  "off_dt": "",
+  "big_race": false,
+  "is_abandoned": false
+}

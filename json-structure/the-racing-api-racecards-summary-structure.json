@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-racecards-summary-structure.json",
+  "name": "RacecardsSummary",
+  "description": "RacecardsSummary schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "racecard_summaries": {
+      "items": {
+        "$ref": "#/components/schemas/RacecardSummary"
+      },
+      "type": "array",
+      "name": "Racecard Summaries"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "name": "Query"
+    }
+  },
+  "required": [
+    "racecard_summaries",
+    "query"
+  ]
+}

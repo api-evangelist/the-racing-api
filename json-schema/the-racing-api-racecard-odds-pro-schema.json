@@ -1,0 +1,277 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-racecard-odds-pro-schema.json",
+  "title": "RacecardOddsPro",
+  "description": "RacecardOddsPro schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "race_id": {
+      "type": "string",
+      "title": "Race Id"
+    },
+    "course": {
+      "type": "string",
+      "title": "Course"
+    },
+    "course_id": {
+      "type": "string",
+      "title": "Course Id"
+    },
+    "date": {
+      "type": "string",
+      "title": "Date"
+    },
+    "off_time": {
+      "type": "string",
+      "title": "Off Time"
+    },
+    "off_dt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Off Dt",
+      "default": ""
+    },
+    "race_name": {
+      "type": "string",
+      "title": "Race Name"
+    },
+    "distance_round": {
+      "type": "string",
+      "title": "Distance Round"
+    },
+    "distance": {
+      "type": "string",
+      "title": "Distance"
+    },
+    "distance_f": {
+      "type": "string",
+      "title": "Distance F"
+    },
+    "region": {
+      "type": "string",
+      "title": "Region"
+    },
+    "pattern": {
+      "type": "string",
+      "title": "Pattern"
+    },
+    "sex_restriction": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Sex Restriction",
+      "default": ""
+    },
+    "race_class": {
+      "type": "string",
+      "title": "Race Class"
+    },
+    "type": {
+      "type": "string",
+      "title": "Type"
+    },
+    "age_band": {
+      "type": "string",
+      "title": "Age Band"
+    },
+    "rating_band": {
+      "type": "string",
+      "title": "Rating Band"
+    },
+    "prize": {
+      "type": "string",
+      "title": "Prize"
+    },
+    "field_size": {
+      "type": "string",
+      "title": "Field Size"
+    },
+    "going_detailed": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Going Detailed"
+    },
+    "rail_movements": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Rail Movements"
+    },
+    "stalls": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Stalls"
+    },
+    "weather": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Weather"
+    },
+    "going": {
+      "type": "string",
+      "title": "Going"
+    },
+    "surface": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Surface"
+    },
+    "jumps": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Jumps",
+      "default": ""
+    },
+    "runners": {
+      "items": {
+        "$ref": "#/components/schemas/RunnerOddsPro"
+      },
+      "type": "array",
+      "title": "Runners"
+    },
+    "big_race": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Big Race",
+      "default": false
+    },
+    "is_abandoned": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Is Abandoned",
+      "default": false
+    },
+    "tip": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Tip",
+      "default": ""
+    },
+    "verdict": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Verdict",
+      "default": ""
+    },
+    "betting_forecast": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Betting Forecast",
+      "default": ""
+    },
+    "race_status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Race Status",
+      "default": ""
+    }
+  },
+  "required": [
+    "race_id",
+    "course",
+    "course_id",
+    "date",
+    "off_time",
+    "race_name",
+    "distance_round",
+    "distance",
+    "distance_f",
+    "region",
+    "pattern",
+    "race_class",
+    "type",
+    "age_band",
+    "rating_band",
+    "prize",
+    "field_size",
+    "going_detailed",
+    "rail_movements",
+    "stalls",
+    "weather",
+    "going",
+    "surface",
+    "runners"
+  ]
+}

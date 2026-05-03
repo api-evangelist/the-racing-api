@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-racecard-basic-structure.json",
+  "name": "RacecardBasic",
+  "description": "RacecardBasic schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "race_id": {
+      "type": "string",
+      "name": "Race Id"
+    },
+    "course": {
+      "type": "string",
+      "name": "Course"
+    },
+    "date": {
+      "type": "string",
+      "name": "Date"
+    },
+    "off_time": {
+      "type": "string",
+      "name": "Off Time"
+    },
+    "off_dt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Off Dt",
+      "default": ""
+    },
+    "race_name": {
+      "type": "string",
+      "name": "Race Name"
+    },
+    "distance_f": {
+      "type": "string",
+      "name": "Distance F"
+    },
+    "region": {
+      "type": "string",
+      "name": "Region"
+    },
+    "pattern": {
+      "type": "string",
+      "name": "Pattern"
+    },
+    "race_class": {
+      "type": "string",
+      "name": "Race Class"
+    },
+    "type": {
+      "type": "string",
+      "name": "Type"
+    },
+    "age_band": {
+      "type": "string",
+      "name": "Age Band"
+    },
+    "rating_band": {
+      "type": "string",
+      "name": "Rating Band"
+    },
+    "sex_restriction": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sex Restriction",
+      "default": ""
+    },
+    "prize": {
+      "type": "string",
+      "name": "Prize"
+    },
+    "field_size": {
+      "type": "string",
+      "name": "Field Size"
+    },
+    "going": {
+      "type": "string",
+      "name": "Going"
+    },
+    "surface": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Surface"
+    },
+    "runners": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__racecards__RunnerBasic"
+      },
+      "type": "array",
+      "name": "Runners"
+    },
+    "race_status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Race Status",
+      "default": ""
+    }
+  },
+  "required": [
+    "race_id",
+    "course",
+    "date",
+    "off_time",
+    "race_name",
+    "distance_f",
+    "region",
+    "pattern",
+    "race_class",
+    "type",
+    "age_band",
+    "rating_band",
+    "prize",
+    "field_size",
+    "going",
+    "surface",
+    "runners"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-races-structure.json",
+  "name": "Races",
+  "description": "Races schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "races": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__aus_races__Race"
+      },
+      "type": "array",
+      "name": "Races"
+    }
+  },
+  "required": [
+    "races"
+  ]
+}

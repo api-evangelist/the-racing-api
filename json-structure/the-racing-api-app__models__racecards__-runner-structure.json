@@ -1,0 +1,457 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-app__models__racecards__-runner-structure.json",
+  "name": "app__models__racecards__Runner",
+  "description": "app__models__racecards__Runner schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "horse_id": {
+      "type": "string",
+      "name": "Horse Id"
+    },
+    "horse": {
+      "type": "string",
+      "name": "Horse"
+    },
+    "dob": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Dob"
+    },
+    "age": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Age"
+    },
+    "sex": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sex"
+    },
+    "sex_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sex Code"
+    },
+    "colour": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Colour"
+    },
+    "region": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Region"
+    },
+    "breeder": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Breeder"
+    },
+    "dam": {
+      "type": "string",
+      "name": "Dam"
+    },
+    "dam_id": {
+      "type": "string",
+      "name": "Dam Id"
+    },
+    "dam_region": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Dam Region",
+      "default": ""
+    },
+    "sire": {
+      "type": "string",
+      "name": "Sire"
+    },
+    "sire_id": {
+      "type": "string",
+      "name": "Sire Id"
+    },
+    "sire_region": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sire Region",
+      "default": ""
+    },
+    "damsire": {
+      "type": "string",
+      "name": "Damsire"
+    },
+    "damsire_id": {
+      "type": "string",
+      "name": "Damsire Id"
+    },
+    "damsire_region": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Damsire Region",
+      "default": ""
+    },
+    "trainer": {
+      "type": "string",
+      "name": "Trainer"
+    },
+    "trainer_id": {
+      "type": "string",
+      "name": "Trainer Id"
+    },
+    "trainer_location": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Trainer Location",
+      "default": ""
+    },
+    "trainer_14_days": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerTrainer14Days"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": {}
+    },
+    "owner": {
+      "type": "string",
+      "name": "Owner"
+    },
+    "owner_id": {
+      "type": "string",
+      "name": "Owner Id"
+    },
+    "prev_trainers": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/RunnerPrevTrainer"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Prev Trainers",
+      "default": []
+    },
+    "prev_owners": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/RunnerPrevOwner"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Prev Owners",
+      "default": []
+    },
+    "comment": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Comment",
+      "default": ""
+    },
+    "spotlight": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Spotlight",
+      "default": ""
+    },
+    "quotes": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/RunnerQuote"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Quotes",
+      "default": []
+    },
+    "stable_tour": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/RunnerStableTour"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Stable Tour",
+      "default": []
+    },
+    "medical": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/RunnerMedical"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Medical",
+      "default": []
+    },
+    "number": {
+      "type": "string",
+      "name": "Number"
+    },
+    "draw": {
+      "type": "string",
+      "name": "Draw"
+    },
+    "headgear": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Headgear",
+      "default": ""
+    },
+    "headgear_run": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Headgear Run",
+      "default": ""
+    },
+    "wind_surgery": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Wind Surgery",
+      "default": ""
+    },
+    "wind_surgery_run": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Wind Surgery Run",
+      "default": ""
+    },
+    "past_results_flags": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Past Results Flags",
+      "default": []
+    },
+    "lbs": {
+      "type": "string",
+      "name": "Lbs"
+    },
+    "ofr": {
+      "type": "string",
+      "name": "Ofr"
+    },
+    "rpr": {
+      "type": "string",
+      "name": "Rpr"
+    },
+    "ts": {
+      "type": "string",
+      "name": "Ts"
+    },
+    "jockey": {
+      "type": "string",
+      "name": "Jockey"
+    },
+    "jockey_id": {
+      "type": "string",
+      "name": "Jockey Id"
+    },
+    "silk_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Silk Url",
+      "default": ""
+    },
+    "last_run": {
+      "type": "string",
+      "name": "Last Run"
+    },
+    "form": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Form"
+    },
+    "trainer_rtf": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Trainer Rtf"
+    }
+  },
+  "required": [
+    "horse_id",
+    "horse",
+    "dob",
+    "age",
+    "sex",
+    "sex_code",
+    "colour",
+    "region",
+    "breeder",
+    "dam",
+    "dam_id",
+    "sire",
+    "sire_id",
+    "damsire",
+    "damsire_id",
+    "trainer",
+    "trainer_id",
+    "owner",
+    "owner_id",
+    "number",
+    "draw",
+    "lbs",
+    "ofr",
+    "rpr",
+    "ts",
+    "jockey",
+    "jockey_id",
+    "last_run",
+    "form",
+    "trainer_rtf"
+  ]
+}

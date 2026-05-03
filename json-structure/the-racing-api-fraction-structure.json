@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-fraction-structure.json",
+  "name": "Fraction",
+  "description": "Fraction schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "fraction_1": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TimeData"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fraction_2": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TimeData"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fraction_3": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TimeData"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fraction_4": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TimeData"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fraction_5": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TimeData"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "winning_time": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/TimeData"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  }
+}

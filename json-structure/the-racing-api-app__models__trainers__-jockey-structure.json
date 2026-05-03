@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-app__models__trainers__-jockey-structure.json",
+  "name": "app__models__trainers__Jockey",
+  "description": "app__models__trainers__Jockey schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "jockey_id": {
+      "type": "string",
+      "name": "Jockey Id"
+    },
+    "jockey": {
+      "type": "string",
+      "name": "Jockey"
+    },
+    "runners": {
+      "type": "integer",
+      "name": "Runners"
+    },
+    "1st": {
+      "type": "integer",
+      "name": "1st place finishes"
+    },
+    "2nd": {
+      "type": "integer",
+      "name": "2nd place finishes"
+    },
+    "3rd": {
+      "type": "integer",
+      "name": "3rd place finishes"
+    },
+    "4th": {
+      "type": "integer",
+      "name": "4th place finishes"
+    },
+    "a/e": {
+      "type": "number",
+      "name": "Actual/expected"
+    },
+    "win_%": {
+      "type": "number",
+      "name": "Win percentage (decimal)"
+    },
+    "1_pl": {
+      "type": "number",
+      "name": "One unit p/l at SP"
+    }
+  },
+  "required": [
+    "jockey_id",
+    "jockey",
+    "runners",
+    "1st",
+    "2nd",
+    "3rd",
+    "4th",
+    "a/e",
+    "win_%",
+    "1_pl"
+  ]
+}

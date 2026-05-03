@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-region-structure.json",
+  "name": "Region",
+  "description": "Region schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "region": {
+      "type": "string",
+      "name": "Region"
+    },
+    "region_code": {
+      "type": "string",
+      "name": "Region Code"
+    }
+  },
+  "required": [
+    "region",
+    "region_code"
+  ]
+}

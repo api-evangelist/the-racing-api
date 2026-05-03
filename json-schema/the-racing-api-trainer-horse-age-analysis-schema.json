@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-trainer-horse-age-analysis-schema.json",
+  "title": "TrainerHorseAgeAnalysis",
+  "description": "TrainerHorseAgeAnalysis schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "Id"
+    },
+    "trainer": {
+      "type": "string",
+      "title": "Trainer"
+    },
+    "total_runners": {
+      "type": "integer",
+      "title": "Total Runners"
+    },
+    "horse_ages": {
+      "items": {
+        "$ref": "#/components/schemas/HorseAges"
+      },
+      "type": "array",
+      "title": "Horse Ages"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "title": "Query"
+    }
+  },
+  "required": [
+    "id",
+    "trainer",
+    "total_runners",
+    "horse_ages",
+    "query"
+  ]
+}

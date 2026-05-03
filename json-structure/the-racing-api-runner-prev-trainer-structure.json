@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-runner-prev-trainer-structure.json",
+  "name": "RunnerPrevTrainer",
+  "description": "RunnerPrevTrainer schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "trainer": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Trainer",
+      "default": ""
+    },
+    "trainer_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Trainer Id",
+      "default": ""
+    },
+    "change_date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Change Date",
+      "default": ""
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-trainers-schema.json",
+  "title": "Trainers",
+  "description": "Trainers schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "search_results": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__trainers__Trainer"
+      },
+      "type": "array",
+      "title": "Search Results"
+    }
+  },
+  "required": [
+    "search_results"
+  ]
+}

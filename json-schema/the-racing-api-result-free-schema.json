@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-result-free-schema.json",
+  "title": "ResultFree",
+  "description": "ResultFree schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "race_id": {
+      "type": "string",
+      "title": "Race Id"
+    },
+    "course": {
+      "type": "string",
+      "title": "Course"
+    },
+    "date": {
+      "type": "string",
+      "title": "Date"
+    },
+    "off": {
+      "type": "string",
+      "title": "Off"
+    },
+    "off_dt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Off Dt",
+      "default": ""
+    },
+    "race_name": {
+      "type": "string",
+      "title": "Race Name"
+    },
+    "dist_f": {
+      "type": "string",
+      "title": "Dist F"
+    },
+    "region": {
+      "type": "string",
+      "title": "Region"
+    },
+    "pattern": {
+      "type": "string",
+      "title": "Pattern"
+    },
+    "class": {
+      "type": "string",
+      "title": "Class"
+    },
+    "type": {
+      "type": "string",
+      "title": "Type"
+    },
+    "age_band": {
+      "type": "string",
+      "title": "Age Band"
+    },
+    "rating_band": {
+      "type": "string",
+      "title": "Rating Band"
+    },
+    "sex_rest": {
+      "type": "string",
+      "title": "Sex Rest"
+    },
+    "going": {
+      "type": "string",
+      "title": "Going"
+    },
+    "surface": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Surface",
+      "default": ""
+    },
+    "runners": {
+      "items": {
+        "$ref": "#/components/schemas/RunnerFree"
+      },
+      "type": "array",
+      "title": "Runners"
+    }
+  },
+  "required": [
+    "race_id",
+    "course",
+    "date",
+    "off",
+    "race_name",
+    "dist_f",
+    "region",
+    "pattern",
+    "class",
+    "type",
+    "age_band",
+    "rating_band",
+    "sex_rest",
+    "going",
+    "runners"
+  ]
+}

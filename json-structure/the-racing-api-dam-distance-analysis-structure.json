@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-dam-distance-analysis-structure.json",
+  "name": "DamDistanceAnalysis",
+  "description": "DamDistanceAnalysis schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "name": "Id"
+    },
+    "dam": {
+      "type": "string",
+      "name": "Dam"
+    },
+    "total_runners": {
+      "type": "integer",
+      "name": "Total Runners"
+    },
+    "distances": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__dams__Distance"
+      },
+      "type": "array",
+      "name": "Distances"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "name": "Query"
+    }
+  },
+  "required": [
+    "id",
+    "dam",
+    "total_runners",
+    "distances",
+    "query"
+  ]
+}

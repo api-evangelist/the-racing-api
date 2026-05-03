@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-race-key-structure.json",
+  "name": "RaceKey",
+  "description": "RaceKey schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "race_number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Race Number"
+    },
+    "day_evening": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Day Evening"
+    }
+  }
+}

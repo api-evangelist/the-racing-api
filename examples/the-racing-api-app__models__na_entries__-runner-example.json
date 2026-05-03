@@ -1,0 +1,23 @@
+{
+  "claiming": "example-value",
+  "coupled_type": "flat",
+  "dam_name": "Example Name",
+  "dam_sire_name": "Example Name",
+  "description": "example-value",
+  "equipment": "example-value",
+  "handicapper_name": "Example Name",
+  "horse_data_pools": "example-value",
+  "horse_name": "Frankel",
+  "jockey": "example-value",
+  "live_odds": "example-value",
+  "medication": "example-value",
+  "morning_line_odds": "example-value",
+  "post_pos": "example-value",
+  "program_number": "example-value",
+  "program_number_stripped": "example-value",
+  "registration_number": "example-value",
+  "scratch_indicator": "example-value",
+  "sire_name": "Example Name",
+  "trainer": "example-value",
+  "weight": "example-value"
+}

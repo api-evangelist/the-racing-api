@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-app__models__aus_races__-runner-odds-structure.json",
+  "name": "app__models__aus_races__RunnerOdds",
+  "description": "app__models__aus_races__RunnerOdds schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "bookmaker": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Bookmaker"
+    },
+    "win_odds": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Win Odds"
+    },
+    "place_odds": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Place Odds"
+    }
+  }
+}

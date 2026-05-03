@@ -1,0 +1,11 @@
+{
+  "results": "example-value",
+  "total": 15,
+  "limit": 79,
+  "skip": 42,
+  "query": [
+    [
+      "example-value"
+    ]
+  ]
+}

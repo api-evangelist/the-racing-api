@@ -1,0 +1,13 @@
+{
+  "id": "816297",
+  "dam": "example-value",
+  "total_runners": 66,
+  "classes": [
+    "class_1"
+  ],
+  "query": [
+    [
+      "example-value"
+    ]
+  ]
+}

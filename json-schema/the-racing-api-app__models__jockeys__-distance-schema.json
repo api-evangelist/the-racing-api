@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-app__models__jockeys__-distance-schema.json",
+  "title": "app__models__jockeys__Distance",
+  "description": "app__models__jockeys__Distance schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "dist": {
+      "type": "string",
+      "title": "Dist"
+    },
+    "dist_y": {
+      "type": "string",
+      "title": "Dist Y"
+    },
+    "dist_m": {
+      "type": "string",
+      "title": "Dist M"
+    },
+    "dist_f": {
+      "type": "string",
+      "title": "Dist F"
+    },
+    "rides": {
+      "type": "integer",
+      "title": "Rides"
+    },
+    "1st": {
+      "type": "integer",
+      "title": "1st place finishes"
+    },
+    "2nd": {
+      "type": "integer",
+      "title": "2nd place finishes"
+    },
+    "3rd": {
+      "type": "integer",
+      "title": "3rd place finishes"
+    },
+    "4th": {
+      "type": "integer",
+      "title": "4th place finishes"
+    },
+    "a/e": {
+      "type": "number",
+      "title": "Actual/expected"
+    },
+    "win_%": {
+      "type": "number",
+      "title": "Win percentage (decimal)"
+    },
+    "1_pl": {
+      "type": "number",
+      "title": "One unit p/l at SP"
+    }
+  },
+  "required": [
+    "dist",
+    "dist_y",
+    "dist_m",
+    "dist_f",
+    "rides",
+    "1st",
+    "2nd",
+    "3rd",
+    "4th",
+    "a/e",
+    "win_%",
+    "1_pl"
+  ]
+}

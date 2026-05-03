@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-race-pool-structure.json",
+  "name": "RacePool",
+  "description": "RacePool schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "maximum_wager_amount": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Maximum Wager Amount"
+    },
+    "minimum_box_amount": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Minimum Box Amount"
+    },
+    "minimum_wager_amount": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Minimum Wager Amount"
+    },
+    "minimum_wheel_amount": {
+      "anyOf": [
+        {
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Minimum Wheel Amount"
+    },
+    "pool_code": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Pool Code"
+    },
+    "pool_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Pool Name"
+    },
+    "race_list": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Race List"
+    }
+  }
+}

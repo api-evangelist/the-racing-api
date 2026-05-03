@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-app__models__aus_races__-runner-odds-schema.json",
+  "title": "app__models__aus_races__RunnerOdds",
+  "description": "app__models__aus_races__RunnerOdds schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "bookmaker": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Bookmaker"
+    },
+    "win_odds": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Win Odds"
+    },
+    "place_odds": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Place Odds"
+    }
+  }
+}

@@ -1,0 +1,396 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-app__models__na_results__-race-structure.json",
+  "name": "app__models__na_results__Race",
+  "description": "app__models__na_results__Race schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "age_restriction": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Age Restriction"
+    },
+    "age_restriction_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Age Restriction Description"
+    },
+    "also_ran": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "items": {},
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Also Ran"
+    },
+    "breed": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Breed"
+    },
+    "distance_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Distance Description"
+    },
+    "distance_unit": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Distance Unit"
+    },
+    "distance_value": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Distance Value"
+    },
+    "fraction": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/Fraction"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "grade": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Grade"
+    },
+    "maximum_claim_price": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Maximum Claim Price"
+    },
+    "minimum_claim_price": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Minimum Claim Price"
+    },
+    "off_time": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Off Time"
+    },
+    "payoffs": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/Payoff"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Payoffs"
+    },
+    "post_time": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Post Time"
+    },
+    "post_time_long": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Post Time Long"
+    },
+    "race_class": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Race Class"
+    },
+    "race_key": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RaceKey"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "race_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Race Name"
+    },
+    "race_restriction": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Race Restriction"
+    },
+    "race_restriction_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Race Restriction Description"
+    },
+    "race_type": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Race Type"
+    },
+    "race_type_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Race Type Description"
+    },
+    "runners": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/app__models__na_results__Runner"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Runners"
+    },
+    "scratches": {
+      "anyOf": [
+        {
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Scratches"
+    },
+    "sex_restriction": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sex Restriction"
+    },
+    "sex_restriction_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Sex Restriction Description"
+    },
+    "surface": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Surface"
+    },
+    "surface_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Surface Description"
+    },
+    "time_zone": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Time Zone"
+    },
+    "total_purse": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Total Purse"
+    },
+    "track_condition_description": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Track Condition Description"
+    },
+    "track_name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Track Name"
+    },
+    "wager_types": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/WagerType"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Wager Types"
+    }
+  }
+}

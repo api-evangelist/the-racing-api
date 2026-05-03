@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-odds-no-history-schema.json",
+  "title": "OddsNoHistory",
+  "description": "OddsNoHistory schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "bookmaker": {
+      "type": "string",
+      "title": "Bookmaker"
+    },
+    "fractional": {
+      "type": "string",
+      "title": "Fractional"
+    },
+    "decimal": {
+      "type": "string",
+      "title": "Decimal"
+    },
+    "ew_places": {
+      "type": "string",
+      "title": "Ew Places"
+    },
+    "ew_denom": {
+      "type": "string",
+      "title": "Ew Denom"
+    },
+    "updated": {
+      "type": "string",
+      "title": "Updated"
+    }
+  },
+  "required": [
+    "bookmaker",
+    "fractional",
+    "decimal",
+    "ew_places",
+    "ew_denom",
+    "updated"
+  ]
+}

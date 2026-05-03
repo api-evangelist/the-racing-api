@@ -1,0 +1,9 @@
+{
+  "maximum_wager_amount": "example-value",
+  "minimum_box_amount": "example-value",
+  "minimum_wager_amount": "example-value",
+  "minimum_wheel_amount": "example-value",
+  "pool_code": "gb",
+  "pool_name": "Example Name",
+  "race_list": "example-value"
+}

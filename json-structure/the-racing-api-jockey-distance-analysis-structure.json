@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-jockey-distance-analysis-structure.json",
+  "name": "JockeyDistanceAnalysis",
+  "description": "JockeyDistanceAnalysis schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "name": "Id"
+    },
+    "jockey": {
+      "type": "string",
+      "name": "Jockey"
+    },
+    "total_rides": {
+      "type": "integer",
+      "name": "Total Rides"
+    },
+    "distances": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__jockeys__Distance"
+      },
+      "type": "array",
+      "name": "Distances"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "name": "Query"
+    }
+  },
+  "required": [
+    "id",
+    "jockey",
+    "total_rides",
+    "distances",
+    "query"
+  ]
+}

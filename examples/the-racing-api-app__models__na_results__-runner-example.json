@@ -1,0 +1,18 @@
+{
+  "breeder_name": "Example Name",
+  "horse_name": "Frankel",
+  "jockey_first_name": "Example Name",
+  "jockey_first_name_initial": "Example Name",
+  "jockey_last_name": "Example Name",
+  "owner_first_name": "Example Name",
+  "owner_last_name": "Example Name",
+  "place_payoff": "example-value",
+  "program_number": "example-value",
+  "program_number_stripped": "example-value",
+  "show_payoff": "example-value",
+  "sire_name": "Example Name",
+  "trainer_first_name": "Example Name",
+  "trainer_last_name": "Example Name",
+  "weight_carried": "example-value",
+  "win_payoff": "example-value"
+}

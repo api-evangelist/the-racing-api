@@ -1,0 +1,21 @@
+{
+  "race_id": "185600",
+  "course": "Cheltenham",
+  "date": "2025-03-15",
+  "off": "example-value",
+  "off_dt": "",
+  "race_name": "Example Name",
+  "dist_f": "example-value",
+  "region": "gb",
+  "pattern": "example-value",
+  "class": "class_1",
+  "type": "flat",
+  "age_band": "example-value",
+  "rating_band": "example-value",
+  "sex_rest": "example-value",
+  "going": "good",
+  "surface": "",
+  "runners": [
+    "example-value"
+  ]
+}

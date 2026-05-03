@@ -1,0 +1,256 @@
+rules:
+
+  # INFO / METADATA
+  info-title-required:
+    description: Info object must have a title
+    severity: error
+    given: $.info
+    then:
+      field: title
+      function: truthy
+
+  info-description-required:
+    description: Info object must have a description with minimum length
+    severity: warn
+    given: $.info
+    then:
+      field: description
+      function: minLength
+      functionOptions:
+        value: 20
+
+  info-version-required:
+    description: API version must be defined
+    severity: error
+    given: $.info
+    then:
+      field: version
+      function: truthy
+
+  # OPENAPI VERSION
+  openapi-version-31:
+    description: OpenAPI version should be 3.1.x
+    severity: warn
+    given: $
+    then:
+      field: openapi
+      function: pattern
+      functionOptions:
+        match: "^3\\.1\\."
+
+  # SERVERS
+  servers-defined:
+    description: Servers array must be defined and non-empty
+    severity: error
+    given: $
+    then:
+      field: servers
+      function: truthy
+
+  servers-https:
+    description: Server URLs must use HTTPS
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://"
+
+  # PATHS — NAMING CONVENTIONS
+  paths-kebab-case:
+    description: Path segments must use kebab-case
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^(/v[0-9]+)?(/[a-z0-9]+(-[a-z0-9]+)*(/{[a-z_]+})?)*$"
+
+  paths-no-trailing-slash:
+    description: Paths must not have trailing slashes
+    severity: warn
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: "/$"
+
+  paths-versioned:
+    description: Paths should include version prefix /v1/
+    severity: info
+    given: $.paths[*]~
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/v[0-9]"
+
+  # OPERATIONS
+  operation-summary-required:
+    description: Operations must have a summary
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: summary
+      function: truthy
+
+  operation-description-required:
+    description: Operations must have a description
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: description
+      function: truthy
+
+  operation-operationId-required:
+    description: Operations must have an operationId
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: operationId
+      function: truthy
+
+  operation-tags-required:
+    description: Operations must have at least one tag
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: tags
+      function: truthy
+
+  operation-summary-provider-prefix:
+    description: Operation summaries should start with 'The Racing API'
+    severity: info
+    given: $.paths[*][get,post,put,delete,patch].summary
+    then:
+      function: pattern
+      functionOptions:
+        match: "^The Racing API "
+
+  # PARAMETERS
+  parameter-description-required:
+    description: Parameters must have descriptions
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].parameters[*]
+    then:
+      field: description
+      function: truthy
+
+  parameter-snake-case:
+    description: Query parameter names should use snake_case
+    severity: info
+    given: $.paths[*][get,post,put,delete,patch].parameters[?(@.in=='query')].name
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-z0-9_]*$"
+
+  parameter-apikey-not-in-query:
+    description: API keys should be in headers not query parameters
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].parameters[?(@.name=='api_key' || @.name=='apikey')]
+    then:
+      field: in
+      function: enumeration
+      functionOptions:
+        values:
+          - header
+
+  # RESPONSES
+  response-success-required:
+    description: Operations must have at least one 2xx response
+    severity: error
+    given: $.paths[*][get,post,put,delete,patch].responses
+    then:
+      function: schema
+      functionOptions:
+        schema:
+          type: object
+          minProperties: 1
+
+  response-description-required:
+    description: Response objects must have a description
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch].responses[*]
+    then:
+      field: description
+      function: truthy
+
+  response-404-for-id-paths:
+    description: Endpoints with path parameters should have a 404 response
+    severity: info
+    given: $.paths[~*{*}*][get].responses
+    then:
+      field: "404"
+      function: truthy
+
+  response-422-validation-error:
+    description: The Racing API uses 422 for validation errors
+    severity: info
+    given: $.paths[*][get,post,put,delete,patch].responses
+    then:
+      field: "422"
+      function: defined
+
+  # SCHEMAS — PROPERTY NAMING
+  schema-type-defined:
+    description: Schema objects should have a type defined
+    severity: warn
+    given: $.components.schemas[*]
+    then:
+      field: type
+      function: truthy
+
+  schema-description-required:
+    description: Top-level schemas should have a description
+    severity: info
+    given: $.components.schemas[*]
+    then:
+      field: description
+      function: truthy
+
+  # SECURITY
+  security-schemes-defined:
+    description: Security schemes must be defined in components
+    severity: error
+    given: $.components
+    then:
+      field: securitySchemes
+      function: truthy
+
+  security-basic-auth:
+    description: The Racing API uses HTTP Basic authentication
+    severity: info
+    given: $.components.securitySchemes[*]
+    then:
+      field: type
+      function: enumeration
+      functionOptions:
+        values:
+          - http
+
+  # HTTP METHOD CONVENTIONS
+  get-no-request-body:
+    description: GET operations must not have a request body
+    severity: error
+    given: $.paths[*].get
+    then:
+      field: requestBody
+      function: falsy
+
+  # GENERAL QUALITY
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings
+    severity: warn
+    given: $..description
+    then:
+      function: pattern
+      functionOptions:
+        match: ".+"
+
+  operation-examples-encouraged:
+    description: Operations should have examples for mock server compatibility
+    severity: info
+    given: $.paths[*][get,post,put,delete,patch].responses[*].content[*]
+    then:
+      field: examples
+      function: defined

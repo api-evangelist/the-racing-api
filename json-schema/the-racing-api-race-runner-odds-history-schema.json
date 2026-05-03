@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-race-runner-odds-history-schema.json",
+  "title": "RaceRunnerOddsHistory",
+  "description": "RaceRunnerOddsHistory schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "changed_at": {
+      "type": "string",
+      "title": "Changed At"
+    },
+    "fractional": {
+      "type": "string",
+      "title": "Fractional"
+    },
+    "decimal": {
+      "type": "string",
+      "title": "Decimal"
+    }
+  },
+  "required": [
+    "changed_at",
+    "fractional",
+    "decimal"
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-race-runner-odds-bookmakers-structure.json",
+  "name": "RaceRunnerOddsBookmakers",
+  "description": "RaceRunnerOddsBookmakers schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "bookmaker": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Bookmaker",
+      "default": ""
+    },
+    "fractional": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Fractional",
+      "default": ""
+    },
+    "decimal": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Decimal",
+      "default": ""
+    },
+    "ew_places": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Ew Places",
+      "default": ""
+    },
+    "ew_denom": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Ew Denom",
+      "default": ""
+    },
+    "updated": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Updated",
+      "default": ""
+    },
+    "history": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/RaceRunnerOddsHistory"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "History",
+      "default": []
+    }
+  }
+}

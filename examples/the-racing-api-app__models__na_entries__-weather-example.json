@@ -1,0 +1,7 @@
+{
+  "forecast_weather_description": "example-value",
+  "forecast_high": "example-value",
+  "forecast_low": "example-value",
+  "forecast_precipitation": "example-value",
+  "current_weather_description": "example-value"
+}

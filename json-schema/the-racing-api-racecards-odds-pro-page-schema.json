@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-racecards-odds-pro-page-schema.json",
+  "title": "RacecardsOddsProPage",
+  "description": "RacecardsOddsProPage schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "racecards": {
+      "items": {
+        "$ref": "#/components/schemas/RacecardOddsPro"
+      },
+      "type": "array",
+      "title": "Racecards"
+    },
+    "total": {
+      "type": "integer",
+      "title": "Total"
+    },
+    "limit": {
+      "type": "integer",
+      "title": "Limit"
+    },
+    "skip": {
+      "type": "integer",
+      "title": "Skip"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "title": "Query"
+    }
+  },
+  "required": [
+    "racecards",
+    "total",
+    "limit",
+    "skip",
+    "query"
+  ]
+}

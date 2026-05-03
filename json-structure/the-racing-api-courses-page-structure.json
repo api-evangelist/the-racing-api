@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-courses-page-structure.json",
+  "name": "CoursesPage",
+  "description": "CoursesPage schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "courses": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__courses__Course"
+      },
+      "type": "array",
+      "name": "Courses"
+    },
+    "total": {
+      "type": "integer",
+      "name": "Total"
+    }
+  },
+  "required": [
+    "courses",
+    "total"
+  ]
+}

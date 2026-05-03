@@ -1,0 +1,13 @@
+{
+  "id": "254276",
+  "sire": "example-value",
+  "total_runners": 75,
+  "classes": [
+    "class_1"
+  ],
+  "query": [
+    [
+      "example-value"
+    ]
+  ]
+}

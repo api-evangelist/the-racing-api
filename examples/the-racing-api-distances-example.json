@@ -1,0 +1,17 @@
+{
+  "dist": "example-value",
+  "dist_y": "example-value",
+  "dist_m": "example-value",
+  "dist_f": "example-value",
+  "times": [
+    "example-value"
+  ],
+  "runs": 46,
+  "1st": 20,
+  "2nd": 36,
+  "3rd": 95,
+  "4th": 44,
+  "a/e": 4.77,
+  "win_%": 90.6,
+  "1_pl": 32.92
+}

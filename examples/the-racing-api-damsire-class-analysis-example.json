@@ -1,0 +1,13 @@
+{
+  "id": "936780",
+  "damsire": "example-value",
+  "total_runners": 54,
+  "classes": [
+    "class_1"
+  ],
+  "query": [
+    [
+      "example-value"
+    ]
+  ]
+}

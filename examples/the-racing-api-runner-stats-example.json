@@ -1,0 +1,21 @@
+{
+  "career_prize": "example-value",
+  "career_win_percent": "example-value",
+  "career_place_percent": "example-value",
+  "course_stats": "Cheltenham",
+  "course_distance_stats": "Cheltenham",
+  "distance_stats": "example-value",
+  "ground_firm_stats": "example-value",
+  "ground_good_stats": "example-value",
+  "ground_heavy_stats": "example-value",
+  "ground_soft_stats": "example-value",
+  "ground_aw_stats": "example-value",
+  "jockey_stats": "example-value",
+  "jumps_stats": "example-value",
+  "last_raced": "example-value",
+  "last_ten_races_stats": "example-value",
+  "last_twelve_months_stats": "example-value",
+  "last_won": "example-value",
+  "max_winning_distance": "example-value",
+  "min_winning_distance": "example-value"
+}

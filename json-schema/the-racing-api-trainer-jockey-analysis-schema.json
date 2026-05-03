@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-trainer-jockey-analysis-schema.json",
+  "title": "TrainerJockeyAnalysis",
+  "description": "TrainerJockeyAnalysis schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "Id"
+    },
+    "trainer": {
+      "type": "string",
+      "title": "Trainer"
+    },
+    "total_runners": {
+      "type": "integer",
+      "title": "Total Runners"
+    },
+    "jockeys": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__trainers__Jockey"
+      },
+      "type": "array",
+      "title": "Jockeys"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "title": "Query"
+    }
+  },
+  "required": [
+    "id",
+    "trainer",
+    "total_runners",
+    "jockeys",
+    "query"
+  ]
+}

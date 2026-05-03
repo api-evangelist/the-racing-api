@@ -1,0 +1,11 @@
+{
+  "base_amount": "example-value",
+  "carryover": "example-value",
+  "number_of_rights": "example-value",
+  "number_of_tickets_bet": "example-value",
+  "payoff_amount": "example-value",
+  "total_pool": "example-value",
+  "wager_name": "Example Name",
+  "wager_type": "flat",
+  "winning_numbers": "example-value"
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-app__models__na_meets__-meet-schema.json",
+  "title": "app__models__na_meets__Meet",
+  "description": "app__models__na_meets__Meet schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "country": {
+      "type": "string",
+      "title": "Country"
+    },
+    "date": {
+      "type": "string",
+      "title": "Date"
+    },
+    "meet_id": {
+      "type": "string",
+      "title": "Meet Id"
+    },
+    "track_id": {
+      "type": "string",
+      "title": "Track Id"
+    },
+    "track_name": {
+      "type": "string",
+      "title": "Track Name"
+    }
+  },
+  "required": [
+    "country",
+    "date",
+    "meet_id",
+    "track_id",
+    "track_name"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-jockey-course-analysis-schema.json",
+  "title": "JockeyCourseAnalysis",
+  "description": "JockeyCourseAnalysis schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "Id"
+    },
+    "jockey": {
+      "type": "string",
+      "title": "Jockey"
+    },
+    "total_rides": {
+      "type": "integer",
+      "title": "Total Rides"
+    },
+    "courses": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__jockeys__Course"
+      },
+      "type": "array",
+      "title": "Courses"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "title": "Query"
+    }
+  },
+  "required": [
+    "id",
+    "jockey",
+    "total_rides",
+    "courses",
+    "query"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-sire-class-analysis-structure.json",
+  "name": "SireClassAnalysis",
+  "description": "SireClassAnalysis schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "name": "Id"
+    },
+    "sire": {
+      "type": "string",
+      "name": "Sire"
+    },
+    "total_runners": {
+      "type": "integer",
+      "name": "Total Runners"
+    },
+    "classes": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__sires__Class"
+      },
+      "type": "array",
+      "name": "Classes"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "name": "Query"
+    }
+  },
+  "required": [
+    "id",
+    "sire",
+    "total_runners",
+    "classes",
+    "query"
+  ]
+}

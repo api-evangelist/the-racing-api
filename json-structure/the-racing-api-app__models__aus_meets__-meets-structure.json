@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-app__models__aus_meets__-meets-structure.json",
+  "name": "app__models__aus_meets__Meets",
+  "description": "app__models__aus_meets__Meets schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "meets": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/app__models__aus_meets__Meet"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Meets"
+    }
+  }
+}

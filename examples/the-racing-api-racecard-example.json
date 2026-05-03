@@ -1,0 +1,33 @@
+{
+  "race_id": "121094",
+  "course": "Cheltenham",
+  "course_id": "766166",
+  "date": "2025-03-15",
+  "off_time": "example-value",
+  "off_dt": "",
+  "race_name": "Example Name",
+  "distance_round": "example-value",
+  "distance": "example-value",
+  "distance_f": "example-value",
+  "region": "gb",
+  "pattern": "example-value",
+  "sex_restriction": "",
+  "race_class": "class_1",
+  "type": "flat",
+  "age_band": "example-value",
+  "rating_band": "example-value",
+  "prize": "example-value",
+  "field_size": "example-value",
+  "going_detailed": "good",
+  "rail_movements": "example-value",
+  "stalls": "example-value",
+  "weather": "example-value",
+  "going": "good",
+  "surface": "example-value",
+  "runners": [
+    "example-value"
+  ],
+  "big_race": false,
+  "is_abandoned": false,
+  "race_status": ""
+}

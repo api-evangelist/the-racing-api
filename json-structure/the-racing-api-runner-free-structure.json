@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-runner-free-structure.json",
+  "name": "RunnerFree",
+  "description": "RunnerFree schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "horse_id": {
+      "type": "string",
+      "name": "Horse Id"
+    },
+    "horse": {
+      "type": "string",
+      "name": "Horse"
+    },
+    "age": {
+      "type": "string",
+      "name": "Age"
+    },
+    "sex": {
+      "type": "string",
+      "name": "Sex"
+    },
+    "number": {
+      "type": "string",
+      "name": "Number"
+    },
+    "position": {
+      "type": "string",
+      "name": "Position"
+    },
+    "draw": {
+      "type": "string",
+      "name": "Draw"
+    },
+    "weight": {
+      "type": "string",
+      "name": "Weight"
+    },
+    "weight_lbs": {
+      "type": "string",
+      "name": "Weight Lbs"
+    },
+    "headgear": {
+      "type": "string",
+      "name": "Headgear"
+    },
+    "or": {
+      "type": "string",
+      "name": "Or"
+    },
+    "jockey": {
+      "type": "string",
+      "name": "Jockey"
+    },
+    "jockey_id": {
+      "type": "string",
+      "name": "Jockey Id"
+    },
+    "trainer": {
+      "type": "string",
+      "name": "Trainer"
+    },
+    "trainer_id": {
+      "type": "string",
+      "name": "Trainer Id"
+    },
+    "owner": {
+      "type": "string",
+      "name": "Owner"
+    },
+    "owner_id": {
+      "type": "string",
+      "name": "Owner Id"
+    },
+    "sire": {
+      "type": "string",
+      "name": "Sire"
+    },
+    "sire_id": {
+      "type": "string",
+      "name": "Sire Id"
+    },
+    "dam": {
+      "type": "string",
+      "name": "Dam"
+    },
+    "dam_id": {
+      "type": "string",
+      "name": "Dam Id"
+    },
+    "damsire": {
+      "type": "string",
+      "name": "Damsire"
+    },
+    "damsire_id": {
+      "type": "string",
+      "name": "Damsire Id"
+    }
+  },
+  "required": [
+    "horse_id",
+    "horse",
+    "age",
+    "sex",
+    "number",
+    "position",
+    "draw",
+    "weight",
+    "weight_lbs",
+    "headgear",
+    "or",
+    "jockey",
+    "jockey_id",
+    "trainer",
+    "trainer_id",
+    "owner",
+    "owner_id",
+    "sire",
+    "sire_id",
+    "dam",
+    "dam_id",
+    "damsire",
+    "damsire_id"
+  ]
+}

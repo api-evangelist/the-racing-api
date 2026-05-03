@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-racecards-summary-schema.json",
+  "title": "RacecardsSummary",
+  "description": "RacecardsSummary schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "racecard_summaries": {
+      "items": {
+        "$ref": "#/components/schemas/RacecardSummary"
+      },
+      "type": "array",
+      "title": "Racecard Summaries"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "title": "Query"
+    }
+  },
+  "required": [
+    "racecard_summaries",
+    "query"
+  ]
+}

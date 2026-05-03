@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-app__models__result__-runner-basic-schema.json",
+  "title": "app__models__result__RunnerBasic",
+  "description": "app__models__result__RunnerBasic schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "horse_id": {
+      "type": "string",
+      "title": "Horse Id"
+    },
+    "horse": {
+      "type": "string",
+      "title": "Horse"
+    },
+    "sp": {
+      "type": "string",
+      "title": "Sp"
+    },
+    "sp_dec": {
+      "type": "string",
+      "title": "Sp Dec"
+    },
+    "number": {
+      "type": "string",
+      "title": "Number"
+    },
+    "position": {
+      "type": "string",
+      "title": "Position"
+    },
+    "draw": {
+      "type": "string",
+      "title": "Draw"
+    },
+    "btn": {
+      "type": "string",
+      "title": "Btn"
+    },
+    "ovr_btn": {
+      "type": "string",
+      "title": "Ovr Btn"
+    },
+    "age": {
+      "type": "string",
+      "title": "Age"
+    },
+    "sex": {
+      "type": "string",
+      "title": "Sex"
+    },
+    "weight": {
+      "type": "string",
+      "title": "Weight"
+    },
+    "weight_lbs": {
+      "type": "string",
+      "title": "Weight Lbs"
+    },
+    "headgear": {
+      "type": "string",
+      "title": "Headgear"
+    },
+    "time": {
+      "type": "string",
+      "title": "Time"
+    },
+    "or": {
+      "type": "string",
+      "title": "Or"
+    },
+    "rpr": {
+      "type": "string",
+      "title": "Rpr"
+    },
+    "tsr": {
+      "type": "string",
+      "title": "Tsr"
+    },
+    "prize": {
+      "type": "string",
+      "title": "Prize"
+    },
+    "jockey": {
+      "type": "string",
+      "title": "Jockey"
+    },
+    "jockey_claim_lbs": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Jockey Claim Lbs",
+      "default": "0"
+    },
+    "jockey_id": {
+      "type": "string",
+      "title": "Jockey Id"
+    },
+    "trainer": {
+      "type": "string",
+      "title": "Trainer"
+    },
+    "trainer_id": {
+      "type": "string",
+      "title": "Trainer Id"
+    },
+    "owner": {
+      "type": "string",
+      "title": "Owner"
+    },
+    "owner_id": {
+      "type": "string",
+      "title": "Owner Id"
+    },
+    "sire": {
+      "type": "string",
+      "title": "Sire"
+    },
+    "sire_id": {
+      "type": "string",
+      "title": "Sire Id"
+    },
+    "dam": {
+      "type": "string",
+      "title": "Dam"
+    },
+    "dam_id": {
+      "type": "string",
+      "title": "Dam Id"
+    },
+    "damsire": {
+      "type": "string",
+      "title": "Damsire"
+    },
+    "damsire_id": {
+      "type": "string",
+      "title": "Damsire Id"
+    },
+    "comment": {
+      "type": "string",
+      "title": "Comment"
+    },
+    "silk_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Silk Url",
+      "default": ""
+    }
+  },
+  "required": [
+    "horse_id",
+    "horse",
+    "sp",
+    "sp_dec",
+    "number",
+    "position",
+    "draw",
+    "btn",
+    "ovr_btn",
+    "age",
+    "sex",
+    "weight",
+    "weight_lbs",
+    "headgear",
+    "time",
+    "or",
+    "rpr",
+    "tsr",
+    "prize",
+    "jockey",
+    "jockey_id",
+    "trainer",
+    "trainer_id",
+    "owner",
+    "owner_id",
+    "sire",
+    "sire_id",
+    "dam",
+    "dam_id",
+    "damsire",
+    "damsire_id",
+    "comment"
+  ]
+}

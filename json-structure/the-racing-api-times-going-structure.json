@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-times-going-structure.json",
+  "name": "TimesGoing",
+  "description": "TimesGoing schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "name": "Date"
+    },
+    "region": {
+      "type": "string",
+      "name": "Region"
+    },
+    "course": {
+      "type": "string",
+      "name": "Course"
+    },
+    "time": {
+      "type": "string",
+      "name": "Time"
+    },
+    "going": {
+      "type": "string",
+      "name": "Going"
+    },
+    "position": {
+      "type": "string",
+      "name": "Position"
+    }
+  },
+  "required": [
+    "date",
+    "region",
+    "course",
+    "time",
+    "going",
+    "position"
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-runner-stats-schema.json",
+  "title": "RunnerStats",
+  "description": "RunnerStats schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "career_prize": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Career Prize"
+    },
+    "career_win_percent": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Career Win Percent"
+    },
+    "career_place_percent": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Career Place Percent"
+    },
+    "course_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "course_distance_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "distance_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ground_firm_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ground_good_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ground_heavy_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ground_soft_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "ground_aw_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "jockey_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "jumps_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "last_raced": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Last Raced"
+    },
+    "last_ten_races_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "last_twelve_months_stats": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/RunnerStatsBreakdown"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "last_won": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Last Won"
+    },
+    "max_winning_distance": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Max Winning Distance"
+    },
+    "min_winning_distance": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Min Winning Distance"
+    }
+  }
+}

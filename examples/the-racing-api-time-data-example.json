@@ -1,0 +1,10 @@
+{
+  "minutes": "example-value",
+  "seconds": "example-value",
+  "hundredths": "example-value",
+  "milliseconds": "example-value",
+  "fifths": "example-value",
+  "str_fifths": "example-value",
+  "time_in_fifths": "example-value",
+  "time_in_hundredths": "example-value"
+}

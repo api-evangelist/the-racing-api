@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-runner-stable-tour-schema.json",
+  "title": "RunnerStableTour",
+  "description": "RunnerStableTour schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "quote": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Quote",
+      "default": ""
+    }
+  }
+}

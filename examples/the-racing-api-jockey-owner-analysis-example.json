@@ -1,0 +1,13 @@
+{
+  "id": "330803",
+  "jockey": "example-value",
+  "total_rides": 37,
+  "owners": [
+    "example-value"
+  ],
+  "query": [
+    [
+      "example-value"
+    ]
+  ]
+}

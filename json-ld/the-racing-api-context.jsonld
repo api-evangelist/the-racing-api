@@ -1,0 +1,1405 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "racing": "https://api.theracingapi.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "JockeyTrainerAnalysis": "racing:JockeyTrainerAnalysis",
+    "app__models__sires__Distance": "racing:app__models__sires__Distance",
+    "RacecardsOddsPage": "racing:RacecardsOddsPage",
+    "TrainerJockeyAnalysis": "racing:TrainerJockeyAnalysis",
+    "DamClassAnalysis": "racing:DamClassAnalysis",
+    "HorsePro": "racing:HorsePro",
+    "MeetRaces": "racing:MeetRaces",
+    "app__models__courses__Course": "racing:app__models__courses__Course",
+    "app__models__jockeys__Jockey": "racing:app__models__jockeys__Jockey",
+    "Trainers": "racing:Trainers",
+    "app__models__dams__Distance": "racing:app__models__dams__Distance",
+    "app__models__owners__Trainer": "racing:app__models__owners__Trainer",
+    "app__models__na_entries__Weather": "racing:app__models__na_entries__Weather",
+    "OddsNoHistory": "racing:OddsNoHistory",
+    "JockeyCourseAnalysis": "racing:JockeyCourseAnalysis",
+    "Change": "racing:Change",
+    "app__models__trainers__Jockey": "racing:app__models__trainers__Jockey",
+    "app__models__owners__Owner": "racing:app__models__owners__Owner",
+    "app__models__owners__Course": "racing:app__models__owners__Course",
+    "RunnerMedical": "racing:RunnerMedical",
+    "app__models__na_results__Runner": "racing:app__models__na_results__Runner",
+    "Distances": "racing:Distances",
+    "RacecardsSummary": "racing:RacecardsSummary",
+    "TrainerDistanceAnalysis": "racing:TrainerDistanceAnalysis",
+    "ResultsStandardPage": "racing:ResultsStandardPage",
+    "JockeyDistanceAnalysis": "racing:JockeyDistanceAnalysis",
+    "app__models__na_meets__Meets": "racing:app__models__na_meets__Meets",
+    "app__models__jockeys__Distance": "racing:app__models__jockeys__Distance",
+    "Dam": "racing:Dam",
+    "RacecardSummary": "racing:RacecardSummary",
+    "app__models__na_entries__Runner": "racing:app__models__na_entries__Runner",
+    "TimesGoing": "racing:TimesGoing",
+    "app__models__aus_races__Runner": "racing:app__models__aus_races__Runner",
+    "Results": "racing:Results",
+    "app__models__trainers__Trainer": "racing:app__models__trainers__Trainer",
+    "RunnerStableTour": "racing:RunnerStableTour",
+    "Racecard": "racing:Racecard",
+    "TrainerHorseAgeAnalysis": "racing:TrainerHorseAgeAnalysis",
+    "TimeData": "racing:TimeData",
+    "ResultFree": "racing:ResultFree",
+    "app__models__racecards__RunnerOdds": "racing:app__models__racecards__RunnerOdds",
+    "RaceKey": "racing:RaceKey",
+    "HorseDistanceTimeAnalysis": "racing:HorseDistanceTimeAnalysis",
+    "RunnerQuote": "racing:RunnerQuote",
+    "RacePool": "racing:RacePool",
+    "Jockeys": "racing:Jockeys",
+    "RacecardOddsPro": "racing:RacecardOddsPro",
+    "WagerType": "racing:WagerType",
+    "TrainerOwnerAnalysis": "racing:TrainerOwnerAnalysis",
+    "RaceRunnerOdds": "racing:RaceRunnerOdds",
+    "JockeyOwnerAnalysis": "racing:JockeyOwnerAnalysis",
+    "app__models__na_meets__Meet": "racing:app__models__na_meets__Meet",
+    "app__models__jockeys__Trainer": "racing:app__models__jockeys__Trainer",
+    "TrainerCourseAnalysis": "racing:TrainerCourseAnalysis",
+    "ResultsBasicPage": "racing:ResultsBasicPage",
+    "Horse": "racing:Horse",
+    "DamDistanceAnalysis": "racing:DamDistanceAnalysis",
+    "RacecardBasic": "racing:RacecardBasic",
+    "app__models__racecards__RunnerBasic": "racing:app__models__racecards__RunnerBasic",
+    "app__models__trainers__Course": "racing:app__models__trainers__Course",
+    "app__models__owners__Jockey": "racing:app__models__owners__Jockey",
+    "ResultStandard": "racing:ResultStandard",
+    "app__models__damsires__Distance": "racing:app__models__damsires__Distance",
+    "app__models__jockeys__Course": "racing:app__models__jockeys__Course",
+    "OwnerDistanceAnalysis": "racing:OwnerDistanceAnalysis",
+    "HorseAges": "racing:HorseAges",
+    "app__models__dams__Class": "racing:app__models__dams__Class",
+    "app__models__racecards__Runner": "racing:app__models__racecards__Runner",
+    "DamsireClassAnalysis": "racing:DamsireClassAnalysis",
+    "app__models__na_entries__Race": "racing:app__models__na_entries__Race",
+    "app__models__na_entries__Jockey": "racing:app__models__na_entries__Jockey",
+    "Sires": "racing:Sires",
+    "OwnerJockeyAnalysis": "racing:OwnerJockeyAnalysis",
+    "ResultsFreePage": "racing:ResultsFreePage",
+    "app__models__owners__Distance": "racing:app__models__owners__Distance",
+    "Horses": "racing:Horses",
+    "app__models__sires__Class": "racing:app__models__sires__Class",
+    "RaceRunnerOddsBookmakers": "racing:RaceRunnerOddsBookmakers",
+    "CoursesPage": "racing:CoursesPage",
+    "app__models__trainers__Distance": "racing:app__models__trainers__Distance",
+    "Damsire": "racing:Damsire",
+    "app__models__aus_races__RunnerOdds": "racing:app__models__aus_races__RunnerOdds",
+    "Dams": "racing:Dams",
+    "Payoff": "racing:Payoff",
+    "RunnerStandard": "racing:RunnerStandard",
+    "app__models__jockeys__Owner": "racing:app__models__jockeys__Owner",
+    "Entries": "racing:Entries",
+    "DamsireDistanceAnalysis": "racing:DamsireDistanceAnalysis",
+    "SireClassAnalysis": "racing:SireClassAnalysis",
+    "app__models__damsires__Class": "racing:app__models__damsires__Class",
+    "Sire": "racing:Sire",
+    "app__models__na_entries__Trainer": "racing:app__models__na_entries__Trainer",
+    "RunnerStats": "racing:RunnerStats",
+    "app__models__trainers__Owner": "racing:app__models__trainers__Owner",
+    "OddsHistory": "racing:OddsHistory",
+    "HorsePool": "racing:HorsePool",
+    "SireDistanceAnalysis": "racing:SireDistanceAnalysis",
+    "app__models__aus_meets__Meet": "racing:app__models__aus_meets__Meet",
+    "app__models__na_results__Weather": "racing:app__models__na_results__Weather",
+    "app__models__na_results__Race": "racing:app__models__na_results__Race",
+    "OwnerTrainerAnalysis": "racing:OwnerTrainerAnalysis",
+    "RunnerPrevTrainer": "racing:RunnerPrevTrainer",
+    "RunnerOddsPro": "racing:RunnerOddsPro",
+    "RacecardsPage": "racing:RacecardsPage",
+    "RaceRunnerOddsHistory": "racing:RaceRunnerOddsHistory",
+    "RunnerTrainer14Days": "racing:RunnerTrainer14Days",
+    "app__models__aus_races__Race": "racing:app__models__aus_races__Race",
+    "RunnerStatsBreakdown": "racing:RunnerStatsBreakdown",
+    "ResultBasic": "racing:ResultBasic",
+    "RunnerPrevOwner": "racing:RunnerPrevOwner",
+    "RacecardOdds": "racing:RacecardOdds",
+    "Region": "racing:Region",
+    "RacecardsBasicPage": "racing:RacecardsBasicPage",
+    "RacecardsOddsProPage": "racing:RacecardsOddsProPage",
+    "app__models__aus_meets__Meets": "racing:app__models__aus_meets__Meets",
+    "Fraction": "racing:Fraction",
+    "app__models__result__RunnerBasic": "racing:app__models__result__RunnerBasic",
+    "OwnerCourseAnalysis": "racing:OwnerCourseAnalysis",
+    "Races": "racing:Races",
+    "Damsires": "racing:Damsires",
+    "RunnerFree": "racing:RunnerFree",
+    "Owners": "racing:Owners",
+    "id": {
+      "@id": "racing:id",
+      "@type": "xsd:string"
+    },
+    "jockey": {
+      "@id": "racing:jockey",
+      "@type": "xsd:string"
+    },
+    "totalRides": {
+      "@id": "racing:total_rides",
+      "@type": "xsd:integer"
+    },
+    "trainers": {
+      "@id": "racing:trainers",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "query": {
+      "@id": "racing:query",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dist": {
+      "@id": "racing:dist",
+      "@type": "xsd:string"
+    },
+    "distY": {
+      "@id": "racing:dist_y",
+      "@type": "xsd:string"
+    },
+    "distM": {
+      "@id": "racing:dist_m",
+      "@type": "xsd:string"
+    },
+    "distF": {
+      "@id": "racing:dist_f",
+      "@type": "xsd:string"
+    },
+    "runners": {
+      "@id": "racing:runners",
+      "@type": "xsd:integer"
+    },
+    "1st": {
+      "@id": "racing:1st",
+      "@type": "xsd:integer"
+    },
+    "2nd": {
+      "@id": "racing:2nd",
+      "@type": "xsd:integer"
+    },
+    "3rd": {
+      "@id": "racing:3rd",
+      "@type": "xsd:integer"
+    },
+    "4th": {
+      "@id": "racing:4th",
+      "@type": "xsd:integer"
+    },
+    "a/e": {
+      "@id": "racing:a/e",
+      "@type": "xsd:decimal"
+    },
+    "win%": {
+      "@id": "racing:win_%",
+      "@type": "xsd:decimal"
+    },
+    "1Pl": {
+      "@id": "racing:1_pl",
+      "@type": "xsd:decimal"
+    },
+    "racecards": {
+      "@id": "racing:racecards",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "total": {
+      "@id": "racing:total",
+      "@type": "xsd:integer"
+    },
+    "limit": {
+      "@id": "racing:limit",
+      "@type": "xsd:integer"
+    },
+    "skip": {
+      "@id": "racing:skip",
+      "@type": "xsd:integer"
+    },
+    "trainer": {
+      "@id": "racing:trainer",
+      "@type": "xsd:string"
+    },
+    "totalRunners": {
+      "@id": "racing:total_runners",
+      "@type": "xsd:integer"
+    },
+    "jockeys": {
+      "@id": "racing:jockeys",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dam": {
+      "@id": "racing:dam",
+      "@type": "xsd:string"
+    },
+    "classes": {
+      "@id": "racing:classes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "breeder": {
+      "@id": "racing:breeder",
+      "@type": "xsd:string"
+    },
+    "colour": {
+      "@id": "racing:colour",
+      "@type": "xsd:string"
+    },
+    "colourCode": {
+      "@id": "racing:colour_code",
+      "@type": "xsd:string"
+    },
+    "damId": {
+      "@id": "racing:dam_id",
+      "@type": "xsd:string"
+    },
+    "damsire": {
+      "@id": "racing:damsire",
+      "@type": "xsd:string"
+    },
+    "damsireId": {
+      "@id": "racing:damsire_id",
+      "@type": "xsd:string"
+    },
+    "dob": {
+      "@id": "racing:dob",
+      "@type": "xsd:string"
+    },
+    "name": "schema:name",
+    "sex": {
+      "@id": "racing:sex",
+      "@type": "xsd:string"
+    },
+    "sexCode": {
+      "@id": "racing:sex_code",
+      "@type": "xsd:string"
+    },
+    "sire": {
+      "@id": "racing:sire",
+      "@type": "xsd:string"
+    },
+    "sireId": {
+      "@id": "racing:sire_id",
+      "@type": "xsd:string"
+    },
+    "distance": {
+      "@id": "racing:distance",
+      "@type": "xsd:string"
+    },
+    "class": {
+      "@id": "racing:class",
+      "@type": "xsd:string"
+    },
+    "raceGroup": {
+      "@id": "racing:race_group",
+      "@type": "xsd:string"
+    },
+    "raceName": {
+      "@id": "racing:race_name",
+      "@type": "xsd:string"
+    },
+    "raceNumber": {
+      "@id": "racing:race_number",
+      "@type": "xsd:string"
+    },
+    "raceStatus": {
+      "@id": "racing:race_status",
+      "@type": "xsd:string"
+    },
+    "offTime": {
+      "@id": "racing:off_time",
+      "@type": "xsd:string"
+    },
+    "course": {
+      "@id": "racing:course",
+      "@type": "xsd:string"
+    },
+    "regionCode": {
+      "@id": "racing:region_code",
+      "@type": "xsd:string"
+    },
+    "region": {
+      "@id": "racing:region",
+      "@type": "xsd:string"
+    },
+    "searchResults": {
+      "@id": "racing:search_results",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "trainerId": {
+      "@id": "racing:trainer_id",
+      "@type": "xsd:string"
+    },
+    "forecastWeatherDescription": {
+      "@id": "racing:forecast_weather_description",
+      "@type": "xsd:string"
+    },
+    "forecastHigh": {
+      "@id": "racing:forecast_high",
+      "@type": "xsd:string"
+    },
+    "forecastLow": {
+      "@id": "racing:forecast_low",
+      "@type": "xsd:string"
+    },
+    "forecastPrecipitation": {
+      "@id": "racing:forecast_precipitation",
+      "@type": "xsd:string"
+    },
+    "currentWeatherDescription": {
+      "@id": "racing:current_weather_description",
+      "@type": "xsd:string"
+    },
+    "bookmaker": {
+      "@id": "racing:bookmaker",
+      "@type": "xsd:string"
+    },
+    "fractional": {
+      "@id": "racing:fractional",
+      "@type": "xsd:string"
+    },
+    "decimal": {
+      "@id": "racing:decimal",
+      "@type": "xsd:string"
+    },
+    "ewPlaces": {
+      "@id": "racing:ew_places",
+      "@type": "xsd:string"
+    },
+    "ewDenom": {
+      "@id": "racing:ew_denom",
+      "@type": "xsd:string"
+    },
+    "updated": {
+      "@id": "racing:updated",
+      "@type": "xsd:string"
+    },
+    "courses": {
+      "@id": "racing:courses",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "racing:type",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "racing:text",
+      "@type": "xsd:string"
+    },
+    "jockeyId": {
+      "@id": "racing:jockey_id",
+      "@type": "xsd:string"
+    },
+    "courseId": {
+      "@id": "racing:course_id",
+      "@type": "xsd:string"
+    },
+    "date": {
+      "@id": "racing:date",
+      "@type": "xsd:string"
+    },
+    "breederName": {
+      "@id": "racing:breeder_name",
+      "@type": "xsd:string"
+    },
+    "horseName": {
+      "@id": "racing:horse_name",
+      "@type": "xsd:string"
+    },
+    "jockeyFirstName": {
+      "@id": "racing:jockey_first_name",
+      "@type": "xsd:string"
+    },
+    "jockeyFirstNameInitial": {
+      "@id": "racing:jockey_first_name_initial",
+      "@type": "xsd:string"
+    },
+    "jockeyLastName": {
+      "@id": "racing:jockey_last_name",
+      "@type": "xsd:string"
+    },
+    "ownerFirstName": {
+      "@id": "racing:owner_first_name",
+      "@type": "xsd:string"
+    },
+    "ownerLastName": {
+      "@id": "racing:owner_last_name",
+      "@type": "xsd:string"
+    },
+    "placePayoff": {
+      "@id": "racing:place_payoff",
+      "@type": "xsd:string"
+    },
+    "programNumber": {
+      "@id": "racing:program_number",
+      "@type": "xsd:string"
+    },
+    "programNumberStripped": {
+      "@id": "racing:program_number_stripped",
+      "@type": "xsd:string"
+    },
+    "showPayoff": {
+      "@id": "racing:show_payoff",
+      "@type": "xsd:string"
+    },
+    "sireName": {
+      "@id": "racing:sire_name",
+      "@type": "xsd:string"
+    },
+    "trainerFirstName": {
+      "@id": "racing:trainer_first_name",
+      "@type": "xsd:string"
+    },
+    "trainerLastName": {
+      "@id": "racing:trainer_last_name",
+      "@type": "xsd:string"
+    },
+    "weightCarried": {
+      "@id": "racing:weight_carried",
+      "@type": "xsd:string"
+    },
+    "winPayoff": {
+      "@id": "racing:win_payoff",
+      "@type": "xsd:string"
+    },
+    "times": {
+      "@id": "racing:times",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "runs": {
+      "@id": "racing:runs",
+      "@type": "xsd:integer"
+    },
+    "racecardSummaries": {
+      "@id": "racing:racecard_summaries",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "distances": {
+      "@id": "racing:distances",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "results": {
+      "@id": "racing:results",
+      "@type": "xsd:string"
+    },
+    "meets": {
+      "@id": "racing:meets",
+      "@type": "xsd:string"
+    },
+    "rides": {
+      "@id": "racing:rides",
+      "@type": "xsd:integer"
+    },
+    "raceId": {
+      "@id": "racing:race_id",
+      "@type": "xsd:string"
+    },
+    "raceClass": {
+      "@id": "racing:race_class",
+      "@type": "xsd:string"
+    },
+    "offDt": {
+      "@id": "racing:off_dt",
+      "@type": "xsd:string"
+    },
+    "bigRace": {
+      "@id": "racing:big_race",
+      "@type": "xsd:string"
+    },
+    "isAbandoned": {
+      "@id": "racing:is_abandoned",
+      "@type": "xsd:string"
+    },
+    "claiming": {
+      "@id": "racing:claiming",
+      "@type": "xsd:string"
+    },
+    "coupledType": {
+      "@id": "racing:coupled_type",
+      "@type": "xsd:string"
+    },
+    "damName": {
+      "@id": "racing:dam_name",
+      "@type": "xsd:string"
+    },
+    "damSireName": {
+      "@id": "racing:dam_sire_name",
+      "@type": "xsd:string"
+    },
+    "description": "schema:description",
+    "equipment": {
+      "@id": "racing:equipment",
+      "@type": "xsd:string"
+    },
+    "handicapperName": {
+      "@id": "racing:handicapper_name",
+      "@type": "xsd:string"
+    },
+    "horseDataPools": {
+      "@id": "racing:horse_data_pools",
+      "@type": "xsd:string"
+    },
+    "liveOdds": {
+      "@id": "racing:live_odds",
+      "@type": "xsd:string"
+    },
+    "medication": {
+      "@id": "racing:medication",
+      "@type": "xsd:string"
+    },
+    "morningLineOdds": {
+      "@id": "racing:morning_line_odds",
+      "@type": "xsd:string"
+    },
+    "postPos": {
+      "@id": "racing:post_pos",
+      "@type": "xsd:string"
+    },
+    "registrationNumber": {
+      "@id": "racing:registration_number",
+      "@type": "xsd:string"
+    },
+    "scratchIndicator": {
+      "@id": "racing:scratch_indicator",
+      "@type": "xsd:string"
+    },
+    "weight": {
+      "@id": "racing:weight",
+      "@type": "xsd:string"
+    },
+    "time": {
+      "@id": "racing:time",
+      "@type": "xsd:string"
+    },
+    "going": {
+      "@id": "racing:going",
+      "@type": "xsd:string"
+    },
+    "position": {
+      "@id": "racing:position",
+      "@type": "xsd:string"
+    },
+    "horseId": {
+      "@id": "racing:horse_id",
+      "@type": "xsd:string"
+    },
+    "horse": {
+      "@id": "racing:horse",
+      "@type": "xsd:string"
+    },
+    "age": {
+      "@id": "racing:age",
+      "@type": "xsd:string"
+    },
+    "comment": {
+      "@id": "racing:comment",
+      "@type": "xsd:string"
+    },
+    "draw": {
+      "@id": "racing:draw",
+      "@type": "xsd:string"
+    },
+    "form": {
+      "@id": "racing:form",
+      "@type": "xsd:string"
+    },
+    "jockeyClaim": {
+      "@id": "racing:jockey_claim",
+      "@type": "xsd:string"
+    },
+    "margin": {
+      "@id": "racing:margin",
+      "@type": "xsd:string"
+    },
+    "number": {
+      "@id": "racing:number",
+      "@type": "xsd:string"
+    },
+    "odds": {
+      "@id": "racing:odds",
+      "@type": "xsd:string"
+    },
+    "owner": {
+      "@id": "racing:owner",
+      "@type": "xsd:string"
+    },
+    "prize": {
+      "@id": "racing:prize",
+      "@type": "xsd:string"
+    },
+    "rating": {
+      "@id": "racing:rating",
+      "@type": "xsd:string"
+    },
+    "scratched": {
+      "@id": "racing:scratched",
+      "@type": "xsd:string"
+    },
+    "silkUrl": {
+      "@id": "racing:silk_url",
+      "@type": "xsd:string"
+    },
+    "sp": {
+      "@id": "racing:sp",
+      "@type": "xsd:string"
+    },
+    "stats": {
+      "@id": "racing:stats",
+      "@type": "xsd:string"
+    },
+    "meetId": {
+      "@id": "racing:meet_id",
+      "@type": "xsd:string"
+    },
+    "trackId": {
+      "@id": "racing:track_id",
+      "@type": "xsd:string"
+    },
+    "trackName": {
+      "@id": "racing:track_name",
+      "@type": "xsd:string"
+    },
+    "country": {
+      "@id": "racing:country",
+      "@type": "xsd:string"
+    },
+    "races": {
+      "@id": "racing:races",
+      "@type": "xsd:string"
+    },
+    "weather": {
+      "@id": "racing:weather",
+      "@type": "xsd:string"
+    },
+    "quote": {
+      "@id": "racing:quote",
+      "@type": "xsd:string"
+    },
+    "distanceRound": {
+      "@id": "racing:distance_round",
+      "@type": "xsd:string"
+    },
+    "distanceF": {
+      "@id": "racing:distance_f",
+      "@type": "xsd:string"
+    },
+    "pattern": {
+      "@id": "racing:pattern",
+      "@type": "xsd:string"
+    },
+    "sexRestriction": {
+      "@id": "racing:sex_restriction",
+      "@type": "xsd:string"
+    },
+    "ageBand": {
+      "@id": "racing:age_band",
+      "@type": "xsd:string"
+    },
+    "ratingBand": {
+      "@id": "racing:rating_band",
+      "@type": "xsd:string"
+    },
+    "fieldSize": {
+      "@id": "racing:field_size",
+      "@type": "xsd:string"
+    },
+    "goingDetailed": {
+      "@id": "racing:going_detailed",
+      "@type": "xsd:string"
+    },
+    "railMovements": {
+      "@id": "racing:rail_movements",
+      "@type": "xsd:string"
+    },
+    "stalls": {
+      "@id": "racing:stalls",
+      "@type": "xsd:string"
+    },
+    "surface": {
+      "@id": "racing:surface",
+      "@type": "xsd:string"
+    },
+    "horseAges": {
+      "@id": "racing:horse_ages",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "minutes": {
+      "@id": "racing:minutes",
+      "@type": "xsd:string"
+    },
+    "seconds": {
+      "@id": "racing:seconds",
+      "@type": "xsd:string"
+    },
+    "hundredths": {
+      "@id": "racing:hundredths",
+      "@type": "xsd:string"
+    },
+    "milliseconds": {
+      "@id": "racing:milliseconds",
+      "@type": "xsd:string"
+    },
+    "fifths": {
+      "@id": "racing:fifths",
+      "@type": "xsd:string"
+    },
+    "strFifths": {
+      "@id": "racing:str_fifths",
+      "@type": "xsd:string"
+    },
+    "timeInFifths": {
+      "@id": "racing:time_in_fifths",
+      "@type": "xsd:string"
+    },
+    "timeInHundredths": {
+      "@id": "racing:time_in_hundredths",
+      "@type": "xsd:string"
+    },
+    "off": {
+      "@id": "racing:off",
+      "@type": "xsd:string"
+    },
+    "sexRest": {
+      "@id": "racing:sex_rest",
+      "@type": "xsd:string"
+    },
+    "damRegion": {
+      "@id": "racing:dam_region",
+      "@type": "xsd:string"
+    },
+    "sireRegion": {
+      "@id": "racing:sire_region",
+      "@type": "xsd:string"
+    },
+    "damsireRegion": {
+      "@id": "racing:damsire_region",
+      "@type": "xsd:string"
+    },
+    "trainerLocation": {
+      "@id": "racing:trainer_location",
+      "@type": "xsd:string"
+    },
+    "trainer14Days": {
+      "@id": "racing:trainer_14_days",
+      "@type": "xsd:string"
+    },
+    "ownerId": {
+      "@id": "racing:owner_id",
+      "@type": "xsd:string"
+    },
+    "prevTrainers": {
+      "@id": "racing:prev_trainers",
+      "@type": "xsd:string"
+    },
+    "prevOwners": {
+      "@id": "racing:prev_owners",
+      "@type": "xsd:string"
+    },
+    "spotlight": {
+      "@id": "racing:spotlight",
+      "@type": "xsd:string"
+    },
+    "quotes": {
+      "@id": "racing:quotes",
+      "@type": "xsd:string"
+    },
+    "stableTour": {
+      "@id": "racing:stable_tour",
+      "@type": "xsd:string"
+    },
+    "medical": {
+      "@id": "racing:medical",
+      "@type": "xsd:string"
+    },
+    "headgear": {
+      "@id": "racing:headgear",
+      "@type": "xsd:string"
+    },
+    "headgearRun": {
+      "@id": "racing:headgear_run",
+      "@type": "xsd:string"
+    },
+    "windSurgery": {
+      "@id": "racing:wind_surgery",
+      "@type": "xsd:string"
+    },
+    "windSurgeryRun": {
+      "@id": "racing:wind_surgery_run",
+      "@type": "xsd:string"
+    },
+    "pastResultsFlags": {
+      "@id": "racing:past_results_flags",
+      "@type": "xsd:string"
+    },
+    "lbs": {
+      "@id": "racing:lbs",
+      "@type": "xsd:string"
+    },
+    "ofr": {
+      "@id": "racing:ofr",
+      "@type": "xsd:string"
+    },
+    "rpr": {
+      "@id": "racing:rpr",
+      "@type": "xsd:string"
+    },
+    "ts": {
+      "@id": "racing:ts",
+      "@type": "xsd:string"
+    },
+    "lastRun": {
+      "@id": "racing:last_run",
+      "@type": "xsd:string"
+    },
+    "trainerRtf": {
+      "@id": "racing:trainer_rtf",
+      "@type": "xsd:string"
+    },
+    "dayEvening": {
+      "@id": "racing:day_evening",
+      "@type": "xsd:string"
+    },
+    "totalRuns": {
+      "@id": "racing:total_runs",
+      "@type": "xsd:integer"
+    },
+    "race": {
+      "@id": "racing:race",
+      "@type": "xsd:string"
+    },
+    "distanceY": {
+      "@id": "racing:distance_y",
+      "@type": "xsd:string"
+    },
+    "maximumWagerAmount": {
+      "@id": "racing:maximum_wager_amount",
+      "@type": "xsd:string"
+    },
+    "minimumBoxAmount": {
+      "@id": "racing:minimum_box_amount",
+      "@type": "xsd:string"
+    },
+    "minimumWagerAmount": {
+      "@id": "racing:minimum_wager_amount",
+      "@type": "xsd:string"
+    },
+    "minimumWheelAmount": {
+      "@id": "racing:minimum_wheel_amount",
+      "@type": "xsd:string"
+    },
+    "poolCode": {
+      "@id": "racing:pool_code",
+      "@type": "xsd:string"
+    },
+    "poolName": {
+      "@id": "racing:pool_name",
+      "@type": "xsd:string"
+    },
+    "raceList": {
+      "@id": "racing:race_list",
+      "@type": "xsd:string"
+    },
+    "jumps": {
+      "@id": "racing:jumps",
+      "@type": "xsd:string"
+    },
+    "tip": {
+      "@id": "racing:tip",
+      "@type": "xsd:string"
+    },
+    "verdict": {
+      "@id": "racing:verdict",
+      "@type": "xsd:string"
+    },
+    "bettingForecast": {
+      "@id": "racing:betting_forecast",
+      "@type": "xsd:string"
+    },
+    "wagerType": {
+      "@id": "racing:wager_type",
+      "@type": "xsd:string"
+    },
+    "wagerDescription": {
+      "@id": "racing:wager_description",
+      "@type": "xsd:string"
+    },
+    "baseAmount": {
+      "@id": "racing:base_amount",
+      "@type": "xsd:string"
+    },
+    "owners": {
+      "@id": "racing:owners",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "winningTimeDetail": {
+      "@id": "racing:winning_time_detail",
+      "@type": "xsd:string"
+    },
+    "comments": {
+      "@id": "racing:comments",
+      "@type": "xsd:string"
+    },
+    "nonRunners": {
+      "@id": "racing:non_runners",
+      "@type": "xsd:string"
+    },
+    "toteWin": {
+      "@id": "racing:tote_win",
+      "@type": "xsd:string"
+    },
+    "totePl": {
+      "@id": "racing:tote_pl",
+      "@type": "xsd:string"
+    },
+    "toteEx": {
+      "@id": "racing:tote_ex",
+      "@type": "xsd:string"
+    },
+    "toteCsf": {
+      "@id": "racing:tote_csf",
+      "@type": "xsd:string"
+    },
+    "toteTricast": {
+      "@id": "racing:tote_tricast",
+      "@type": "xsd:string"
+    },
+    "toteTrifecta": {
+      "@id": "racing:tote_trifecta",
+      "@type": "xsd:string"
+    },
+    "horseAge": {
+      "@id": "racing:horse_age",
+      "@type": "xsd:string"
+    },
+    "ageRestriction": {
+      "@id": "racing:age_restriction",
+      "@type": "xsd:string"
+    },
+    "ageRestrictionDescription": {
+      "@id": "racing:age_restriction_description",
+      "@type": "xsd:string"
+    },
+    "breed": {
+      "@id": "racing:breed",
+      "@type": "xsd:string"
+    },
+    "changes": {
+      "@id": "racing:changes",
+      "@type": "xsd:string"
+    },
+    "courseType": {
+      "@id": "racing:course_type",
+      "@type": "xsd:string"
+    },
+    "courseTypeClass": {
+      "@id": "racing:course_type_class",
+      "@type": "xsd:string"
+    },
+    "distanceDescription": {
+      "@id": "racing:distance_description",
+      "@type": "xsd:string"
+    },
+    "distanceUnit": {
+      "@id": "racing:distance_unit",
+      "@type": "xsd:string"
+    },
+    "distanceValue": {
+      "@id": "racing:distance_value",
+      "@type": "xsd:string"
+    },
+    "grade": {
+      "@id": "racing:grade",
+      "@type": "xsd:string"
+    },
+    "hasFinished": {
+      "@id": "racing:has_finished",
+      "@type": "xsd:string"
+    },
+    "hasResults": {
+      "@id": "racing:has_results",
+      "@type": "xsd:string"
+    },
+    "isCancelled": {
+      "@id": "racing:is_cancelled",
+      "@type": "xsd:string"
+    },
+    "maxClaimPrice": {
+      "@id": "racing:max_claim_price",
+      "@type": "xsd:string"
+    },
+    "minClaimPrice": {
+      "@id": "racing:min_claim_price",
+      "@type": "xsd:string"
+    },
+    "mtp": {
+      "@id": "racing:mtp",
+      "@type": "xsd:string"
+    },
+    "postTime": {
+      "@id": "racing:post_time",
+      "@type": "xsd:string"
+    },
+    "postTimeLong": {
+      "@id": "racing:post_time_long",
+      "@type": "xsd:string"
+    },
+    "purse": {
+      "@id": "racing:purse",
+      "@type": "xsd:string"
+    },
+    "raceKey": {
+      "@id": "racing:race_key",
+      "@type": "xsd:string"
+    },
+    "racePools": {
+      "@id": "racing:race_pools",
+      "@type": "xsd:string"
+    },
+    "raceRestriction": {
+      "@id": "racing:race_restriction",
+      "@type": "xsd:string"
+    },
+    "raceRestrictionDescription": {
+      "@id": "racing:race_restriction_description",
+      "@type": "xsd:string"
+    },
+    "raceType": {
+      "@id": "racing:race_type",
+      "@type": "xsd:string"
+    },
+    "raceTypeDescription": {
+      "@id": "racing:race_type_description",
+      "@type": "xsd:string"
+    },
+    "sexRestrictionDescription": {
+      "@id": "racing:sex_restriction_description",
+      "@type": "xsd:string"
+    },
+    "surfaceDescription": {
+      "@id": "racing:surface_description",
+      "@type": "xsd:string"
+    },
+    "timeZone": {
+      "@id": "racing:time_zone",
+      "@type": "xsd:string"
+    },
+    "toteTrackId": {
+      "@id": "racing:tote_track_id",
+      "@type": "xsd:string"
+    },
+    "trackCondition": {
+      "@id": "racing:track_condition",
+      "@type": "xsd:string"
+    },
+    "alias": {
+      "@id": "racing:alias",
+      "@type": "xsd:string"
+    },
+    "firstName": {
+      "@id": "racing:first_name",
+      "@type": "xsd:string"
+    },
+    "firstNameInitial": {
+      "@id": "racing:first_name_initial",
+      "@type": "xsd:string"
+    },
+    "lastName": {
+      "@id": "racing:last_name",
+      "@type": "xsd:string"
+    },
+    "middleName": {
+      "@id": "racing:middle_name",
+      "@type": "xsd:string"
+    },
+    "history": {
+      "@id": "racing:history",
+      "@type": "xsd:string"
+    },
+    "winOdds": {
+      "@id": "racing:win_odds",
+      "@type": "xsd:string"
+    },
+    "placeOdds": {
+      "@id": "racing:place_odds",
+      "@type": "xsd:string"
+    },
+    "carryover": {
+      "@id": "racing:carryover",
+      "@type": "xsd:string"
+    },
+    "numberOfRights": {
+      "@id": "racing:number_of_rights",
+      "@type": "xsd:string"
+    },
+    "numberOfTicketsBet": {
+      "@id": "racing:number_of_tickets_bet",
+      "@type": "xsd:string"
+    },
+    "payoffAmount": {
+      "@id": "racing:payoff_amount",
+      "@type": "xsd:string"
+    },
+    "totalPool": {
+      "@id": "racing:total_pool",
+      "@type": "xsd:string"
+    },
+    "wagerName": {
+      "@id": "racing:wager_name",
+      "@type": "xsd:string"
+    },
+    "winningNumbers": {
+      "@id": "racing:winning_numbers",
+      "@type": "xsd:string"
+    },
+    "spDec": {
+      "@id": "racing:sp_dec",
+      "@type": "xsd:string"
+    },
+    "bsp": {
+      "@id": "racing:bsp",
+      "@type": "xsd:string"
+    },
+    "btn": {
+      "@id": "racing:btn",
+      "@type": "xsd:string"
+    },
+    "ovrBtn": {
+      "@id": "racing:ovr_btn",
+      "@type": "xsd:string"
+    },
+    "weightLbs": {
+      "@id": "racing:weight_lbs",
+      "@type": "xsd:string"
+    },
+    "or": {
+      "@id": "racing:or",
+      "@type": "xsd:string"
+    },
+    "tsr": {
+      "@id": "racing:tsr",
+      "@type": "xsd:string"
+    },
+    "jockeyClaimLbs": {
+      "@id": "racing:jockey_claim_lbs",
+      "@type": "xsd:string"
+    },
+    "careerPrize": {
+      "@id": "racing:career_prize",
+      "@type": "xsd:string"
+    },
+    "careerWinPercent": {
+      "@id": "racing:career_win_percent",
+      "@type": "xsd:string"
+    },
+    "careerPlacePercent": {
+      "@id": "racing:career_place_percent",
+      "@type": "xsd:string"
+    },
+    "courseStats": {
+      "@id": "racing:course_stats",
+      "@type": "xsd:string"
+    },
+    "courseDistanceStats": {
+      "@id": "racing:course_distance_stats",
+      "@type": "xsd:string"
+    },
+    "distanceStats": {
+      "@id": "racing:distance_stats",
+      "@type": "xsd:string"
+    },
+    "groundFirmStats": {
+      "@id": "racing:ground_firm_stats",
+      "@type": "xsd:string"
+    },
+    "groundGoodStats": {
+      "@id": "racing:ground_good_stats",
+      "@type": "xsd:string"
+    },
+    "groundHeavyStats": {
+      "@id": "racing:ground_heavy_stats",
+      "@type": "xsd:string"
+    },
+    "groundSoftStats": {
+      "@id": "racing:ground_soft_stats",
+      "@type": "xsd:string"
+    },
+    "groundAwStats": {
+      "@id": "racing:ground_aw_stats",
+      "@type": "xsd:string"
+    },
+    "jockeyStats": {
+      "@id": "racing:jockey_stats",
+      "@type": "xsd:string"
+    },
+    "jumpsStats": {
+      "@id": "racing:jumps_stats",
+      "@type": "xsd:string"
+    },
+    "lastRaced": {
+      "@id": "racing:last_raced",
+      "@type": "xsd:string"
+    },
+    "lastTenRacesStats": {
+      "@id": "racing:last_ten_races_stats",
+      "@type": "xsd:string"
+    },
+    "lastTwelveMonthsStats": {
+      "@id": "racing:last_twelve_months_stats",
+      "@type": "xsd:string"
+    },
+    "lastWon": {
+      "@id": "racing:last_won",
+      "@type": "xsd:string"
+    },
+    "maxWinningDistance": {
+      "@id": "racing:max_winning_distance",
+      "@type": "xsd:string"
+    },
+    "minWinningDistance": {
+      "@id": "racing:min_winning_distance",
+      "@type": "xsd:string"
+    },
+    "poolTypeName": {
+      "@id": "racing:pool_type_name",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "racing:amount",
+      "@type": "xsd:string"
+    },
+    "fractionalOdds": {
+      "@id": "racing:fractional_odds",
+      "@type": "xsd:string"
+    },
+    "dollar": {
+      "@id": "racing:dollar",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "racing:state",
+      "@type": "xsd:string"
+    },
+    "currentTemperature": {
+      "@id": "racing:current_temperature",
+      "@type": "xsd:string"
+    },
+    "alsoRan": {
+      "@id": "racing:also_ran",
+      "@type": "xsd:string"
+    },
+    "fraction": {
+      "@id": "racing:fraction",
+      "@type": "xsd:string"
+    },
+    "maximumClaimPrice": {
+      "@id": "racing:maximum_claim_price",
+      "@type": "xsd:string"
+    },
+    "minimumClaimPrice": {
+      "@id": "racing:minimum_claim_price",
+      "@type": "xsd:string"
+    },
+    "payoffs": {
+      "@id": "racing:payoffs",
+      "@type": "xsd:string"
+    },
+    "scratches": {
+      "@id": "racing:scratches",
+      "@type": "xsd:string"
+    },
+    "totalPurse": {
+      "@id": "racing:total_purse",
+      "@type": "xsd:string"
+    },
+    "trackConditionDescription": {
+      "@id": "racing:track_condition_description",
+      "@type": "xsd:string"
+    },
+    "wagerTypes": {
+      "@id": "racing:wager_types",
+      "@type": "xsd:string"
+    },
+    "changeDate": {
+      "@id": "racing:change_date",
+      "@type": "xsd:string"
+    },
+    "changedAt": {
+      "@id": "racing:changed_at",
+      "@type": "xsd:string"
+    },
+    "wins": {
+      "@id": "racing:wins",
+      "@type": "xsd:string"
+    },
+    "percent": {
+      "@id": "racing:percent",
+      "@type": "xsd:string"
+    },
+    "isJumpOut": {
+      "@id": "racing:is_jump_out",
+      "@type": "xsd:string"
+    },
+    "isTrial": {
+      "@id": "racing:is_trial",
+      "@type": "xsd:string"
+    },
+    "prizes": {
+      "@id": "racing:prizes",
+      "@type": "xsd:string"
+    },
+    "prizeTotal": {
+      "@id": "racing:prize_total",
+      "@type": "xsd:string"
+    },
+    "raceConditions": {
+      "@id": "racing:race_conditions",
+      "@type": "xsd:string"
+    },
+    "winningTime": {
+      "@id": "racing:winning_time",
+      "@type": "xsd:string"
+    },
+    "winningTimeHundredths": {
+      "@id": "racing:winning_time_hundredths",
+      "@type": "xsd:string"
+    },
+    "first": {
+      "@id": "racing:first",
+      "@type": "xsd:string"
+    },
+    "second": {
+      "@id": "racing:second",
+      "@type": "xsd:string"
+    },
+    "third": {
+      "@id": "racing:third",
+      "@type": "xsd:string"
+    },
+    "fraction1": {
+      "@id": "racing:fraction_1",
+      "@type": "xsd:string"
+    },
+    "fraction2": {
+      "@id": "racing:fraction_2",
+      "@type": "xsd:string"
+    },
+    "fraction3": {
+      "@id": "racing:fraction_3",
+      "@type": "xsd:string"
+    },
+    "fraction4": {
+      "@id": "racing:fraction_4",
+      "@type": "xsd:string"
+    },
+    "fraction5": {
+      "@id": "racing:fraction_5",
+      "@type": "xsd:string"
+    }
+  }
+}

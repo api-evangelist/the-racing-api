@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-horses-structure.json",
+  "name": "Horses",
+  "description": "Horses schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "search_results": {
+      "items": {
+        "$ref": "#/components/schemas/Horse"
+      },
+      "type": "array",
+      "name": "Search Results"
+    }
+  },
+  "required": [
+    "search_results"
+  ]
+}

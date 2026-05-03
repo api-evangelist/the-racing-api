@@ -1,0 +1,11 @@
+{
+  "meet_id": "513037",
+  "track_id": "789143",
+  "track_name": "Example Name",
+  "country": "example-value",
+  "date": "2025-03-15",
+  "races": [
+    "example-value"
+  ],
+  "weather": "example-value"
+}

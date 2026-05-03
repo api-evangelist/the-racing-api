@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-horse-distance-time-analysis-schema.json",
+  "title": "HorseDistanceTimeAnalysis",
+  "description": "HorseDistanceTimeAnalysis schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "title": "Id"
+    },
+    "horse": {
+      "type": "string",
+      "title": "Horse"
+    },
+    "sire": {
+      "type": "string",
+      "title": "Sire"
+    },
+    "sire_id": {
+      "type": "string",
+      "title": "Sire Id"
+    },
+    "dam": {
+      "type": "string",
+      "title": "Dam"
+    },
+    "dam_id": {
+      "type": "string",
+      "title": "Dam Id"
+    },
+    "damsire": {
+      "type": "string",
+      "title": "Damsire"
+    },
+    "damsire_id": {
+      "type": "string",
+      "title": "Damsire Id"
+    },
+    "total_runs": {
+      "type": "integer",
+      "title": "Total Runs"
+    },
+    "distances": {
+      "items": {
+        "$ref": "#/components/schemas/Distances"
+      },
+      "type": "array",
+      "title": "Distances"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "title": "Query"
+    }
+  },
+  "required": [
+    "id",
+    "horse",
+    "sire",
+    "sire_id",
+    "dam",
+    "dam_id",
+    "damsire",
+    "damsire_id",
+    "total_runs",
+    "distances",
+    "query"
+  ]
+}

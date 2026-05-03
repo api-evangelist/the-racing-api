@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-entries-schema.json",
+  "title": "Entries",
+  "description": "Entries schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "meet_id": {
+      "type": "string",
+      "title": "Meet Id"
+    },
+    "track_id": {
+      "type": "string",
+      "title": "Track Id"
+    },
+    "track_name": {
+      "type": "string",
+      "title": "Track Name"
+    },
+    "country": {
+      "type": "string",
+      "title": "Country"
+    },
+    "date": {
+      "type": "string",
+      "title": "Date"
+    },
+    "races": {
+      "items": {
+        "$ref": "#/components/schemas/app__models__na_entries__Race"
+      },
+      "type": "array",
+      "title": "Races"
+    },
+    "weather": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/app__models__na_entries__Weather"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "meet_id",
+    "track_id",
+    "track_name",
+    "country",
+    "date",
+    "races"
+  ]
+}

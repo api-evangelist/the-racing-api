@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-app__models__trainers__-course-schema.json",
+  "title": "app__models__trainers__Course",
+  "description": "app__models__trainers__Course schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "course": {
+      "type": "string",
+      "title": "Course"
+    },
+    "course_id": {
+      "type": "string",
+      "title": "Course Id"
+    },
+    "region": {
+      "type": "string",
+      "title": "Region"
+    },
+    "runners": {
+      "type": "integer",
+      "title": "Runners"
+    },
+    "1st": {
+      "type": "integer",
+      "title": "1st place finishes"
+    },
+    "2nd": {
+      "type": "integer",
+      "title": "2nd place finishes"
+    },
+    "3rd": {
+      "type": "integer",
+      "title": "3rd place finishes"
+    },
+    "4th": {
+      "type": "integer",
+      "title": "4th place finishes"
+    },
+    "a/e": {
+      "type": "number",
+      "title": "Actual/expected"
+    },
+    "win_%": {
+      "type": "number",
+      "title": "Win percentage (decimal)"
+    },
+    "1_pl": {
+      "type": "number",
+      "title": "One unit p/l at SP"
+    }
+  },
+  "required": [
+    "course",
+    "course_id",
+    "region",
+    "runners",
+    "1st",
+    "2nd",
+    "3rd",
+    "4th",
+    "a/e",
+    "win_%",
+    "1_pl"
+  ]
+}

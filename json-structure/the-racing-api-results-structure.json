@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-results-structure.json",
+  "name": "Results",
+  "description": "Results schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "meet_id": {
+      "type": "string",
+      "name": "Meet Id"
+    },
+    "track_id": {
+      "type": "string",
+      "name": "Track Id"
+    },
+    "track_name": {
+      "type": "string",
+      "name": "Track Name"
+    },
+    "country": {
+      "type": "string",
+      "name": "Country"
+    },
+    "date": {
+      "type": "string",
+      "name": "Date"
+    },
+    "races": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/app__models__na_results__Race"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Races"
+    },
+    "weather": {
+      "anyOf": [
+        {
+          "$ref": "#/components/schemas/app__models__na_results__Weather"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "meet_id",
+    "track_id",
+    "track_name",
+    "country",
+    "date"
+  ]
+}

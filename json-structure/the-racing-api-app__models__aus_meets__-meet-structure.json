@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-app__models__aus_meets__-meet-structure.json",
+  "name": "app__models__aus_meets__Meet",
+  "description": "app__models__aus_meets__Meet schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "meet_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Meet Id"
+    },
+    "date": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Date"
+    },
+    "course": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Course"
+    },
+    "course_id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Course Id"
+    },
+    "races": {
+      "items": {
+        "$ref": "#/components/schemas/MeetRaces"
+      },
+      "type": "array",
+      "name": "Races"
+    },
+    "state": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "State"
+    }
+  },
+  "required": [
+    "races"
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-app__models__owners__-trainer-schema.json",
+  "title": "app__models__owners__Trainer",
+  "description": "app__models__owners__Trainer schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "trainer_id": {
+      "type": "string",
+      "title": "Trainer Id"
+    },
+    "trainer": {
+      "type": "string",
+      "title": "Trainer"
+    },
+    "runners": {
+      "type": "integer",
+      "title": "Runners"
+    },
+    "1st": {
+      "type": "integer",
+      "title": "1st place finishes"
+    },
+    "2nd": {
+      "type": "integer",
+      "title": "2nd place finishes"
+    },
+    "3rd": {
+      "type": "integer",
+      "title": "3rd place finishes"
+    },
+    "4th": {
+      "type": "integer",
+      "title": "4th place finishes"
+    },
+    "a/e": {
+      "type": "number",
+      "title": "Actual/expected"
+    },
+    "win_%": {
+      "type": "number",
+      "title": "Win percentage (decimal)"
+    },
+    "1_pl": {
+      "type": "number",
+      "title": "One unit p/l at SP"
+    }
+  },
+  "required": [
+    "trainer_id",
+    "trainer",
+    "runners",
+    "1st",
+    "2nd",
+    "3rd",
+    "4th",
+    "a/e",
+    "win_%",
+    "1_pl"
+  ]
+}

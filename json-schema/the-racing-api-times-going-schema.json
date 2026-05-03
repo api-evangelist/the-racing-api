@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-times-going-schema.json",
+  "title": "TimesGoing",
+  "description": "TimesGoing schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "title": "Date"
+    },
+    "region": {
+      "type": "string",
+      "title": "Region"
+    },
+    "course": {
+      "type": "string",
+      "title": "Course"
+    },
+    "time": {
+      "type": "string",
+      "title": "Time"
+    },
+    "going": {
+      "type": "string",
+      "title": "Going"
+    },
+    "position": {
+      "type": "string",
+      "title": "Position"
+    }
+  },
+  "required": [
+    "date",
+    "region",
+    "course",
+    "time",
+    "going",
+    "position"
+  ]
+}

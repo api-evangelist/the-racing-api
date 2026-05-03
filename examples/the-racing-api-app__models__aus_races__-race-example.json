@@ -1,0 +1,25 @@
+{
+  "course": "Cheltenham",
+  "course_id": "670189",
+  "date": "2025-03-15",
+  "distance": "example-value",
+  "going": "good",
+  "is_jump_out": false,
+  "is_trial": false,
+  "meet_id": "401225",
+  "off_time": "example-value",
+  "prizes": "example-value",
+  "prize_total": "example-value",
+  "class": "class_1",
+  "race_conditions": "example-value",
+  "race_group": "example-value",
+  "race_name": "Example Name",
+  "race_number": "example-value",
+  "race_status": "active",
+  "state": "example-value",
+  "runners": [
+    "example-value"
+  ],
+  "winning_time": "example-value",
+  "winning_time_hundredths": "example-value"
+}

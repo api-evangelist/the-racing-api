@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-structure/the-racing-api-racecard-summary-structure.json",
+  "name": "RacecardSummary",
+  "description": "RacecardSummary schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "name": "Date"
+    },
+    "region": {
+      "type": "string",
+      "name": "Region"
+    },
+    "course_id": {
+      "type": "string",
+      "name": "Course Id"
+    },
+    "course": {
+      "type": "string",
+      "name": "Course"
+    },
+    "race_id": {
+      "type": "string",
+      "name": "Race Id"
+    },
+    "race_name": {
+      "type": "string",
+      "name": "Race Name"
+    },
+    "race_class": {
+      "type": "string",
+      "name": "Race Class"
+    },
+    "off_time": {
+      "type": "string",
+      "name": "Off Time"
+    },
+    "off_dt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Off Dt",
+      "default": ""
+    },
+    "big_race": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Big Race",
+      "default": false
+    },
+    "is_abandoned": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "name": "Is Abandoned",
+      "default": false
+    }
+  },
+  "required": [
+    "date",
+    "region",
+    "course_id",
+    "course",
+    "race_id",
+    "race_name",
+    "race_class",
+    "off_time"
+  ]
+}

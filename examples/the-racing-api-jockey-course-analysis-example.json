@@ -1,0 +1,13 @@
+{
+  "id": "481865",
+  "jockey": "example-value",
+  "total_rides": 64,
+  "courses": [
+    "Cheltenham"
+  ],
+  "query": [
+    [
+      "example-value"
+    ]
+  ]
+}

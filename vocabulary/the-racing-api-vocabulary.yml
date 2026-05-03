@@ -1,0 +1,219 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "The Racing API"
+  description: "Vocabulary covering horse racing resources, operations, analytics, and personas for The Racing API"
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+operational:
+  apis:
+    - namespace: racing
+      version: "1.0"
+      baseUrl: https://api.theracingapi.com
+      status: active
+
+  resources:
+    - name: racecards
+      api: racing
+      actions: [list, get]
+      description: "Race entry cards with runners, odds, and form data"
+    - name: results
+      api: racing
+      actions: [list, get]
+      description: "Historical and live race results"
+    - name: courses
+      api: racing
+      actions: [list]
+      description: "Racing venues with IDs and regional classifications"
+    - name: regions
+      api: racing
+      actions: [list]
+      description: "Geographic racing regions with codes"
+    - name: horses
+      api: racing
+      actions: [search, get]
+      description: "Racehorses with form, results, and breeding data"
+    - name: jockeys
+      api: racing
+      actions: [search, get, analyze]
+      description: "Jockeys with riding statistics and course/distance analysis"
+    - name: trainers
+      api: racing
+      actions: [search, get, analyze]
+      description: "Trainers with performance statistics"
+    - name: owners
+      api: racing
+      actions: [search, get, analyze]
+      description: "Horse owners with performance statistics"
+    - name: sires
+      api: racing
+      actions: [search, get, analyze]
+      description: "Breeding sires with progeny performance data"
+    - name: dams
+      api: racing
+      actions: [search, get, analyze]
+      description: "Breeding dams with progeny performance data"
+    - name: damsires
+      api: racing
+      actions: [search, get, analyze]
+      description: "Maternal grandsires with grandoffspring statistics"
+    - name: odds
+      api: racing
+      actions: [get]
+      description: "Betting odds for race and horse combinations"
+
+  actions:
+    - name: list
+      methods: [GET]
+      pattern: read
+    - name: get
+      methods: [GET]
+      pattern: read
+    - name: search
+      methods: [GET]
+      pattern: query
+    - name: analyze
+      methods: [GET]
+      pattern: read
+
+  schemas:
+    core:
+      - name: Racecard
+        description: "Full race card with runners, going, distance, class"
+      - name: Result
+        description: "Race result with finishing positions and times"
+      - name: Horse
+        description: "Horse record with ID, name, age, sex, trainer"
+      - name: Jockey
+        description: "Jockey record with ID and name"
+      - name: Trainer
+        description: "Trainer record with ID and name"
+      - name: Course
+        description: "Racing course with ID, name, and region"
+    analytics:
+      - name: ClassAnalysis
+        description: "Win rates and profitability by race class"
+      - name: DistanceAnalysis
+        description: "Performance statistics by race distance"
+      - name: CourseAnalysis
+        description: "Performance statistics by course"
+
+  parameters:
+    pagination:
+      - name: limit
+        description: "Number of records to return"
+      - name: skip
+        description: "Pagination offset"
+    filters:
+      - name: start_date
+        description: "Filter results from this date (YYYY-MM-DD)"
+      - name: end_date
+        description: "Filter results to this date (YYYY-MM-DD)"
+      - name: region
+        description: "Filter by region code (gb, ire, hk)"
+      - name: course
+        description: "Filter by course ID"
+      - name: type
+        description: "Race type filter (flat, chase, hurdle, nh_flat)"
+      - name: going
+        description: "Going conditions filter"
+      - name: race_class
+        description: "Race class filter (class_1 through class_7)"
+    identifiers:
+      - name: horse_id
+        description: "Unique horse identifier"
+      - name: jockey_id
+        description: "Unique jockey identifier"
+      - name: trainer_id
+        description: "Unique trainer identifier"
+      - name: race_id
+        description: "Unique race identifier"
+
+  enums:
+    race_types:
+      - flat
+      - chase
+      - hurdle
+      - nh_flat
+    plans:
+      - free
+      - standard
+      - pro
+    regions:
+      - gb
+      - ire
+      - hk
+
+  authentication:
+    - scheme: HTTPBasic
+      type: http
+      description: "HTTP Basic authentication with username and password from dashboard"
+
+capability:
+  workflows:
+    - name: horse-racing-analytics
+      file: capabilities/horse-racing-analytics.yaml
+      description: "Unified workflow for racing research, form analysis, and racecard review"
+      apisUsed: [racing]
+      toolCount: 17
+      personas: [Racing Analyst, Application Developer, AI Agent]
+
+  personas:
+    - id: racing-analyst
+      name: Racing Analyst
+      description: "Professional or amateur analyst building models from historical results and current form"
+      workflows: [horse-racing-analytics]
+    - id: app-developer
+      name: Application Developer
+      description: "Developer building horse racing websites and mobile applications"
+      workflows: [horse-racing-analytics]
+    - id: ai-agent
+      name: AI Agent
+      description: "LLM or AI agent consuming racing data for predictions and insights"
+      workflows: [horse-racing-analytics]
+
+  domains:
+    - name: Racing Data
+      description: "Live and historical horse racing data including racecards and results"
+    - name: Performance Analytics
+      description: "Statistical analysis of horse, jockey, trainer, and owner performance"
+    - name: Breeding Data
+      description: "Sire, dam, and damsire lineage and progeny statistics"
+
+  namespaces:
+    - id: racing
+      type: consumed
+      baseUri: https://api.theracingapi.com
+    - id: racing-analytics-api
+      type: rest-exposed
+      port: 8080
+    - id: racing-analytics-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - RACING_API_USERNAME
+    - RACING_API_PASSWORD
+
+crossReference:
+  - resource: racecards
+    operations: [list-racecards, get-free-racecards, get-big-race-cards]
+    workflows: [horse-racing-analytics]
+    personas: [Racing Analyst, Application Developer, AI Agent]
+  - resource: results
+    operations: [list-results, get-todays-results]
+    workflows: [horse-racing-analytics]
+    personas: [Racing Analyst, AI Agent]
+  - resource: horses
+    operations: [search-horses, get-horse-results]
+    workflows: [horse-racing-analytics]
+    personas: [Racing Analyst, AI Agent]
+  - resource: jockeys
+    operations: [search-jockeys, get-jockey-results, get-jockey-course-analysis]
+    workflows: [horse-racing-analytics]
+    personas: [Racing Analyst]
+  - resource: trainers
+    operations: [search-trainers, get-trainer-results]
+    workflows: [horse-racing-analytics]
+    personas: [Racing Analyst]

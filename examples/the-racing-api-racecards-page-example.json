@@ -1,0 +1,13 @@
+{
+  "racecards": [
+    "example-value"
+  ],
+  "total": 37,
+  "limit": 61,
+  "skip": 78,
+  "query": [
+    [
+      "example-value"
+    ]
+  ]
+}

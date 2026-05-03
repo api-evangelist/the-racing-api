@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/json-schema/the-racing-api-results-basic-page-schema.json",
+  "title": "ResultsBasicPage",
+  "description": "ResultsBasicPage schema from The Racing API",
+  "type": "object",
+  "properties": {
+    "results": {
+      "anyOf": [
+        {
+          "items": {
+            "$ref": "#/components/schemas/ResultBasic"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "title": "Results"
+    },
+    "total": {
+      "type": "integer",
+      "title": "Total"
+    },
+    "limit": {
+      "type": "integer",
+      "title": "Limit"
+    },
+    "skip": {
+      "type": "integer",
+      "title": "Skip"
+    },
+    "query": {
+      "items": {
+        "items": {},
+        "type": "array"
+      },
+      "type": "array",
+      "title": "Query"
+    }
+  },
+  "required": [
+    "results",
+    "total",
+    "limit",
+    "skip",
+    "query"
+  ]
+}
