@@ -1,0 +1,46 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: The Racing API
+providerId: the-racing-api
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Sports Data
+description: FOCUS-aligned FinOps for The Racing API.
+sources:
+  - https://theracingapi.com/pricing
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: The Racing API
+serviceCategory: Sports Data
+billingModel:
+  pricingCategory: Free / Donation-Funded
+  billingFrequency: Monthly
+  billingCurrency: USD
+focusColumns:
+  ServiceName: The Racing API
+  ServiceCategory: Sports Data
+  ProviderName: The Racing API
+  PublisherName: The Racing API
+  BillingCurrency: USD
+meters:
+  - name: api_calls
+    unit: call
+    aggregation: sum
+principles:
+  - name: Visibility
+    description: Track The Racing API consumption monthly.
+  - name: Allocation
+    description: Tag usage to teams/cost centers for chargeback.
+  - name: Optimization
+    description: Right-size; reclaim unused entitlements.
+  - name: Accountability
+    description: Set spend alerts; quarterly review.

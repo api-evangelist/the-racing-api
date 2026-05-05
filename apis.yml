@@ -1,9 +1,8 @@
 aid: the-racing-api
 name: The Racing API
-description: >-
-  High performance API for horse racing statistical modelling, application
-  development and web content. Complete coverage of UK, Irish and Hong Kong
-  horse racing with real-time data updates every 3 minutes.
+description: High performance API for horse racing statistical modelling, application development and
+  web content. Complete coverage of UK, Irish and Hong Kong horse racing with real-time data updates every
+  3 minutes.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -15,20 +14,17 @@ tags:
   - Betting
   - Analytics
 created: '2025-02-06'
-modified: '2026-05-03'
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/apis.yml
+modified: '2026-05-04'
+url: https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
   - aid: the-racing-api:the-racing-api
     name: The Racing API
-    description: >-
-      High performance API for horse racing statistical modelling, application
-      development and web content. Complete coverage of UK, Irish and Hong Kong
-      horse racing. Access racecards, results, horse form, jockey and trainer
-      statistics, and real-time analysis endpoints with 58 endpoints across
-      courses, racecards, results, horses, jockeys, trainers, owners, sires,
-      dams, damsires, odds, and North America/Australia add-on coverage.
+    description: High performance API for horse racing statistical modelling, application development
+      and web content. Complete coverage of UK, Irish and Hong Kong horse racing. Access racecards, results,
+      horse form, jockey and trainer statistics, and real-time analysis endpoints with 58 endpoints across
+      courses, racecards, results, horses, jockeys, trainers, owners, sires, dams, damsires, odds, and
+      North America/Australia add-on coverage.
     humanURL: https://www.theracingapi.com/
     baseURL: https://api.theracingapi.com
     tags:
@@ -88,22 +84,12 @@ common:
         description: Username and password via HTTP Basic Authentication from the dashboard
   - type: Features
     data:
-      - name: Real-Time Racecards
-        description: Today's and tomorrow's racecards updated every 3 minutes with odds and runners
-      - name: Historical Results
-        description: Over 500,000 horse racing results covering UK, Ireland, and Hong Kong
-      - name: Statistical Analysis
-        description: >-
-          Analysis endpoints computing win percentages, A/E ratios, and 1-unit
-          profit/loss for horses, jockeys, trainers, and owners
-      - name: Breeding Data
-        description: Sire, dam, and damsire lineage data with progeny performance statistics
-      - name: North America Coverage
-        description: Add-on coverage for North American race meets, entries, and results
-      - name: Australia Coverage
-        description: Add-on coverage for Australian race meets and race details
-      - name: AI/MCP Integration
-        description: Remote MCP server for integration with Claude, ChatGPT, Gemini, and other AI tools
+      - 'The Racing API: free public API'
+      - 'Tiered pricing for horse racing data: Free / $19/mo / $59/mo / Enterprise.'
+      - 'Public URL: https://theracingapi.com/'
+    sources:
+      - https://theracingapi.com/pricing
+    updated: '2026-05-04'
   - type: UseCases
     data:
       - name: Application Development
