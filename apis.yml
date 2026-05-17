@@ -49,7 +49,7 @@ apis:
       - type: JSONStructure
         url: json-structure/the-racing-api-racecard-summary-structure.json
         title: Racecard Summary Structure
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/the-racing-api-context.jsonld
         title: The Racing API JSON-LD Context
 common:
@@ -57,7 +57,7 @@ common:
     url: https://www.theracingapi.com/
   - type: Documentation
     url: https://api.theracingapi.com/documentation
-  - type: Sign Up
+  - type: SignUp
     url: https://www.theracingapi.com/register
   - type: Dashboard
     url: https://www.theracingapi.com/dashboard
