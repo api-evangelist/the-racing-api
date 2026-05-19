@@ -1,0 +1,168 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: The Racing API — Australia
+  description: 'The Racing API — Australia. 3 operations. Lead operation: The Racing API Meets. Self-contained Naftiko capability
+    covering one The Racing Api business surface.'
+  tags:
+  - The Racing Api
+  - Australia
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    THE_RACING_API_API_KEY: THE_RACING_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: the-racing-australia
+    baseUri: https://api.theracingapi.com
+    description: The Racing API — Australia business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-australia-meets
+      path: /v1/australia/meets
+      operations:
+      - name: meetsv1australiameetsget
+        method: GET
+        description: The Racing API Meets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: date
+          in: query
+          type: string
+          description: Query meets by date with format YYYY-MM-DD (e.g 2023-04-05)
+    - name: v1-australia-meets-meet_id-races
+      path: /v1/australia/meets/{meet_id}/races
+      operations:
+      - name: racesbymeetv1australiameetsmeetidracesget
+        method: GET
+        description: The Racing API Races by Meet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: meet_id
+          in: path
+          type: string
+          required: true
+    - name: v1-australia-meets-meet_id-races-race_number
+      path: /v1/australia/meets/{meet_id}/races/{race_number}
+      operations:
+      - name: racev1australiameetsmeetidracesracenumberget
+        method: GET
+        description: The Racing API Race
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: meet_id
+          in: path
+          type: string
+          required: true
+        - name: race_number
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.THE_RACING_API_USER}}'
+      password: '{{env.THE_RACING_API_PASS}}'
+  exposes:
+  - type: rest
+    namespace: the-racing-australia-rest
+    port: 8080
+    description: REST adapter for The Racing API — Australia. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v1/australia/meets
+      name: v1-australia-meets
+      description: REST surface for v1-australia-meets.
+      operations:
+      - method: GET
+        name: meetsv1australiameetsget
+        description: The Racing API Meets
+        call: the-racing-australia.meetsv1australiameetsget
+        with:
+          date: rest.date
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/australia/meets/{meet-id}/races
+      name: v1-australia-meets-meet-id-races
+      description: REST surface for v1-australia-meets-meet_id-races.
+      operations:
+      - method: GET
+        name: racesbymeetv1australiameetsmeetidracesget
+        description: The Racing API Races by Meet
+        call: the-racing-australia.racesbymeetv1australiameetsmeetidracesget
+        with:
+          meet_id: rest.meet_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/australia/meets/{meet-id}/races/{race-number}
+      name: v1-australia-meets-meet-id-races-race-number
+      description: REST surface for v1-australia-meets-meet_id-races-race_number.
+      operations:
+      - method: GET
+        name: racev1australiameetsmeetidracesracenumberget
+        description: The Racing API Race
+        call: the-racing-australia.racev1australiameetsmeetidracesracenumberget
+        with:
+          meet_id: rest.meet_id
+          race_number: rest.race_number
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: the-racing-australia-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for The Racing API — Australia. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: racing-api-meets
+      description: The Racing API Meets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-australia.meetsv1australiameetsget
+      with:
+        date: tools.date
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-races-meet
+      description: The Racing API Races by Meet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-australia.racesbymeetv1australiameetsmeetidracesget
+      with:
+        meet_id: tools.meet_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-race
+      description: The Racing API Race
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-australia.racev1australiameetsmeetidracesracenumberget
+      with:
+        meet_id: tools.meet_id
+        race_number: tools.race_number
+      outputParameters:
+      - type: object
+        mapping: $.

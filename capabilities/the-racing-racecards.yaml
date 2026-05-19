@@ -1,0 +1,576 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: The Racing API — Racecards
+  description: 'The Racing API — Racecards. 8 operations. Lead operation: The Racing API Racecards Basic. Self-contained Naftiko
+    capability covering one The Racing Api business surface.'
+  tags:
+  - The Racing Api
+  - Racecards
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    THE_RACING_API_API_KEY: THE_RACING_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: the-racing-racecards
+    baseUri: https://api.theracingapi.com
+    description: The Racing API — Racecards business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-racecards-basic
+      path: /v1/racecards/basic
+      operations:
+      - name: racecardsbasicv1racecardsbasicget
+        method: GET
+        description: The Racing API Racecards Basic
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: day
+          in: query
+          type: string
+          description: Query racecards by day:<br> today, tomorrow
+        - name: region_codes
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course_ids
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-racecards-big-races
+      path: /v1/racecards/big-races
+      operations:
+      - name: racecardsbigracesv1racecardsbigracesget
+        method: GET
+        description: The Racing API Racecards Big Races
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p>Date must be today or
+            greater, defaults to today.</p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region_codes
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course_ids
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-racecards-free
+      path: /v1/racecards/free
+      operations:
+      - name: racecardsfreev1racecardsfreeget
+        method: GET
+        description: The Racing API Racecards Free
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: day
+          in: query
+          type: string
+          description: Query racecards by day:<br> today, tomorrow
+        - name: region_codes
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course_ids
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-racecards-pro
+      path: /v1/racecards/pro
+      operations:
+      - name: racecardsprov1racecardsproget
+        method: GET
+        description: The Racing API Racecards Pro
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: date
+          in: query
+          type: string
+          description: Query racecards by date with format YYYY-MM-DD (e.g 2023-04-05)
+        - name: region_codes
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course_ids
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-racecards-standard
+      path: /v1/racecards/standard
+      operations:
+      - name: racecardsstandardv1racecardsstandardget
+        method: GET
+        description: The Racing API Racecards Standard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: day
+          in: query
+          type: string
+          description: Query racecards by day:<br> today, tomorrow
+        - name: region_codes
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course_ids
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-racecards-summaries
+      path: /v1/racecards/summaries
+      operations:
+      - name: racecardssummariesv1racecardssummariesget
+        method: GET
+        description: The Racing API Racecards Summaries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: date
+          in: query
+          type: string
+          description: Query racecard summaries by date with format YYYY-MM-DD (e.g 2023-04-05)
+        - name: region_codes
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course_ids
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+    - name: v1-racecards-horse_id-results
+      path: /v1/racecards/{horse_id}/results
+      operations:
+      - name: racecardhorseresultsv1racecardshorseidresultsget
+        method: GET
+        description: The Racing API Racecard Horse Results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: horse_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-racecards-race_id-standard
+      path: /v1/racecards/{race_id}/standard
+      operations:
+      - name: racestandardv1racecardsraceidstandardget
+        method: GET
+        description: The Racing API Race Standard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: race_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.THE_RACING_API_USER}}'
+      password: '{{env.THE_RACING_API_PASS}}'
+  exposes:
+  - type: rest
+    namespace: the-racing-racecards-rest
+    port: 8080
+    description: REST adapter for The Racing API — Racecards. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v1/racecards/basic
+      name: v1-racecards-basic
+      description: REST surface for v1-racecards-basic.
+      operations:
+      - method: GET
+        name: racecardsbasicv1racecardsbasicget
+        description: The Racing API Racecards Basic
+        call: the-racing-racecards.racecardsbasicv1racecardsbasicget
+        with:
+          day: rest.day
+          region_codes: rest.region_codes
+          course_ids: rest.course_ids
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/big-races
+      name: v1-racecards-big-races
+      description: REST surface for v1-racecards-big-races.
+      operations:
+      - method: GET
+        name: racecardsbigracesv1racecardsbigracesget
+        description: The Racing API Racecards Big Races
+        call: the-racing-racecards.racecardsbigracesv1racecardsbigracesget
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region_codes: rest.region_codes
+          course_ids: rest.course_ids
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/free
+      name: v1-racecards-free
+      description: REST surface for v1-racecards-free.
+      operations:
+      - method: GET
+        name: racecardsfreev1racecardsfreeget
+        description: The Racing API Racecards Free
+        call: the-racing-racecards.racecardsfreev1racecardsfreeget
+        with:
+          day: rest.day
+          region_codes: rest.region_codes
+          course_ids: rest.course_ids
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/pro
+      name: v1-racecards-pro
+      description: REST surface for v1-racecards-pro.
+      operations:
+      - method: GET
+        name: racecardsprov1racecardsproget
+        description: The Racing API Racecards Pro
+        call: the-racing-racecards.racecardsprov1racecardsproget
+        with:
+          date: rest.date
+          region_codes: rest.region_codes
+          course_ids: rest.course_ids
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/standard
+      name: v1-racecards-standard
+      description: REST surface for v1-racecards-standard.
+      operations:
+      - method: GET
+        name: racecardsstandardv1racecardsstandardget
+        description: The Racing API Racecards Standard
+        call: the-racing-racecards.racecardsstandardv1racecardsstandardget
+        with:
+          day: rest.day
+          region_codes: rest.region_codes
+          course_ids: rest.course_ids
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/summaries
+      name: v1-racecards-summaries
+      description: REST surface for v1-racecards-summaries.
+      operations:
+      - method: GET
+        name: racecardssummariesv1racecardssummariesget
+        description: The Racing API Racecards Summaries
+        call: the-racing-racecards.racecardssummariesv1racecardssummariesget
+        with:
+          date: rest.date
+          region_codes: rest.region_codes
+          course_ids: rest.course_ids
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/{horse-id}/results
+      name: v1-racecards-horse-id-results
+      description: REST surface for v1-racecards-horse_id-results.
+      operations:
+      - method: GET
+        name: racecardhorseresultsv1racecardshorseidresultsget
+        description: The Racing API Racecard Horse Results
+        call: the-racing-racecards.racecardhorseresultsv1racecardshorseidresultsget
+        with:
+          horse_id: rest.horse_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/{race-id}/standard
+      name: v1-racecards-race-id-standard
+      description: REST surface for v1-racecards-race_id-standard.
+      operations:
+      - method: GET
+        name: racestandardv1racecardsraceidstandardget
+        description: The Racing API Race Standard
+        call: the-racing-racecards.racestandardv1racecardsraceidstandardget
+        with:
+          race_id: rest.race_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: the-racing-racecards-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for The Racing API — Racecards. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: racing-api-racecards-basic
+      description: The Racing API Racecards Basic
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-racecards.racecardsbasicv1racecardsbasicget
+      with:
+        day: tools.day
+        region_codes: tools.region_codes
+        course_ids: tools.course_ids
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-racecards-big-races
+      description: The Racing API Racecards Big Races
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-racecards.racecardsbigracesv1racecardsbigracesget
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region_codes: tools.region_codes
+        course_ids: tools.course_ids
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-racecards-free
+      description: The Racing API Racecards Free
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-racecards.racecardsfreev1racecardsfreeget
+      with:
+        day: tools.day
+        region_codes: tools.region_codes
+        course_ids: tools.course_ids
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-racecards-pro
+      description: The Racing API Racecards Pro
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-racecards.racecardsprov1racecardsproget
+      with:
+        date: tools.date
+        region_codes: tools.region_codes
+        course_ids: tools.course_ids
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-racecards-standard
+      description: The Racing API Racecards Standard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-racecards.racecardsstandardv1racecardsstandardget
+      with:
+        day: tools.day
+        region_codes: tools.region_codes
+        course_ids: tools.course_ids
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-racecards-summaries
+      description: The Racing API Racecards Summaries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-racecards.racecardssummariesv1racecardssummariesget
+      with:
+        date: tools.date
+        region_codes: tools.region_codes
+        course_ids: tools.course_ids
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-racecard-horse-results
+      description: The Racing API Racecard Horse Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-racecards.racecardhorseresultsv1racecardshorseidresultsget
+      with:
+        horse_id: tools.horse_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-race-standard
+      description: The Racing API Race Standard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-racecards.racestandardv1racecardsraceidstandardget
+      with:
+        race_id: tools.race_id
+      outputParameters:
+      - type: object
+        mapping: $.

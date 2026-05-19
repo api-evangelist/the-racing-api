@@ -1,0 +1,86 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: The Racing API — Odds
+  description: 'The Racing API — Odds. 1 operations. Lead operation: The Racing API Odds Runner. Self-contained Naftiko capability
+    covering one The Racing Api business surface.'
+  tags:
+  - The Racing Api
+  - Odds
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    THE_RACING_API_API_KEY: THE_RACING_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: the-racing-odds
+    baseUri: https://api.theracingapi.com
+    description: The Racing API — Odds business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-odds-race_id-horse_id
+      path: /v1/odds/{race_id}/{horse_id}
+      operations:
+      - name: oddsrunnerv1oddsraceidhorseidget
+        method: GET
+        description: The Racing API Odds Runner
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: race_id
+          in: path
+          type: string
+          required: true
+        - name: horse_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: basic
+      username: '{{env.THE_RACING_API_USER}}'
+      password: '{{env.THE_RACING_API_PASS}}'
+  exposes:
+  - type: rest
+    namespace: the-racing-odds-rest
+    port: 8080
+    description: REST adapter for The Racing API — Odds. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v1/odds/{race-id}/{horse-id}
+      name: v1-odds-race-id-horse-id
+      description: REST surface for v1-odds-race_id-horse_id.
+      operations:
+      - method: GET
+        name: oddsrunnerv1oddsraceidhorseidget
+        description: The Racing API Odds Runner
+        call: the-racing-odds.oddsrunnerv1oddsraceidhorseidget
+        with:
+          race_id: rest.race_id
+          horse_id: rest.horse_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: the-racing-odds-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for The Racing API — Odds. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: racing-api-odds-runner
+      description: The Racing API Odds Runner
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-odds.oddsrunnerv1oddsraceidhorseidget
+      with:
+        race_id: tools.race_id
+        horse_id: tools.horse_id
+      outputParameters:
+      - type: object
+        mapping: $.

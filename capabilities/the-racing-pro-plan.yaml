@@ -1,0 +1,4043 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: The Racing API — Pro Plan
+  description: 'The Racing API — Pro Plan. 46 operations. Lead operation: The Racing API Courses. Self-contained Naftiko capability
+    covering one The Racing Api business surface.'
+  tags:
+  - The Racing Api
+  - Pro Plan
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    THE_RACING_API_API_KEY: THE_RACING_API_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: the-racing-pro-plan
+    baseUri: https://api.theracingapi.com
+    description: The Racing API — Pro Plan business capability. Self-contained, no shared references.
+    resources:
+    - name: v1-courses
+      path: /v1/courses
+      operations:
+      - name: coursesv1coursesget
+        method: GET
+        description: The Racing API Courses
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: region_codes
+          in: query
+          type: string
+          description: Filter courses by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'
+    - name: v1-courses-regions
+      path: /v1/courses/regions
+      operations:
+      - name: regionsv1coursesregionsget
+        method: GET
+        description: The Racing API Regions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: v1-dams-search
+      path: /v1/dams/search
+      operations:
+      - name: damsearchv1damssearchget
+        method: GET
+        description: The Racing API Dam Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          required: true
+    - name: v1-dams-dam_id-analysis-classes
+      path: /v1/dams/{dam_id}/analysis/classes
+      operations:
+      - name: damprogenyclassanalysisv1damsdamidanalysisclassesget
+        method: GET
+        description: The Racing API Dam Progeny Class Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dam_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-dams-dam_id-analysis-distances
+      path: /v1/dams/{dam_id}/analysis/distances
+      operations:
+      - name: damprogenydistanceanalysisv1damsdamidanalysisdistancesget
+        method: GET
+        description: The Racing API Dam Progeny Distance Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dam_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-dams-dam_id-results
+      path: /v1/dams/{dam_id}/results
+      operations:
+      - name: damprogenyresultsv1damsdamidresultsget
+        method: GET
+        description: The Racing API Dam Progeny Results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: dam_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days
+            ago. Can query back to 1988-01-01.</p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's
+            date. Maximum range between start and end date is 365 days.<
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-damsires-search
+      path: /v1/damsires/search
+      operations:
+      - name: damsiresearchv1damsiressearchget
+        method: GET
+        description: The Racing API Damsire Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          required: true
+    - name: v1-damsires-damsire_id-analysis-classes
+      path: /v1/damsires/{damsire_id}/analysis/classes
+      operations:
+      - name: damsiregrandoffspringclassanalysisv1damsiresdamsireidanalysisclassesget
+        method: GET
+        description: The Racing API Damsire Grandoffspring Class Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: damsire_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-damsires-damsire_id-analysis-distances
+      path: /v1/damsires/{damsire_id}/analysis/distances
+      operations:
+      - name: damsiregrandoffspringdistanceanalysisv1damsiresdamsireidanalysisdistancesget
+        method: GET
+        description: The Racing API Damsire Grandoffspring Distance Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: damsire_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-damsires-damsire_id-results
+      path: /v1/damsires/{damsire_id}/results
+      operations:
+      - name: damsiregrandoffspringresultsv1damsiresdamsireidresultsget
+        method: GET
+        description: The Racing API Damsire Grandoffspring Results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: damsire_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days
+            ago. Can query back to 1988-01-01.</p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's
+            date. Maximum range between start and end date is 365 days.<
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-horses-search
+      path: /v1/horses/search
+      operations:
+      - name: horsesearchv1horsessearchget
+        method: GET
+        description: The Racing API Horse Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          required: true
+    - name: v1-horses-horse_id-analysis-distance-times
+      path: /v1/horses/{horse_id}/analysis/distance-times
+      operations:
+      - name: horsedistancetimeanalysisv1horseshorseidanalysisdistancetimesget
+        method: GET
+        description: The Racing API Horse Distance Time Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: horse_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-horses-horse_id-pro
+      path: /v1/horses/{horse_id}/pro
+      operations:
+      - name: horseprov1horseshorseidproget
+        method: GET
+        description: The Racing API Horse Pro
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: horse_id
+          in: path
+          type: string
+          required: true
+    - name: v1-horses-horse_id-results
+      path: /v1/horses/{horse_id}/results
+      operations:
+      - name: horseresultsv1horseshorseidresultsget
+        method: GET
+        description: The Racing API Horse Results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: horse_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-horses-horse_id-standard
+      path: /v1/horses/{horse_id}/standard
+      operations:
+      - name: horsestandardv1horseshorseidstandardget
+        method: GET
+        description: The Racing API Horse Standard
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: horse_id
+          in: path
+          type: string
+          required: true
+    - name: v1-jockeys-search
+      path: /v1/jockeys/search
+      operations:
+      - name: jockeysearchv1jockeyssearchget
+        method: GET
+        description: The Racing API Jockey Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          required: true
+    - name: v1-jockeys-jockey_id-analysis-courses
+      path: /v1/jockeys/{jockey_id}/analysis/courses
+      operations:
+      - name: jockeycourseanalysisv1jockeysjockeyidanalysiscoursesget
+        method: GET
+        description: The Racing API Jockey Course Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: jockey_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-jockeys-jockey_id-analysis-distances
+      path: /v1/jockeys/{jockey_id}/analysis/distances
+      operations:
+      - name: jockeydistanceanalysisv1jockeysjockeyidanalysisdistancesget
+        method: GET
+        description: The Racing API Jockey Distance Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: jockey_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-jockeys-jockey_id-analysis-owners
+      path: /v1/jockeys/{jockey_id}/analysis/owners
+      operations:
+      - name: jockeyowneranalysisv1jockeysjockeyidanalysisownersget
+        method: GET
+        description: The Racing API Jockey Owner Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: jockey_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-jockeys-jockey_id-analysis-trainers
+      path: /v1/jockeys/{jockey_id}/analysis/trainers
+      operations:
+      - name: jockeytraineranalysisv1jockeysjockeyidanalysistrainersget
+        method: GET
+        description: The Racing API Jockey Trainer Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: jockey_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-jockeys-jockey_id-results
+      path: /v1/jockeys/{jockey_id}/results
+      operations:
+      - name: jockeyresultsv1jockeysjockeyidresultsget
+        method: GET
+        description: The Racing API Jockey Results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: jockey_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days
+            ago. Can query back to 1988-01-01.</p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's
+            date. Maximum range between start and end date is 365 days.<
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-odds-race_id-horse_id
+      path: /v1/odds/{race_id}/{horse_id}
+      operations:
+      - name: oddsrunnerv1oddsraceidhorseidget
+        method: GET
+        description: The Racing API Odds Runner
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: race_id
+          in: path
+          type: string
+          required: true
+        - name: horse_id
+          in: path
+          type: string
+          required: true
+    - name: v1-owners-search
+      path: /v1/owners/search
+      operations:
+      - name: ownersearchv1ownerssearchget
+        method: GET
+        description: The Racing API Owner Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          required: true
+    - name: v1-owners-owner_id-analysis-courses
+      path: /v1/owners/{owner_id}/analysis/courses
+      operations:
+      - name: ownercourseanalysisv1ownersowneridanalysiscoursesget
+        method: GET
+        description: The Racing API Owner Course Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-owners-owner_id-analysis-distances
+      path: /v1/owners/{owner_id}/analysis/distances
+      operations:
+      - name: ownerdistanceanalysisv1ownersowneridanalysisdistancesget
+        method: GET
+        description: The Racing API Owner Distance Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-owners-owner_id-analysis-jockeys
+      path: /v1/owners/{owner_id}/analysis/jockeys
+      operations:
+      - name: ownerjockeyanalysisv1ownersowneridanalysisjockeysget
+        method: GET
+        description: The Racing API Owner Jockey Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-owners-owner_id-analysis-trainers
+      path: /v1/owners/{owner_id}/analysis/trainers
+      operations:
+      - name: ownertraineranalysisv1ownersowneridanalysistrainersget
+        method: GET
+        description: The Racing API Owner Trainer Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-owners-owner_id-results
+      path: /v1/owners/{owner_id}/results
+      operations:
+      - name: ownerresultsv1ownersowneridresultsget
+        method: GET
+        description: The Racing API Owner Results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: owner_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days
+            ago. Can query back to 1988-01-01.</p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's
+            date. Maximum range between start and end date is 365 days.<
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-racecards-big-races
+      path: /v1/racecards/big-races
+      operations:
+      - name: racecardsbigracesv1racecardsbigracesget
+        method: GET
+        description: The Racing API Racecards Big Races
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p>Date must be today or
+            greater, defaults to today.</p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region_codes
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course_ids
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-racecards-pro
+      path: /v1/racecards/pro
+      operations:
+      - name: racecardsprov1racecardsproget
+        method: GET
+        description: The Racing API Racecards Pro
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: date
+          in: query
+          type: string
+          description: Query racecards by date with format YYYY-MM-DD (e.g 2023-04-05)
+        - name: region_codes
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course_ids
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-racecards-summaries
+      path: /v1/racecards/summaries
+      operations:
+      - name: racecardssummariesv1racecardssummariesget
+        method: GET
+        description: The Racing API Racecards Summaries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: date
+          in: query
+          type: string
+          description: Query racecard summaries by date with format YYYY-MM-DD (e.g 2023-04-05)
+        - name: region_codes
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course_ids
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+    - name: v1-racecards-race_id-pro
+      path: /v1/racecards/{race_id}/pro
+      operations:
+      - name: raceprov1racecardsraceidproget
+        method: GET
+        description: The Racing API Race Pro
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: race_id
+          in: path
+          type: string
+          required: true
+    - name: v1-results
+      path: /v1/results
+      operations:
+      - name: resultsv1resultsget
+        method: GET
+        description: The Racing API Results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days
+            ago. Limited to up to 365 days in the past; pro plan user
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's
+            date. Maximum range between start and end date is 365 days.<
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-results-today
+      path: /v1/results/today
+      operations:
+      - name: resultstodayv1resultstodayget
+        method: GET
+        description: The Racing API Results Today
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: region
+          in: query
+          type: string
+          description: <p>Query results by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_ge
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-results-race_id
+      path: /v1/results/{race_id}
+      operations:
+      - name: resultv1resultsraceidget
+        method: GET
+        description: The Racing API Result
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: race_id
+          in: path
+          type: string
+          required: true
+    - name: v1-sires-search
+      path: /v1/sires/search
+      operations:
+      - name: siresearchv1siressearchget
+        method: GET
+        description: The Racing API Sire Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          required: true
+    - name: v1-sires-sire_id-analysis-classes
+      path: /v1/sires/{sire_id}/analysis/classes
+      operations:
+      - name: sireprogenyclassanalysisv1siressireidanalysisclassesget
+        method: GET
+        description: The Racing API Sire Progeny Class Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sire_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-sires-sire_id-analysis-distances
+      path: /v1/sires/{sire_id}/analysis/distances
+      operations:
+      - name: sireprogenydistanceanalysisv1siressireidanalysisdistancesget
+        method: GET
+        description: The Racing API Sire Progeny Distance Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sire_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-sires-sire_id-results
+      path: /v1/sires/{sire_id}/results
+      operations:
+      - name: sireprogenyresultsv1siressireidresultsget
+        method: GET
+        description: The Racing API Sire Progeny Results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: sire_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days
+            ago. Can query back to 1988-01-01.</p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's
+            date. Maximum range between start and end date is 365 days.<
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    - name: v1-trainers-search
+      path: /v1/trainers/search
+      operations:
+      - name: trainersearchv1trainerssearchget
+        method: GET
+        description: The Racing API Trainer Search
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: name
+          in: query
+          type: string
+          required: true
+    - name: v1-trainers-trainer_id-analysis-courses
+      path: /v1/trainers/{trainer_id}/analysis/courses
+      operations:
+      - name: trainercourseanalysisv1trainerstraineridanalysiscoursesget
+        method: GET
+        description: The Racing API Trainer Course Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: trainer_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-trainers-trainer_id-analysis-distances
+      path: /v1/trainers/{trainer_id}/analysis/distances
+      operations:
+      - name: trainerdistanceanalysisv1trainerstraineridanalysisdistancesget
+        method: GET
+        description: The Racing API Trainer Distance Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: trainer_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-trainers-trainer_id-analysis-horse-age
+      path: /v1/trainers/{trainer_id}/analysis/horse-age
+      operations:
+      - name: trainerhorseageanalysisv1trainerstraineridanalysishorseageget
+        method: GET
+        description: The Racing API Trainer Horse Age Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: trainer_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-trainers-trainer_id-analysis-jockeys
+      path: /v1/trainers/{trainer_id}/analysis/jockeys
+      operations:
+      - name: trainerjockeyanalysisv1trainerstraineridanalysisjockeysget
+        method: GET
+        description: The Racing API Trainer Jockey Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: trainer_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-trainers-trainer_id-analysis-owners
+      path: /v1/trainers/{trainer_id}/analysis/owners
+      operations:
+      - name: trainerowneranalysisv1trainerstraineridanalysisownersget
+        method: GET
+        description: The Racing API Trainer Owner Analysis
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: trainer_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+    - name: v1-trainers-trainer_id-results
+      path: /v1/trainers/{trainer_id}/results
+      operations:
+      - name: trainerresultsv1trainerstraineridresultsget
+        method: GET
+        description: The Racing API Trainer Results
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: trainer_id
+          in: path
+          type: string
+          required: true
+        - name: start_date
+          in: query
+          type: string
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days
+            ago. Can query back to 1988-01-01.</p>
+        - name: end_date
+          in: query
+          type: string
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's
+            date. Maximum range between start and end date is 365 days.<
+        - name: region
+          in: query
+          type: string
+          description: <p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here<
+        - name: course
+          in: query
+          type: string
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        - name: type
+          in: query
+          type: string
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+        - name: going
+          in: query
+          type: string
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>,
+            <code>good_to_soft</code>, <code>good_to_yi'
+        - name: race_class
+          in: query
+          type: string
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>,
+            <code>class_4</code>, <code>class_5</code>, <code>class_6</co'
+        - name: min_distance_y
+          in: query
+          type: string
+          description: <p>Query by minimum race distance (yards)</p>
+        - name: max_distance_y
+          in: query
+          type: string
+          description: <p>Query by maximum race distance (yards)</p>
+        - name: age_band
+          in: query
+          type: string
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>,
+            <code>3-4yo</code>, <code>3-5yo</code>, <code>3'
+        - name: sex_restriction
+          in: query
+          type: string
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>,
+            <code>m</code>, <code>m&g</code></p>'
+        - name: limit
+          in: query
+          type: string
+        - name: skip
+          in: query
+          type: string
+    authentication:
+      type: basic
+      username: '{{env.THE_RACING_API_USER}}'
+      password: '{{env.THE_RACING_API_PASS}}'
+  exposes:
+  - type: rest
+    namespace: the-racing-pro-plan-rest
+    port: 8080
+    description: REST adapter for The Racing API — Pro Plan. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/v1/courses
+      name: v1-courses
+      description: REST surface for v1-courses.
+      operations:
+      - method: GET
+        name: coursesv1coursesget
+        description: The Racing API Courses
+        call: the-racing-pro-plan.coursesv1coursesget
+        with:
+          region_codes: rest.region_codes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/courses/regions
+      name: v1-courses-regions
+      description: REST surface for v1-courses-regions.
+      operations:
+      - method: GET
+        name: regionsv1coursesregionsget
+        description: The Racing API Regions
+        call: the-racing-pro-plan.regionsv1coursesregionsget
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/dams/search
+      name: v1-dams-search
+      description: REST surface for v1-dams-search.
+      operations:
+      - method: GET
+        name: damsearchv1damssearchget
+        description: The Racing API Dam Search
+        call: the-racing-pro-plan.damsearchv1damssearchget
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/dams/{dam-id}/analysis/classes
+      name: v1-dams-dam-id-analysis-classes
+      description: REST surface for v1-dams-dam_id-analysis-classes.
+      operations:
+      - method: GET
+        name: damprogenyclassanalysisv1damsdamidanalysisclassesget
+        description: The Racing API Dam Progeny Class Analysis
+        call: the-racing-pro-plan.damprogenyclassanalysisv1damsdamidanalysisclassesget
+        with:
+          dam_id: rest.dam_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/dams/{dam-id}/analysis/distances
+      name: v1-dams-dam-id-analysis-distances
+      description: REST surface for v1-dams-dam_id-analysis-distances.
+      operations:
+      - method: GET
+        name: damprogenydistanceanalysisv1damsdamidanalysisdistancesget
+        description: The Racing API Dam Progeny Distance Analysis
+        call: the-racing-pro-plan.damprogenydistanceanalysisv1damsdamidanalysisdistancesget
+        with:
+          dam_id: rest.dam_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/dams/{dam-id}/results
+      name: v1-dams-dam-id-results
+      description: REST surface for v1-dams-dam_id-results.
+      operations:
+      - method: GET
+        name: damprogenyresultsv1damsdamidresultsget
+        description: The Racing API Dam Progeny Results
+        call: the-racing-pro-plan.damprogenyresultsv1damsdamidresultsget
+        with:
+          dam_id: rest.dam_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/damsires/search
+      name: v1-damsires-search
+      description: REST surface for v1-damsires-search.
+      operations:
+      - method: GET
+        name: damsiresearchv1damsiressearchget
+        description: The Racing API Damsire Search
+        call: the-racing-pro-plan.damsiresearchv1damsiressearchget
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/damsires/{damsire-id}/analysis/classes
+      name: v1-damsires-damsire-id-analysis-classes
+      description: REST surface for v1-damsires-damsire_id-analysis-classes.
+      operations:
+      - method: GET
+        name: damsiregrandoffspringclassanalysisv1damsiresdamsireidanalysisclassesget
+        description: The Racing API Damsire Grandoffspring Class Analysis
+        call: the-racing-pro-plan.damsiregrandoffspringclassanalysisv1damsiresdamsireidanalysisclassesget
+        with:
+          damsire_id: rest.damsire_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/damsires/{damsire-id}/analysis/distances
+      name: v1-damsires-damsire-id-analysis-distances
+      description: REST surface for v1-damsires-damsire_id-analysis-distances.
+      operations:
+      - method: GET
+        name: damsiregrandoffspringdistanceanalysisv1damsiresdamsireidanalysisdistancesget
+        description: The Racing API Damsire Grandoffspring Distance Analysis
+        call: the-racing-pro-plan.damsiregrandoffspringdistanceanalysisv1damsiresdamsireidanalysisdistancesget
+        with:
+          damsire_id: rest.damsire_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/damsires/{damsire-id}/results
+      name: v1-damsires-damsire-id-results
+      description: REST surface for v1-damsires-damsire_id-results.
+      operations:
+      - method: GET
+        name: damsiregrandoffspringresultsv1damsiresdamsireidresultsget
+        description: The Racing API Damsire Grandoffspring Results
+        call: the-racing-pro-plan.damsiregrandoffspringresultsv1damsiresdamsireidresultsget
+        with:
+          damsire_id: rest.damsire_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/horses/search
+      name: v1-horses-search
+      description: REST surface for v1-horses-search.
+      operations:
+      - method: GET
+        name: horsesearchv1horsessearchget
+        description: The Racing API Horse Search
+        call: the-racing-pro-plan.horsesearchv1horsessearchget
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/horses/{horse-id}/analysis/distance-times
+      name: v1-horses-horse-id-analysis-distance-times
+      description: REST surface for v1-horses-horse_id-analysis-distance-times.
+      operations:
+      - method: GET
+        name: horsedistancetimeanalysisv1horseshorseidanalysisdistancetimesget
+        description: The Racing API Horse Distance Time Analysis
+        call: the-racing-pro-plan.horsedistancetimeanalysisv1horseshorseidanalysisdistancetimesget
+        with:
+          horse_id: rest.horse_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/horses/{horse-id}/pro
+      name: v1-horses-horse-id-pro
+      description: REST surface for v1-horses-horse_id-pro.
+      operations:
+      - method: GET
+        name: horseprov1horseshorseidproget
+        description: The Racing API Horse Pro
+        call: the-racing-pro-plan.horseprov1horseshorseidproget
+        with:
+          horse_id: rest.horse_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/horses/{horse-id}/results
+      name: v1-horses-horse-id-results
+      description: REST surface for v1-horses-horse_id-results.
+      operations:
+      - method: GET
+        name: horseresultsv1horseshorseidresultsget
+        description: The Racing API Horse Results
+        call: the-racing-pro-plan.horseresultsv1horseshorseidresultsget
+        with:
+          horse_id: rest.horse_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/horses/{horse-id}/standard
+      name: v1-horses-horse-id-standard
+      description: REST surface for v1-horses-horse_id-standard.
+      operations:
+      - method: GET
+        name: horsestandardv1horseshorseidstandardget
+        description: The Racing API Horse Standard
+        call: the-racing-pro-plan.horsestandardv1horseshorseidstandardget
+        with:
+          horse_id: rest.horse_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/jockeys/search
+      name: v1-jockeys-search
+      description: REST surface for v1-jockeys-search.
+      operations:
+      - method: GET
+        name: jockeysearchv1jockeyssearchget
+        description: The Racing API Jockey Search
+        call: the-racing-pro-plan.jockeysearchv1jockeyssearchget
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/jockeys/{jockey-id}/analysis/courses
+      name: v1-jockeys-jockey-id-analysis-courses
+      description: REST surface for v1-jockeys-jockey_id-analysis-courses.
+      operations:
+      - method: GET
+        name: jockeycourseanalysisv1jockeysjockeyidanalysiscoursesget
+        description: The Racing API Jockey Course Analysis
+        call: the-racing-pro-plan.jockeycourseanalysisv1jockeysjockeyidanalysiscoursesget
+        with:
+          jockey_id: rest.jockey_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/jockeys/{jockey-id}/analysis/distances
+      name: v1-jockeys-jockey-id-analysis-distances
+      description: REST surface for v1-jockeys-jockey_id-analysis-distances.
+      operations:
+      - method: GET
+        name: jockeydistanceanalysisv1jockeysjockeyidanalysisdistancesget
+        description: The Racing API Jockey Distance Analysis
+        call: the-racing-pro-plan.jockeydistanceanalysisv1jockeysjockeyidanalysisdistancesget
+        with:
+          jockey_id: rest.jockey_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/jockeys/{jockey-id}/analysis/owners
+      name: v1-jockeys-jockey-id-analysis-owners
+      description: REST surface for v1-jockeys-jockey_id-analysis-owners.
+      operations:
+      - method: GET
+        name: jockeyowneranalysisv1jockeysjockeyidanalysisownersget
+        description: The Racing API Jockey Owner Analysis
+        call: the-racing-pro-plan.jockeyowneranalysisv1jockeysjockeyidanalysisownersget
+        with:
+          jockey_id: rest.jockey_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/jockeys/{jockey-id}/analysis/trainers
+      name: v1-jockeys-jockey-id-analysis-trainers
+      description: REST surface for v1-jockeys-jockey_id-analysis-trainers.
+      operations:
+      - method: GET
+        name: jockeytraineranalysisv1jockeysjockeyidanalysistrainersget
+        description: The Racing API Jockey Trainer Analysis
+        call: the-racing-pro-plan.jockeytraineranalysisv1jockeysjockeyidanalysistrainersget
+        with:
+          jockey_id: rest.jockey_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/jockeys/{jockey-id}/results
+      name: v1-jockeys-jockey-id-results
+      description: REST surface for v1-jockeys-jockey_id-results.
+      operations:
+      - method: GET
+        name: jockeyresultsv1jockeysjockeyidresultsget
+        description: The Racing API Jockey Results
+        call: the-racing-pro-plan.jockeyresultsv1jockeysjockeyidresultsget
+        with:
+          jockey_id: rest.jockey_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/odds/{race-id}/{horse-id}
+      name: v1-odds-race-id-horse-id
+      description: REST surface for v1-odds-race_id-horse_id.
+      operations:
+      - method: GET
+        name: oddsrunnerv1oddsraceidhorseidget
+        description: The Racing API Odds Runner
+        call: the-racing-pro-plan.oddsrunnerv1oddsraceidhorseidget
+        with:
+          race_id: rest.race_id
+          horse_id: rest.horse_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/owners/search
+      name: v1-owners-search
+      description: REST surface for v1-owners-search.
+      operations:
+      - method: GET
+        name: ownersearchv1ownerssearchget
+        description: The Racing API Owner Search
+        call: the-racing-pro-plan.ownersearchv1ownerssearchget
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/owners/{owner-id}/analysis/courses
+      name: v1-owners-owner-id-analysis-courses
+      description: REST surface for v1-owners-owner_id-analysis-courses.
+      operations:
+      - method: GET
+        name: ownercourseanalysisv1ownersowneridanalysiscoursesget
+        description: The Racing API Owner Course Analysis
+        call: the-racing-pro-plan.ownercourseanalysisv1ownersowneridanalysiscoursesget
+        with:
+          owner_id: rest.owner_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/owners/{owner-id}/analysis/distances
+      name: v1-owners-owner-id-analysis-distances
+      description: REST surface for v1-owners-owner_id-analysis-distances.
+      operations:
+      - method: GET
+        name: ownerdistanceanalysisv1ownersowneridanalysisdistancesget
+        description: The Racing API Owner Distance Analysis
+        call: the-racing-pro-plan.ownerdistanceanalysisv1ownersowneridanalysisdistancesget
+        with:
+          owner_id: rest.owner_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/owners/{owner-id}/analysis/jockeys
+      name: v1-owners-owner-id-analysis-jockeys
+      description: REST surface for v1-owners-owner_id-analysis-jockeys.
+      operations:
+      - method: GET
+        name: ownerjockeyanalysisv1ownersowneridanalysisjockeysget
+        description: The Racing API Owner Jockey Analysis
+        call: the-racing-pro-plan.ownerjockeyanalysisv1ownersowneridanalysisjockeysget
+        with:
+          owner_id: rest.owner_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/owners/{owner-id}/analysis/trainers
+      name: v1-owners-owner-id-analysis-trainers
+      description: REST surface for v1-owners-owner_id-analysis-trainers.
+      operations:
+      - method: GET
+        name: ownertraineranalysisv1ownersowneridanalysistrainersget
+        description: The Racing API Owner Trainer Analysis
+        call: the-racing-pro-plan.ownertraineranalysisv1ownersowneridanalysistrainersget
+        with:
+          owner_id: rest.owner_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/owners/{owner-id}/results
+      name: v1-owners-owner-id-results
+      description: REST surface for v1-owners-owner_id-results.
+      operations:
+      - method: GET
+        name: ownerresultsv1ownersowneridresultsget
+        description: The Racing API Owner Results
+        call: the-racing-pro-plan.ownerresultsv1ownersowneridresultsget
+        with:
+          owner_id: rest.owner_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/big-races
+      name: v1-racecards-big-races
+      description: REST surface for v1-racecards-big-races.
+      operations:
+      - method: GET
+        name: racecardsbigracesv1racecardsbigracesget
+        description: The Racing API Racecards Big Races
+        call: the-racing-pro-plan.racecardsbigracesv1racecardsbigracesget
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region_codes: rest.region_codes
+          course_ids: rest.course_ids
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/pro
+      name: v1-racecards-pro
+      description: REST surface for v1-racecards-pro.
+      operations:
+      - method: GET
+        name: racecardsprov1racecardsproget
+        description: The Racing API Racecards Pro
+        call: the-racing-pro-plan.racecardsprov1racecardsproget
+        with:
+          date: rest.date
+          region_codes: rest.region_codes
+          course_ids: rest.course_ids
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/summaries
+      name: v1-racecards-summaries
+      description: REST surface for v1-racecards-summaries.
+      operations:
+      - method: GET
+        name: racecardssummariesv1racecardssummariesget
+        description: The Racing API Racecards Summaries
+        call: the-racing-pro-plan.racecardssummariesv1racecardssummariesget
+        with:
+          date: rest.date
+          region_codes: rest.region_codes
+          course_ids: rest.course_ids
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/racecards/{race-id}/pro
+      name: v1-racecards-race-id-pro
+      description: REST surface for v1-racecards-race_id-pro.
+      operations:
+      - method: GET
+        name: raceprov1racecardsraceidproget
+        description: The Racing API Race Pro
+        call: the-racing-pro-plan.raceprov1racecardsraceidproget
+        with:
+          race_id: rest.race_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/results
+      name: v1-results
+      description: REST surface for v1-results.
+      operations:
+      - method: GET
+        name: resultsv1resultsget
+        description: The Racing API Results
+        call: the-racing-pro-plan.resultsv1resultsget
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/results/today
+      name: v1-results-today
+      description: REST surface for v1-results-today.
+      operations:
+      - method: GET
+        name: resultstodayv1resultstodayget
+        description: The Racing API Results Today
+        call: the-racing-pro-plan.resultstodayv1resultstodayget
+        with:
+          region: rest.region
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/results/{race-id}
+      name: v1-results-race-id
+      description: REST surface for v1-results-race_id.
+      operations:
+      - method: GET
+        name: resultv1resultsraceidget
+        description: The Racing API Result
+        call: the-racing-pro-plan.resultv1resultsraceidget
+        with:
+          race_id: rest.race_id
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/sires/search
+      name: v1-sires-search
+      description: REST surface for v1-sires-search.
+      operations:
+      - method: GET
+        name: siresearchv1siressearchget
+        description: The Racing API Sire Search
+        call: the-racing-pro-plan.siresearchv1siressearchget
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/sires/{sire-id}/analysis/classes
+      name: v1-sires-sire-id-analysis-classes
+      description: REST surface for v1-sires-sire_id-analysis-classes.
+      operations:
+      - method: GET
+        name: sireprogenyclassanalysisv1siressireidanalysisclassesget
+        description: The Racing API Sire Progeny Class Analysis
+        call: the-racing-pro-plan.sireprogenyclassanalysisv1siressireidanalysisclassesget
+        with:
+          sire_id: rest.sire_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/sires/{sire-id}/analysis/distances
+      name: v1-sires-sire-id-analysis-distances
+      description: REST surface for v1-sires-sire_id-analysis-distances.
+      operations:
+      - method: GET
+        name: sireprogenydistanceanalysisv1siressireidanalysisdistancesget
+        description: The Racing API Sire Progeny Distance Analysis
+        call: the-racing-pro-plan.sireprogenydistanceanalysisv1siressireidanalysisdistancesget
+        with:
+          sire_id: rest.sire_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/sires/{sire-id}/results
+      name: v1-sires-sire-id-results
+      description: REST surface for v1-sires-sire_id-results.
+      operations:
+      - method: GET
+        name: sireprogenyresultsv1siressireidresultsget
+        description: The Racing API Sire Progeny Results
+        call: the-racing-pro-plan.sireprogenyresultsv1siressireidresultsget
+        with:
+          sire_id: rest.sire_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/trainers/search
+      name: v1-trainers-search
+      description: REST surface for v1-trainers-search.
+      operations:
+      - method: GET
+        name: trainersearchv1trainerssearchget
+        description: The Racing API Trainer Search
+        call: the-racing-pro-plan.trainersearchv1trainerssearchget
+        with:
+          name: rest.name
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/trainers/{trainer-id}/analysis/courses
+      name: v1-trainers-trainer-id-analysis-courses
+      description: REST surface for v1-trainers-trainer_id-analysis-courses.
+      operations:
+      - method: GET
+        name: trainercourseanalysisv1trainerstraineridanalysiscoursesget
+        description: The Racing API Trainer Course Analysis
+        call: the-racing-pro-plan.trainercourseanalysisv1trainerstraineridanalysiscoursesget
+        with:
+          trainer_id: rest.trainer_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/trainers/{trainer-id}/analysis/distances
+      name: v1-trainers-trainer-id-analysis-distances
+      description: REST surface for v1-trainers-trainer_id-analysis-distances.
+      operations:
+      - method: GET
+        name: trainerdistanceanalysisv1trainerstraineridanalysisdistancesget
+        description: The Racing API Trainer Distance Analysis
+        call: the-racing-pro-plan.trainerdistanceanalysisv1trainerstraineridanalysisdistancesget
+        with:
+          trainer_id: rest.trainer_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/trainers/{trainer-id}/analysis/horse-age
+      name: v1-trainers-trainer-id-analysis-horse-age
+      description: REST surface for v1-trainers-trainer_id-analysis-horse-age.
+      operations:
+      - method: GET
+        name: trainerhorseageanalysisv1trainerstraineridanalysishorseageget
+        description: The Racing API Trainer Horse Age Analysis
+        call: the-racing-pro-plan.trainerhorseageanalysisv1trainerstraineridanalysishorseageget
+        with:
+          trainer_id: rest.trainer_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/trainers/{trainer-id}/analysis/jockeys
+      name: v1-trainers-trainer-id-analysis-jockeys
+      description: REST surface for v1-trainers-trainer_id-analysis-jockeys.
+      operations:
+      - method: GET
+        name: trainerjockeyanalysisv1trainerstraineridanalysisjockeysget
+        description: The Racing API Trainer Jockey Analysis
+        call: the-racing-pro-plan.trainerjockeyanalysisv1trainerstraineridanalysisjockeysget
+        with:
+          trainer_id: rest.trainer_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/trainers/{trainer-id}/analysis/owners
+      name: v1-trainers-trainer-id-analysis-owners
+      description: REST surface for v1-trainers-trainer_id-analysis-owners.
+      operations:
+      - method: GET
+        name: trainerowneranalysisv1trainerstraineridanalysisownersget
+        description: The Racing API Trainer Owner Analysis
+        call: the-racing-pro-plan.trainerowneranalysisv1trainerstraineridanalysisownersget
+        with:
+          trainer_id: rest.trainer_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/v1/trainers/{trainer-id}/results
+      name: v1-trainers-trainer-id-results
+      description: REST surface for v1-trainers-trainer_id-results.
+      operations:
+      - method: GET
+        name: trainerresultsv1trainerstraineridresultsget
+        description: The Racing API Trainer Results
+        call: the-racing-pro-plan.trainerresultsv1trainerstraineridresultsget
+        with:
+          trainer_id: rest.trainer_id
+          start_date: rest.start_date
+          end_date: rest.end_date
+          region: rest.region
+          course: rest.course
+          type: rest.type
+          going: rest.going
+          race_class: rest.race_class
+          min_distance_y: rest.min_distance_y
+          max_distance_y: rest.max_distance_y
+          age_band: rest.age_band
+          sex_restriction: rest.sex_restriction
+          limit: rest.limit
+          skip: rest.skip
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: the-racing-pro-plan-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for The Racing API — Pro Plan. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: racing-api-courses
+      description: The Racing API Courses
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.coursesv1coursesget
+      with:
+        region_codes: tools.region_codes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-regions
+      description: The Racing API Regions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.regionsv1coursesregionsget
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-dam-search
+      description: The Racing API Dam Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.damsearchv1damssearchget
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-dam-progeny-class
+      description: The Racing API Dam Progeny Class Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.damprogenyclassanalysisv1damsdamidanalysisclassesget
+      with:
+        dam_id: tools.dam_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-dam-progeny-distance
+      description: The Racing API Dam Progeny Distance Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.damprogenydistanceanalysisv1damsdamidanalysisdistancesget
+      with:
+        dam_id: tools.dam_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-dam-progeny-results
+      description: The Racing API Dam Progeny Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.damprogenyresultsv1damsdamidresultsget
+      with:
+        dam_id: tools.dam_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-damsire-search
+      description: The Racing API Damsire Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.damsiresearchv1damsiressearchget
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-damsire-grandoffspring-class
+      description: The Racing API Damsire Grandoffspring Class Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.damsiregrandoffspringclassanalysisv1damsiresdamsireidanalysisclassesget
+      with:
+        damsire_id: tools.damsire_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-damsire-grandoffspring-distance
+      description: The Racing API Damsire Grandoffspring Distance Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.damsiregrandoffspringdistanceanalysisv1damsiresdamsireidanalysisdistancesget
+      with:
+        damsire_id: tools.damsire_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-damsire-grandoffspring-results
+      description: The Racing API Damsire Grandoffspring Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.damsiregrandoffspringresultsv1damsiresdamsireidresultsget
+      with:
+        damsire_id: tools.damsire_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-horse-search
+      description: The Racing API Horse Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.horsesearchv1horsessearchget
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-horse-distance-time
+      description: The Racing API Horse Distance Time Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.horsedistancetimeanalysisv1horseshorseidanalysisdistancetimesget
+      with:
+        horse_id: tools.horse_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-horse-pro
+      description: The Racing API Horse Pro
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.horseprov1horseshorseidproget
+      with:
+        horse_id: tools.horse_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-horse-results
+      description: The Racing API Horse Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.horseresultsv1horseshorseidresultsget
+      with:
+        horse_id: tools.horse_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-horse-standard
+      description: The Racing API Horse Standard
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.horsestandardv1horseshorseidstandardget
+      with:
+        horse_id: tools.horse_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-jockey-search
+      description: The Racing API Jockey Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.jockeysearchv1jockeyssearchget
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-jockey-course-analysis
+      description: The Racing API Jockey Course Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.jockeycourseanalysisv1jockeysjockeyidanalysiscoursesget
+      with:
+        jockey_id: tools.jockey_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-jockey-distance-analysis
+      description: The Racing API Jockey Distance Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.jockeydistanceanalysisv1jockeysjockeyidanalysisdistancesget
+      with:
+        jockey_id: tools.jockey_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-jockey-owner-analysis
+      description: The Racing API Jockey Owner Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.jockeyowneranalysisv1jockeysjockeyidanalysisownersget
+      with:
+        jockey_id: tools.jockey_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-jockey-trainer-analysis
+      description: The Racing API Jockey Trainer Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.jockeytraineranalysisv1jockeysjockeyidanalysistrainersget
+      with:
+        jockey_id: tools.jockey_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-jockey-results
+      description: The Racing API Jockey Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.jockeyresultsv1jockeysjockeyidresultsget
+      with:
+        jockey_id: tools.jockey_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-odds-runner
+      description: The Racing API Odds Runner
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.oddsrunnerv1oddsraceidhorseidget
+      with:
+        race_id: tools.race_id
+        horse_id: tools.horse_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-owner-search
+      description: The Racing API Owner Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.ownersearchv1ownerssearchget
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-owner-course-analysis
+      description: The Racing API Owner Course Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.ownercourseanalysisv1ownersowneridanalysiscoursesget
+      with:
+        owner_id: tools.owner_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-owner-distance-analysis
+      description: The Racing API Owner Distance Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.ownerdistanceanalysisv1ownersowneridanalysisdistancesget
+      with:
+        owner_id: tools.owner_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-owner-jockey-analysis
+      description: The Racing API Owner Jockey Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.ownerjockeyanalysisv1ownersowneridanalysisjockeysget
+      with:
+        owner_id: tools.owner_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-owner-trainer-analysis
+      description: The Racing API Owner Trainer Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.ownertraineranalysisv1ownersowneridanalysistrainersget
+      with:
+        owner_id: tools.owner_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-owner-results
+      description: The Racing API Owner Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.ownerresultsv1ownersowneridresultsget
+      with:
+        owner_id: tools.owner_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-racecards-big-races
+      description: The Racing API Racecards Big Races
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.racecardsbigracesv1racecardsbigracesget
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region_codes: tools.region_codes
+        course_ids: tools.course_ids
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-racecards-pro
+      description: The Racing API Racecards Pro
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.racecardsprov1racecardsproget
+      with:
+        date: tools.date
+        region_codes: tools.region_codes
+        course_ids: tools.course_ids
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-racecards-summaries
+      description: The Racing API Racecards Summaries
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.racecardssummariesv1racecardssummariesget
+      with:
+        date: tools.date
+        region_codes: tools.region_codes
+        course_ids: tools.course_ids
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-race-pro
+      description: The Racing API Race Pro
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.raceprov1racecardsraceidproget
+      with:
+        race_id: tools.race_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-results
+      description: The Racing API Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.resultsv1resultsget
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-results-today
+      description: The Racing API Results Today
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.resultstodayv1resultstodayget
+      with:
+        region: tools.region
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-result
+      description: The Racing API Result
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.resultv1resultsraceidget
+      with:
+        race_id: tools.race_id
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-sire-search
+      description: The Racing API Sire Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.siresearchv1siressearchget
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-sire-progeny-class
+      description: The Racing API Sire Progeny Class Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.sireprogenyclassanalysisv1siressireidanalysisclassesget
+      with:
+        sire_id: tools.sire_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-sire-progeny-distance
+      description: The Racing API Sire Progeny Distance Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.sireprogenydistanceanalysisv1siressireidanalysisdistancesget
+      with:
+        sire_id: tools.sire_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-sire-progeny-results
+      description: The Racing API Sire Progeny Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.sireprogenyresultsv1siressireidresultsget
+      with:
+        sire_id: tools.sire_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-trainer-search
+      description: The Racing API Trainer Search
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.trainersearchv1trainerssearchget
+      with:
+        name: tools.name
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-trainer-course-analysis
+      description: The Racing API Trainer Course Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.trainercourseanalysisv1trainerstraineridanalysiscoursesget
+      with:
+        trainer_id: tools.trainer_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-trainer-distance-analysis
+      description: The Racing API Trainer Distance Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.trainerdistanceanalysisv1trainerstraineridanalysisdistancesget
+      with:
+        trainer_id: tools.trainer_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-trainer-horse-age
+      description: The Racing API Trainer Horse Age Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.trainerhorseageanalysisv1trainerstraineridanalysishorseageget
+      with:
+        trainer_id: tools.trainer_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-trainer-jockey-analysis
+      description: The Racing API Trainer Jockey Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.trainerjockeyanalysisv1trainerstraineridanalysisjockeysget
+      with:
+        trainer_id: tools.trainer_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-trainer-owner-analysis
+      description: The Racing API Trainer Owner Analysis
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.trainerowneranalysisv1trainerstraineridanalysisownersget
+      with:
+        trainer_id: tools.trainer_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: racing-api-trainer-results
+      description: The Racing API Trainer Results
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: the-racing-pro-plan.trainerresultsv1trainerstraineridresultsget
+      with:
+        trainer_id: tools.trainer_id
+        start_date: tools.start_date
+        end_date: tools.end_date
+        region: tools.region
+        course: tools.course
+        type: tools.type
+        going: tools.going
+        race_class: tools.race_class
+        min_distance_y: tools.min_distance_y
+        max_distance_y: tools.max_distance_y
+        age_band: tools.age_band
+        sex_restriction: tools.sex_restriction
+        limit: tools.limit
+        skip: tools.skip
+      outputParameters:
+      - type: object
+        mapping: $.
