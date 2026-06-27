@@ -61,7 +61,7 @@ common:
     url: https://www.theracingapi.com/
   - type: Documentation
     url: https://api.theracingapi.com/documentation
-  - type: SignUp
+  - type: Signup
     url: https://www.theracingapi.com/register
   - type: Dashboard
     url: https://www.theracingapi.com/dashboard
