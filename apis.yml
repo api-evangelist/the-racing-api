@@ -53,6 +53,10 @@ apis:
         url: json-ld/the-racing-api-context.jsonld
         title: The Racing API JSON-LD Context
 common:
+  - type: DomainSecurity
+    url: security/the-racing-api-domain-security.yml
+  - type: Authentication
+    url: authentication/the-racing-api-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/theracingapi
   - type: LinkedIn

@@ -1,0 +1,12 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/the-racing-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: HTTPBasic
+  type: http
+  scheme: basic
+  sources:
+  - openapi/the-racing-api-openapi.yml
