@@ -53,6 +53,8 @@ apis:
         url: json-ld/the-racing-api-context.jsonld
         title: The Racing API JSON-LD Context
 common:
+  - type: AgenticAccess
+    url: agentic-access/the-racing-api-agentic-access.yml
   - type: DomainSecurity
     url: security/the-racing-api-domain-security.yml
   - type: Authentication

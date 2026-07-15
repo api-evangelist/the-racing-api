@@ -1,0 +1,594 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/the-racing-api-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 58
+  by_action_class:
+    connected: 58
+  by_consequence:
+    read: 58
+  human_in_the_loop_required: 0
+operations:
+- path: /v1/courses/regions
+  method: get
+  operationId: regions_v1_courses_regions_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/courses
+  method: get
+  operationId: courses_v1_courses_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/dams/search
+  method: get
+  operationId: dam_search_v1_dams_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/dams/{dam_id}/results
+  method: get
+  operationId: dam_progeny_results_v1_dams__dam_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/dams/{dam_id}/analysis/classes
+  method: get
+  operationId: dam_progeny_class_analysis_v1_dams__dam_id__analysis_classes_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/dams/{dam_id}/analysis/distances
+  method: get
+  operationId: dam_progeny_distance_analysis_v1_dams__dam_id__analysis_distances_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/damsires/search
+  method: get
+  operationId: damsire_search_v1_damsires_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/damsires/{damsire_id}/results
+  method: get
+  operationId: damsire_grandoffspring_results_v1_damsires__damsire_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/damsires/{damsire_id}/analysis/classes
+  method: get
+  operationId: damsire_grandoffspring_class_analysis_v1_damsires__damsire_id__analysis_classes_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/damsires/{damsire_id}/analysis/distances
+  method: get
+  operationId: damsire_grandoffspring_distance_analysis_v1_damsires__damsire_id__analysis_distances_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/horses/search
+  method: get
+  operationId: horse_search_v1_horses_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/horses/{horse_id}/results
+  method: get
+  operationId: horse_results_v1_horses__horse_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/horses/{horse_id}/analysis/distance-times
+  method: get
+  operationId: horse_distance_time_analysis_v1_horses__horse_id__analysis_distance_times_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/horses/{horse_id}/standard
+  method: get
+  operationId: horse_standard_v1_horses__horse_id__standard_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/horses/{horse_id}/pro
+  method: get
+  operationId: horse_pro_v1_horses__horse_id__pro_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/jockeys/search
+  method: get
+  operationId: jockey_search_v1_jockeys_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/jockeys/{jockey_id}/results
+  method: get
+  operationId: jockey_results_v1_jockeys__jockey_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/jockeys/{jockey_id}/analysis/courses
+  method: get
+  operationId: jockey_course_analysis_v1_jockeys__jockey_id__analysis_courses_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/jockeys/{jockey_id}/analysis/distances
+  method: get
+  operationId: jockey_distance_analysis_v1_jockeys__jockey_id__analysis_distances_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/jockeys/{jockey_id}/analysis/owners
+  method: get
+  operationId: jockey_owner_analysis_v1_jockeys__jockey_id__analysis_owners_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/jockeys/{jockey_id}/analysis/trainers
+  method: get
+  operationId: jockey_trainer_analysis_v1_jockeys__jockey_id__analysis_trainers_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/odds/{race_id}/{horse_id}
+  method: get
+  operationId: odds_runner_v1_odds__race_id___horse_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/owners/search
+  method: get
+  operationId: owner_search_v1_owners_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/owners/{owner_id}/results
+  method: get
+  operationId: owner_results_v1_owners__owner_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/owners/{owner_id}/analysis/courses
+  method: get
+  operationId: owner_course_analysis_v1_owners__owner_id__analysis_courses_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/owners/{owner_id}/analysis/distances
+  method: get
+  operationId: owner_distance_analysis_v1_owners__owner_id__analysis_distances_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/owners/{owner_id}/analysis/jockeys
+  method: get
+  operationId: owner_jockey_analysis_v1_owners__owner_id__analysis_jockeys_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/owners/{owner_id}/analysis/trainers
+  method: get
+  operationId: owner_trainer_analysis_v1_owners__owner_id__analysis_trainers_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/free
+  method: get
+  operationId: racecards_free_v1_racecards_free_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/basic
+  method: get
+  operationId: racecards_basic_v1_racecards_basic_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/standard
+  method: get
+  operationId: racecards_standard_v1_racecards_standard_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/pro
+  method: get
+  operationId: racecards_pro_v1_racecards_pro_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/big-races
+  method: get
+  operationId: racecards_big_races_v1_racecards_big_races_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/summaries
+  method: get
+  operationId: racecards_summaries_v1_racecards_summaries_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/{horse_id}/results
+  method: get
+  operationId: racecard_horse_results_v1_racecards__horse_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/{race_id}/standard
+  method: get
+  operationId: race_standard_v1_racecards__race_id__standard_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/{race_id}/pro
+  method: get
+  operationId: race_pro_v1_racecards__race_id__pro_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/results
+  method: get
+  operationId: results_v1_results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/results/today
+  method: get
+  operationId: results_today_v1_results_today_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/results/today/free
+  method: get
+  operationId: results_today_free_v1_results_today_free_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/results/{race_id}
+  method: get
+  operationId: result_v1_results__race_id__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/sires/search
+  method: get
+  operationId: sire_search_v1_sires_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/sires/{sire_id}/results
+  method: get
+  operationId: sire_progeny_results_v1_sires__sire_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/sires/{sire_id}/analysis/classes
+  method: get
+  operationId: sire_progeny_class_analysis_v1_sires__sire_id__analysis_classes_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/sires/{sire_id}/analysis/distances
+  method: get
+  operationId: sire_progeny_distance_analysis_v1_sires__sire_id__analysis_distances_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/trainers/search
+  method: get
+  operationId: trainer_search_v1_trainers_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/trainers/{trainer_id}/results
+  method: get
+  operationId: trainer_results_v1_trainers__trainer_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/trainers/{trainer_id}/analysis/horse-age
+  method: get
+  operationId: trainer_horse_age_analysis_v1_trainers__trainer_id__analysis_horse_age_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/trainers/{trainer_id}/analysis/courses
+  method: get
+  operationId: trainer_course_analysis_v1_trainers__trainer_id__analysis_courses_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/trainers/{trainer_id}/analysis/distances
+  method: get
+  operationId: trainer_distance_analysis_v1_trainers__trainer_id__analysis_distances_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/trainers/{trainer_id}/analysis/jockeys
+  method: get
+  operationId: trainer_jockey_analysis_v1_trainers__trainer_id__analysis_jockeys_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/trainers/{trainer_id}/analysis/owners
+  method: get
+  operationId: trainer_owner_analysis_v1_trainers__trainer_id__analysis_owners_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/north-america/meets
+  method: get
+  operationId: meets_v1_north_america_meets_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/north-america/meets/{meet_id}/entries
+  method: get
+  operationId: meet_entries_v1_north_america_meets__meet_id__entries_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/north-america/meets/{meet_id}/results
+  method: get
+  operationId: meet_results_v1_north_america_meets__meet_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/australia/meets
+  method: get
+  operationId: meets_v1_australia_meets_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/australia/meets/{meet_id}/races
+  method: get
+  operationId: races_by_meet_v1_australia_meets__meet_id__races_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/australia/meets/{meet_id}/races/{race_number}
+  method: get
+  operationId: race_v1_australia_meets__meet_id__races__race_number__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
