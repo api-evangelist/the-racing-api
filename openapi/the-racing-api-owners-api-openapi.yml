@@ -1,0 +1,2227 @@
+openapi: 3.1.0
+info:
+  title: The Racing Australia Owners API
+  version: 1.4.3
+  x-logo:
+    url: https://www.theracingapi.com/static/images/logo_padded.png
+  description: High performance API for horse racing statistical modelling, application development and web content. Complete coverage of UK, Irish and Hong Kong horse racing.
+  contact:
+    url: https://www.theracingapi.com/
+  x-generated-from: official-openapi-spec
+servers:
+- url: https://api.theracingapi.com
+  description: Production server
+tags:
+- name: Owners
+paths:
+  /v1/owners/search:
+    get:
+      tags:
+      - Owners
+      summary: The Racing API Owner Search
+      description: <h4>Search owners by name</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      operationId: owner_search_v1_owners_search_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: name
+        in: query
+        required: true
+        schema:
+          type: string
+          title: Name
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Owners'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/owners/search
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/owners/search"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/owners/search\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/owners/search?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/owners/search'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/owners/search\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/owners/search?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/owners/search?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/owners/{owner_id}/results:
+    get:
+      tags:
+      - Owners
+      summary: The Racing API Owner Results
+      description: <h4>Get full historical results for an owner</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Pro</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      operationId: owner_results_v1_owners__owner_id__results_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: owner_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Owner Id
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days ago. Can query back to 1988-01-01.</p>
+          title: Start Date
+        description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days ago. Can query back to 1988-01-01.</p>
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's date. Maximum range between start and end date is 365 days.</p>
+          title: End Date
+        description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's date. Maximum range between start and end date is 365 days.</p>
+      - name: region
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+          title: Region
+        description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+      - name: course
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+          title: Course
+        description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+      - name: type
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+          title: Type
+        description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+      - name: going
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+          title: Going
+        description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+      - name: race_class
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+          title: Race Class
+        description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+      - name: min_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by minimum race distance (yards)</p>
+          title: Min Distance Y
+        description: <p>Query by minimum race distance (yards)</p>
+      - name: max_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by maximum race distance (yards)</p>
+          title: Max Distance Y
+        description: <p>Query by maximum race distance (yards)</p>
+      - name: age_band
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+          title: Age Band
+        description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+      - name: sex_restriction
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+          title: Sex Restriction
+        description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+      - name: limit
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 100
+            minimum: 1
+          - type: 'null'
+          title: Limit
+          default: 50
+      - name: skip
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 20000
+          - type: 'null'
+          title: Skip
+          default: 0
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultsStandardPage'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/owners/{owner_id}/results
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/owners/{owner_id}/results"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/owners/{owner_id}/results\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/owners/{owner_id}/results?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/owners/{owner_id}/results'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/owners/{owner_id}/results\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/owners/{owner_id}/results?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/owners/{owner_id}/results?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/owners/{owner_id}/analysis/courses:
+    get:
+      tags:
+      - Owners
+      summary: The Racing API Owner Course Analysis
+      description: <h4>Get owner statistics by course</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      operationId: owner_course_analysis_v1_owners__owner_id__analysis_courses_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: owner_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Owner Id
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+          title: Start Date
+        description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+          title: End Date
+        description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+      - name: region
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+          title: Region
+        description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+      - name: course
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+          title: Course
+        description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+      - name: type
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+          title: Type
+        description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+      - name: going
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+          title: Going
+        description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+      - name: race_class
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+          title: Race Class
+        description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+      - name: min_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by minimum race distance (yards)</p>
+          title: Min Distance Y
+        description: <p>Query by minimum race distance (yards)</p>
+      - name: max_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by maximum race distance (yards)</p>
+          title: Max Distance Y
+        description: <p>Query by maximum race distance (yards)</p>
+      - name: age_band
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+          title: Age Band
+        description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+      - name: sex_restriction
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+          title: Sex Restriction
+        description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OwnerCourseAnalysis'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/owners/{owner_id}/analysis/courses
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/owners/{owner_id}/analysis/courses"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/courses\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/owners/{owner_id}/analysis/courses?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/owners/{owner_id}/analysis/courses'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/courses\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/courses?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/courses?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/owners/{owner_id}/analysis/distances:
+    get:
+      tags:
+      - Owners
+      summary: The Racing API Owner Distance Analysis
+      description: <h4>Get owner statistics by race distance</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      operationId: owner_distance_analysis_v1_owners__owner_id__analysis_distances_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: owner_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Owner Id
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+          title: Start Date
+        description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+          title: End Date
+        description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+      - name: region
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+          title: Region
+        description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+      - name: course
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+          title: Course
+        description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+      - name: type
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+          title: Type
+        description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+      - name: going
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+          title: Going
+        description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+      - name: race_class
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+          title: Race Class
+        description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+      - name: min_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by minimum race distance (yards)</p>
+          title: Min Distance Y
+        description: <p>Query by minimum race distance (yards)</p>
+      - name: max_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by maximum race distance (yards)</p>
+          title: Max Distance Y
+        description: <p>Query by maximum race distance (yards)</p>
+      - name: age_band
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+          title: Age Band
+        description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+      - name: sex_restriction
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+          title: Sex Restriction
+        description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OwnerDistanceAnalysis'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/owners/{owner_id}/analysis/distances
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/owners/{owner_id}/analysis/distances"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/distances\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/owners/{owner_id}/analysis/distances?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/owners/{owner_id}/analysis/distances'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/distances\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/distances?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/distances?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/owners/{owner_id}/analysis/jockeys:
+    get:
+      tags:
+      - Owners
+      summary: The Racing API Owner Jockey Analysis
+      description: <h4>Get owner statistics by jockey</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      operationId: owner_jockey_analysis_v1_owners__owner_id__analysis_jockeys_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: owner_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Owner Id
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+          title: Start Date
+        description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+          title: End Date
+        description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+      - name: region
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+          title: Region
+        description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+      - name: course
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+          title: Course
+        description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+      - name: type
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+          title: Type
+        description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+      - name: going
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+          title: Going
+        description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+      - name: race_class
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+          title: Race Class
+        description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+      - name: min_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by minimum race distance (yards)</p>
+          title: Min Distance Y
+        description: <p>Query by minimum race distance (yards)</p>
+      - name: max_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by maximum race distance (yards)</p>
+          title: Max Distance Y
+        description: <p>Query by maximum race distance (yards)</p>
+      - name: age_band
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+          title: Age Band
+        description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+      - name: sex_restriction
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+          title: Sex Restriction
+        description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OwnerJockeyAnalysis'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/owners/{owner_id}/analysis/jockeys
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/owners/{owner_id}/analysis/jockeys"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/jockeys\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/owners/{owner_id}/analysis/jockeys?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/owners/{owner_id}/analysis/jockeys'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/jockeys\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/jockeys?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/jockeys?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/owners/{owner_id}/analysis/trainers:
+    get:
+      tags:
+      - Owners
+      summary: The Racing API Owner Trainer Analysis
+      description: <h4>Get owner statistics by trainer</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      operationId: owner_trainer_analysis_v1_owners__owner_id__analysis_trainers_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: owner_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Owner Id
+      - name: start_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+          title: Start Date
+        description: <p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+      - name: end_date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+          title: End Date
+        description: <p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>
+      - name: region
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+          title: Region
+        description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+      - name: course
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+          title: Course
+        description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+      - name: type
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+          title: Type
+        description: '<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>'
+      - name: going
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+          title: Going
+        description: '<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>'
+      - name: race_class
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+          title: Race Class
+        description: '<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>'
+      - name: min_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by minimum race distance (yards)</p>
+          title: Min Distance Y
+        description: <p>Query by minimum race distance (yards)</p>
+      - name: max_distance_y
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          description: <p>Query by maximum race distance (yards)</p>
+          title: Max Distance Y
+        description: <p>Query by maximum race distance (yards)</p>
+      - name: age_band
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+          title: Age Band
+        description: '<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>'
+      - name: sex_restriction
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+          title: Sex Restriction
+        description: '<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OwnerTrainerAnalysis'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/owners/{owner_id}/analysis/trainers
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/owners/{owner_id}/analysis/trainers"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/trainers\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/owners/{owner_id}/analysis/trainers?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/owners/{owner_id}/analysis/trainers'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/trainers\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/trainers?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/owners/{owner_id}/analysis/trainers?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    OwnerJockeyAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        owner:
+          type: string
+          title: Owner
+        total_runners:
+          type: integer
+          title: Total Runners
+        jockeys:
+          items:
+            $ref: '#/components/schemas/app__models__owners__Jockey'
+          type: array
+          title: Jockeys
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - owner
+      - total_runners
+      - jockeys
+      - query
+      title: OwnerJockeyAnalysis
+      example:
+        id: own_199380
+        jockeys:
+        - 1_pl: 40.0
+          1st: 150
+          2nd: 90
+          3rd: 80
+          4th: 60
+          a/e: 1.02
+          jockey: William Buick
+          jockey_id: jky_257379
+          runners: 600
+          win_%: 0.25
+        owner: Godolphin
+        query:
+        - - owner_id
+          - own_199380
+        total_runners: 5938
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    OwnerDistanceAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        owner:
+          type: string
+          title: Owner
+        total_runners:
+          type: integer
+          title: Total Runners
+        distances:
+          items:
+            $ref: '#/components/schemas/app__models__owners__Distance'
+          type: array
+          title: Distances
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - owner
+      - total_runners
+      - distances
+      - query
+      title: OwnerDistanceAnalysis
+      example:
+        distances:
+        - 1_pl: 10.27
+          1st: 239
+          2nd: 144
+          3rd: 163
+          4th: 114
+          a/e: 0.99
+          dist: 1m
+          dist_f: 8f
+          dist_m: '1609'
+          dist_y: '1760'
+          runners: 1279
+          win_%: 0.19
+        id: own_199380
+        owner: Godolphin
+        query:
+        - - owner_id
+          - own_199380
+        total_runners: 5938
+    RunnerStandard:
+      properties:
+        horse_id:
+          type: string
+          title: Horse Id
+        horse:
+          type: string
+          title: Horse
+        sp:
+          type: string
+          title: Sp
+        sp_dec:
+          type: string
+          title: Sp Dec
+        bsp:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Bsp
+          default: ''
+        number:
+          type: string
+          title: Number
+        position:
+          type: string
+          title: Position
+        draw:
+          type: string
+          title: Draw
+        btn:
+          type: string
+          title: Btn
+        ovr_btn:
+          type: string
+          title: Ovr Btn
+        age:
+          type: string
+          title: Age
+        sex:
+          type: string
+          title: Sex
+        weight:
+          type: string
+          title: Weight
+        weight_lbs:
+          type: string
+          title: Weight Lbs
+        headgear:
+          type: string
+          title: Headgear
+        time:
+          type: string
+          title: Time
+        or:
+          type: string
+          title: Or
+        rpr:
+          type: string
+          title: Rpr
+        tsr:
+          type: string
+          title: Tsr
+        prize:
+          type: string
+          title: Prize
+        jockey:
+          type: string
+          title: Jockey
+        jockey_claim_lbs:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jockey Claim Lbs
+          default: '0'
+        jockey_id:
+          type: string
+          title: Jockey Id
+        trainer:
+          type: string
+          title: Trainer
+        trainer_id:
+          type: string
+          title: Trainer Id
+        owner:
+          type: string
+          title: Owner
+        owner_id:
+          type: string
+          title: Owner Id
+        sire:
+          type: string
+          title: Sire
+        sire_id:
+          type: string
+          title: Sire Id
+        dam:
+          type: string
+          title: Dam
+        dam_id:
+          type: string
+          title: Dam Id
+        damsire:
+          type: string
+          title: Damsire
+        damsire_id:
+          type: string
+          title: Damsire Id
+        comment:
+          type: string
+          title: Comment
+        silk_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Silk Url
+          default: ''
+      type: object
+      required:
+      - horse_id
+      - horse
+      - sp
+      - sp_dec
+      - number
+      - position
+      - draw
+      - btn
+      - ovr_btn
+      - age
+      - sex
+      - weight
+      - weight_lbs
+      - headgear
+      - time
+      - or
+      - rpr
+      - tsr
+      - prize
+      - jockey
+      - jockey_id
+      - trainer
+      - trainer_id
+      - owner
+      - owner_id
+      - sire
+      - sire_id
+      - dam
+      - dam_id
+      - damsire
+      - damsire_id
+      - comment
+      title: RunnerStandard
+      example:
+        age: '8'
+        bsp: '11.26'
+        btn: '0'
+        comment: Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)
+        dam: Save Me The Waltz (FR)
+        dam_id: dam_4189605
+        damsire: Halling
+        damsire_id: dsi_675241
+        draw: ''
+        headgear: v
+        horse: Mephisto (IRE)
+        horse_id: hrs_19359270
+        jockey: Shane Fitzgerald
+        jockey_claim_lbs: '0'
+        jockey_id: jky_302916
+        number: '2'
+        or: '98'
+        ovr_btn: '0'
+        owner: Restricted Movement Syndicate
+        owner_id: own_1204876
+        position: '1'
+        prize: €5900
+        rpr: '105'
+        sex: G
+        silk_url: https://www.url-for-silk.com/svg/456789.svg
+        sire: Kendargent (FR)
+        sire_id: sir_4514419
+        sp: 15/2
+        sp_dec: '8.50'
+        time: '5:44.90'
+        trainer: Gerard Keane
+        trainer_id: trn_86382
+        tsr: '64'
+        weight: 11-12
+        weight_lbs: '166'
+    app__models__owners__Jockey:
+      properties:
+        jockey_id:
+          type: string
+          title: Jockey Id
+        jockey:
+          type: string
+          title: Jockey
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - jockey_id
+      - jockey
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Jockey
+      example:
+        1_pl: 40.0
+        1st: 150
+        2nd: 90
+        3rd: 80
+        4th: 60
+        a/e: 1.02
+        jockey: William Buick
+        jockey_id: jky_257379
+        runners: 600
+        win_%: 0.25
+    Owners:
+      properties:
+        search_results:
+          items:
+            $ref: '#/components/schemas/app__models__owners__Owner'
+          type: array
+          title: Search Results
+      type: object
+      required:
+      - search_results
+      title: Owners
+      example:
+        search_results:
+        - id: own_199380
+          name: Godolphin
+        - id: own_724272
+          name: Miss J Deadman & S Barrow
+    OwnerTrainerAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        owner:
+          type: string
+          title: Owner
+        total_runners:
+          type: integer
+          title: Total Runners
+        trainers:
+          items:
+            $ref: '#/components/schemas/app__models__owners__Trainer'
+          type: array
+          title: Trainers
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - owner
+      - total_runners
+      - trainers
+      - query
+      title: OwnerTrainerAnalysis
+      example:
+        id: own_199380
+        owner: Godolphin
+        query:
+        - - owner_id
+          - own_199380
+        total_runners: 5938
+        trainers:
+        - 1_pl: 50.0
+          1st: 200
+          2nd: 120
+          3rd: 100
+          4th: 80
+          a/e: 1.05
+          runners: 800
+          trainer: Charlie Appleby
+          trainer_id: trn_255042
+          win_%: 0.25
+    app__models__owners__Trainer:
+      properties:
+        trainer_id:
+          type: string
+          title: Trainer Id
+        trainer:
+          type: string
+          title: Trainer
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - trainer_id
+      - trainer
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Trainer
+      example:
+        1_pl: 50.0
+        1st: 200
+        2nd: 120
+        3rd: 100
+        4th: 80
+        a/e: 1.05
+        runners: 800
+        trainer: Charlie Appleby
+        trainer_id: trn_255042
+        win_%: 0.25
+    app__models__owners__Course:
+      properties:
+        course:
+          type: string
+          title: Course
+        course_id:
+          type: string
+          title: Course Id
+        region:
+          type: string
+          title: Region
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - course
+      - course_id
+      - region
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Course
+      example:
+        1_pl: 15.0
+        1st: 100
+        2nd: 80
+        3rd: 60
+        4th: 50
+        a/e: 1.02
+        course: Newmarket
+        course_id: crs_988
+        region: GB
+        runners: 500
+        win_%: 0.2
+    app__models__owners__Distance:
+      properties:
+        dist:
+          type: string
+          title: Dist
+        dist_y:
+          type: string
+          title: Dist Y
+        dist_m:
+          type: string
+          title: Dist M
+        dist_f:
+          type: string
+          title: Dist F
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Distance
+      example:
+        1_pl: 10.27
+        1st: 239
+        2nd: 144
+        3rd: 163
+        4th: 114
+        a/e: 0.99
+        dist: 1m
+        dist_f: 8f
+        dist_m: '1609'
+        dist_y: '1760'
+        runners: 1279
+        win_%: 0.19
+    OwnerCourseAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        owner:
+          type: string
+          title: Owner
+        total_runners:
+          type: integer
+          title: Total Runners
+        courses:
+          items:
+            $ref: '#/components/schemas/app__models__owners__Course'
+          type: array
+          title: Courses
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - owner
+      - total_runners
+      - courses
+      - query
+      title: OwnerCourseAnalysis
+      example:
+        courses:
+        - 1_pl: 15.0
+          1st: 100
+          2nd: 80
+          3rd: 60
+          4th: 50
+          a/e: 1.02
+          course: Newmarket
+          course_id: crs_988
+          region: GB
+          runners: 500
+          win_%: 0.2
+        id: own_199380
+        owner: Godolphin
+        query:
+        - - owner_id
+          - own_199380
+        total_runners: 5938
+    app__models__owners__Owner:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: Owner
+      example:
+        id: own_199380
+        name: Godolphin
+    ResultsStandardPage:
+      properties:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsStandardPage
+    ResultStandard:
+      properties:
+        race_id:
+          type: string
+          title: Race Id
+        date:
+          type: string
+          title: Date
+        region:
+          type: string
+          title: Region
+        course:
+          type: string
+          title: Course
+        course_id:
+          type: string
+          title: Course Id
+        'off':
+          type: string
+          title: 'Off'
+        off_dt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Dt
+          default: ''
+        race_name:
+          type: string
+          title: Race Name
+        type:
+          type: string
+          title: Type
+        class:
+          type: string
+          title: Class
+        pattern:
+          type: string
+          title: Pattern
+        rating_band:
+          type: string
+          title: Rating Band
+        age_band:
+          type: string
+          title: Age Band
+        sex_rest:
+          type: string
+          title: Sex Rest
+        dist:
+          type: string
+          title: Dist
+        dist_y:
+          type: string
+          title: Dist Y
+        dist_m:
+          type: string
+          title: Dist M
+        dist_f:
+          type: string
+          title: Dist F
+        going:
+          type: string
+          title: Going
+        surface:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Surface
+          default: ''
+        jumps:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jumps
+          default: ''
+        runners:
+          items:
+            $ref: '#/components/schemas/RunnerStandard'
+          type: array
+          title: Runners
+        winning_time_detail:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Winning Time Detail
+          default: ''
+        comments:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Comments
+          default: ''
+        non_runners:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Non Runners
+          default: ''
+        tote_win:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Win
+          default: ''
+        tote_pl:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Pl
+          default: ''
+        tote_ex:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Ex
+          default: ''
+        tote_csf:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Csf
+          default: ''
+        tote_tricast:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Tricast
+          default: ''
+        tote_trifecta:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Trifecta
+          default: ''
+      type: object
+      required:
+      - race_id
+      - date
+      - region
+      - course
+      - course_id
+      - 'off'
+      - race_name
+      - type
+      - class
+      - pattern
+      - rating_band
+      - age_band
+      - sex_rest
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
+      - going
+      - runners
+      title: ResultStandard
+      example:
+        age_band: 4yo+
+        class: ''
+        comments: ''
+        course: Ballinrobe (IRE)
+        course_id: crs_4550
+        date: '2025-08-11'
+        dist: 2m7f
+        dist_f: 23f
+        dist_m: '4625'
+        dist_y: '5058'
+        going: Good
+        jumps: 12 hurdles
+        non_runners: Diamonds Diva (reserve), Great Rainbow (reserve), Loughrask Rainbow (reserve)
+        'off': '8:25'
+        off_dt: '2025-08-11T20:25:00+01:00'
+        pattern: ''
+        race_id: rac_11715730
+        race_name: J.J. Burke Peugeot Handicap Hurdle
+        rating_band: 0-100
+        region: IRE
+        runners:
+        - age: '8'
+          bsp: '11.26'
+          btn: '0'
+          comment: Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)
+          dam: Save Me The Waltz (FR)
+          dam_id: dam_4189605
+          damsire: Halling
+          damsire_id: dsi_675241
+          draw: ''
+          headgear: v
+          horse: Mephisto (IRE)
+          horse_id: hrs_19359270
+          jockey: Shane Fitzgerald
+          jockey_claim_lbs: '0'
+          jockey_id: jky_302916
+          number: '2'
+          or: '98'
+          ovr_btn: '0'
+          owner: Restricted Movement Syndicate
+          owner_id: own_1204876
+          position: '1'
+          prize: €5900
+          rpr: '105'
+          sex: G
+          silk_url: https://www.url-for-silk.com/svg/456789.svg
+          sire: Kendargent (FR)
+          sire_id: sir_4514419
+          sp: 15/2
+          sp_dec: '8.50'
+          time: '5:44.90'
+          trainer: Gerard Keane
+          trainer_id: trn_86382
+          tsr: '64'
+          weight: 11-12
+          weight_lbs: '166'
+        sex_rest: ''
+        surface: Turf
+        tote_csf: €300.55
+        tote_ex: €253.10
+        tote_pl: €2.30 €5.80 €4.20
+        tote_tricast: €5228.29
+        tote_trifecta: ''
+        tote_win: €8.50
+        type: Hurdle
+        winning_time_detail: 5m 44.90s (slow by 7.90s)
+  securitySchemes:
+    HTTPBasic:
+      type: http
+      scheme: basic
+x-tagGroups:
+- name: Get Started
+  tags:
+  - Introduction
+  - Authentication
+  - Endpoint Overview
+  - Rate Limits
+  - Changelog
+- name: Core API
+  tags:
+  - Courses
+  - Dams
+  - Damsires
+  - Horses
+  - Jockeys
+  - Odds
+  - Owners
+  - Racecards
+  - Results
+  - Sires
+  - Trainers
+- name: Core API (by plan level)
+  tags:
+  - Free Plan
+  - Basic Plan
+  - Standard Plan
+  - Pro Plan
+- name: Regional APIs
+  tags:
+  - Australia
+  - North America

@@ -1,0 +1,1209 @@
+openapi: 3.1.0
+info:
+  title: The Racing Australia Free Plan API
+  version: 1.4.3
+  x-logo:
+    url: https://www.theracingapi.com/static/images/logo_padded.png
+  description: High performance API for horse racing statistical modelling, application development and web content. Complete coverage of UK, Irish and Hong Kong horse racing.
+  contact:
+    url: https://www.theracingapi.com/
+  x-generated-from: official-openapi-spec
+servers:
+- url: https://api.theracingapi.com
+  description: Production server
+tags:
+- name: Free Plan
+paths:
+  /v1/courses/regions:
+    get:
+      tags:
+      - Free Plan
+      summary: The Racing API Regions
+      description: <h4>Get a list of regions, with region codes.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>
+      operationId: regions_v1_courses_regions_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Region'
+                type: array
+                title: Response Regions V1 Courses Regions Get
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - HTTPBasic: []
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/courses/regions
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/courses/regions"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/courses/regions\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/courses/regions?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/courses/regions'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/courses/regions\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/courses/regions?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/courses/regions?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/courses:
+    get:
+      tags:
+      - Free Plan
+      summary: The Racing API Courses
+      description: <h4>Get a list of courses, with course ids and regions.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>
+      operationId: courses_v1_courses_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: region_codes
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Regions
+          description: Filter courses by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.
+          examples:
+          - gb
+          - ire
+        description: Filter courses by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CoursesPage'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/courses
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/courses"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/courses\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/courses?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/courses'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/courses\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/courses?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/courses?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/racecards/free:
+    get:
+      tags:
+      - Free Plan
+      summary: The Racing API Racecards Free
+      description: <h4>Get racecards for today and tomorrow (basic data only)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 request per second</td></tr></tbody></table>
+      operationId: racecards_free_v1_racecards_free_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: day
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Day
+          description: Query racecards by day:<br> today, tomorrow
+          default: today
+        description: Query racecards by day:<br> today, tomorrow
+      - name: region_codes
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Regions
+          description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+        description: '<p>Query by region codes. Get the full list <a href=''https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get''>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>'
+      - name: course_ids
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          title: Courses
+          description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+        description: Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>.
+      - name: limit
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 500
+            minimum: 1
+          - type: 'null'
+          title: Limit
+          default: 500
+      - name: skip
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 500
+          - type: 'null'
+          title: Skip
+          default: 0
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RacecardsBasicPage'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/racecards/free
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/racecards/free"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/racecards/free\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/racecards/free?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/racecards/free'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/racecards/free\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/racecards/free?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/racecards/free?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/results/today/free:
+    get:
+      tags:
+      - Free Plan
+      summary: The Racing API Results Today Free
+      description: <h4>Get today's results (basic data only)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>
+      operationId: results_today_free_v1_results_today_free_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: region
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: array
+            items:
+              type: string
+          - type: 'null'
+          description: <p>Query results by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p>
+          title: Region
+        description: <p>Query results by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p>
+      - name: limit
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+            maximum: 100
+            minimum: 1
+          - type: 'null'
+          title: Limit
+          default: 50
+      - name: skip
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Skip
+          default: 0
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResultsFreePage'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/results/today/free
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/results/today/free"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/results/today/free\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/results/today/free?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/results/today/free'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/results/today/free\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/results/today/free?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/results/today/free?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ResultsFreePage:
+      properties:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultFree'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsFreePage
+    Region:
+      properties:
+        region:
+          type: string
+          title: Region
+        region_code:
+          type: string
+          title: Region Code
+      type: object
+      required:
+      - region
+      - region_code
+      title: Region
+      example:
+        region: Great Britain
+        region_code: gb
+    app__models__racecards__RunnerBasic:
+      properties:
+        horse:
+          type: string
+          title: Horse
+        horse_id:
+          type: string
+          title: Horse Id
+        age:
+          type: string
+          title: Age
+        sex:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex
+        sex_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex Code
+        colour:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Colour
+        region:
+          type: string
+          title: Region
+        dam:
+          type: string
+          title: Dam
+        dam_id:
+          type: string
+          title: Dam Id
+        sire:
+          type: string
+          title: Sire
+        sire_id:
+          type: string
+          title: Sire Id
+        damsire:
+          type: string
+          title: Damsire
+        damsire_id:
+          type: string
+          title: Damsire Id
+        trainer:
+          type: string
+          title: Trainer
+        trainer_id:
+          type: string
+          title: Trainer Id
+        owner:
+          type: string
+          title: Owner
+        owner_id:
+          type: string
+          title: Owner Id
+        number:
+          type: string
+          title: Number
+        draw:
+          type: string
+          title: Draw
+        headgear:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Headgear
+        lbs:
+          type: string
+          title: Lbs
+        ofr:
+          type: string
+          title: Ofr
+        jockey:
+          type: string
+          title: Jockey
+        jockey_id:
+          type: string
+          title: Jockey Id
+        last_run:
+          type: string
+          title: Last Run
+        form:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Form
+      type: object
+      required:
+      - horse
+      - horse_id
+      - age
+      - sex
+      - sex_code
+      - colour
+      - region
+      - dam
+      - dam_id
+      - sire
+      - sire_id
+      - damsire
+      - damsire_id
+      - trainer
+      - trainer_id
+      - owner
+      - owner_id
+      - number
+      - draw
+      - headgear
+      - lbs
+      - ofr
+      - jockey
+      - jockey_id
+      - last_run
+      - form
+      title: RunnerBasic
+      example:
+        age: '6'
+        colour: b
+        dam: Lerici
+        dam_id: dam_4823441
+        damsire: Woodman
+        damsire_id: dsi_2126229
+        draw: '8'
+        form: 3-7880
+        headgear: ''
+        horse: Pistoletto
+        horse_id: hrs_18092480
+        jockey: Adam Tracey(7)
+        jockey_id: jky_301290
+        last_run: '25'
+        lbs: '140'
+        number: '1'
+        ofr: '75'
+        owner: J A Thompson & S Russell
+        owner_id: own_1227828
+        region: USA
+        sex: gelding
+        sex_code: G
+        sire: War Front
+        sire_id: sir_4544750
+        trainer: John Ryan
+        trainer_id: trn_160758
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    app__models__courses__Course:
+      properties:
+        id:
+          type: string
+          title: Id
+        course:
+          type: string
+          title: Course
+        region_code:
+          type: string
+          title: Region Code
+        region:
+          type: string
+          title: Region
+      type: object
+      required:
+      - id
+      - course
+      - region_code
+      - region
+      title: Course
+      example:
+        course: Ascot
+        id: crs_52
+        region: Great Britain
+        region_code: gb
+    RacecardBasic:
+      properties:
+        race_id:
+          type: string
+          title: Race Id
+        course:
+          type: string
+          title: Course
+        date:
+          type: string
+          title: Date
+        off_time:
+          type: string
+          title: Off Time
+        off_dt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Dt
+          default: ''
+        race_name:
+          type: string
+          title: Race Name
+        distance_f:
+          type: string
+          title: Distance F
+        region:
+          type: string
+          title: Region
+        pattern:
+          type: string
+          title: Pattern
+        race_class:
+          type: string
+          title: Race Class
+        type:
+          type: string
+          title: Type
+        age_band:
+          type: string
+          title: Age Band
+        rating_band:
+          type: string
+          title: Rating Band
+        sex_restriction:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex Restriction
+          default: ''
+        prize:
+          type: string
+          title: Prize
+        field_size:
+          type: string
+          title: Field Size
+        going:
+          type: string
+          title: Going
+        surface:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Surface
+        runners:
+          items:
+            $ref: '#/components/schemas/app__models__racecards__RunnerBasic'
+          type: array
+          title: Runners
+        race_status:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Status
+          default: ''
+      type: object
+      required:
+      - race_id
+      - course
+      - date
+      - off_time
+      - race_name
+      - distance_f
+      - region
+      - pattern
+      - race_class
+      - type
+      - age_band
+      - rating_band
+      - prize
+      - field_size
+      - going
+      - surface
+      - runners
+      title: RacecardBasic
+      example:
+        age_band: 4yo+
+        course: Brighton
+        date: '2023-05-02'
+        distance_f: '7.0'
+        field_size: '9'
+        going: Good To Firm
+        off_dt: '2023-05-02T13:50:00+01:00'
+        off_time: '1:50'
+        pattern: ''
+        prize: £4,606
+        race_class: Class 5
+        race_id: rac_10880272
+        race_name: At The Races App Form Study Apprentice Handicap
+        race_status: ''
+        rating_band: 0-75
+        region: GB
+        runners:
+        - age: '6'
+          colour: b
+          dam: Lerici
+          dam_id: dam_4823441
+          damsire: Woodman
+          damsire_id: dsi_2126229
+          draw: '8'
+          form: 3-7880
+          headgear: ''
+          horse: Pistoletto
+          horse_id: hrs_18092480
+          jockey: Adam Tracey(7)
+          jockey_id: jky_301290
+          last_run: '25'
+          lbs: '140'
+          number: '1'
+          ofr: '75'
+          owner: J A Thompson & S Russell
+          owner_id: own_1227828
+          region: USA
+          sex: gelding
+          sex_code: G
+          sire: War Front
+          sire_id: sir_4544750
+          trainer: John Ryan
+          trainer_id: trn_160758
+        sex_restriction: ''
+        surface: Turf
+        type: Flat
+    ResultFree:
+      properties:
+        race_id:
+          type: string
+          title: Race Id
+        course:
+          type: string
+          title: Course
+        date:
+          type: string
+          title: Date
+        'off':
+          type: string
+          title: 'Off'
+        off_dt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Dt
+          default: ''
+        race_name:
+          type: string
+          title: Race Name
+        dist_f:
+          type: string
+          title: Dist F
+        region:
+          type: string
+          title: Region
+        pattern:
+          type: string
+          title: Pattern
+        class:
+          type: string
+          title: Class
+        type:
+          type: string
+          title: Type
+        age_band:
+          type: string
+          title: Age Band
+        rating_band:
+          type: string
+          title: Rating Band
+        sex_rest:
+          type: string
+          title: Sex Rest
+        going:
+          type: string
+          title: Going
+        surface:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Surface
+          default: ''
+        runners:
+          items:
+            $ref: '#/components/schemas/RunnerFree'
+          type: array
+          title: Runners
+      type: object
+      required:
+      - race_id
+      - course
+      - date
+      - 'off'
+      - race_name
+      - dist_f
+      - region
+      - pattern
+      - class
+      - type
+      - age_band
+      - rating_band
+      - sex_rest
+      - going
+      - runners
+      title: ResultFree
+      example:
+        age_band: 4yo+
+        class: ''
+        course: Ballinrobe (IRE)
+        date: '2025-08-11'
+        dist_f: 23f
+        going: Good
+        'off': '8:25'
+        off_dt: '2025-08-11T20:25:00+01:00'
+        pattern: ''
+        race_id: rac_11715730
+        race_name: J.J. Burke Peugeot Handicap Hurdle
+        rating_band: 0-100
+        region: IRE
+        runners:
+        - age: '8'
+          dam: Save Me The Waltz (FR)
+          dam_id: dam_4189605
+          damsire: Halling
+          damsire_id: dsi_675241
+          draw: ''
+          headgear: v
+          horse: Mephisto (IRE)
+          horse_id: hrs_19359270
+          jockey: Shane Fitzgerald
+          jockey_id: jky_302916
+          number: '2'
+          or: '98'
+          owner: Restricted Movement Syndicate
+          owner_id: own_1204876
+          position: '1'
+          sex: G
+          sire: Kendargent (FR)
+          sire_id: sir_4514419
+          trainer: Gerard Keane
+          trainer_id: trn_86382
+          weight: 11-12
+          weight_lbs: '166'
+        sex_rest: ''
+        surface: Turf
+        type: Hurdle
+    CoursesPage:
+      properties:
+        courses:
+          items:
+            $ref: '#/components/schemas/app__models__courses__Course'
+          type: array
+          title: Courses
+        total:
+          type: integer
+          title: Total
+      type: object
+      required:
+      - courses
+      - total
+      title: CoursesPage
+    RunnerFree:
+      properties:
+        horse_id:
+          type: string
+          title: Horse Id
+        horse:
+          type: string
+          title: Horse
+        age:
+          type: string
+          title: Age
+        sex:
+          type: string
+          title: Sex
+        number:
+          type: string
+          title: Number
+        position:
+          type: string
+          title: Position
+        draw:
+          type: string
+          title: Draw
+        weight:
+          type: string
+          title: Weight
+        weight_lbs:
+          type: string
+          title: Weight Lbs
+        headgear:
+          type: string
+          title: Headgear
+        or:
+          type: string
+          title: Or
+        jockey:
+          type: string
+          title: Jockey
+        jockey_id:
+          type: string
+          title: Jockey Id
+        trainer:
+          type: string
+          title: Trainer
+        trainer_id:
+          type: string
+          title: Trainer Id
+        owner:
+          type: string
+          title: Owner
+        owner_id:
+          type: string
+          title: Owner Id
+        sire:
+          type: string
+          title: Sire
+        sire_id:
+          type: string
+          title: Sire Id
+        dam:
+          type: string
+          title: Dam
+        dam_id:
+          type: string
+          title: Dam Id
+        damsire:
+          type: string
+          title: Damsire
+        damsire_id:
+          type: string
+          title: Damsire Id
+      type: object
+      required:
+      - horse_id
+      - horse
+      - age
+      - sex
+      - number
+      - position
+      - draw
+      - weight
+      - weight_lbs
+      - headgear
+      - or
+      - jockey
+      - jockey_id
+      - trainer
+      - trainer_id
+      - owner
+      - owner_id
+      - sire
+      - sire_id
+      - dam
+      - dam_id
+      - damsire
+      - damsire_id
+      title: RunnerFree
+      example:
+        age: '8'
+        dam: Save Me The Waltz (FR)
+        dam_id: dam_4189605
+        damsire: Halling
+        damsire_id: dsi_675241
+        draw: ''
+        headgear: v
+        horse: Mephisto (IRE)
+        horse_id: hrs_19359270
+        jockey: Shane Fitzgerald
+        jockey_id: jky_302916
+        number: '2'
+        or: '98'
+        owner: Restricted Movement Syndicate
+        owner_id: own_1204876
+        position: '1'
+        sex: G
+        sire: Kendargent (FR)
+        sire_id: sir_4514419
+        trainer: Gerard Keane
+        trainer_id: trn_86382
+        weight: 11-12
+        weight_lbs: '166'
+    RacecardsBasicPage:
+      properties:
+        racecards:
+          items:
+            $ref: '#/components/schemas/RacecardBasic'
+          type: array
+          title: Racecards
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - racecards
+      - total
+      - limit
+      - skip
+      - query
+      title: RacecardsBasicPage
+  securitySchemes:
+    HTTPBasic:
+      type: http
+      scheme: basic
+x-tagGroups:
+- name: Get Started
+  tags:
+  - Introduction
+  - Authentication
+  - Endpoint Overview
+  - Rate Limits
+  - Changelog
+- name: Core API
+  tags:
+  - Courses
+  - Dams
+  - Damsires
+  - Horses
+  - Jockeys
+  - Odds
+  - Owners
+  - Racecards
+  - Results
+  - Sires
+  - Trainers
+- name: Core API (by plan level)
+  tags:
+  - Free Plan
+  - Basic Plan
+  - Standard Plan
+  - Pro Plan
+- name: Regional APIs
+  tags:
+  - Australia
+  - North America

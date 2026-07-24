@@ -1,0 +1,1277 @@
+openapi: 3.1.0
+info:
+  title: The Racing Australia API
+  version: 1.4.3
+  x-logo:
+    url: https://www.theracingapi.com/static/images/logo_padded.png
+  description: High performance API for horse racing statistical modelling, application development and web content. Complete coverage of UK, Irish and Hong Kong horse racing.
+  contact:
+    url: https://www.theracingapi.com/
+  x-generated-from: official-openapi-spec
+servers:
+- url: https://api.theracingapi.com
+  description: Production server
+tags:
+- name: Australia
+paths:
+  /v1/australia/meets:
+    get:
+      tags:
+      - Australia
+      summary: The Racing API Meets
+      description: '<h4>Get a list of Australian race meets (up to 12 months in the past and 7 days in the future)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><ul><li><b>[Required] Australia regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</li><li><b>[Optional] Australia database historical races add-on</b>: users who subscribe to the Australia regional add-on can pay a one-time fee of £249 to remove the 12 month restriction and access over 20 years of historical meets and races. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</li></ul></td></tr></tbody></table>'
+      operationId: meets_v1_australia_meets_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: date
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+          description: Query meets by date with format YYYY-MM-DD (e.g 2023-04-05)
+        description: Query meets by date with format YYYY-MM-DD (e.g 2023-04-05)
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/app__models__aus_meets__Meets'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/australia/meets
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/australia/meets"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/australia/meets\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/australia/meets?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/australia/meets'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/australia/meets\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/australia/meets?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/australia/meets?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/australia/meets/{meet_id}/races:
+    get:
+      tags:
+      - Australia
+      summary: The Racing API Races by Meet
+      description: '<h4>Get races for an Australian meet (up to 12 months in the past and 7 days in the future)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><ul><li><b>[Required] Australia regional add-on</b>: users on the any plan can subscribe to this add-on for £49.99 per month. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</li><li><b>[Optional] Australia database historical races add-on</b>: users who subscribe to the Australia regional add-on can pay a one-time fee of £249 to remove the 12 month restriction and access over 20 years of historical meets and races. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</li></ul></td></tr></tbody></table>'
+      operationId: races_by_meet_v1_australia_meets__meet_id__races_get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: meet_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Meet Id
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Races'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/australia/meets/{meet_id}/races
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/australia/meets/{meet_id}/races"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/australia/meets/{meet_id}/races\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/australia/meets/{meet_id}/races?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/australia/meets/{meet_id}/races'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/australia/meets/{meet_id}/races\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/australia/meets/{meet_id}/races?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/australia/meets/{meet_id}/races?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /v1/australia/meets/{meet_id}/races/{race_number}:
+    get:
+      tags:
+      - Australia
+      summary: The Racing API Race
+      description: '<h4>Get an Australian race by meet and race number</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] Australia regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</td></tr></tbody></table>'
+      operationId: race_v1_australia_meets__meet_id__races__race_number__get
+      security:
+      - HTTPBasic: []
+      parameters:
+      - name: meet_id
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Meet Id
+      - name: race_number
+        in: path
+        required: true
+        schema:
+          type: string
+          title: Race Number
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/app__models__aus_races__Race'
+        '404':
+          description: Not found
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      x-codeSamples:
+      - lang: Shell
+        source: 'curl -u USERNAME:PASSWORD https://api.theracingapi.com/v1/australia/meets/{meet_id}/races/{race_number}
+
+          '
+        label: cURL
+      - lang: Python
+        source: 'import requests
+
+          from requests.auth import HTTPBasicAuth
+
+
+          url = "https://api.theracingapi.com/v1/australia/meets/{meet_id}/races/{race_number}"
+
+          params = {}
+
+          response = requests.request("GET", url, auth=HTTPBasicAuth(''USERNAME'',''PASSWORD''), params=params)
+
+          print(response.json())'
+        label: Python3
+      - lang: PHP
+        source: "<?php\n$username = 'USERNAME';\n$password = 'PASSWORD';\n$url = \"https://api.theracingapi.com/v1/australia/meets/{meet_id}/races/{race_number}\";\n\n$params = http_build_query([ ]);\n\n$ch = curl_init(\"$url?$params\");\ncurl_setopt($ch, CURLOPT_RETURNTRANSFER, true);\ncurl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);\ncurl_setopt($ch, CURLOPT_USERPWD, \"$username:$password\");\n\n$response = curl_exec($ch);\n\nif (curl_errno($ch)) {\n  echo 'Error:' . curl_error($ch);\n} else {\n  echo $response;\n}\n\ncurl_close($ch);\n?>"
+        label: PHP
+      - lang: JavaScript
+        source: "const username = 'USERNAME';\nconst password = 'PASSWORD';\nconst credentials = btoa(`${username}:${password}`);\n\nconst params = new URLSearchParams({});\nconst url = `https://api.theracingapi.com/v1/australia/meets/{meet_id}/races/{race_number}?${params}`;\n\nfetch(url, {\n  method: 'GET',\n  headers: {\n    'Authorization': `Basic ${credentials}`\n  }\n})\n.then(response => response.json())\n.then(data => console.log(data))\n.catch(error => console.error('Error:', error));"
+        label: Node.js
+      - lang: Ruby
+        source: 'require ''net/http''
+
+          require ''uri''
+
+          require ''json''
+
+
+          params = {}
+
+          uri = URI(''https://api.theracingapi.com/v1/australia/meets/{meet_id}/races/{race_number}'')
+
+          uri.query = URI.encode_www_form(params)
+
+
+          http = Net::HTTP.new(uri.host, uri.port)
+
+          http.use_ssl = true
+
+
+          request = Net::HTTP::Get.new(uri)
+
+          request.basic_auth(''USERNAME'', ''PASSWORD'')
+
+
+          response = http.request(request)
+
+          puts JSON.parse(response.body)'
+        label: Ruby
+      - lang: Java
+        source: "import java.net.http.*;\nimport java.util.Base64;\nimport java.util.Map;\n\nMap<String, String> params = Map.of();\nString credentials = Base64.getEncoder()\n    .encodeToString(\"USERNAME:PASSWORD\".getBytes());\n\nHttpClient client = HttpClient.newHttpClient();\nHttpRequest request = HttpRequest.newBuilder()\n    .uri(URI.create(\"https://api.theracingapi.com/v1/australia/meets/{meet_id}/races/{race_number}\"))\n    .header(\"Authorization\", \"Basic \" + credentials)\n    .build();\n\nHttpResponse<String> response = client.send(\n    request, HttpResponse.BodyHandlers.ofString());\nSystem.out.println(response.body());"
+        label: Java
+      - lang: Go
+        source: "package main\n\nimport (\n    \"fmt\"\n    \"io\"\n    \"net/http\"\n    \"net/url\"\n)\n\nfunc main() {\n    params := url.Values{}\n    url := \"https://api.theracingapi.com/v1/australia/meets/{meet_id}/races/{race_number}?\" + params.Encode()\n\n    client := &http.Client{}\n    req, _ := http.NewRequest(\"GET\", url, nil)\n    req.SetBasicAuth(\"USERNAME\", \"PASSWORD\")\n\n    resp, _ := client.Do(req)\n    defer resp.Body.Close()\n    body, _ := io.ReadAll(resp.Body)\n    fmt.Println(string(body))\n}"
+        label: Go
+      - lang: C#
+        source: "using System.Net.Http.Headers;\nusing System.Text;\nusing System.Web;\n\nvar params_ = HttpUtility.ParseQueryString(string.Empty);\nvar url = $\"https://api.theracingapi.com/v1/australia/meets/{meet_id}/races/{race_number}?{params_}\";\n\nvar client = new HttpClient();\nvar credentials = Convert.ToBase64String(\n    Encoding.ASCII.GetBytes(\"USERNAME:PASSWORD\"));\nclient.DefaultRequestHeaders.Authorization =\n    new AuthenticationHeaderValue(\"Basic\", credentials);\n\nvar response = await client.GetAsync(url);\nvar content = await response.Content.ReadAsStringAsync();\nConsole.WriteLine(content);"
+        label: .NET
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    RunnerStatsBreakdown:
+      properties:
+        total:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Total
+        first:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: First
+        second:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Second
+        third:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Third
+      type: object
+      title: RunnerStatsBreakdown
+      example:
+        first: '2'
+        second: '1'
+        third: '1'
+        total: '5'
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    app__models__aus_races__RunnerOdds:
+      properties:
+        bookmaker:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Bookmaker
+        win_odds:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Win Odds
+        place_odds:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Place Odds
+      type: object
+      title: RunnerOdds
+      example:
+        bookmaker: Sportsbet
+        place_odds: '1.70'
+        win_odds: '5.00'
+    MeetRaces:
+      properties:
+        distance:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Distance
+        class:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Class
+        race_group:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Group
+        race_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Name
+        race_number:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Number
+        race_status:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Status
+        off_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Time
+      type: object
+      title: MeetRaces
+      example:
+        class: Group 1
+        distance: 2000m
+        off_time: '2025-10-11T04:15:00.000Z'
+        race_group: Group 1
+        race_name: Sportsbet Might And Power
+        race_number: '6'
+        race_status: Results
+    RunnerStats:
+      properties:
+        career_prize:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Career Prize
+        career_win_percent:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Career Win Percent
+        career_place_percent:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Career Place Percent
+        course_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        course_distance_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        distance_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        ground_firm_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        ground_good_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        ground_heavy_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        ground_soft_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        ground_aw_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        jockey_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        jumps_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        last_raced:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Last Raced
+        last_ten_races_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        last_twelve_months_stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStatsBreakdown'
+          - type: 'null'
+        last_won:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Last Won
+        max_winning_distance:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Max Winning Distance
+        min_winning_distance:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Min Winning Distance
+      type: object
+      title: RunnerStats
+      example:
+        career_place_percent: 100%
+        career_prize: $65,840
+        career_win_percent: 100%
+        course_distance_stats:
+          first: '1'
+          second: '0'
+          third: '0'
+          total: '1'
+        course_stats:
+          first: '1'
+          second: '0'
+          third: '0'
+          total: '1'
+        distance_stats:
+          first: '1'
+          second: '0'
+          third: '0'
+          total: '1'
+        ground_firm_stats:
+          first: '0'
+          second: '0'
+          third: '0'
+          total: '0'
+        ground_good_stats:
+          first: '1'
+          second: '0'
+          third: '0'
+          total: '1'
+        jockey_stats:
+          first: '1'
+          second: '0'
+          third: '0'
+          total: '1'
+        last_raced: '2025-10-11'
+        last_ten_races_stats:
+          first: '1'
+          second: '0'
+          third: '0'
+          total: '1'
+        last_twelve_months_stats:
+          first: '1'
+          second: '0'
+          third: '0'
+          total: '1'
+        last_won: '2025-10-11'
+        max_winning_distance: 1000m
+        min_winning_distance: 1000m
+    Races:
+      properties:
+        races:
+          items:
+            $ref: '#/components/schemas/app__models__aus_races__Race'
+          type: array
+          title: Races
+      type: object
+      required:
+      - races
+      title: Races
+      example:
+        races:
+        - class: 2YO Plate
+          course: Ascot
+          course_id: crs_aus_712388980373
+          date: '2025-10-11'
+          distance: 1000m
+          going: Good
+          is_jump_out: false
+          is_trial: false
+          meet_id: met_aus_604899110256
+          off_time: '2025-10-11T04:00:00.000Z'
+          prize_total: '80000.00'
+          prizes:
+          - Position: 1
+            Value: '43840.00'
+          - Position: 2
+            Value: '14880.00'
+          race_group: ungrouped
+          race_name: VALE LINDSAY SEVERN PLATE
+          race_number: '1'
+          race_status: Results
+          runners:
+          - age: '2'
+            colour: Chestnut
+            comment: Jumped Ok Went Forward to Lead but Two Wide quickened approaching Straight
+            dam: Poker Face
+            dam_id: dam_aus_5763901272
+            draw: '8'
+            form: '1'
+            horse: All On Red
+            horse_id: hrs_aus_985106802693
+            jockey: L.M.Campbell
+            jockey_claim: '0'
+            jockey_id: jky_aus_382285552310
+            number: '1'
+            odds:
+            - bookmaker: Sportsbet
+              place_odds: '1.70'
+              win_odds: '5.00'
+            - bookmaker: Ladbrokes
+              place_odds: '1.70'
+              win_odds: '5.00'
+            owner: T B Racing Pty Ltd (T Noske), T Shutterworth, S Mcfarlane, G White
+            position: '1'
+            prize: '43840'
+            scratched: false
+            sex: Colt
+            silk_url: https://www.url-for-silk.com/svg/456789.svg
+            sire: Doubtland
+            sire_id: sir_aus_767094969190
+            sp: '5.00'
+            stats:
+              career_place_percent: 100%
+              career_prize: $65,840
+              career_win_percent: 100%
+              course_distance_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              course_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              distance_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              ground_firm_stats:
+                first: '0'
+                second: '0'
+                third: '0'
+                total: '0'
+              ground_good_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              jockey_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              last_raced: '2025-10-11'
+              last_ten_races_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              last_twelve_months_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              last_won: '2025-10-11'
+              max_winning_distance: 1000m
+              min_winning_distance: 1000m
+            trainer: Daniel Morton
+            trainer_id: trn_aus_449779200413
+            weight: '57.0'
+          state: WA
+          winning_time: '58.47'
+          winning_time_hundredths: '5847'
+    app__models__aus_races__Runner:
+      properties:
+        horse_id:
+          type: string
+          title: Horse Id
+        horse:
+          type: string
+          title: Horse
+        age:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Age
+        comment:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Comment
+        colour:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Colour
+        dam:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dam
+        dam_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dam Id
+        draw:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Draw
+        form:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Form
+        jockey:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jockey
+        jockey_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jockey Id
+        jockey_claim:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jockey Claim
+        margin:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Margin
+        number:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Number
+        odds:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/app__models__aus_races__RunnerOdds'
+            type: array
+          - type: 'null'
+          title: Odds
+        owner:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Owner
+        position:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Position
+        prize:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Prize
+        rating:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Rating
+        scratched:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Scratched
+        sex:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex
+        silk_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Silk Url
+        sire:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sire
+        sire_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sire Id
+        sp:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sp
+        stats:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerStats'
+          - type: 'null'
+        trainer:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer
+        trainer_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer Id
+        weight:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Weight
+      type: object
+      required:
+      - horse_id
+      - horse
+      title: Runner
+      example:
+        age: '2'
+        colour: Chestnut
+        comment: Jumped Ok Went Forward to Lead but Two Wide quickened approaching Straight
+        dam: Poker Face
+        dam_id: dam_aus_5763901272
+        draw: '8'
+        form: '1'
+        horse: All On Red
+        horse_id: hrs_aus_985106802693
+        jockey: L.M.Campbell
+        jockey_claim: '0'
+        jockey_id: jky_aus_382285552310
+        number: '1'
+        odds:
+        - bookmaker: Sportsbet
+          place_odds: '1.70'
+          win_odds: '5.00'
+        - bookmaker: Ladbrokes
+          place_odds: '1.70'
+          win_odds: '5.00'
+        owner: T B Racing Pty Ltd (T Noske), T Shutterworth, S Mcfarlane, G White
+        position: '1'
+        prize: '43840'
+        scratched: false
+        sex: Colt
+        silk_url: https://www.url-for-silk.com/svg/456789.svg
+        sire: Doubtland
+        sire_id: sir_aus_767094969190
+        sp: '5.00'
+        stats:
+          career_place_percent: 100%
+          career_prize: $65,840
+          career_win_percent: 100%
+          course_distance_stats:
+            first: '1'
+            second: '0'
+            third: '0'
+            total: '1'
+          course_stats:
+            first: '1'
+            second: '0'
+            third: '0'
+            total: '1'
+          distance_stats:
+            first: '1'
+            second: '0'
+            third: '0'
+            total: '1'
+          ground_firm_stats:
+            first: '0'
+            second: '0'
+            third: '0'
+            total: '0'
+          ground_good_stats:
+            first: '1'
+            second: '0'
+            third: '0'
+            total: '1'
+          jockey_stats:
+            first: '1'
+            second: '0'
+            third: '0'
+            total: '1'
+          last_raced: '2025-10-11'
+          last_ten_races_stats:
+            first: '1'
+            second: '0'
+            third: '0'
+            total: '1'
+          last_twelve_months_stats:
+            first: '1'
+            second: '0'
+            third: '0'
+            total: '1'
+          last_won: '2025-10-11'
+          max_winning_distance: 1000m
+          min_winning_distance: 1000m
+        trainer: Daniel Morton
+        trainer_id: trn_aus_449779200413
+        weight: '57.0'
+    app__models__aus_races__Race:
+      properties:
+        course:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course
+        course_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course Id
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+        distance:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Distance
+        going:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Going
+        is_jump_out:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Jump Out
+          default: false
+        is_trial:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Trial
+          default: false
+        meet_id:
+          type: string
+          title: Meet Id
+        off_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Time
+        prizes:
+          anyOf:
+          - items: {}
+            type: array
+          - type: 'null'
+          title: Prizes
+        prize_total:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Prize Total
+        class:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Class
+        race_conditions:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Conditions
+        race_group:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Group
+        race_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Name
+        race_number:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Number
+        race_status:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Status
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: State
+        runners:
+          items:
+            $ref: '#/components/schemas/app__models__aus_races__Runner'
+          type: array
+          title: Runners
+        winning_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Winning Time
+        winning_time_hundredths:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Winning Time Hundredths
+      type: object
+      title: Race
+      example:
+        class: 2YO Plate
+        course: Ascot
+        course_id: crs_aus_712388980373
+        date: '2025-10-11'
+        distance: 1000m
+        going: Good
+        is_jump_out: false
+        is_trial: false
+        meet_id: met_aus_604899110256
+        off_time: '2025-10-11T04:00:00.000Z'
+        prize_total: '80000.00'
+        prizes:
+        - Position: 1
+          Value: '43840.00'
+        - Position: 2
+          Value: '14880.00'
+        race_group: ungrouped
+        race_name: VALE LINDSAY SEVERN PLATE
+        race_number: '1'
+        race_status: Results
+        runners:
+        - age: '2'
+          colour: Chestnut
+          comment: Jumped Ok Went Forward to Lead but Two Wide quickened approaching Straight
+          dam: Poker Face
+          dam_id: dam_aus_5763901272
+          draw: '8'
+          form: '1'
+          horse: All On Red
+          horse_id: hrs_aus_985106802693
+          jockey: L.M.Campbell
+          jockey_claim: '0'
+          jockey_id: jky_aus_382285552310
+          number: '1'
+          odds:
+          - bookmaker: Sportsbet
+            place_odds: '1.70'
+            win_odds: '5.00'
+          - bookmaker: Ladbrokes
+            place_odds: '1.70'
+            win_odds: '5.00'
+          owner: T B Racing Pty Ltd (T Noske), T Shutterworth, S Mcfarlane, G White
+          position: '1'
+          prize: '43840'
+          scratched: false
+          sex: Colt
+          silk_url: https://www.url-for-silk.com/svg/456789.svg
+          sire: Doubtland
+          sire_id: sir_aus_767094969190
+          sp: '5.00'
+          stats:
+            career_place_percent: 100%
+            career_prize: $65,840
+            career_win_percent: 100%
+            course_distance_stats:
+              first: '1'
+              second: '0'
+              third: '0'
+              total: '1'
+            course_stats:
+              first: '1'
+              second: '0'
+              third: '0'
+              total: '1'
+            distance_stats:
+              first: '1'
+              second: '0'
+              third: '0'
+              total: '1'
+            ground_firm_stats:
+              first: '0'
+              second: '0'
+              third: '0'
+              total: '0'
+            ground_good_stats:
+              first: '1'
+              second: '0'
+              third: '0'
+              total: '1'
+            jockey_stats:
+              first: '1'
+              second: '0'
+              third: '0'
+              total: '1'
+            last_raced: '2025-10-11'
+            last_ten_races_stats:
+              first: '1'
+              second: '0'
+              third: '0'
+              total: '1'
+            last_twelve_months_stats:
+              first: '1'
+              second: '0'
+              third: '0'
+              total: '1'
+            last_won: '2025-10-11'
+            max_winning_distance: 1000m
+            min_winning_distance: 1000m
+          trainer: Daniel Morton
+          trainer_id: trn_aus_449779200413
+          weight: '57.0'
+        state: WA
+        winning_time: '58.47'
+        winning_time_hundredths: '5847'
+    app__models__aus_meets__Meets:
+      properties:
+        meets:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/app__models__aus_meets__Meet'
+            type: array
+          - type: 'null'
+          title: Meets
+      type: object
+      title: Meets
+      example:
+        meets:
+        - course: Caulfield
+          course_id: crs_aus_75219024719
+          date: '2025-10-11'
+          meet_id: met_aus_73898021202
+          races:
+          - class: Group 1
+            distance: 1600m
+            off_time: '2025-10-11T05:30:00.000Z'
+            race_group: Group 1
+            race_name: Sportsbet Caulfield Guineas
+            race_number: '8'
+            race_status: Results
+          state: VIC
+        - course: Ascot
+          course_id: crs_aus_712388980373
+          date: '2025-10-11'
+          meet_id: met_aus_604899110256
+          races:
+          - class: 2YO Plate
+            distance: 1000m
+            off_time: '2025-10-11T04:00:00.000Z'
+            race_group: ungrouped
+            race_name: VALE LINDSAY SEVERN PLATE
+            race_number: '1'
+            race_status: Results
+          state: WA
+    app__models__aus_meets__Meet:
+      properties:
+        meet_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Meet Id
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+        course:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course
+        course_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course Id
+        races:
+          items:
+            $ref: '#/components/schemas/MeetRaces'
+          type: array
+          title: Races
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: State
+      type: object
+      required:
+      - races
+      title: Meet
+      example:
+        course: Caulfield
+        course_id: crs_aus_75219024719
+        date: '2025-10-11'
+        meet_id: met_aus_73898021202
+        races:
+        - class: Group 1
+          distance: 2000m
+          off_time: '2025-10-11T04:15:00.000Z'
+          race_group: Group 1
+          race_name: Sportsbet Might And Power
+          race_number: '6'
+          race_status: Results
+        state: VIC
+  securitySchemes:
+    HTTPBasic:
+      type: http
+      scheme: basic
+x-tagGroups:
+- name: Get Started
+  tags:
+  - Introduction
+  - Authentication
+  - Endpoint Overview
+  - Rate Limits
+  - Changelog
+- name: Core API
+  tags:
+  - Courses
+  - Dams
+  - Damsires
+  - Horses
+  - Jockeys
+  - Odds
+  - Owners
+  - Racecards
+  - Results
+  - Sires
+  - Trainers
+- name: Core API (by plan level)
+  tags:
+  - Free Plan
+  - Basic Plan
+  - Standard Plan
+  - Pro Plan
+- name: Regional APIs
+  tags:
+  - Australia
+  - North America
