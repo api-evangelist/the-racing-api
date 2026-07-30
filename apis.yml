@@ -4,9 +4,22 @@ description: >-
   High performance API for horse racing statistical modelling, application development and web content. Complete
   coverage of UK, Irish and Hong Kong horse racing with real-time data updates every 3 minutes.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/the-racing-api.png
 tags:
   - Horse Racing
   - Sports
@@ -18,40 +31,380 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: the-racing-api:the-racing-api
-    name: The Racing API
-    description: >-
-      High performance API for horse racing statistical modelling, application development and web content. Complete
-      coverage of UK, Irish and Hong Kong horse racing. Access racecards, results, horse form, jockey and trainer
-      statistics, and real-time analysis endpoints with 58 endpoints across courses, racecards, results, horses,
-      jockeys, trainers, owners, sires, dams, damsires, odds, and North America/Australia add-on coverage.
-    humanURL: https://www.theracingapi.com/
-    baseURL: https://api.theracingapi.com
-    tags:
-      - Horse Racing
-      - Sports
-      - Statistics
-      - Racecards
-      - Results
-      - Analytics
-    properties:
-      - type: Documentation
-        url: https://api.theracingapi.com/documentation
-      - type: OpenAPI
-        url: openapi/the-racing-api-openapi.yml
-      - type: Website
-        url: https://www.theracingapi.com/
-      - type: Authentication
-        url: https://www.theracingapi.com/dashboard
-      - type: JSONSchema
-        url: json-schema/the-racing-api-racecard-summary-schema.json
-        title: Racecard Summary Schema
-      - type: JSONStructure
-        url: json-structure/the-racing-api-racecard-summary-structure.json
-        title: Racecard Summary Structure
-      - type: JSONLD
-        url: json-ld/the-racing-api-context.jsonld
-        title: The Racing API JSON-LD Context
+- aid: the-racing-api:the-racing-api-australia-api
+  name: The Racing API Australia API
+  description: The Australia API from The Racing API — 3 operation(s) for australia.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Australia
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-australia-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-basic-plan-api
+  name: The Racing API Basic Plan API
+  description: The Basic Plan API from The Racing API — 7 operation(s) for basic plan.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Basic Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-basic-plan-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-courses-api
+  name: The Racing API Courses API
+  description: The Courses API from The Racing API — 2 operation(s) for courses.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Courses
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-courses-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-dams-api
+  name: The Racing API Dams API
+  description: The Dams API from The Racing API — 4 operation(s) for dams.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Dams
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-dams-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-damsires-api
+  name: The Racing API Damsires API
+  description: The Damsires API from The Racing API — 4 operation(s) for damsires.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Damsires
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-damsires-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-free-plan-api
+  name: The Racing API Free Plan API
+  description: The Free Plan API from The Racing API — 4 operation(s) for free plan.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Free Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-free-plan-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-horses-api
+  name: The Racing API Horses API
+  description: The Horses API from The Racing API — 5 operation(s) for horses.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Horses
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-horses-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-jockeys-api
+  name: The Racing API Jockeys API
+  description: The Jockeys API from The Racing API — 6 operation(s) for jockeys.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Jockeys
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-jockeys-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-north-america-api
+  name: The Racing API North America API
+  description: The North America API from The Racing API — 3 operation(s) for north america.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - North America
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-north-america-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-odds-api
+  name: The Racing API Odds API
+  description: The Odds API from The Racing API — 1 operation(s) for odds.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Odds
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-odds-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-owners-api
+  name: The Racing API Owners API
+  description: The Owners API from The Racing API — 6 operation(s) for owners.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Owners
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-owners-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-pro-plan-api
+  name: The Racing API Pro Plan API
+  description: The Pro Plan API from The Racing API — 46 operation(s) for pro plan.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Pro Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-pro-plan-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-racecards-api
+  name: The Racing API Racecards API
+  description: The Racecards API from The Racing API — 8 operation(s) for racecards.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Racecards
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-racecards-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-results-api
+  name: The Racing API Results API
+  description: The Results API from The Racing API — 4 operation(s) for results.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Results
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-results-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-sires-api
+  name: The Racing API Sires API
+  description: The Sires API from The Racing API — 4 operation(s) for sires.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Sires
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-sires-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-standard-plan-api
+  name: The Racing API Standard Plan API
+  description: The Standard Plan API from The Racing API — 38 operation(s) for standard plan.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Standard Plan
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-standard-plan-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
+- aid: the-racing-api:the-racing-api-trainers-api
+  name: The Racing API Trainers API
+  description: The Trainers API from The Racing API — 7 operation(s) for trainers.
+  humanURL: https://www.theracingapi.com/
+  baseURL: https://api.theracingapi.com
+  tags:
+  - Trainers
+  properties:
+  - type: OpenAPI
+    url: openapi/the-racing-api-trainers-api-openapi.yml
+  - type: Documentation
+    url: https://api.theracingapi.com/documentation
+  - type: Website
+    url: https://www.theracingapi.com/
+  - type: Authentication
+    url: https://www.theracingapi.com/dashboard
+  - type: JSONSchema
+    url: json-schema/the-racing-api-racecard-summary-schema.json
+  - type: JSONStructure
+    url: json-structure/the-racing-api-racecard-summary-structure.json
+  - type: JSONLD
+    url: json-ld/the-racing-api-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/the-racing-api-agentic-access.yml
