@@ -1,0 +1,706 @@
+{
+  "item": [
+    {
+      "id": "c1585eb2-8f73-4364-be44-8e4715e56569",
+      "name": "Australia",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0dc4c956-9b6a-430d-9afd-25637782ec6c",
+          "name": "The Racing API Meets",
+          "request": {
+            "name": "The Racing API Meets",
+            "description": {
+              "content": "<h4>Get a list of Australian race meets (up to 12 months in the past and 7 days in the future)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><ul><li><b>[Required] Australia regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for information.</li><li><b>[Optional] Australia database historical races add-on</b>: users who subscribe to the Australia regional add-on can pay a one-time fee of £249 to remove the 12 month restriction and access over 20 years of historical meets and races. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for information.</li></ul></td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "australia",
+                "meets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Query meets by date with format YYYY-MM-DD (e.g 2023-04-05)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e7efc794-8b95-4a11-990a-ac39bf90265b",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "australia",
+                    "meets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meets\": [\n    {\n      \"course\": \"Caulfield\",\n      \"course_id\": \"crs_aus_75219024719\",\n      \"date\": \"2025-10-11\",\n      \"meet_id\": \"met_aus_73898021202\",\n      \"races\": [\n        {\n          \"class\": \"Group 1\",\n          \"distance\": \"1600m\",\n          \"off_time\": \"2025-10-11T05:30:00.000Z\",\n          \"race_group\": \"Group 1\",\n          \"race_name\": \"Sportsbet Caulfield Guineas\",\n          \"race_number\": \"8\",\n          \"race_status\": \"Results\"\n        }\n      ],\n      \"state\": \"VIC\"\n    },\n    {\n      \"course\": \"Ascot\",\n      \"course_id\": \"crs_aus_712388980373\",\n      \"date\": \"2025-10-11\",\n      \"meet_id\": \"met_aus_604899110256\",\n      \"races\": [\n        {\n          \"class\": \"2YO Plate\",\n          \"distance\": \"1000m\",\n          \"off_time\": \"2025-10-11T04:00:00.000Z\",\n          \"race_group\": \"ungrouped\",\n          \"race_name\": \"VALE LINDSAY SEVERN PLATE\",\n          \"race_number\": \"1\",\n          \"race_status\": \"Results\"\n        }\n      ],\n      \"state\": \"WA\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "274a9949-6cbe-4408-bc4f-f58a965ca770",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "australia",
+                    "meets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a323575-eb4a-400f-b911-66ed30633d19",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "australia",
+                    "meets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee0c1f58-4f61-4dfb-8b72-75fcf68ca4c9",
+          "name": "The Racing API Races by Meet",
+          "request": {
+            "name": "The Racing API Races by Meet",
+            "description": {
+              "content": "<h4>Get races for an Australian meet (up to 12 months in the past and 7 days in the future)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><ul><li><b>[Required] Australia regional add-on</b>: users on the any plan can subscribe to this add-on for £49.99 per month. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for information.</li><li><b>[Optional] Australia database historical races add-on</b>: users who subscribe to the Australia regional add-on can pay a one-time fee of £249 to remove the 12 month restriction and access over 20 years of historical meets and races. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for information.</li></ul></td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "australia",
+                "meets",
+                ":meet_id",
+                "races"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "meet_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "993578dd-d8d6-42f3-8641-ccad3a237499",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "australia",
+                    "meets",
+                    ":meet_id",
+                    "races"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "meet_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"races\": [\n    {\n      \"class\": \"2YO Plate\",\n      \"course\": \"Ascot\",\n      \"course_id\": \"crs_aus_712388980373\",\n      \"date\": \"2025-10-11\",\n      \"distance\": \"1000m\",\n      \"going\": \"Good\",\n      \"is_jump_out\": false,\n      \"is_trial\": false,\n      \"meet_id\": \"met_aus_604899110256\",\n      \"off_time\": \"2025-10-11T04:00:00.000Z\",\n      \"prize_total\": \"80000.00\",\n      \"prizes\": [\n        {\n          \"Position\": 1,\n          \"Value\": \"43840.00\"\n        },\n        {\n          \"Position\": 2,\n          \"Value\": \"14880.00\"\n        }\n      ],\n      \"race_group\": \"ungrouped\",\n      \"race_name\": \"VALE LINDSAY SEVERN PLATE\",\n      \"race_number\": \"1\",\n      \"race_status\": \"Results\",\n      \"runners\": [\n        {\n          \"age\": \"2\",\n          \"colour\": \"Chestnut\",\n          \"comment\": \"Jumped Ok Went Forward to Lead but Two Wide quickened approaching Straight\",\n          \"dam\": \"Poker Face\",\n          \"dam_id\": \"dam_aus_5763901272\",\n          \"draw\": \"8\",\n          \"form\": \"1\",\n          \"horse\": \"All On Red\",\n          \"horse_id\": \"hrs_aus_985106802693\",\n          \"jockey\": \"L.M.Campbell\",\n          \"jockey_claim\": \"0\",\n          \"jockey_id\": \"jky_aus_382285552310\",\n          \"number\": \"1\",\n          \"odds\": [\n            {\n              \"bookmaker\": \"Sportsbet\",\n              \"place_odds\": \"1.70\",\n              \"win_odds\": \"5.00\"\n            },\n            {\n              \"bookmaker\": \"Ladbrokes\",\n              \"place_odds\": \"1.70\",\n              \"win_odds\": \"5.00\"\n            }\n          ],\n          \"owner\": \"T B Racing Pty Ltd (T Noske), T Shutterworth, S Mcfarlane, G White\",\n          \"position\": \"1\",\n          \"prize\": \"43840\",\n          \"scratched\": false,\n          \"sex\": \"Colt\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"Doubtland\",\n          \"sire_id\": \"sir_aus_767094969190\",\n          \"sp\": \"5.00\",\n          \"stats\": {\n            \"career_place_percent\": \"100%\",\n            \"career_prize\": \"$65,840\",\n            \"career_win_percent\": \"100%\",\n            \"course_distance_stats\": {\n              \"first\": \"1\",\n              \"second\": \"0\",\n              \"third\": \"0\",\n              \"total\": \"1\"\n            },\n            \"course_stats\": {\n              \"first\": \"1\",\n              \"second\": \"0\",\n              \"third\": \"0\",\n              \"total\": \"1\"\n            },\n            \"distance_stats\": {\n              \"first\": \"1\",\n              \"second\": \"0\",\n              \"third\": \"0\",\n              \"total\": \"1\"\n            },\n            \"ground_firm_stats\": {\n              \"first\": \"0\",\n              \"second\": \"0\",\n              \"third\": \"0\",\n              \"total\": \"0\"\n            },\n            \"ground_good_stats\": {\n              \"first\": \"1\",\n              \"second\": \"0\",\n              \"third\": \"0\",\n              \"total\": \"1\"\n            },\n            \"jockey_stats\": {\n              \"first\": \"1\",\n              \"second\": \"0\",\n              \"third\": \"0\",\n              \"total\": \"1\"\n            },\n            \"last_raced\": \"2025-10-11\",\n            \"last_ten_races_stats\": {\n              \"first\": \"1\",\n              \"second\": \"0\",\n              \"third\": \"0\",\n              \"total\": \"1\"\n            },\n            \"last_twelve_months_stats\": {\n              \"first\": \"1\",\n              \"second\": \"0\",\n              \"third\": \"0\",\n              \"total\": \"1\"\n            },\n            \"last_won\": \"2025-10-11\",\n            \"max_winning_distance\": \"1000m\",\n            \"min_winning_distance\": \"1000m\"\n          },\n          \"trainer\": \"Daniel Morton\",\n          \"trainer_id\": \"trn_aus_449779200413\",\n          \"weight\": \"57.0\"\n        }\n      ],\n      \"state\": \"WA\",\n      \"winning_time\": \"58.47\",\n      \"winning_time_hundredths\": \"5847\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b9b44e6-7ccb-4cce-9026-6be5b52a4834",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "australia",
+                    "meets",
+                    ":meet_id",
+                    "races"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "meet_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0a733837-89ac-481e-8388-16ce9f6a8423",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "australia",
+                    "meets",
+                    ":meet_id",
+                    "races"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "meet_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab881cf5-4146-438c-8b7f-39aac206baa0",
+          "name": "The Racing API Race",
+          "request": {
+            "name": "The Racing API Race",
+            "description": {
+              "content": "<h4>Get an Australian race by meet and race number</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] Australia regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for information.</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "australia",
+                "meets",
+                ":meet_id",
+                "races",
+                ":race_number"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "meet_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "race_number",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "77959fb3-6294-4eeb-8dee-d73f0793d6d1",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "australia",
+                    "meets",
+                    ":meet_id",
+                    "races",
+                    ":race_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "meet_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "race_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"class\": \"2YO Plate\",\n  \"course\": \"Ascot\",\n  \"course_id\": \"crs_aus_712388980373\",\n  \"date\": \"2025-10-11\",\n  \"distance\": \"1000m\",\n  \"going\": \"Good\",\n  \"is_jump_out\": false,\n  \"is_trial\": false,\n  \"meet_id\": \"met_aus_604899110256\",\n  \"off_time\": \"2025-10-11T04:00:00.000Z\",\n  \"prize_total\": \"80000.00\",\n  \"prizes\": [\n    {\n      \"Position\": 1,\n      \"Value\": \"43840.00\"\n    },\n    {\n      \"Position\": 2,\n      \"Value\": \"14880.00\"\n    }\n  ],\n  \"race_group\": \"ungrouped\",\n  \"race_name\": \"VALE LINDSAY SEVERN PLATE\",\n  \"race_number\": \"1\",\n  \"race_status\": \"Results\",\n  \"runners\": [\n    {\n      \"age\": \"2\",\n      \"colour\": \"Chestnut\",\n      \"comment\": \"Jumped Ok Went Forward to Lead but Two Wide quickened approaching Straight\",\n      \"dam\": \"Poker Face\",\n      \"dam_id\": \"dam_aus_5763901272\",\n      \"draw\": \"8\",\n      \"form\": \"1\",\n      \"horse\": \"All On Red\",\n      \"horse_id\": \"hrs_aus_985106802693\",\n      \"jockey\": \"L.M.Campbell\",\n      \"jockey_claim\": \"0\",\n      \"jockey_id\": \"jky_aus_382285552310\",\n      \"number\": \"1\",\n      \"odds\": [\n        {\n          \"bookmaker\": \"Sportsbet\",\n          \"place_odds\": \"1.70\",\n          \"win_odds\": \"5.00\"\n        },\n        {\n          \"bookmaker\": \"Ladbrokes\",\n          \"place_odds\": \"1.70\",\n          \"win_odds\": \"5.00\"\n        }\n      ],\n      \"owner\": \"T B Racing Pty Ltd (T Noske), T Shutterworth, S Mcfarlane, G White\",\n      \"position\": \"1\",\n      \"prize\": \"43840\",\n      \"scratched\": false,\n      \"sex\": \"Colt\",\n      \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n      \"sire\": \"Doubtland\",\n      \"sire_id\": \"sir_aus_767094969190\",\n      \"sp\": \"5.00\",\n      \"stats\": {\n        \"career_place_percent\": \"100%\",\n        \"career_prize\": \"$65,840\",\n        \"career_win_percent\": \"100%\",\n        \"course_distance_stats\": {\n          \"first\": \"1\",\n          \"second\": \"0\",\n          \"third\": \"0\",\n          \"total\": \"1\"\n        },\n        \"course_stats\": {\n          \"first\": \"1\",\n          \"second\": \"0\",\n          \"third\": \"0\",\n          \"total\": \"1\"\n        },\n        \"distance_stats\": {\n          \"first\": \"1\",\n          \"second\": \"0\",\n          \"third\": \"0\",\n          \"total\": \"1\"\n        },\n        \"ground_firm_stats\": {\n          \"first\": \"0\",\n          \"second\": \"0\",\n          \"third\": \"0\",\n          \"total\": \"0\"\n        },\n        \"ground_good_stats\": {\n          \"first\": \"1\",\n          \"second\": \"0\",\n          \"third\": \"0\",\n          \"total\": \"1\"\n        },\n        \"jockey_stats\": {\n          \"first\": \"1\",\n          \"second\": \"0\",\n          \"third\": \"0\",\n          \"total\": \"1\"\n        },\n        \"last_raced\": \"2025-10-11\",\n        \"last_ten_races_stats\": {\n          \"first\": \"1\",\n          \"second\": \"0\",\n          \"third\": \"0\",\n          \"total\": \"1\"\n        },\n        \"last_twelve_months_stats\": {\n          \"first\": \"1\",\n          \"second\": \"0\",\n          \"third\": \"0\",\n          \"total\": \"1\"\n        },\n        \"last_won\": \"2025-10-11\",\n        \"max_winning_distance\": \"1000m\",\n        \"min_winning_distance\": \"1000m\"\n      },\n      \"trainer\": \"Daniel Morton\",\n      \"trainer_id\": \"trn_aus_449779200413\",\n      \"weight\": \"57.0\"\n    }\n  ],\n  \"state\": \"WA\",\n  \"winning_time\": \"58.47\",\n  \"winning_time_hundredths\": \"5847\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8773cd1b-5074-4bb7-98c8-99f76b8ea2a3",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "australia",
+                    "meets",
+                    ":meet_id",
+                    "races",
+                    ":race_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "meet_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "race_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b5c9b378-7b84-49d6-9e30-7e59e430ec28",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "australia",
+                    "meets",
+                    ":meet_id",
+                    "races",
+                    ":race_number"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "meet_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "race_number",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.theracingapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "18638521-2227-40fa-a082-e1d6bfb1a3dd",
+    "name": "The Racing Australia API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "High performance API for horse racing statistical modelling, application development and web content. Complete coverage of UK, Irish and Hong Kong horse racing.",
+      "type": "text/plain"
+    }
+  }
+}

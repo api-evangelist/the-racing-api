@@ -1,0 +1,93 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Racing Australia API",
+    "version": "1.4.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Australia",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The Racing API Meets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/australia/meets",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Query meets by date with format YYYY-MM-DD (e.g 2023-04-05)"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get a list of Australian race meets (up to 12 months in the past and 7 days in the future)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><ul><li><b>[Required] Australia regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for in"
+        },
+        {
+          "info": {
+            "name": "The Racing API Races by Meet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/australia/meets/:meet_id/races",
+            "params": [
+              {
+                "name": "meet_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get races for an Australian meet (up to 12 months in the past and 7 days in the future)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><ul><li><b>[Required] Australia regional add-on</b>: users on the any plan can subscribe to this add-on for £49.99 per month. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for i"
+        },
+        {
+          "info": {
+            "name": "The Racing API Race",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/australia/meets/:meet_id/races/:race_number",
+            "params": [
+              {
+                "name": "meet_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "race_number",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get an Australian race by meet and race number</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] Australia regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for information.</td></tr></tbody></table>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

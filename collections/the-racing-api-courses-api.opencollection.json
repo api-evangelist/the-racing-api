@@ -1,0 +1,58 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Racing Australia Courses API",
+    "version": "1.4.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Courses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The Racing API Regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/courses/regions",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get a list of regions, with region codes.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Courses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/courses",
+            "params": [
+              {
+                "name": "region_codes",
+                "value": "",
+                "type": "query",
+                "description": "Filter courses by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get a list of courses, with course ids and regions.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

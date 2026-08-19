@@ -1,0 +1,138 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Racing Australia Free Plan API",
+    "version": "1.4.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Free Plan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The Racing API Regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/courses/regions",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get a list of regions, with region codes.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Courses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/courses",
+            "params": [
+              {
+                "name": "region_codes",
+                "value": "",
+                "type": "query",
+                "description": "Filter courses by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get a list of courses, with course ids and regions.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Racecards Free",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/racecards/free",
+            "params": [
+              {
+                "name": "day",
+                "value": "",
+                "type": "query",
+                "description": "Query racecards by day:<br> today, tomorrow"
+              },
+              {
+                "name": "region_codes",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+              },
+              {
+                "name": "course_ids",
+                "value": "",
+                "type": "query",
+                "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get racecards for today and tomorrow (basic data only)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 request per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Results Today Free",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/results/today/free",
+            "params": [
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query results by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p>"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get today's results (basic data only)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

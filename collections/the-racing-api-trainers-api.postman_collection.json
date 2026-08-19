@@ -1,0 +1,3552 @@
+{
+  "item": [
+    {
+      "id": "ec521d8c-8a39-40c1-a9e7-c3bd17b638f8",
+      "name": "Trainers",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2e55ba7d-b080-4e2b-b4fc-6295fb8d3f44",
+          "name": "The Racing API Trainer Search",
+          "request": {
+            "name": "The Racing API Trainer Search",
+            "description": {
+              "content": "<h4>Search trainers by name</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trainers",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "9a3c3206-0182-4032-8826-f28d70b37218",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"search_results\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "378e64a5-87bd-4d79-a4d5-9a67a2c5740d",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b32dbbd-e385-4d65-9b09-47ed788ba17d",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "62dc13bd-f8a8-4e9d-be31-a32b13b1ce7f",
+          "name": "The Racing API Trainer Results",
+          "request": {
+            "name": "The Racing API Trainer Results",
+            "description": {
+              "content": "<h4>Get full historical results for a trainer</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Pro</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trainers",
+                ":trainer_id",
+                "results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days ago. Can query back to 1988-01-01.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's date. Maximum range between start and end date is 365 days.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by minimum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by maximum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trainer_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "908caf6c-99fa-496d-8cc3-02e2c642be0a",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"age_band\": \"4yo+\",\n      \"class\": \"\",\n      \"comments\": \"\",\n      \"course\": \"Ballinrobe (IRE)\",\n      \"course_id\": \"crs_4550\",\n      \"date\": \"2025-08-11\",\n      \"dist\": \"2m7f\",\n      \"dist_f\": \"23f\",\n      \"dist_m\": \"4625\",\n      \"dist_y\": \"5058\",\n      \"going\": \"Good\",\n      \"jumps\": \"12 hurdles\",\n      \"non_runners\": \"Diamonds Diva (reserve), Great Rainbow (reserve), Loughrask Rainbow (reserve)\",\n      \"off\": \"8:25\",\n      \"off_dt\": \"2025-08-11T20:25:00+01:00\",\n      \"pattern\": \"\",\n      \"race_id\": \"rac_11715730\",\n      \"race_name\": \"J.J. Burke Peugeot Handicap Hurdle\",\n      \"rating_band\": \"0-100\",\n      \"region\": \"IRE\",\n      \"runners\": [\n        {\n          \"age\": \"8\",\n          \"bsp\": \"11.26\",\n          \"btn\": \"0\",\n          \"comment\": \"Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)\",\n          \"dam\": \"Save Me The Waltz (FR)\",\n          \"dam_id\": \"dam_4189605\",\n          \"damsire\": \"Halling\",\n          \"damsire_id\": \"dsi_675241\",\n          \"draw\": \"\",\n          \"headgear\": \"v\",\n          \"horse\": \"Mephisto (IRE)\",\n          \"horse_id\": \"hrs_19359270\",\n          \"jockey\": \"Shane Fitzgerald\",\n          \"jockey_claim_lbs\": \"0\",\n          \"jockey_id\": \"jky_302916\",\n          \"number\": \"2\",\n          \"or\": \"98\",\n          \"ovr_btn\": \"0\",\n          \"owner\": \"Restricted Movement Syndicate\",\n          \"owner_id\": \"own_1204876\",\n          \"position\": \"1\",\n          \"prize\": \"€5900\",\n          \"rpr\": \"105\",\n          \"sex\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"Kendargent (FR)\",\n          \"sire_id\": \"sir_4514419\",\n          \"sp\": \"15/2\",\n          \"sp_dec\": \"8.50\",\n          \"time\": \"5:44.90\",\n          \"trainer\": \"Gerard Keane\",\n          \"trainer_id\": \"trn_86382\",\n          \"tsr\": \"64\",\n          \"weight\": \"11-12\",\n          \"weight_lbs\": \"166\"\n        }\n      ],\n      \"sex_rest\": \"\",\n      \"surface\": \"Turf\",\n      \"tote_csf\": \"€300.55\",\n      \"tote_ex\": \"€253.10\",\n      \"tote_pl\": \"€2.30 €5.80 €4.20\",\n      \"tote_tricast\": \"€5228.29\",\n      \"tote_trifecta\": \"\",\n      \"tote_win\": \"€8.50\",\n      \"type\": \"Hurdle\",\n      \"winning_time_detail\": \"5m 44.90s (slow by 7.90s)\"\n    },\n    {\n      \"age_band\": \"4yo+\",\n      \"class\": \"\",\n      \"comments\": \"\",\n      \"course\": \"Ballinrobe (IRE)\",\n      \"course_id\": \"crs_4550\",\n      \"date\": \"2025-08-11\",\n      \"dist\": \"2m7f\",\n      \"dist_f\": \"23f\",\n      \"dist_m\": \"4625\",\n      \"dist_y\": \"5058\",\n      \"going\": \"Good\",\n      \"jumps\": \"12 hurdles\",\n      \"non_runners\": \"Diamonds Diva (reserve), Great Rainbow (reserve), Loughrask Rainbow (reserve)\",\n      \"off\": \"8:25\",\n      \"off_dt\": \"2025-08-11T20:25:00+01:00\",\n      \"pattern\": \"\",\n      \"race_id\": \"rac_11715730\",\n      \"race_name\": \"J.J. Burke Peugeot Handicap Hurdle\",\n      \"rating_band\": \"0-100\",\n      \"region\": \"IRE\",\n      \"runners\": [\n        {\n          \"age\": \"8\",\n          \"bsp\": \"11.26\",\n          \"btn\": \"0\",\n          \"comment\": \"Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)\",\n          \"dam\": \"Save Me The Waltz (FR)\",\n          \"dam_id\": \"dam_4189605\",\n          \"damsire\": \"Halling\",\n          \"damsire_id\": \"dsi_675241\",\n          \"draw\": \"\",\n          \"headgear\": \"v\",\n          \"horse\": \"Mephisto (IRE)\",\n          \"horse_id\": \"hrs_19359270\",\n          \"jockey\": \"Shane Fitzgerald\",\n          \"jockey_claim_lbs\": \"0\",\n          \"jockey_id\": \"jky_302916\",\n          \"number\": \"2\",\n          \"or\": \"98\",\n          \"ovr_btn\": \"0\",\n          \"owner\": \"Restricted Movement Syndicate\",\n          \"owner_id\": \"own_1204876\",\n          \"position\": \"1\",\n          \"prize\": \"€5900\",\n          \"rpr\": \"105\",\n          \"sex\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"Kendargent (FR)\",\n          \"sire_id\": \"sir_4514419\",\n          \"sp\": \"15/2\",\n          \"sp_dec\": \"8.50\",\n          \"time\": \"5:44.90\",\n          \"trainer\": \"Gerard Keane\",\n          \"trainer_id\": \"trn_86382\",\n          \"tsr\": \"64\",\n          \"weight\": \"11-12\",\n          \"weight_lbs\": \"166\"\n        }\n      ],\n      \"sex_rest\": \"\",\n      \"surface\": \"Turf\",\n      \"tote_csf\": \"€300.55\",\n      \"tote_ex\": \"€253.10\",\n      \"tote_pl\": \"€2.30 €5.80 €4.20\",\n      \"tote_tricast\": \"€5228.29\",\n      \"tote_trifecta\": \"\",\n      \"tote_win\": \"€8.50\",\n      \"type\": \"Hurdle\",\n      \"winning_time_detail\": \"5m 44.90s (slow by 7.90s)\"\n    }\n  ],\n  \"total\": 3031,\n  \"limit\": 7840,\n  \"skip\": 4554,\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e09f187d-d1a3-4219-9563-d00f8839ae68",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "09e59220-9fd6-4b81-8cd1-e8a035ad2d8f",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3087f035-1512-4565-9506-e71ef01c7f47",
+          "name": "The Racing API Trainer Horse Age Analysis",
+          "request": {
+            "name": "The Racing API Trainer Horse Age Analysis",
+            "description": {
+              "content": "<h4>Get trainer statistics by horse age</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trainers",
+                ":trainer_id",
+                "analysis",
+                "horse-age"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by minimum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by maximum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trainer_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4b921ef3-8553-4db8-9f4e-a6128e666300",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "horse-age"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"trainer\": \"string\",\n  \"total_runners\": 407,\n  \"horse_ages\": [\n    {\n      \"1_pl\": -0.68,\n      \"1st\": 156,\n      \"2nd\": 106,\n      \"3rd\": 87,\n      \"4th\": 60,\n      \"a/e\": 0.99,\n      \"horse_age\": \"3\",\n      \"runners\": 749,\n      \"win_%\": 0.21\n    },\n    {\n      \"1_pl\": -0.68,\n      \"1st\": 156,\n      \"2nd\": 106,\n      \"3rd\": 87,\n      \"4th\": 60,\n      \"a/e\": 0.99,\n      \"horse_age\": \"3\",\n      \"runners\": 749,\n      \"win_%\": 0.21\n    }\n  ],\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1751d73-9518-4364-8bc9-c504437fa899",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "horse-age"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "761b5ca1-2767-4f78-83ff-170bbafe44af",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "horse-age"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f717b03-84fc-4a37-abb5-1d8aca61d74d",
+          "name": "The Racing API Trainer Course Analysis",
+          "request": {
+            "name": "The Racing API Trainer Course Analysis",
+            "description": {
+              "content": "<h4>Get trainer statistics by course</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trainers",
+                ":trainer_id",
+                "analysis",
+                "courses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by minimum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by maximum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trainer_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a3ee136a-77dd-4343-8147-fe58eedc92e6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"trainer\": \"string\",\n  \"total_runners\": 7405,\n  \"courses\": [\n    {\n      \"1_pl\": 15.5,\n      \"1st\": 45,\n      \"2nd\": 30,\n      \"3rd\": 25,\n      \"4th\": 20,\n      \"a/e\": 1.05,\n      \"course\": \"Newmarket\",\n      \"course_id\": \"crs_988\",\n      \"region\": \"GB\",\n      \"runners\": 200,\n      \"win_%\": 0.23\n    },\n    {\n      \"1_pl\": 15.5,\n      \"1st\": 45,\n      \"2nd\": 30,\n      \"3rd\": 25,\n      \"4th\": 20,\n      \"a/e\": 1.05,\n      \"course\": \"Newmarket\",\n      \"course_id\": \"crs_988\",\n      \"region\": \"GB\",\n      \"runners\": 200,\n      \"win_%\": 0.23\n    }\n  ],\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e752126e-0201-494e-9488-8a673417f098",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c551fe0c-e9f4-4b03-b4df-f679b343c287",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98d9b971-2889-4d17-92fa-437ab399185d",
+          "name": "The Racing API Trainer Distance Analysis",
+          "request": {
+            "name": "The Racing API Trainer Distance Analysis",
+            "description": {
+              "content": "<h4>Get trainer statistics by race distance</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trainers",
+                ":trainer_id",
+                "analysis",
+                "distances"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by minimum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by maximum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trainer_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f14e8374-4eec-4a35-9649-cee90a9ad9f6",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "distances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"trainer\": \"string\",\n  \"total_runners\": 6137,\n  \"distances\": [\n    {\n      \"1_pl\": -59.87,\n      \"1st\": 77,\n      \"2nd\": 43,\n      \"3rd\": 52,\n      \"4th\": 32,\n      \"a/e\": 0.93,\n      \"dist\": \"1m\",\n      \"dist_f\": \"8f\",\n      \"dist_m\": \"1609\",\n      \"dist_y\": \"1760\",\n      \"runners\": 373,\n      \"win_%\": 0.21\n    },\n    {\n      \"1_pl\": -59.87,\n      \"1st\": 77,\n      \"2nd\": 43,\n      \"3rd\": 52,\n      \"4th\": 32,\n      \"a/e\": 0.93,\n      \"dist\": \"1m\",\n      \"dist_f\": \"8f\",\n      \"dist_m\": \"1609\",\n      \"dist_y\": \"1760\",\n      \"runners\": 373,\n      \"win_%\": 0.21\n    }\n  ],\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "85d1ccbc-e6a6-4f17-b00f-80355c1a5373",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "distances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b2d9de8f-e611-4ee2-8b78-b1cbab2e1332",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "distances"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f398c979-ed05-4ce0-bd93-c95bb19f130f",
+          "name": "The Racing API Trainer Jockey Analysis",
+          "request": {
+            "name": "The Racing API Trainer Jockey Analysis",
+            "description": {
+              "content": "<h4>Get trainer statistics by jockey</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trainers",
+                ":trainer_id",
+                "analysis",
+                "jockeys"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by minimum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by maximum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trainer_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ef44d837-e76b-4155-8705-b300395d3c06",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "jockeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"trainer\": \"string\",\n  \"total_runners\": 4455,\n  \"jockeys\": [\n    {\n      \"1_pl\": 50.62,\n      \"1st\": 260,\n      \"2nd\": 148,\n      \"3rd\": 143,\n      \"4th\": 88,\n      \"a/e\": 1.01,\n      \"jockey\": \"William Buick\",\n      \"jockey_id\": \"jky_257379\",\n      \"runners\": 1038,\n      \"win_%\": 0.25\n    },\n    {\n      \"1_pl\": 50.62,\n      \"1st\": 260,\n      \"2nd\": 148,\n      \"3rd\": 143,\n      \"4th\": 88,\n      \"a/e\": 1.01,\n      \"jockey\": \"William Buick\",\n      \"jockey_id\": \"jky_257379\",\n      \"runners\": 1038,\n      \"win_%\": 0.25\n    }\n  ],\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ccfcde14-12a4-4a22-a0c3-84763a586308",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "jockeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "147e1ba7-965b-4e86-933d-4defa4c64764",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "jockeys"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb304182-fbca-4e50-9ba7-114eb7880b86",
+          "name": "The Racing API Trainer Owner Analysis",
+          "request": {
+            "name": "The Racing API Trainer Owner Analysis",
+            "description": {
+              "content": "<h4>Get trainer statistics by owner</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "trainers",
+                ":trainer_id",
+                "analysis",
+                "owners"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by minimum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by maximum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "trainer_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "ca58c717-ccd4-4cda-b328-c7c4f0a40989",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"trainer\": \"string\",\n  \"total_runners\": 491,\n  \"owners\": [\n    {\n      \"1_pl\": 25,\n      \"1st\": 120,\n      \"2nd\": 80,\n      \"3rd\": 60,\n      \"4th\": 40,\n      \"a/e\": 1.02,\n      \"owner\": \"Godolphin\",\n      \"owner_id\": \"own_199380\",\n      \"runners\": 500,\n      \"win_%\": 0.24\n    },\n    {\n      \"1_pl\": 25,\n      \"1st\": 120,\n      \"2nd\": 80,\n      \"3rd\": 60,\n      \"4th\": 40,\n      \"a/e\": 1.02,\n      \"owner\": \"Godolphin\",\n      \"owner_id\": \"own_199380\",\n      \"runners\": 500,\n      \"win_%\": 0.24\n    }\n  ],\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7f79dc4-18db-4e22-b998-739fb8efa4c8",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d2b8cf31-767a-4163-8c0f-bc0907d4da88",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "trainers",
+                    ":trainer_id",
+                    "analysis",
+                    "owners"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "trainer_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.theracingapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "1dafcef6-e779-4c7f-ae74-cd9e8dcb0595",
+    "name": "The Racing Australia Trainers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "High performance API for horse racing statistical modelling, application development and web content. Complete coverage of UK, Irish and Hong Kong horse racing.",
+      "type": "text/plain"
+    }
+  }
+}

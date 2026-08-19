@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Racing Australia North America API",
+    "version": "1.4.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "North America",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The Racing API Meets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/north-america/meets",
+            "params": [
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get a list of North American race meets</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + North America regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] North America regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for information.</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Meet Entries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/north-america/meets/:meet_id/entries",
+            "params": [
+              {
+                "name": "meet_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get entries for a North American meet</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + North America regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] North America regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for information.</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Meet Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/north-america/meets/:meet_id/results",
+            "params": [
+              {
+                "name": "meet_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get results for a North American meet</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + North America regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] North America regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href='mailto:support@theracingapi.com'>support@theracingapi.com</a> for information.</td></tr></tbody></table>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

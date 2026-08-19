@@ -1,0 +1,2390 @@
+{
+  "item": [
+    {
+      "id": "13b2563c-b996-42a1-ad02-2c9b31773786",
+      "name": "Basic Plan",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e1bae372-7105-4d10-a0c9-16c1a7fbc707",
+          "name": "The Racing API Regions",
+          "request": {
+            "name": "The Racing API Regions",
+            "description": {
+              "content": "<h4>Get a list of regions, with region codes.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "courses",
+                "regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1e6b68b6-1e28-4653-9ff2-85efdd44372a",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "courses",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"region\": \"Great Britain\",\n    \"region_code\": \"gb\"\n  },\n  {\n    \"region\": \"Great Britain\",\n    \"region_code\": \"gb\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ce37c8be-3b37-4dc7-93da-701195f21026",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "courses",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "541095fc-aa65-4733-ba65-a0a3badd91bc",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "courses",
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a6498e7f-fab7-49bd-a445-4e433c40ef9e",
+          "name": "The Racing API Courses",
+          "request": {
+            "name": "The Racing API Courses",
+            "description": {
+              "content": "<h4>Get a list of courses, with course ids and regions.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "courses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "region_codes",
+                  "value": "<string>",
+                  "description": "Filter courses by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "region_codes",
+                  "value": "<string>",
+                  "description": "Filter courses by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "18a5594d-b887-4a43-8f59-65d6541dd69c",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"courses\": [\n    {\n      \"id\": \"string\",\n      \"course\": \"string\",\n      \"region_code\": \"string\",\n      \"region\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"course\": \"string\",\n      \"region_code\": \"string\",\n      \"region\": \"string\"\n    }\n  ],\n  \"total\": 6492\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b28cf91a-3232-4647-8deb-4d8dd666da0b",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f9f50d5-6107-4add-9c4e-71fe2d9149ca",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "courses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02c29f5b-e7ca-4b97-94b7-9e2ad064414a",
+          "name": "The Racing API Horse Distance Time Analysis",
+          "request": {
+            "name": "The Racing API Horse Distance Time Analysis",
+            "description": {
+              "content": "<h4>Get horse statistics by race distance, with breakdowns of times.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "horses",
+                ":horse_id",
+                "analysis",
+                "distance-times"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by minimum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by maximum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "horse_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "869b4da3-c79b-4153-bcac-b1c188ef4adb",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "horses",
+                    ":horse_id",
+                    "analysis",
+                    "distance-times"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "horse_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"horse\": \"string\",\n  \"sire\": \"string\",\n  \"sire_id\": \"string\",\n  \"dam\": \"string\",\n  \"dam_id\": \"string\",\n  \"damsire\": \"string\",\n  \"damsire_id\": \"string\",\n  \"total_runs\": 8892,\n  \"distances\": [\n    {\n      \"1_pl\": -5,\n      \"1st\": 1,\n      \"2nd\": 2,\n      \"3rd\": 0,\n      \"4th\": 0,\n      \"a/e\": 0.5,\n      \"dist\": \"6f\",\n      \"dist_f\": \"6f\",\n      \"dist_m\": \"1225\",\n      \"dist_y\": \"1340\",\n      \"runs\": 11,\n      \"times\": [\n        {\n          \"course\": \"Chelmsford (AW)\",\n          \"date\": \"2022-04-28\",\n          \"going\": \"Standard\",\n          \"position\": \"7\",\n          \"region\": \"GB\",\n          \"time\": \"1:11.94\"\n        }\n      ],\n      \"win_%\": 0.09\n    },\n    {\n      \"1_pl\": -5,\n      \"1st\": 1,\n      \"2nd\": 2,\n      \"3rd\": 0,\n      \"4th\": 0,\n      \"a/e\": 0.5,\n      \"dist\": \"6f\",\n      \"dist_f\": \"6f\",\n      \"dist_m\": \"1225\",\n      \"dist_y\": \"1340\",\n      \"runs\": 11,\n      \"times\": [\n        {\n          \"course\": \"Chelmsford (AW)\",\n          \"date\": \"2022-04-28\",\n          \"going\": \"Standard\",\n          \"position\": \"7\",\n          \"region\": \"GB\",\n          \"time\": \"1:11.94\"\n        }\n      ],\n      \"win_%\": 0.09\n    }\n  ],\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "938e2e93-7ff4-4a78-8d8a-e1be27bb22d9",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "horses",
+                    ":horse_id",
+                    "analysis",
+                    "distance-times"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "horse_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c6478a94-a278-4510-aca3-10c8bdf8804f",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "horses",
+                    ":horse_id",
+                    "analysis",
+                    "distance-times"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "horse_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "592c8105-cf45-4661-8950-232f704e57ce",
+          "name": "The Racing API Racecards Basic",
+          "request": {
+            "name": "The Racing API Racecards Basic",
+            "description": {
+              "content": "<h4>Get racecards for today and tomorrow</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>2 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "racecards",
+                "basic"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "day",
+                  "value": "<string>",
+                  "description": "Query racecards by day:<br> today, tomorrow"
+                },
+                {
+                  "disabled": false,
+                  "key": "region_codes",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region_codes",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course_ids",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course_ids",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "1b9fbbe7-dab4-4289-a11e-d3436ce48794",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "racecards",
+                    "basic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "day",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"racecards\": [\n    {\n      \"race_id\": \"string\",\n      \"course\": \"string\",\n      \"course_id\": \"string\",\n      \"date\": \"string\",\n      \"off_time\": \"string\",\n      \"race_name\": \"string\",\n      \"distance_round\": \"string\",\n      \"distance\": \"string\",\n      \"distance_f\": \"string\",\n      \"region\": \"string\",\n      \"pattern\": \"string\",\n      \"race_class\": \"string\",\n      \"type\": \"string\",\n      \"age_band\": \"string\",\n      \"rating_band\": \"string\",\n      \"prize\": \"string\",\n      \"field_size\": \"string\",\n      \"going_detailed\": \"string\",\n      \"rail_movements\": \"string\",\n      \"stalls\": \"string\",\n      \"weather\": \"string\",\n      \"going\": \"string\",\n      \"surface\": \"string\",\n      \"runners\": [\n        {\n          \"age\": \"6\",\n          \"breeder\": \"Tada Nobutaka\",\n          \"colour\": \"b\",\n          \"comment\": \"Very useful in his prime but seems to have lost his way this year; has questions to answer\",\n          \"dam\": \"Lerici\",\n          \"dam_id\": \"dam_4823441\",\n          \"dam_region\": \"USA\",\n          \"damsire\": \"Woodman\",\n          \"damsire_id\": \"dsi_2126229\",\n          \"damsire_region\": \"USA\",\n          \"dob\": \"2017-04-22\",\n          \"draw\": \"8\",\n          \"form\": \"3-7880\",\n          \"headgear\": \"\",\n          \"headgear_run\": \"\",\n          \"horse\": \"Pistoletto\",\n          \"horse_id\": \"hrs_18092480\",\n          \"jockey\": \"Adam Tracey(7)\",\n          \"jockey_id\": \"jky_301290\",\n          \"last_run\": \"25\",\n          \"lbs\": \"140\",\n          \"number\": \"1\",\n          \"ofr\": \"75\",\n          \"owner\": \"J A Thompson & S Russell\",\n          \"owner_id\": \"own_1227828\",\n          \"prev_owners\": [\n            {\n              \"change_date\": \"2021-08-07\",\n              \"owner\": \"G McGladery, J A Thompson & S Russell\",\n              \"owner_id\": \"own_1191676\"\n            },\n            {\n              \"change_date\": \"2020-09-26\",\n              \"owner\": \"Michael Tabor & Derrick Smith & Mrs John Magnier\",\n              \"owner_id\": \"own_575044\"\n            }\n          ],\n          \"prev_trainers\": [\n            {\n              \"change_date\": \"2020-09-26\",\n              \"trainer\": \"A P O'Brien\",\n              \"trainer_id\": \"trn_71802\"\n            }\n          ],\n          \"quotes\": [\n            {\n              \"course\": \"Newmarket\",\n              \"course_id\": \"crs_988\",\n              \"date\": \"2019-10-11\",\n              \"distance_f\": \"5\",\n              \"distance_y\": \"1100\",\n              \"horse\": \"Pistoletto\",\n              \"horse_id\": \"hrs_18092480\",\n              \"quote\": \"Ryan was very pleased and while Pistoletto just didn't seem to get his feet when he left the stalls, and was a bit more slowly away than some, he travelled nicely into the race - Kevin Buckley, Coomore representative.\",\n              \"race\": \"Newmarket Academy Godolphin Beacon Project Cornwallis Stakes (Group 3)\",\n              \"race_id\": \"rac_9618089\"\n            }\n          ],\n          \"region\": \"USA\",\n          \"rpr\": \"82\",\n          \"sex\": \"gelding\",\n          \"sex_code\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"War Front\",\n          \"sire_id\": \"sir_4544750\",\n          \"sire_region\": \"USA\",\n          \"spotlight\": \"Very useful in his prime but seems to have lost his way this year; sure to appreciate today's ease in grade after contesting two valuable races at Lingfield (1m2f/1m4f) but may need further than 7f nowadays and has some questions to answer.\",\n          \"trainer\": \"John Ryan\",\n          \"trainer_14_days\": {\n            \"percent\": \"0\",\n            \"runs\": \"5\",\n            \"wins\": \"0\"\n          },\n          \"trainer_id\": \"trn_160758\",\n          \"trainer_location\": \"Newmarket, Suffolk\",\n          \"trainer_rtf\": \"\",\n          \"ts\": \"81\",\n          \"wind_surgery\": \"\",\n          \"wind_surgery_run\": \"\"\n        },\n        {\n          \"age\": \"6\",\n          \"breeder\": \"Tada Nobutaka\",\n          \"colour\": \"b\",\n          \"comment\": \"Very useful in his prime but seems to have lost his way this year; has questions to answer\",\n          \"dam\": \"Lerici\",\n          \"dam_id\": \"dam_4823441\",\n          \"dam_region\": \"USA\",\n          \"damsire\": \"Woodman\",\n          \"damsire_id\": \"dsi_2126229\",\n          \"damsire_region\": \"USA\",\n          \"dob\": \"2017-04-22\",\n          \"draw\": \"8\",\n          \"form\": \"3-7880\",\n          \"headgear\": \"\",\n          \"headgear_run\": \"\",\n          \"horse\": \"Pistoletto\",\n          \"horse_id\": \"hrs_18092480\",\n          \"jockey\": \"Adam Tracey(7)\",\n          \"jockey_id\": \"jky_301290\",\n          \"last_run\": \"25\",\n          \"lbs\": \"140\",\n          \"number\": \"1\",\n          \"ofr\": \"75\",\n          \"owner\": \"J A Thompson & S Russell\",\n          \"owner_id\": \"own_1227828\",\n          \"prev_owners\": [\n            {\n              \"change_date\": \"2021-08-07\",\n              \"owner\": \"G McGladery, J A Thompson & S Russell\",\n              \"owner_id\": \"own_1191676\"\n            },\n            {\n              \"change_date\": \"2020-09-26\",\n              \"owner\": \"Michael Tabor & Derrick Smith & Mrs John Magnier\",\n              \"owner_id\": \"own_575044\"\n            }\n          ],\n          \"prev_trainers\": [\n            {\n              \"change_date\": \"2020-09-26\",\n              \"trainer\": \"A P O'Brien\",\n              \"trainer_id\": \"trn_71802\"\n            }\n          ],\n          \"quotes\": [\n            {\n              \"course\": \"Newmarket\",\n              \"course_id\": \"crs_988\",\n              \"date\": \"2019-10-11\",\n              \"distance_f\": \"5\",\n              \"distance_y\": \"1100\",\n              \"horse\": \"Pistoletto\",\n              \"horse_id\": \"hrs_18092480\",\n              \"quote\": \"Ryan was very pleased and while Pistoletto just didn't seem to get his feet when he left the stalls, and was a bit more slowly away than some, he travelled nicely into the race - Kevin Buckley, Coomore representative.\",\n              \"race\": \"Newmarket Academy Godolphin Beacon Project Cornwallis Stakes (Group 3)\",\n              \"race_id\": \"rac_9618089\"\n            }\n          ],\n          \"region\": \"USA\",\n          \"rpr\": \"82\",\n          \"sex\": \"gelding\",\n          \"sex_code\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"War Front\",\n          \"sire_id\": \"sir_4544750\",\n          \"sire_region\": \"USA\",\n          \"spotlight\": \"Very useful in his prime but seems to have lost his way this year; sure to appreciate today's ease in grade after contesting two valuable races at Lingfield (1m2f/1m4f) but may need further than 7f nowadays and has some questions to answer.\",\n          \"trainer\": \"John Ryan\",\n          \"trainer_14_days\": {\n            \"percent\": \"0\",\n            \"runs\": \"5\",\n            \"wins\": \"0\"\n          },\n          \"trainer_id\": \"trn_160758\",\n          \"trainer_location\": \"Newmarket, Suffolk\",\n          \"trainer_rtf\": \"\",\n          \"ts\": \"81\",\n          \"wind_surgery\": \"\",\n          \"wind_surgery_run\": \"\"\n        }\n      ],\n      \"off_dt\": \"string\",\n      \"sex_restriction\": \"string\",\n      \"big_race\": true,\n      \"is_abandoned\": true,\n      \"race_status\": \"string\"\n    },\n    {\n      \"race_id\": \"string\",\n      \"course\": \"string\",\n      \"course_id\": \"string\",\n      \"date\": \"string\",\n      \"off_time\": \"string\",\n      \"race_name\": \"string\",\n      \"distance_round\": \"string\",\n      \"distance\": \"string\",\n      \"distance_f\": \"string\",\n      \"region\": \"string\",\n      \"pattern\": \"string\",\n      \"race_class\": \"string\",\n      \"type\": \"string\",\n      \"age_band\": \"string\",\n      \"rating_band\": \"string\",\n      \"prize\": \"string\",\n      \"field_size\": \"string\",\n      \"going_detailed\": \"string\",\n      \"rail_movements\": \"string\",\n      \"stalls\": \"string\",\n      \"weather\": \"string\",\n      \"going\": \"string\",\n      \"surface\": \"string\",\n      \"runners\": [\n        {\n          \"age\": \"6\",\n          \"breeder\": \"Tada Nobutaka\",\n          \"colour\": \"b\",\n          \"comment\": \"Very useful in his prime but seems to have lost his way this year; has questions to answer\",\n          \"dam\": \"Lerici\",\n          \"dam_id\": \"dam_4823441\",\n          \"dam_region\": \"USA\",\n          \"damsire\": \"Woodman\",\n          \"damsire_id\": \"dsi_2126229\",\n          \"damsire_region\": \"USA\",\n          \"dob\": \"2017-04-22\",\n          \"draw\": \"8\",\n          \"form\": \"3-7880\",\n          \"headgear\": \"\",\n          \"headgear_run\": \"\",\n          \"horse\": \"Pistoletto\",\n          \"horse_id\": \"hrs_18092480\",\n          \"jockey\": \"Adam Tracey(7)\",\n          \"jockey_id\": \"jky_301290\",\n          \"last_run\": \"25\",\n          \"lbs\": \"140\",\n          \"number\": \"1\",\n          \"ofr\": \"75\",\n          \"owner\": \"J A Thompson & S Russell\",\n          \"owner_id\": \"own_1227828\",\n          \"prev_owners\": [\n            {\n              \"change_date\": \"2021-08-07\",\n              \"owner\": \"G McGladery, J A Thompson & S Russell\",\n              \"owner_id\": \"own_1191676\"\n            },\n            {\n              \"change_date\": \"2020-09-26\",\n              \"owner\": \"Michael Tabor & Derrick Smith & Mrs John Magnier\",\n              \"owner_id\": \"own_575044\"\n            }\n          ],\n          \"prev_trainers\": [\n            {\n              \"change_date\": \"2020-09-26\",\n              \"trainer\": \"A P O'Brien\",\n              \"trainer_id\": \"trn_71802\"\n            }\n          ],\n          \"quotes\": [\n            {\n              \"course\": \"Newmarket\",\n              \"course_id\": \"crs_988\",\n              \"date\": \"2019-10-11\",\n              \"distance_f\": \"5\",\n              \"distance_y\": \"1100\",\n              \"horse\": \"Pistoletto\",\n              \"horse_id\": \"hrs_18092480\",\n              \"quote\": \"Ryan was very pleased and while Pistoletto just didn't seem to get his feet when he left the stalls, and was a bit more slowly away than some, he travelled nicely into the race - Kevin Buckley, Coomore representative.\",\n              \"race\": \"Newmarket Academy Godolphin Beacon Project Cornwallis Stakes (Group 3)\",\n              \"race_id\": \"rac_9618089\"\n            }\n          ],\n          \"region\": \"USA\",\n          \"rpr\": \"82\",\n          \"sex\": \"gelding\",\n          \"sex_code\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"War Front\",\n          \"sire_id\": \"sir_4544750\",\n          \"sire_region\": \"USA\",\n          \"spotlight\": \"Very useful in his prime but seems to have lost his way this year; sure to appreciate today's ease in grade after contesting two valuable races at Lingfield (1m2f/1m4f) but may need further than 7f nowadays and has some questions to answer.\",\n          \"trainer\": \"John Ryan\",\n          \"trainer_14_days\": {\n            \"percent\": \"0\",\n            \"runs\": \"5\",\n            \"wins\": \"0\"\n          },\n          \"trainer_id\": \"trn_160758\",\n          \"trainer_location\": \"Newmarket, Suffolk\",\n          \"trainer_rtf\": \"\",\n          \"ts\": \"81\",\n          \"wind_surgery\": \"\",\n          \"wind_surgery_run\": \"\"\n        },\n        {\n          \"age\": \"6\",\n          \"breeder\": \"Tada Nobutaka\",\n          \"colour\": \"b\",\n          \"comment\": \"Very useful in his prime but seems to have lost his way this year; has questions to answer\",\n          \"dam\": \"Lerici\",\n          \"dam_id\": \"dam_4823441\",\n          \"dam_region\": \"USA\",\n          \"damsire\": \"Woodman\",\n          \"damsire_id\": \"dsi_2126229\",\n          \"damsire_region\": \"USA\",\n          \"dob\": \"2017-04-22\",\n          \"draw\": \"8\",\n          \"form\": \"3-7880\",\n          \"headgear\": \"\",\n          \"headgear_run\": \"\",\n          \"horse\": \"Pistoletto\",\n          \"horse_id\": \"hrs_18092480\",\n          \"jockey\": \"Adam Tracey(7)\",\n          \"jockey_id\": \"jky_301290\",\n          \"last_run\": \"25\",\n          \"lbs\": \"140\",\n          \"number\": \"1\",\n          \"ofr\": \"75\",\n          \"owner\": \"J A Thompson & S Russell\",\n          \"owner_id\": \"own_1227828\",\n          \"prev_owners\": [\n            {\n              \"change_date\": \"2021-08-07\",\n              \"owner\": \"G McGladery, J A Thompson & S Russell\",\n              \"owner_id\": \"own_1191676\"\n            },\n            {\n              \"change_date\": \"2020-09-26\",\n              \"owner\": \"Michael Tabor & Derrick Smith & Mrs John Magnier\",\n              \"owner_id\": \"own_575044\"\n            }\n          ],\n          \"prev_trainers\": [\n            {\n              \"change_date\": \"2020-09-26\",\n              \"trainer\": \"A P O'Brien\",\n              \"trainer_id\": \"trn_71802\"\n            }\n          ],\n          \"quotes\": [\n            {\n              \"course\": \"Newmarket\",\n              \"course_id\": \"crs_988\",\n              \"date\": \"2019-10-11\",\n              \"distance_f\": \"5\",\n              \"distance_y\": \"1100\",\n              \"horse\": \"Pistoletto\",\n              \"horse_id\": \"hrs_18092480\",\n              \"quote\": \"Ryan was very pleased and while Pistoletto just didn't seem to get his feet when he left the stalls, and was a bit more slowly away than some, he travelled nicely into the race - Kevin Buckley, Coomore representative.\",\n              \"race\": \"Newmarket Academy Godolphin Beacon Project Cornwallis Stakes (Group 3)\",\n              \"race_id\": \"rac_9618089\"\n            }\n          ],\n          \"region\": \"USA\",\n          \"rpr\": \"82\",\n          \"sex\": \"gelding\",\n          \"sex_code\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"War Front\",\n          \"sire_id\": \"sir_4544750\",\n          \"sire_region\": \"USA\",\n          \"spotlight\": \"Very useful in his prime but seems to have lost his way this year; sure to appreciate today's ease in grade after contesting two valuable races at Lingfield (1m2f/1m4f) but may need further than 7f nowadays and has some questions to answer.\",\n          \"trainer\": \"John Ryan\",\n          \"trainer_14_days\": {\n            \"percent\": \"0\",\n            \"runs\": \"5\",\n            \"wins\": \"0\"\n          },\n          \"trainer_id\": \"trn_160758\",\n          \"trainer_location\": \"Newmarket, Suffolk\",\n          \"trainer_rtf\": \"\",\n          \"ts\": \"81\",\n          \"wind_surgery\": \"\",\n          \"wind_surgery_run\": \"\"\n        }\n      ],\n      \"off_dt\": \"string\",\n      \"sex_restriction\": \"string\",\n      \"big_race\": true,\n      \"is_abandoned\": true,\n      \"race_status\": \"string\"\n    }\n  ],\n  \"total\": 635,\n  \"limit\": 9358,\n  \"skip\": 6570,\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "65f6287a-5940-413a-93e1-93731cbf2da9",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "racecards",
+                    "basic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "day",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "17cf87b9-a79b-42f7-ae9b-6557e062d84c",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "racecards",
+                    "basic"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "day",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d3d94bc3-1594-43d7-a880-67689c74883c",
+          "name": "The Racing API Racecards Summaries",
+          "request": {
+            "name": "The Racing API Racecards Summaries",
+            "description": {
+              "content": "<h4>Get racecard summaries by date</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "racecards",
+                "summaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Query racecard summaries by date with format YYYY-MM-DD (e.g 2023-04-05)"
+                },
+                {
+                  "disabled": false,
+                  "key": "region_codes",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region_codes",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course_ids",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course_ids",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d6cea849-12fc-47da-8e22-4099c4bf11e9",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "racecards",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"racecard_summaries\": [\n    {\n      \"big_race\": false,\n      \"course\": \"Bahrain\",\n      \"course_id\": \"crs_22594\",\n      \"date\": \"2026-02-06\",\n      \"is_abandoned\": false,\n      \"off_dt\": \"2026-02-06T14:00:00+00:00\",\n      \"off_time\": \"2:00\",\n      \"race_class\": \"\",\n      \"race_id\": \"rac_11868129\",\n      \"race_name\": \"Race 3 (Conditions Race) (Turf)\",\n      \"region\": \"BHR\"\n    },\n    {\n      \"big_race\": false,\n      \"course\": \"Bahrain\",\n      \"course_id\": \"crs_22594\",\n      \"date\": \"2026-02-06\",\n      \"is_abandoned\": false,\n      \"off_dt\": \"2026-02-06T14:00:00+00:00\",\n      \"off_time\": \"2:00\",\n      \"race_class\": \"\",\n      \"race_id\": \"rac_11868129\",\n      \"race_name\": \"Race 3 (Conditions Race) (Turf)\",\n      \"region\": \"BHR\"\n    }\n  ],\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "67174c70-9c0c-4a8d-8fd5-b6515a744d0a",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "racecards",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5209c675-a9fb-4a1e-93db-fc0378b6c61f",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "racecards",
+                    "summaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region_codes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course_ids",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8b47cd8e-d8c4-458e-898f-46d9b3161db6",
+          "name": "The Racing API Racecard Horse Results",
+          "request": {
+            "name": "The Racing API Racecard Horse Results",
+            "description": {
+              "content": "<h4>Get historic results for a horse on any upcoming racecard.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "racecards",
+                ":horse_id",
+                "results"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<string>",
+                  "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<string>",
+                  "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "course",
+                  "value": "<string>",
+                  "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "going",
+                  "value": "<string>",
+                  "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "race_class",
+                  "value": "<string>",
+                  "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "min_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by minimum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "max_distance_y",
+                  "value": "<integer>",
+                  "description": "<p>Query by maximum race distance (yards)</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "age_band",
+                  "value": "<string>",
+                  "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sex_restriction",
+                  "value": "<string>",
+                  "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "horse_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c7c946a8-0be4-47a3-9a0b-47a41cfbf49c",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "racecards",
+                    ":horse_id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "horse_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"age_band\": \"4yo+\",\n      \"class\": \"\",\n      \"comments\": \"\",\n      \"course\": \"Ballinrobe (IRE)\",\n      \"course_id\": \"crs_4550\",\n      \"date\": \"2025-08-11\",\n      \"dist\": \"2m7f\",\n      \"dist_f\": \"23f\",\n      \"dist_m\": \"4625\",\n      \"dist_y\": \"5058\",\n      \"going\": \"Good\",\n      \"jumps\": \"12 hurdles\",\n      \"non_runners\": \"Diamonds Diva (reserve), Great Rainbow (reserve), Loughrask Rainbow (reserve)\",\n      \"off\": \"8:25\",\n      \"off_dt\": \"2025-08-11T20:25:00+01:00\",\n      \"pattern\": \"\",\n      \"race_id\": \"rac_11715730\",\n      \"race_name\": \"J.J. Burke Peugeot Handicap Hurdle\",\n      \"rating_band\": \"0-100\",\n      \"region\": \"IRE\",\n      \"runners\": [\n        {\n          \"age\": \"8\",\n          \"btn\": \"0\",\n          \"comment\": \"Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)\",\n          \"dam\": \"Save Me The Waltz (FR)\",\n          \"dam_id\": \"dam_4189605\",\n          \"damsire\": \"Halling\",\n          \"damsire_id\": \"dsi_675241\",\n          \"draw\": \"\",\n          \"headgear\": \"v\",\n          \"horse\": \"Mephisto (IRE)\",\n          \"horse_id\": \"hrs_19359270\",\n          \"jockey\": \"Shane Fitzgerald\",\n          \"jockey_claim_lbs\": \"0\",\n          \"jockey_id\": \"jky_302916\",\n          \"number\": \"2\",\n          \"or\": \"98\",\n          \"ovr_btn\": \"0\",\n          \"owner\": \"Restricted Movement Syndicate\",\n          \"owner_id\": \"own_1204876\",\n          \"position\": \"1\",\n          \"prize\": \"€5900\",\n          \"rpr\": \"105\",\n          \"sex\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"Kendargent (FR)\",\n          \"sire_id\": \"sir_4514419\",\n          \"sp\": \"15/2\",\n          \"sp_dec\": \"8.50\",\n          \"time\": \"5:44.90\",\n          \"trainer\": \"Gerard Keane\",\n          \"trainer_id\": \"trn_86382\",\n          \"tsr\": \"64\",\n          \"weight\": \"11-12\",\n          \"weight_lbs\": \"166\"\n        }\n      ],\n      \"sex_rest\": \"\",\n      \"surface\": \"Turf\",\n      \"tote_csf\": \"€300.55\",\n      \"tote_ex\": \"€253.10\",\n      \"tote_pl\": \"€2.30 €5.80 €4.20\",\n      \"tote_tricast\": \"€5228.29\",\n      \"tote_trifecta\": \"\",\n      \"tote_win\": \"€8.50\",\n      \"type\": \"Hurdle\",\n      \"winning_time_detail\": \"5m 44.90s (slow by 7.90s)\"\n    },\n    {\n      \"age_band\": \"4yo+\",\n      \"class\": \"\",\n      \"comments\": \"\",\n      \"course\": \"Ballinrobe (IRE)\",\n      \"course_id\": \"crs_4550\",\n      \"date\": \"2025-08-11\",\n      \"dist\": \"2m7f\",\n      \"dist_f\": \"23f\",\n      \"dist_m\": \"4625\",\n      \"dist_y\": \"5058\",\n      \"going\": \"Good\",\n      \"jumps\": \"12 hurdles\",\n      \"non_runners\": \"Diamonds Diva (reserve), Great Rainbow (reserve), Loughrask Rainbow (reserve)\",\n      \"off\": \"8:25\",\n      \"off_dt\": \"2025-08-11T20:25:00+01:00\",\n      \"pattern\": \"\",\n      \"race_id\": \"rac_11715730\",\n      \"race_name\": \"J.J. Burke Peugeot Handicap Hurdle\",\n      \"rating_band\": \"0-100\",\n      \"region\": \"IRE\",\n      \"runners\": [\n        {\n          \"age\": \"8\",\n          \"btn\": \"0\",\n          \"comment\": \"Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)\",\n          \"dam\": \"Save Me The Waltz (FR)\",\n          \"dam_id\": \"dam_4189605\",\n          \"damsire\": \"Halling\",\n          \"damsire_id\": \"dsi_675241\",\n          \"draw\": \"\",\n          \"headgear\": \"v\",\n          \"horse\": \"Mephisto (IRE)\",\n          \"horse_id\": \"hrs_19359270\",\n          \"jockey\": \"Shane Fitzgerald\",\n          \"jockey_claim_lbs\": \"0\",\n          \"jockey_id\": \"jky_302916\",\n          \"number\": \"2\",\n          \"or\": \"98\",\n          \"ovr_btn\": \"0\",\n          \"owner\": \"Restricted Movement Syndicate\",\n          \"owner_id\": \"own_1204876\",\n          \"position\": \"1\",\n          \"prize\": \"€5900\",\n          \"rpr\": \"105\",\n          \"sex\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"Kendargent (FR)\",\n          \"sire_id\": \"sir_4514419\",\n          \"sp\": \"15/2\",\n          \"sp_dec\": \"8.50\",\n          \"time\": \"5:44.90\",\n          \"trainer\": \"Gerard Keane\",\n          \"trainer_id\": \"trn_86382\",\n          \"tsr\": \"64\",\n          \"weight\": \"11-12\",\n          \"weight_lbs\": \"166\"\n        }\n      ],\n      \"sex_rest\": \"\",\n      \"surface\": \"Turf\",\n      \"tote_csf\": \"€300.55\",\n      \"tote_ex\": \"€253.10\",\n      \"tote_pl\": \"€2.30 €5.80 €4.20\",\n      \"tote_tricast\": \"€5228.29\",\n      \"tote_trifecta\": \"\",\n      \"tote_win\": \"€8.50\",\n      \"type\": \"Hurdle\",\n      \"winning_time_detail\": \"5m 44.90s (slow by 7.90s)\"\n    }\n  ],\n  \"total\": 9857,\n  \"limit\": 7332,\n  \"skip\": 4861,\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8d900ea0-8da6-4ae3-ab47-71c4b33c492e",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "racecards",
+                    ":horse_id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "horse_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7af28a81-7357-4c55-8c4d-cf8d4c0f6995",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "racecards",
+                    ":horse_id",
+                    "results"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "course",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "going",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "race_class",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "min_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max_distance_y",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "age_band",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sex_restriction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "horse_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4461bf80-d898-4c6c-8a9a-adbc621f0af6",
+          "name": "The Racing API Results Today",
+          "request": {
+            "name": "The Racing API Results Today",
+            "description": {
+              "content": "<h4>Get today's results</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "v1",
+                "results",
+                "today"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query results by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "region",
+                  "value": "<string>",
+                  "description": "<p>Query results by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p>"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "<integer>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d20bc3ef-fc0b-4e4e-ba4d-b5783dee8bbf",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "results",
+                    "today"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"age_band\": \"4yo+\",\n      \"class\": \"\",\n      \"comments\": \"\",\n      \"course\": \"Ballinrobe (IRE)\",\n      \"course_id\": \"crs_4550\",\n      \"date\": \"2025-08-11\",\n      \"dist\": \"2m7f\",\n      \"dist_f\": \"23f\",\n      \"dist_m\": \"4625\",\n      \"dist_y\": \"5058\",\n      \"going\": \"Good\",\n      \"jumps\": \"12 hurdles\",\n      \"non_runners\": \"Diamonds Diva (reserve), Great Rainbow (reserve), Loughrask Rainbow (reserve)\",\n      \"off\": \"8:25\",\n      \"off_dt\": \"2025-08-11T20:25:00+01:00\",\n      \"pattern\": \"\",\n      \"race_id\": \"rac_11715730\",\n      \"race_name\": \"J.J. Burke Peugeot Handicap Hurdle\",\n      \"rating_band\": \"0-100\",\n      \"region\": \"IRE\",\n      \"runners\": [\n        {\n          \"age\": \"8\",\n          \"btn\": \"0\",\n          \"comment\": \"Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)\",\n          \"dam\": \"Save Me The Waltz (FR)\",\n          \"dam_id\": \"dam_4189605\",\n          \"damsire\": \"Halling\",\n          \"damsire_id\": \"dsi_675241\",\n          \"draw\": \"\",\n          \"headgear\": \"v\",\n          \"horse\": \"Mephisto (IRE)\",\n          \"horse_id\": \"hrs_19359270\",\n          \"jockey\": \"Shane Fitzgerald\",\n          \"jockey_claim_lbs\": \"0\",\n          \"jockey_id\": \"jky_302916\",\n          \"number\": \"2\",\n          \"or\": \"98\",\n          \"ovr_btn\": \"0\",\n          \"owner\": \"Restricted Movement Syndicate\",\n          \"owner_id\": \"own_1204876\",\n          \"position\": \"1\",\n          \"prize\": \"€5900\",\n          \"rpr\": \"105\",\n          \"sex\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"Kendargent (FR)\",\n          \"sire_id\": \"sir_4514419\",\n          \"sp\": \"15/2\",\n          \"sp_dec\": \"8.50\",\n          \"time\": \"5:44.90\",\n          \"trainer\": \"Gerard Keane\",\n          \"trainer_id\": \"trn_86382\",\n          \"tsr\": \"64\",\n          \"weight\": \"11-12\",\n          \"weight_lbs\": \"166\"\n        }\n      ],\n      \"sex_rest\": \"\",\n      \"surface\": \"Turf\",\n      \"tote_csf\": \"€300.55\",\n      \"tote_ex\": \"€253.10\",\n      \"tote_pl\": \"€2.30 €5.80 €4.20\",\n      \"tote_tricast\": \"€5228.29\",\n      \"tote_trifecta\": \"\",\n      \"tote_win\": \"€8.50\",\n      \"type\": \"Hurdle\",\n      \"winning_time_detail\": \"5m 44.90s (slow by 7.90s)\"\n    },\n    {\n      \"age_band\": \"4yo+\",\n      \"class\": \"\",\n      \"comments\": \"\",\n      \"course\": \"Ballinrobe (IRE)\",\n      \"course_id\": \"crs_4550\",\n      \"date\": \"2025-08-11\",\n      \"dist\": \"2m7f\",\n      \"dist_f\": \"23f\",\n      \"dist_m\": \"4625\",\n      \"dist_y\": \"5058\",\n      \"going\": \"Good\",\n      \"jumps\": \"12 hurdles\",\n      \"non_runners\": \"Diamonds Diva (reserve), Great Rainbow (reserve), Loughrask Rainbow (reserve)\",\n      \"off\": \"8:25\",\n      \"off_dt\": \"2025-08-11T20:25:00+01:00\",\n      \"pattern\": \"\",\n      \"race_id\": \"rac_11715730\",\n      \"race_name\": \"J.J. Burke Peugeot Handicap Hurdle\",\n      \"rating_band\": \"0-100\",\n      \"region\": \"IRE\",\n      \"runners\": [\n        {\n          \"age\": \"8\",\n          \"btn\": \"0\",\n          \"comment\": \"Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)\",\n          \"dam\": \"Save Me The Waltz (FR)\",\n          \"dam_id\": \"dam_4189605\",\n          \"damsire\": \"Halling\",\n          \"damsire_id\": \"dsi_675241\",\n          \"draw\": \"\",\n          \"headgear\": \"v\",\n          \"horse\": \"Mephisto (IRE)\",\n          \"horse_id\": \"hrs_19359270\",\n          \"jockey\": \"Shane Fitzgerald\",\n          \"jockey_claim_lbs\": \"0\",\n          \"jockey_id\": \"jky_302916\",\n          \"number\": \"2\",\n          \"or\": \"98\",\n          \"ovr_btn\": \"0\",\n          \"owner\": \"Restricted Movement Syndicate\",\n          \"owner_id\": \"own_1204876\",\n          \"position\": \"1\",\n          \"prize\": \"€5900\",\n          \"rpr\": \"105\",\n          \"sex\": \"G\",\n          \"silk_url\": \"https://www.url-for-silk.com/svg/456789.svg\",\n          \"sire\": \"Kendargent (FR)\",\n          \"sire_id\": \"sir_4514419\",\n          \"sp\": \"15/2\",\n          \"sp_dec\": \"8.50\",\n          \"time\": \"5:44.90\",\n          \"trainer\": \"Gerard Keane\",\n          \"trainer_id\": \"trn_86382\",\n          \"tsr\": \"64\",\n          \"weight\": \"11-12\",\n          \"weight_lbs\": \"166\"\n        }\n      ],\n      \"sex_rest\": \"\",\n      \"surface\": \"Turf\",\n      \"tote_csf\": \"€300.55\",\n      \"tote_ex\": \"€253.10\",\n      \"tote_pl\": \"€2.30 €5.80 €4.20\",\n      \"tote_tricast\": \"€5228.29\",\n      \"tote_trifecta\": \"\",\n      \"tote_win\": \"€8.50\",\n      \"type\": \"Hurdle\",\n      \"winning_time_detail\": \"5m 44.90s (slow by 7.90s)\"\n    }\n  ],\n  \"total\": 9857,\n  \"limit\": 7332,\n  \"skip\": 4861,\n  \"query\": [\n    [],\n    []\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "867658ee-1df9-4dd1-b1fd-f5b101d03579",
+              "name": "Not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "results",
+                    "today"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f5d2631-764b-4039-8b09-59b40a9cea98",
+              "name": "Validation Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "v1",
+                    "results",
+                    "today"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "region",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": {},\n      \"ctx\": {}\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.theracingapi.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d1a32b05-c70c-4ea8-a492-9e9fb4a4cdab",
+    "name": "The Racing Australia Basic Plan API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "High performance API for horse racing statistical modelling, application development and web content. Complete coverage of UK, Irish and Hong Kong horse racing.",
+      "type": "text/plain"
+    }
+  }
+}

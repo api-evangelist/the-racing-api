@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Racing Australia Odds API",
+    "version": "1.4.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Odds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The Racing API Odds Runner",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/odds/:race_id/:horse_id",
+            "params": [
+              {
+                "name": "race_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "horse_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get detailed pre-race runner odds data, including price movements, for UK and Irish racing.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Pro</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table><p>ℹ️ Price movements, displayed in the 'history' fields, are available for runners in races from 2025-03-17 onwards.</p>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

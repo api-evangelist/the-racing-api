@@ -1,0 +1,318 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Racing Australia Dams API",
+    "version": "1.4.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The Racing API Dam Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/dams/search",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Search dams by name</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Dam Progeny Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/dams/:dam_id/results",
+            "params": [
+              {
+                "name": "dam_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> 365 days ago. Can query back to 1988-01-01.</p>"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p><p><b>Default:</b> Today's date. Maximum range between start and end date is 365 days.</p>"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+              },
+              {
+                "name": "course",
+                "value": "",
+                "type": "query",
+                "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+              },
+              {
+                "name": "going",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+              },
+              {
+                "name": "race_class",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+              },
+              {
+                "name": "min_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by minimum race distance (yards)</p>"
+              },
+              {
+                "name": "max_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by maximum race distance (yards)</p>"
+              },
+              {
+                "name": "age_band",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+              },
+              {
+                "name": "sex_restriction",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get full historical results for a dam's progeny</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Pro</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table><p>ℹ️ To view a dam's own racing results, use the <a href='#tag/Horses/operation/horse_results_v1_horses__horse_id__results_get'>horse results endpoint</a>, repacing the 'dam_' id prefix with 'hrs_'.</p>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Dam Progeny Class Analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/dams/:dam_id/analysis/classes",
+            "params": [
+              {
+                "name": "dam_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+              },
+              {
+                "name": "course",
+                "value": "",
+                "type": "query",
+                "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+              },
+              {
+                "name": "going",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+              },
+              {
+                "name": "race_class",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+              },
+              {
+                "name": "min_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by minimum race distance (yards)</p>"
+              },
+              {
+                "name": "max_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by maximum race distance (yards)</p>"
+              },
+              {
+                "name": "age_band",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+              },
+              {
+                "name": "sex_restriction",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get dam progeny statistics by race class</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Dam Progeny Distance Analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/dams/:dam_id/analysis/distances",
+            "params": [
+              {
+                "name": "dam_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+              },
+              {
+                "name": "course",
+                "value": "",
+                "type": "query",
+                "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+              },
+              {
+                "name": "going",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+              },
+              {
+                "name": "race_class",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+              },
+              {
+                "name": "min_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by minimum race distance (yards)</p>"
+              },
+              {
+                "name": "max_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by maximum race distance (yards)</p>"
+              },
+              {
+                "name": "age_band",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+              },
+              {
+                "name": "sex_restriction",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get dam progeny statistics by race distance</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

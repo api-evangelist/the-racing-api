@@ -1,0 +1,362 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "The Racing Australia Basic Plan API",
+    "version": "1.4.3"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Basic Plan",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "The Racing API Regions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/courses/regions",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get a list of regions, with region codes.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Courses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/courses",
+            "params": [
+              {
+                "name": "region_codes",
+                "value": "",
+                "type": "query",
+                "description": "Filter courses by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get a list of courses, with course ids and regions.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free</td></tr><tr><td><b>Rate Limit</b></td><td>1 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Horse Distance Time Analysis",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/horses/:horse_id/analysis/distance-times",
+            "params": [
+              {
+                "name": "horse_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+              },
+              {
+                "name": "course",
+                "value": "",
+                "type": "query",
+                "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+              },
+              {
+                "name": "going",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+              },
+              {
+                "name": "race_class",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+              },
+              {
+                "name": "min_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by minimum race distance (yards)</p>"
+              },
+              {
+                "name": "max_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by maximum race distance (yards)</p>"
+              },
+              {
+                "name": "age_band",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+              },
+              {
+                "name": "sex_restriction",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get horse statistics by race distance, with breakdowns of times.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Racecards Basic",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/racecards/basic",
+            "params": [
+              {
+                "name": "day",
+                "value": "",
+                "type": "query",
+                "description": "Query racecards by day:<br> today, tomorrow"
+              },
+              {
+                "name": "region_codes",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+              },
+              {
+                "name": "course_ids",
+                "value": "",
+                "type": "query",
+                "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get racecards for today and tomorrow</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>2 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Racecards Summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/racecards/summaries",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Query racecard summaries by date with format YYYY-MM-DD (e.g 2023-04-05)"
+              },
+              {
+                "name": "region_codes",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+              },
+              {
+                "name": "course_ids",
+                "value": "",
+                "type": "query",
+                "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get racecard summaries by date</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Racecard Horse Results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/racecards/:horse_id/results",
+            "params": [
+              {
+                "name": "horse_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query from date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query to date with format YYYY-MM-DD, e.g. <code>2020-01-01</code></p>"
+              },
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p><p>Note: If the course query parameter is specified, this will be ignored.</p>"
+              },
+              {
+                "name": "course",
+                "value": "",
+                "type": "query",
+                "description": "Query by course ids. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_courses_v1_courses_get'>here</a>."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by race type</p><p>Options: <code>chase</code>, <code>flat</code>, <code>hurdle</code>, <code>nh_flat</code></p>"
+              },
+              {
+                "name": "going",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by going</p><p>Options: <code>fast</code>, <code>firm</code>, <code>good</code>, <code>good_to_firm</code>, <code>good_to_soft</code>, <code>good_to_yielding</code>, <code>hard</code>, <code>heavy</code>, <code>holding</code>, <code>muddy</code>, <code>sloppy</code>, <code>slow</code>, <code>soft</code>, <code>soft_to_heavy</code>, <code>standard</code>, <code>standard_to_fast</code>, <code>standard_to_slow</code>, <code>very_soft</code>, <code>yielding</code>, <code>yielding_to_soft</code></p>"
+              },
+              {
+                "name": "race_class",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by class</p><p>Options: <code>class_1</code>, <code>class_2</code>, <code>class_3</code>, <code>class_4</code>, <code>class_5</code>, <code>class_6</code>, <code>class_7</code></p>"
+              },
+              {
+                "name": "min_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by minimum race distance (yards)</p>"
+              },
+              {
+                "name": "max_distance_y",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by maximum race distance (yards)</p>"
+              },
+              {
+                "name": "age_band",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by age band</p><p>Options: <code>10yo+</code>, <code>2-3yo</code>, <code>2yo</code>, <code>2yo+</code>, <code>3-4yo</code>, <code>3-5yo</code>, <code>3-6yo</code>, <code>3yo</code>, <code>3yo+</code>, <code>4-5yo</code>, <code>4-6yo</code>, <code>4-7yo</code>, <code>4-8yo</code>, <code>4yo</code>, <code>4yo+</code>, <code>5-6yo</code>, <code>5-7yo</code>, <code>5-8yo</code>, <code>5yo</code>, <code>5yo+</code>, <code>6-7yo</code>, <code>6yo</code>, <code>6yo+</code>, <code>7yo+</code>, <code>8yo+</code>, <code>9yo+</code></p>"
+              },
+              {
+                "name": "sex_restriction",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query by sex restriction</p><p>Options: <code>c&f</code>, <code>c&g</code>, <code>f</code>, <code>f&m</code>, <code>m</code>, <code>m&g</code></p>"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get historic results for a horse on any upcoming racecard.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>"
+        },
+        {
+          "info": {
+            "name": "The Racing API Results Today",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.theracingapi.com/v1/results/today",
+            "params": [
+              {
+                "name": "region",
+                "value": "",
+                "type": "query",
+                "description": "<p>Query results by region codes. Get the full list <a href='https://api.theracingapi.com/documentation#tag/Courses/operation/list_regions_v1_courses_regions_get'>here</a>.</p>"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "<h4>Get today's results</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Basic</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
