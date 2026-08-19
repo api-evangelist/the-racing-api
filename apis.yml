@@ -29,7 +29,7 @@ tags:
 created: '2025-02-06'
 modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/the-racing-api/refs/heads/main/apis.yml
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: the-racing-api:the-racing-api-australia-api
   name: The Racing API Australia API
