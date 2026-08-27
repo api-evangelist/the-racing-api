@@ -53,28 +53,6 @@ apis:
     url: json-structure/the-racing-api-racecard-summary-structure.json
   - type: JSONLD
     url: json-ld/the-racing-api-context.jsonld
-- aid: the-racing-api:the-racing-api-basic-plan-api
-  name: The Racing API Basic Plan API
-  description: The Basic Plan API from The Racing API — 7 operation(s) for basic plan.
-  humanURL: https://www.theracingapi.com/
-  baseURL: https://api.theracingapi.com
-  tags:
-  - Basic Plan
-  properties:
-  - type: OpenAPI
-    url: openapi/the-racing-api-basic-plan-api-openapi.yml
-  - type: Documentation
-    url: https://api.theracingapi.com/documentation
-  - type: Website
-    url: https://www.theracingapi.com/
-  - type: Authentication
-    url: https://www.theracingapi.com/dashboard
-  - type: JSONSchema
-    url: json-schema/the-racing-api-racecard-summary-schema.json
-  - type: JSONStructure
-    url: json-structure/the-racing-api-racecard-summary-structure.json
-  - type: JSONLD
-    url: json-ld/the-racing-api-context.jsonld
 - aid: the-racing-api:the-racing-api-courses-api
   name: The Racing API Courses API
   description: The Courses API from The Racing API — 2 operation(s) for courses.
@@ -129,28 +107,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/the-racing-api-damsires-api-openapi.yml
-  - type: Documentation
-    url: https://api.theracingapi.com/documentation
-  - type: Website
-    url: https://www.theracingapi.com/
-  - type: Authentication
-    url: https://www.theracingapi.com/dashboard
-  - type: JSONSchema
-    url: json-schema/the-racing-api-racecard-summary-schema.json
-  - type: JSONStructure
-    url: json-structure/the-racing-api-racecard-summary-structure.json
-  - type: JSONLD
-    url: json-ld/the-racing-api-context.jsonld
-- aid: the-racing-api:the-racing-api-free-plan-api
-  name: The Racing API Free Plan API
-  description: The Free Plan API from The Racing API — 4 operation(s) for free plan.
-  humanURL: https://www.theracingapi.com/
-  baseURL: https://api.theracingapi.com
-  tags:
-  - Free Plan
-  properties:
-  - type: OpenAPI
-    url: openapi/the-racing-api-free-plan-api-openapi.yml
   - type: Documentation
     url: https://api.theracingapi.com/documentation
   - type: Website
@@ -349,28 +305,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/the-racing-api-sires-api-openapi.yml
-  - type: Documentation
-    url: https://api.theracingapi.com/documentation
-  - type: Website
-    url: https://www.theracingapi.com/
-  - type: Authentication
-    url: https://www.theracingapi.com/dashboard
-  - type: JSONSchema
-    url: json-schema/the-racing-api-racecard-summary-schema.json
-  - type: JSONStructure
-    url: json-structure/the-racing-api-racecard-summary-structure.json
-  - type: JSONLD
-    url: json-ld/the-racing-api-context.jsonld
-- aid: the-racing-api:the-racing-api-standard-plan-api
-  name: The Racing API Standard Plan API
-  description: The Standard Plan API from The Racing API — 38 operation(s) for standard plan.
-  humanURL: https://www.theracingapi.com/
-  baseURL: https://api.theracingapi.com
-  tags:
-  - Standard Plan
-  properties:
-  - type: OpenAPI
-    url: openapi/the-racing-api-standard-plan-api-openapi.yml
   - type: Documentation
     url: https://api.theracingapi.com/documentation
   - type: Website
