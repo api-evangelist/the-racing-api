@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: The Racing Australia Odds API
+  title: Racing Odds API
   version: 1.4.3
   x-logo:
     url: https://www.theracingapi.com/static/images/logo_padded.png
@@ -19,7 +19,16 @@ paths:
       tags:
       - Odds
       summary: The Racing API Odds Runner
-      description: <h4>Get detailed pre-race runner odds data, including price movements, for UK and Irish racing.</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Pro</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table><p>ℹ️ Price movements, displayed in the 'history' fields, are available for runners in races from 2025-03-17 onwards.</p>
+      description: 'Get detailed pre-race runner odds data, including price movements, for UK and Irish racing.
+
+
+        Min. Required PlanPro
+
+
+        Rate Limit5 requests per second
+
+
+        ℹ️ Price movements, displayed in the ''history'' fields, are available for runners in races from 2025-03-17 onwards.'
       operationId: odds_runner_v1_odds__race_id___horse_id__get
       security:
       - HTTPBasic: []
@@ -120,6 +129,93 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    RaceRunnerOdds:
+      properties:
+        race_id:
+          type: string
+          title: Race Id
+        horse_id:
+          type: string
+          title: Horse Id
+        horse:
+          type: string
+          title: Horse
+        odds:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/RaceRunnerOddsBookmakers'
+            type: array
+          - type: 'null'
+          title: Odds
+          default: []
+      type: object
+      required:
+      - race_id
+      - horse_id
+      - horse
+      title: RaceRunnerOdds
+      example:
+        horse: Spartan Arrow
+        horse_id: hrs_30314725
+        odds:
+        - bookmaker: Bet365
+          decimal: '6'
+          ew_denom: '5'
+          ew_places: '4'
+          fractional: 5/1
+          history:
+          - changed_at: '2025-04-22T13:34:00+01:00'
+            decimal: '6.5'
+            fractional: 11/2
+          updated: '2025-04-22 13:30:26'
+        race_id: rac_11588863
+    RaceRunnerOddsHistory:
+      properties:
+        changed_at:
+          type: string
+          title: Changed At
+        fractional:
+          type: string
+          title: Fractional
+        decimal:
+          type: string
+          title: Decimal
+      type: object
+      required:
+      - changed_at
+      - fractional
+      - decimal
+      title: RaceRunnerOddsHistory
+      example:
+        changed_at: '2025-04-22T13:34:00+01:00'
+        decimal: '6.5'
+        fractional: 11/2
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     RaceRunnerOddsBookmakers:
       properties:
         bookmaker:
@@ -191,93 +287,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    RaceRunnerOdds:
-      properties:
-        race_id:
-          type: string
-          title: Race Id
-        horse_id:
-          type: string
-          title: Horse Id
-        horse:
-          type: string
-          title: Horse
-        odds:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/RaceRunnerOddsBookmakers'
-            type: array
-          - type: 'null'
-          title: Odds
-          default: []
-      type: object
-      required:
-      - race_id
-      - horse_id
-      - horse
-      title: RaceRunnerOdds
-      example:
-        horse: Spartan Arrow
-        horse_id: hrs_30314725
-        odds:
-        - bookmaker: Bet365
-          decimal: '6'
-          ew_denom: '5'
-          ew_places: '4'
-          fractional: 5/1
-          history:
-          - changed_at: '2025-04-22T13:34:00+01:00'
-            decimal: '6.5'
-            fractional: 11/2
-          updated: '2025-04-22 13:30:26'
-        race_id: rac_11588863
-    RaceRunnerOddsHistory:
-      properties:
-        changed_at:
-          type: string
-          title: Changed At
-        fractional:
-          type: string
-          title: Fractional
-        decimal:
-          type: string
-          title: Decimal
-      type: object
-      required:
-      - changed_at
-      - fractional
-      - decimal
-      title: RaceRunnerOddsHistory
-      example:
-        changed_at: '2025-04-22T13:34:00+01:00'
-        decimal: '6.5'
-        fractional: 11/2
   securitySchemes:
     HTTPBasic:
       type: http

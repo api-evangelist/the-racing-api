@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: The Racing Australia API
+  title: Racing Australia API
   version: 1.4.3
   x-logo:
     url: https://www.theracingapi.com/static/images/logo_padded.png
@@ -19,7 +19,22 @@ paths:
       tags:
       - Australia
       summary: The Racing API Meets
-      description: '<h4>Get a list of Australian race meets (up to 12 months in the past and 7 days in the future)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><ul><li><b>[Required] Australia regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</li><li><b>[Optional] Australia database historical races add-on</b>: users who subscribe to the Australia regional add-on can pay a one-time fee of £249 to remove the 12 month restriction and access over 20 years of historical meets and races. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</li></ul></td></tr></tbody></table>'
+      description: 'Get a list of Australian race meets (up to 12 months in the past and 7 days in the future)
+
+
+        Min. Required PlanFree + Australia regional add-on
+
+
+        Rate Limit5 requests per second
+
+
+        Add-ons
+
+
+        [Required] Australia regional add-on: users on any plan can subscribe to this add-on for £49.99 per month. Contact support@theracingapi.com for information.
+
+
+        [Optional] Australia database historical races add-on: users who subscribe to the Australia regional add-on can pay a one-time fee of £249 to remove the 12 month restriction and access over 20 years of historical meets and races. Contact support@theracingapi.com for information.'
       operationId: meets_v1_australia_meets_get
       security:
       - HTTPBasic: []
@@ -121,7 +136,22 @@ paths:
       tags:
       - Australia
       summary: The Racing API Races by Meet
-      description: '<h4>Get races for an Australian meet (up to 12 months in the past and 7 days in the future)</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><ul><li><b>[Required] Australia regional add-on</b>: users on the any plan can subscribe to this add-on for £49.99 per month. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</li><li><b>[Optional] Australia database historical races add-on</b>: users who subscribe to the Australia regional add-on can pay a one-time fee of £249 to remove the 12 month restriction and access over 20 years of historical meets and races. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</li></ul></td></tr></tbody></table>'
+      description: 'Get races for an Australian meet (up to 12 months in the past and 7 days in the future)
+
+
+        Min. Required PlanFree + Australia regional add-on
+
+
+        Rate Limit5 requests per second
+
+
+        Add-ons
+
+
+        [Required] Australia regional add-on: users on the any plan can subscribe to this add-on for £49.99 per month. Contact support@theracingapi.com for information.
+
+
+        [Optional] Australia database historical races add-on: users who subscribe to the Australia regional add-on can pay a one-time fee of £249 to remove the 12 month restriction and access over 20 years of historical meets and races. Contact support@theracingapi.com for information.'
       operationId: races_by_meet_v1_australia_meets__meet_id__races_get
       security:
       - HTTPBasic: []
@@ -219,7 +249,16 @@ paths:
       tags:
       - Australia
       summary: The Racing API Race
-      description: '<h4>Get an Australian race by meet and race number</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + Australia regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] Australia regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</td></tr></tbody></table>'
+      description: 'Get an Australian race by meet and race number
+
+
+        Min. Required PlanFree + Australia regional add-on
+
+
+        Rate Limit5 requests per second
+
+
+        Add-ons[Required] Australia regional add-on: users on any plan can subscribe to this add-on for £49.99 per month. Contact support@theracingapi.com for information.'
       operationId: race_v1_australia_meets__meet_id__races__race_number__get
       security:
       - HTTPBasic: []
@@ -320,140 +359,162 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    RunnerStatsBreakdown:
+    app__models__aus_meets__Meets:
       properties:
-        total:
+        meets:
           anyOf:
-          - type: string
+          - items:
+              $ref: '#/components/schemas/app__models__aus_meets__Meet'
+            type: array
           - type: 'null'
-          title: Total
-        first:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: First
-        second:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Second
-        third:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Third
+          title: Meets
       type: object
-      title: RunnerStatsBreakdown
+      title: Meets
       example:
-        first: '2'
-        second: '1'
-        third: '1'
-        total: '5'
-    HTTPValidationError:
+        meets:
+        - course: Caulfield
+          course_id: crs_aus_75219024719
+          date: '2025-10-11'
+          meet_id: met_aus_73898021202
+          races:
+          - class: Group 1
+            distance: 1600m
+            off_time: '2025-10-11T05:30:00.000Z'
+            race_group: Group 1
+            race_name: Sportsbet Caulfield Guineas
+            race_number: '8'
+            race_status: Results
+          state: VIC
+        - course: Ascot
+          course_id: crs_aus_712388980373
+          date: '2025-10-11'
+          meet_id: met_aus_604899110256
+          races:
+          - class: 2YO Plate
+            distance: 1000m
+            off_time: '2025-10-11T04:00:00.000Z'
+            race_group: ungrouped
+            race_name: VALE LINDSAY SEVERN PLATE
+            race_number: '1'
+            race_status: Results
+          state: WA
+    Races:
       properties:
-        detail:
+        races:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: '#/components/schemas/app__models__aus_races__Race'
           type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
+          title: Races
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    app__models__aus_races__RunnerOdds:
-      properties:
-        bookmaker:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Bookmaker
-        win_odds:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Win Odds
-        place_odds:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Place Odds
-      type: object
-      title: RunnerOdds
+      - races
+      title: Races
       example:
-        bookmaker: Sportsbet
-        place_odds: '1.70'
-        win_odds: '5.00'
-    MeetRaces:
-      properties:
-        distance:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Distance
-        class:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Class
-        race_group:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race Group
-        race_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race Name
-        race_number:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race Number
-        race_status:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race Status
-        off_time:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Off Time
-      type: object
-      title: MeetRaces
-      example:
-        class: Group 1
-        distance: 2000m
-        off_time: '2025-10-11T04:15:00.000Z'
-        race_group: Group 1
-        race_name: Sportsbet Might And Power
-        race_number: '6'
-        race_status: Results
+        races:
+        - class: 2YO Plate
+          course: Ascot
+          course_id: crs_aus_712388980373
+          date: '2025-10-11'
+          distance: 1000m
+          going: Good
+          is_jump_out: false
+          is_trial: false
+          meet_id: met_aus_604899110256
+          off_time: '2025-10-11T04:00:00.000Z'
+          prize_total: '80000.00'
+          prizes:
+          - Position: 1
+            Value: '43840.00'
+          - Position: 2
+            Value: '14880.00'
+          race_group: ungrouped
+          race_name: VALE LINDSAY SEVERN PLATE
+          race_number: '1'
+          race_status: Results
+          runners:
+          - age: '2'
+            colour: Chestnut
+            comment: Jumped Ok Went Forward to Lead but Two Wide quickened approaching Straight
+            dam: Poker Face
+            dam_id: dam_aus_5763901272
+            draw: '8'
+            form: '1'
+            horse: All On Red
+            horse_id: hrs_aus_985106802693
+            jockey: L.M.Campbell
+            jockey_claim: '0'
+            jockey_id: jky_aus_382285552310
+            number: '1'
+            odds:
+            - bookmaker: Sportsbet
+              place_odds: '1.70'
+              win_odds: '5.00'
+            - bookmaker: Ladbrokes
+              place_odds: '1.70'
+              win_odds: '5.00'
+            owner: T B Racing Pty Ltd (T Noske), T Shutterworth, S Mcfarlane, G White
+            position: '1'
+            prize: '43840'
+            scratched: false
+            sex: Colt
+            silk_url: https://www.url-for-silk.com/svg/456789.svg
+            sire: Doubtland
+            sire_id: sir_aus_767094969190
+            sp: '5.00'
+            stats:
+              career_place_percent: 100%
+              career_prize: $65,840
+              career_win_percent: 100%
+              course_distance_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              course_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              distance_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              ground_firm_stats:
+                first: '0'
+                second: '0'
+                third: '0'
+                total: '0'
+              ground_good_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              jockey_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              last_raced: '2025-10-11'
+              last_ten_races_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              last_twelve_months_stats:
+                first: '1'
+                second: '0'
+                third: '0'
+                total: '1'
+              last_won: '2025-10-11'
+              max_winning_distance: 1000m
+              min_winning_distance: 1000m
+            trainer: Daniel Morton
+            trainer_id: trn_aus_449779200413
+            weight: '57.0'
+          state: WA
+          winning_time: '58.47'
+          winning_time_hundredths: '5847'
     RunnerStats:
       properties:
         career_prize:
@@ -589,123 +650,53 @@ components:
         last_won: '2025-10-11'
         max_winning_distance: 1000m
         min_winning_distance: 1000m
-    Races:
+    MeetRaces:
       properties:
-        races:
-          items:
-            $ref: '#/components/schemas/app__models__aus_races__Race'
-          type: array
-          title: Races
+        distance:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Distance
+        class:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Class
+        race_group:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Group
+        race_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Name
+        race_number:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Number
+        race_status:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Status
+        off_time:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Time
       type: object
-      required:
-      - races
-      title: Races
+      title: MeetRaces
       example:
-        races:
-        - class: 2YO Plate
-          course: Ascot
-          course_id: crs_aus_712388980373
-          date: '2025-10-11'
-          distance: 1000m
-          going: Good
-          is_jump_out: false
-          is_trial: false
-          meet_id: met_aus_604899110256
-          off_time: '2025-10-11T04:00:00.000Z'
-          prize_total: '80000.00'
-          prizes:
-          - Position: 1
-            Value: '43840.00'
-          - Position: 2
-            Value: '14880.00'
-          race_group: ungrouped
-          race_name: VALE LINDSAY SEVERN PLATE
-          race_number: '1'
-          race_status: Results
-          runners:
-          - age: '2'
-            colour: Chestnut
-            comment: Jumped Ok Went Forward to Lead but Two Wide quickened approaching Straight
-            dam: Poker Face
-            dam_id: dam_aus_5763901272
-            draw: '8'
-            form: '1'
-            horse: All On Red
-            horse_id: hrs_aus_985106802693
-            jockey: L.M.Campbell
-            jockey_claim: '0'
-            jockey_id: jky_aus_382285552310
-            number: '1'
-            odds:
-            - bookmaker: Sportsbet
-              place_odds: '1.70'
-              win_odds: '5.00'
-            - bookmaker: Ladbrokes
-              place_odds: '1.70'
-              win_odds: '5.00'
-            owner: T B Racing Pty Ltd (T Noske), T Shutterworth, S Mcfarlane, G White
-            position: '1'
-            prize: '43840'
-            scratched: false
-            sex: Colt
-            silk_url: https://www.url-for-silk.com/svg/456789.svg
-            sire: Doubtland
-            sire_id: sir_aus_767094969190
-            sp: '5.00'
-            stats:
-              career_place_percent: 100%
-              career_prize: $65,840
-              career_win_percent: 100%
-              course_distance_stats:
-                first: '1'
-                second: '0'
-                third: '0'
-                total: '1'
-              course_stats:
-                first: '1'
-                second: '0'
-                third: '0'
-                total: '1'
-              distance_stats:
-                first: '1'
-                second: '0'
-                third: '0'
-                total: '1'
-              ground_firm_stats:
-                first: '0'
-                second: '0'
-                third: '0'
-                total: '0'
-              ground_good_stats:
-                first: '1'
-                second: '0'
-                third: '0'
-                total: '1'
-              jockey_stats:
-                first: '1'
-                second: '0'
-                third: '0'
-                total: '1'
-              last_raced: '2025-10-11'
-              last_ten_races_stats:
-                first: '1'
-                second: '0'
-                third: '0'
-                total: '1'
-              last_twelve_months_stats:
-                first: '1'
-                second: '0'
-                third: '0'
-                total: '1'
-              last_won: '2025-10-11'
-              max_winning_distance: 1000m
-              min_winning_distance: 1000m
-            trainer: Daniel Morton
-            trainer_id: trn_aus_449779200413
-            weight: '57.0'
-          state: WA
-          winning_time: '58.47'
-          winning_time_hundredths: '5847'
+        class: Group 1
+        distance: 2000m
+        off_time: '2025-10-11T04:15:00.000Z'
+        race_group: Group 1
+        race_name: Sportsbet Might And Power
+        race_number: '6'
+        race_status: Results
     app__models__aus_races__Runner:
       properties:
         horse_id:
@@ -936,6 +927,111 @@ components:
         trainer: Daniel Morton
         trainer_id: trn_aus_449779200413
         weight: '57.0'
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    app__models__aus_meets__Meet:
+      properties:
+        meet_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Meet Id
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+        course:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course
+        course_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course Id
+        races:
+          items:
+            $ref: '#/components/schemas/MeetRaces'
+          type: array
+          title: Races
+        state:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: State
+      type: object
+      required:
+      - races
+      title: Meet
+      example:
+        course: Caulfield
+        course_id: crs_aus_75219024719
+        date: '2025-10-11'
+        meet_id: met_aus_73898021202
+        races:
+        - class: Group 1
+          distance: 2000m
+          off_time: '2025-10-11T04:15:00.000Z'
+          race_group: Group 1
+          race_name: Sportsbet Might And Power
+          race_number: '6'
+          race_status: Results
+        state: VIC
+    RunnerStatsBreakdown:
+      properties:
+        total:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Total
+        first:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: First
+        second:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Second
+        third:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Third
+      type: object
+      title: RunnerStatsBreakdown
+      example:
+        first: '2'
+        second: '1'
+        third: '1'
+        total: '5'
     app__models__aus_races__Race:
       properties:
         course:
@@ -1151,95 +1247,38 @@ components:
         state: WA
         winning_time: '58.47'
         winning_time_hundredths: '5847'
-    app__models__aus_meets__Meets:
+    app__models__aus_races__RunnerOdds:
       properties:
-        meets:
+        bookmaker:
           anyOf:
-          - items:
-              $ref: '#/components/schemas/app__models__aus_meets__Meet'
-            type: array
+          - type: string
           - type: 'null'
-          title: Meets
+          title: Bookmaker
+        win_odds:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Win Odds
+        place_odds:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Place Odds
       type: object
-      title: Meets
+      title: RunnerOdds
       example:
-        meets:
-        - course: Caulfield
-          course_id: crs_aus_75219024719
-          date: '2025-10-11'
-          meet_id: met_aus_73898021202
-          races:
-          - class: Group 1
-            distance: 1600m
-            off_time: '2025-10-11T05:30:00.000Z'
-            race_group: Group 1
-            race_name: Sportsbet Caulfield Guineas
-            race_number: '8'
-            race_status: Results
-          state: VIC
-        - course: Ascot
-          course_id: crs_aus_712388980373
-          date: '2025-10-11'
-          meet_id: met_aus_604899110256
-          races:
-          - class: 2YO Plate
-            distance: 1000m
-            off_time: '2025-10-11T04:00:00.000Z'
-            race_group: ungrouped
-            race_name: VALE LINDSAY SEVERN PLATE
-            race_number: '1'
-            race_status: Results
-          state: WA
-    app__models__aus_meets__Meet:
+        bookmaker: Sportsbet
+        place_odds: '1.70'
+        win_odds: '5.00'
+    HTTPValidationError:
       properties:
-        meet_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Meet Id
-        date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date
-        course:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Course
-        course_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Course Id
-        races:
+        detail:
           items:
-            $ref: '#/components/schemas/MeetRaces'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Races
-        state:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: State
+          title: Detail
       type: object
-      required:
-      - races
-      title: Meet
-      example:
-        course: Caulfield
-        course_id: crs_aus_75219024719
-        date: '2025-10-11'
-        meet_id: met_aus_73898021202
-        races:
-        - class: Group 1
-          distance: 2000m
-          off_time: '2025-10-11T04:15:00.000Z'
-          race_group: Group 1
-          race_name: Sportsbet Might And Power
-          race_number: '6'
-          race_status: Results
-        state: VIC
+      title: HTTPValidationError
   securitySchemes:
     HTTPBasic:
       type: http

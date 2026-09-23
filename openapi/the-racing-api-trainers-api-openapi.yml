@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: The Racing Australia Trainers API
+  title: Racing Trainers API
   version: 1.4.3
   x-logo:
     url: https://www.theracingapi.com/static/images/logo_padded.png
@@ -19,7 +19,13 @@ paths:
       tags:
       - Trainers
       summary: The Racing API Trainer Search
-      description: <h4>Search trainers by name</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Search trainers by name
+
+
+        Min. Required PlanStandard
+
+
+        Rate Limit5 requests per second'
       operationId: trainer_search_v1_trainers_search_get
       security:
       - HTTPBasic: []
@@ -117,7 +123,13 @@ paths:
       tags:
       - Trainers
       summary: The Racing API Trainer Results
-      description: <h4>Get full historical results for a trainer</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Pro</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Get full historical results for a trainer
+
+
+        Min. Required PlanPro
+
+
+        Rate Limit5 requests per second'
       operationId: trainer_results_v1_trainers__trainer_id__results_get
       security:
       - HTTPBasic: []
@@ -360,7 +372,13 @@ paths:
       tags:
       - Trainers
       summary: The Racing API Trainer Horse Age Analysis
-      description: <h4>Get trainer statistics by horse age</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Get trainer statistics by horse age
+
+
+        Min. Required PlanStandard
+
+
+        Rate Limit5 requests per second'
       operationId: trainer_horse_age_analysis_v1_trainers__trainer_id__analysis_horse_age_get
       security:
       - HTTPBasic: []
@@ -582,7 +600,13 @@ paths:
       tags:
       - Trainers
       summary: The Racing API Trainer Course Analysis
-      description: <h4>Get trainer statistics by course</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Get trainer statistics by course
+
+
+        Min. Required PlanStandard
+
+
+        Rate Limit5 requests per second'
       operationId: trainer_course_analysis_v1_trainers__trainer_id__analysis_courses_get
       security:
       - HTTPBasic: []
@@ -804,7 +828,13 @@ paths:
       tags:
       - Trainers
       summary: The Racing API Trainer Distance Analysis
-      description: <h4>Get trainer statistics by race distance</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Get trainer statistics by race distance
+
+
+        Min. Required PlanStandard
+
+
+        Rate Limit5 requests per second'
       operationId: trainer_distance_analysis_v1_trainers__trainer_id__analysis_distances_get
       security:
       - HTTPBasic: []
@@ -1026,7 +1056,13 @@ paths:
       tags:
       - Trainers
       summary: The Racing API Trainer Jockey Analysis
-      description: <h4>Get trainer statistics by jockey</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Get trainer statistics by jockey
+
+
+        Min. Required PlanStandard
+
+
+        Rate Limit5 requests per second'
       operationId: trainer_jockey_analysis_v1_trainers__trainer_id__analysis_jockeys_get
       security:
       - HTTPBasic: []
@@ -1248,7 +1284,13 @@ paths:
       tags:
       - Trainers
       summary: The Racing API Trainer Owner Analysis
-      description: <h4>Get trainer statistics by owner</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Get trainer statistics by owner
+
+
+        Min. Required PlanStandard
+
+
+        Rate Limit5 requests per second'
       operationId: trainer_owner_analysis_v1_trainers__trainer_id__analysis_owners_get
       security:
       - HTTPBasic: []
@@ -1528,6 +1570,56 @@ components:
         region: GB
         runners: 200
         win_%: 0.23
+    TrainerDistanceAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        trainer:
+          type: string
+          title: Trainer
+        total_runners:
+          type: integer
+          title: Total Runners
+        distances:
+          items:
+            $ref: '#/components/schemas/app__models__trainers__Distance'
+          type: array
+          title: Distances
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - trainer
+      - total_runners
+      - distances
+      - query
+      title: TrainerDistanceAnalysis
+      example:
+        distances:
+        - 1_pl: -59.87
+          1st: 77
+          2nd: 43
+          3rd: 52
+          4th: 32
+          a/e: 0.93
+          dist: 1m
+          dist_f: 8f
+          dist_m: '1609'
+          dist_y: '1760'
+          runners: 373
+          win_%: 0.21
+        id: trn_255042
+        query:
+        - - trainer_id
+          - trn_255042
+        total_runners: 1862
+        trainer: Charlie Appleby
     TrainerHorseAgeAnalysis:
       properties:
         id:
@@ -1584,73 +1676,11 @@ components:
           - trn_255042
         total_runners: 1862
         trainer: Charlie Appleby
-    TrainerDistanceAnalysis:
+    HorseAges:
       properties:
-        id:
+        horse_age:
           type: string
-          title: Id
-        trainer:
-          type: string
-          title: Trainer
-        total_runners:
-          type: integer
-          title: Total Runners
-        distances:
-          items:
-            $ref: '#/components/schemas/app__models__trainers__Distance'
-          type: array
-          title: Distances
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - trainer
-      - total_runners
-      - distances
-      - query
-      title: TrainerDistanceAnalysis
-      example:
-        distances:
-        - 1_pl: -59.87
-          1st: 77
-          2nd: 43
-          3rd: 52
-          4th: 32
-          a/e: 0.93
-          dist: 1m
-          dist_f: 8f
-          dist_m: '1609'
-          dist_y: '1760'
-          runners: 373
-          win_%: 0.21
-        id: trn_255042
-        query:
-        - - trainer_id
-          - trn_255042
-        total_runners: 1862
-        trainer: Charlie Appleby
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    app__models__trainers__Jockey:
-      properties:
-        jockey_id:
-          type: string
-          title: Jockey Id
-        jockey:
-          type: string
-          title: Jockey
+          title: Horse Age
         runners:
           type: integer
           title: Runners
@@ -1677,8 +1707,7 @@ components:
           title: One unit p/l at SP
       type: object
       required:
-      - jockey_id
-      - jockey
+      - horse_age
       - runners
       - 1st
       - 2nd
@@ -1687,232 +1716,18 @@ components:
       - a/e
       - win_%
       - 1_pl
-      title: Jockey
+      title: HorseAges
       example:
-        1_pl: 50.62
-        1st: 260
-        2nd: 148
-        3rd: 143
-        4th: 88
-        a/e: 1.01
-        jockey: William Buick
-        jockey_id: jky_257379
-        runners: 1038
-        win_%: 0.25
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    RunnerStandard:
-      properties:
-        horse_id:
-          type: string
-          title: Horse Id
-        horse:
-          type: string
-          title: Horse
-        sp:
-          type: string
-          title: Sp
-        sp_dec:
-          type: string
-          title: Sp Dec
-        bsp:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Bsp
-          default: ''
-        number:
-          type: string
-          title: Number
-        position:
-          type: string
-          title: Position
-        draw:
-          type: string
-          title: Draw
-        btn:
-          type: string
-          title: Btn
-        ovr_btn:
-          type: string
-          title: Ovr Btn
-        age:
-          type: string
-          title: Age
-        sex:
-          type: string
-          title: Sex
-        weight:
-          type: string
-          title: Weight
-        weight_lbs:
-          type: string
-          title: Weight Lbs
-        headgear:
-          type: string
-          title: Headgear
-        time:
-          type: string
-          title: Time
-        or:
-          type: string
-          title: Or
-        rpr:
-          type: string
-          title: Rpr
-        tsr:
-          type: string
-          title: Tsr
-        prize:
-          type: string
-          title: Prize
-        jockey:
-          type: string
-          title: Jockey
-        jockey_claim_lbs:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Jockey Claim Lbs
-          default: '0'
-        jockey_id:
-          type: string
-          title: Jockey Id
-        trainer:
-          type: string
-          title: Trainer
-        trainer_id:
-          type: string
-          title: Trainer Id
-        owner:
-          type: string
-          title: Owner
-        owner_id:
-          type: string
-          title: Owner Id
-        sire:
-          type: string
-          title: Sire
-        sire_id:
-          type: string
-          title: Sire Id
-        dam:
-          type: string
-          title: Dam
-        dam_id:
-          type: string
-          title: Dam Id
-        damsire:
-          type: string
-          title: Damsire
-        damsire_id:
-          type: string
-          title: Damsire Id
-        comment:
-          type: string
-          title: Comment
-        silk_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Silk Url
-          default: ''
-      type: object
-      required:
-      - horse_id
-      - horse
-      - sp
-      - sp_dec
-      - number
-      - position
-      - draw
-      - btn
-      - ovr_btn
-      - age
-      - sex
-      - weight
-      - weight_lbs
-      - headgear
-      - time
-      - or
-      - rpr
-      - tsr
-      - prize
-      - jockey
-      - jockey_id
-      - trainer
-      - trainer_id
-      - owner
-      - owner_id
-      - sire
-      - sire_id
-      - dam
-      - dam_id
-      - damsire
-      - damsire_id
-      - comment
-      title: RunnerStandard
-      example:
-        age: '8'
-        bsp: '11.26'
-        btn: '0'
-        comment: Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)
-        dam: Save Me The Waltz (FR)
-        dam_id: dam_4189605
-        damsire: Halling
-        damsire_id: dsi_675241
-        draw: ''
-        headgear: v
-        horse: Mephisto (IRE)
-        horse_id: hrs_19359270
-        jockey: Shane Fitzgerald
-        jockey_claim_lbs: '0'
-        jockey_id: jky_302916
-        number: '2'
-        or: '98'
-        ovr_btn: '0'
-        owner: Restricted Movement Syndicate
-        owner_id: own_1204876
-        position: '1'
-        prize: €5900
-        rpr: '105'
-        sex: G
-        silk_url: https://www.url-for-silk.com/svg/456789.svg
-        sire: Kendargent (FR)
-        sire_id: sir_4514419
-        sp: 15/2
-        sp_dec: '8.50'
-        time: '5:44.90'
-        trainer: Gerard Keane
-        trainer_id: trn_86382
-        tsr: '64'
-        weight: 11-12
-        weight_lbs: '166'
-    TrainerOwnerAnalysis:
+        1_pl: -0.68
+        1st: 156
+        2nd: 106
+        3rd: 87
+        4th: 60
+        a/e: 0.99
+        horse_age: '3'
+        runners: 749
+        win_%: 0.21
+    TrainerJockeyAnalysis:
       properties:
         id:
           type: string
@@ -1923,11 +1738,11 @@ components:
         total_runners:
           type: integer
           title: Total Runners
-        owners:
+        jockeys:
           items:
-            $ref: '#/components/schemas/app__models__trainers__Owner'
+            $ref: '#/components/schemas/app__models__trainers__Jockey'
           type: array
-          title: Owners
+          title: Jockeys
         query:
           items:
             items: {}
@@ -1939,22 +1754,22 @@ components:
       - id
       - trainer
       - total_runners
-      - owners
+      - jockeys
       - query
-      title: TrainerOwnerAnalysis
+      title: TrainerJockeyAnalysis
       example:
         id: trn_255042
-        owners:
-        - 1_pl: 25.0
-          1st: 120
-          2nd: 80
-          3rd: 60
-          4th: 40
-          a/e: 1.02
-          owner: Godolphin
-          owner_id: own_199380
-          runners: 500
-          win_%: 0.24
+        jockeys:
+        - 1_pl: 50.62
+          1st: 260
+          2nd: 148
+          3rd: 143
+          4th: 88
+          a/e: 1.01
+          jockey: William Buick
+          jockey_id: jky_257379
+          runners: 1038
+          win_%: 0.25
         query:
         - - trainer_id
           - trn_255042
@@ -2026,277 +1841,6 @@ components:
           - trn_255042
         total_runners: 1862
         trainer: Charlie Appleby
-    app__models__trainers__Owner:
-      properties:
-        owner_id:
-          type: string
-          title: Owner Id
-        owner:
-          type: string
-          title: Owner
-        runners:
-          type: integer
-          title: Runners
-        1st:
-          type: integer
-          title: 1st place finishes
-        2nd:
-          type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - owner_id
-      - owner
-      - runners
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: Owner
-      example:
-        1_pl: 25.0
-        1st: 120
-        2nd: 80
-        3rd: 60
-        4th: 40
-        a/e: 1.02
-        owner: Godolphin
-        owner_id: own_199380
-        runners: 500
-        win_%: 0.24
-    TrainerJockeyAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        trainer:
-          type: string
-          title: Trainer
-        total_runners:
-          type: integer
-          title: Total Runners
-        jockeys:
-          items:
-            $ref: '#/components/schemas/app__models__trainers__Jockey'
-          type: array
-          title: Jockeys
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - trainer
-      - total_runners
-      - jockeys
-      - query
-      title: TrainerJockeyAnalysis
-      example:
-        id: trn_255042
-        jockeys:
-        - 1_pl: 50.62
-          1st: 260
-          2nd: 148
-          3rd: 143
-          4th: 88
-          a/e: 1.01
-          jockey: William Buick
-          jockey_id: jky_257379
-          runners: 1038
-          win_%: 0.25
-        query:
-        - - trainer_id
-          - trn_255042
-        total_runners: 1862
-        trainer: Charlie Appleby
-    app__models__trainers__Distance:
-      properties:
-        dist:
-          type: string
-          title: Dist
-        dist_y:
-          type: string
-          title: Dist Y
-        dist_m:
-          type: string
-          title: Dist M
-        dist_f:
-          type: string
-          title: Dist F
-        runners:
-          type: integer
-          title: Runners
-        1st:
-          type: integer
-          title: 1st place finishes
-        2nd:
-          type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - dist
-      - dist_y
-      - dist_m
-      - dist_f
-      - runners
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: Distance
-      example:
-        1_pl: -59.87
-        1st: 77
-        2nd: 43
-        3rd: 52
-        4th: 32
-        a/e: 0.93
-        dist: 1m
-        dist_f: 8f
-        dist_m: '1609'
-        dist_y: '1760'
-        runners: 373
-        win_%: 0.21
-    app__models__trainers__Trainer:
-      properties:
-        id:
-          type: string
-          title: Id
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-      type: object
-      required:
-      - id
-      - name
-      title: Trainer
-      example:
-        id: trn_255042
-        name: Charlie Appleby
-    HorseAges:
-      properties:
-        horse_age:
-          type: string
-          title: Horse Age
-        runners:
-          type: integer
-          title: Runners
-        1st:
-          type: integer
-          title: 1st place finishes
-        2nd:
-          type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - horse_age
-      - runners
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: HorseAges
-      example:
-        1_pl: -0.68
-        1st: 156
-        2nd: 106
-        3rd: 87
-        4th: 60
-        a/e: 0.99
-        horse_age: '3'
-        runners: 749
-        win_%: 0.21
-    ResultsStandardPage:
-      properties:
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
-          - type: 'null'
-          title: Results
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - results
-      - total
-      - limit
-      - skip
-      - query
-      title: ResultsStandardPage
     ResultStandard:
       properties:
         race_id:
@@ -2519,6 +2063,504 @@ components:
         tote_win: €8.50
         type: Hurdle
         winning_time_detail: 5m 44.90s (slow by 7.90s)
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    app__models__trainers__Trainer:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: Trainer
+      example:
+        id: trn_255042
+        name: Charlie Appleby
+    app__models__trainers__Owner:
+      properties:
+        owner_id:
+          type: string
+          title: Owner Id
+        owner:
+          type: string
+          title: Owner
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - owner_id
+      - owner
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Owner
+      example:
+        1_pl: 25.0
+        1st: 120
+        2nd: 80
+        3rd: 60
+        4th: 40
+        a/e: 1.02
+        owner: Godolphin
+        owner_id: own_199380
+        runners: 500
+        win_%: 0.24
+    app__models__trainers__Jockey:
+      properties:
+        jockey_id:
+          type: string
+          title: Jockey Id
+        jockey:
+          type: string
+          title: Jockey
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - jockey_id
+      - jockey
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Jockey
+      example:
+        1_pl: 50.62
+        1st: 260
+        2nd: 148
+        3rd: 143
+        4th: 88
+        a/e: 1.01
+        jockey: William Buick
+        jockey_id: jky_257379
+        runners: 1038
+        win_%: 0.25
+    ResultsStandardPage:
+      properties:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsStandardPage
+    app__models__trainers__Distance:
+      properties:
+        dist:
+          type: string
+          title: Dist
+        dist_y:
+          type: string
+          title: Dist Y
+        dist_m:
+          type: string
+          title: Dist M
+        dist_f:
+          type: string
+          title: Dist F
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Distance
+      example:
+        1_pl: -59.87
+        1st: 77
+        2nd: 43
+        3rd: 52
+        4th: 32
+        a/e: 0.93
+        dist: 1m
+        dist_f: 8f
+        dist_m: '1609'
+        dist_y: '1760'
+        runners: 373
+        win_%: 0.21
+    TrainerOwnerAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        trainer:
+          type: string
+          title: Trainer
+        total_runners:
+          type: integer
+          title: Total Runners
+        owners:
+          items:
+            $ref: '#/components/schemas/app__models__trainers__Owner'
+          type: array
+          title: Owners
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - trainer
+      - total_runners
+      - owners
+      - query
+      title: TrainerOwnerAnalysis
+      example:
+        id: trn_255042
+        owners:
+        - 1_pl: 25.0
+          1st: 120
+          2nd: 80
+          3rd: 60
+          4th: 40
+          a/e: 1.02
+          owner: Godolphin
+          owner_id: own_199380
+          runners: 500
+          win_%: 0.24
+        query:
+        - - trainer_id
+          - trn_255042
+        total_runners: 1862
+        trainer: Charlie Appleby
+    RunnerStandard:
+      properties:
+        horse_id:
+          type: string
+          title: Horse Id
+        horse:
+          type: string
+          title: Horse
+        sp:
+          type: string
+          title: Sp
+        sp_dec:
+          type: string
+          title: Sp Dec
+        bsp:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Bsp
+          default: ''
+        number:
+          type: string
+          title: Number
+        position:
+          type: string
+          title: Position
+        draw:
+          type: string
+          title: Draw
+        btn:
+          type: string
+          title: Btn
+        ovr_btn:
+          type: string
+          title: Ovr Btn
+        age:
+          type: string
+          title: Age
+        sex:
+          type: string
+          title: Sex
+        weight:
+          type: string
+          title: Weight
+        weight_lbs:
+          type: string
+          title: Weight Lbs
+        headgear:
+          type: string
+          title: Headgear
+        time:
+          type: string
+          title: Time
+        or:
+          type: string
+          title: Or
+        rpr:
+          type: string
+          title: Rpr
+        tsr:
+          type: string
+          title: Tsr
+        prize:
+          type: string
+          title: Prize
+        jockey:
+          type: string
+          title: Jockey
+        jockey_claim_lbs:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jockey Claim Lbs
+          default: '0'
+        jockey_id:
+          type: string
+          title: Jockey Id
+        trainer:
+          type: string
+          title: Trainer
+        trainer_id:
+          type: string
+          title: Trainer Id
+        owner:
+          type: string
+          title: Owner
+        owner_id:
+          type: string
+          title: Owner Id
+        sire:
+          type: string
+          title: Sire
+        sire_id:
+          type: string
+          title: Sire Id
+        dam:
+          type: string
+          title: Dam
+        dam_id:
+          type: string
+          title: Dam Id
+        damsire:
+          type: string
+          title: Damsire
+        damsire_id:
+          type: string
+          title: Damsire Id
+        comment:
+          type: string
+          title: Comment
+        silk_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Silk Url
+          default: ''
+      type: object
+      required:
+      - horse_id
+      - horse
+      - sp
+      - sp_dec
+      - number
+      - position
+      - draw
+      - btn
+      - ovr_btn
+      - age
+      - sex
+      - weight
+      - weight_lbs
+      - headgear
+      - time
+      - or
+      - rpr
+      - tsr
+      - prize
+      - jockey
+      - jockey_id
+      - trainer
+      - trainer_id
+      - owner
+      - owner_id
+      - sire
+      - sire_id
+      - dam
+      - dam_id
+      - damsire
+      - damsire_id
+      - comment
+      title: RunnerStandard
+      example:
+        age: '8'
+        bsp: '11.26'
+        btn: '0'
+        comment: Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)
+        dam: Save Me The Waltz (FR)
+        dam_id: dam_4189605
+        damsire: Halling
+        damsire_id: dsi_675241
+        draw: ''
+        headgear: v
+        horse: Mephisto (IRE)
+        horse_id: hrs_19359270
+        jockey: Shane Fitzgerald
+        jockey_claim_lbs: '0'
+        jockey_id: jky_302916
+        number: '2'
+        or: '98'
+        ovr_btn: '0'
+        owner: Restricted Movement Syndicate
+        owner_id: own_1204876
+        position: '1'
+        prize: €5900
+        rpr: '105'
+        sex: G
+        silk_url: https://www.url-for-silk.com/svg/456789.svg
+        sire: Kendargent (FR)
+        sire_id: sir_4514419
+        sp: 15/2
+        sp_dec: '8.50'
+        time: '5:44.90'
+        trainer: Gerard Keane
+        trainer_id: trn_86382
+        tsr: '64'
+        weight: 11-12
+        weight_lbs: '166'
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
   securitySchemes:
     HTTPBasic:
       type: http

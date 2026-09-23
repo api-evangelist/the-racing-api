@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: The Racing Australia Damsires API
+  title: Racing Damsires API
   version: 1.4.3
   x-logo:
     url: https://www.theracingapi.com/static/images/logo_padded.png
@@ -19,7 +19,13 @@ paths:
       tags:
       - Damsires
       summary: The Racing API Damsire Search
-      description: <h4>Search damsires by name</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Search damsires by name
+
+
+        Min. Required PlanStandard
+
+
+        Rate Limit5 requests per second'
       operationId: damsire_search_v1_damsires_search_get
       security:
       - HTTPBasic: []
@@ -117,7 +123,16 @@ paths:
       tags:
       - Damsires
       summary: The Racing API Damsire Grandoffspring Results
-      description: <h4>Get full historical results for a damsire's grandoffspring</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Pro</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table><p>ℹ️ To view a damsire's own racing results, use the <a href='#tag/Horses/operation/horse_results_v1_horses__horse_id__results_get'>horse results endpoint</a>, repacing the 'dsi_' id prefix with 'hrs_'.</p>
+      description: 'Get full historical results for a damsire''s grandoffspring
+
+
+        Min. Required PlanPro
+
+
+        Rate Limit5 requests per second
+
+
+        ℹ️ To view a damsire''s own racing results, use the horse results endpoint, repacing the ''dsi_'' id prefix with ''hrs_''.'
       operationId: damsire_grandoffspring_results_v1_damsires__damsire_id__results_get
       security:
       - HTTPBasic: []
@@ -360,7 +375,13 @@ paths:
       tags:
       - Damsires
       summary: The Racing API Damsire Grandoffspring Class Analysis
-      description: <h4>Get damsire grandoffspring statistics by race class</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Get damsire grandoffspring statistics by race class
+
+
+        Min. Required PlanStandard
+
+
+        Rate Limit5 requests per second'
       operationId: damsire_grandoffspring_class_analysis_v1_damsires__damsire_id__analysis_classes_get
       security:
       - HTTPBasic: []
@@ -582,7 +603,13 @@ paths:
       tags:
       - Damsires
       summary: The Racing API Damsire Grandoffspring Distance Analysis
-      description: <h4>Get damsire grandoffspring statistics by race distance</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Standard</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr></tbody></table>
+      description: 'Get damsire grandoffspring statistics by race distance
+
+
+        Min. Required PlanStandard
+
+
+        Rate Limit5 requests per second'
       operationId: damsire_grandoffspring_distance_analysis_v1_damsires__damsire_id__analysis_distances_get
       security:
       - HTTPBasic: []
@@ -801,105 +828,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Damsires:
-      properties:
-        search_results:
-          items:
-            $ref: '#/components/schemas/Damsire'
-          type: array
-          title: Search Results
-      type: object
-      required:
-      - search_results
-      title: Damsires
-      example:
-        search_results:
-        - id: dsi_296611
-          name: Danehill
-        - id: dsi_3527125
-          name: Dansili (GB)
-    DamsireClassAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        damsire:
-          type: string
-          title: Damsire
-        total_runners:
-          type: integer
-          title: Total Runners
-        classes:
-          items:
-            $ref: '#/components/schemas/app__models__damsires__Class'
-          type: array
-          title: Classes
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - damsire
-      - total_runners
-      - classes
-      - query
-      title: DamsireClassAnalysis
-      example:
-        classes:
-        - 1_pl: -15.0
-          1st: 30
-          2nd: 25
-          3rd: 22
-          4th: 18
-          a/e: 0.88
-          class: Class 1
-          runners: 200
-          win_%: 0.15
-        damsire: Sadler's Wells
-        id: dsi_3247825
-        query:
-        - - damsire_id
-          - dsi_3247825
-        total_runners: 500
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     RunnerStandard:
       properties:
         horse_id:
@@ -1156,6 +1084,23 @@ components:
         class: Class 1
         runners: 200
         win_%: 0.15
+    Damsires:
+      properties:
+        search_results:
+          items:
+            $ref: '#/components/schemas/Damsire'
+          type: array
+          title: Search Results
+      type: object
+      required:
+      - search_results
+      title: Damsires
+      example:
+        search_results:
+        - id: dsi_296611
+          name: Danehill
+        - id: dsi_3527125
+          name: Dansili (GB)
     DamsireDistanceAnalysis:
       properties:
         id:
@@ -1206,104 +1151,6 @@ components:
         - - damsire_id
           - dsi_3247825
         total_runners: 500
-    app__models__damsires__Distance:
-      properties:
-        dist:
-          type: string
-          title: Dist
-        dist_y:
-          type: string
-          title: Dist Y
-        dist_m:
-          type: string
-          title: Dist M
-        dist_f:
-          type: string
-          title: Dist F
-        runners:
-          type: integer
-          title: Runners
-        1st:
-          type: integer
-          title: 1st place finishes
-        2nd:
-          type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - dist
-      - dist_y
-      - dist_m
-      - dist_f
-      - runners
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: Distance
-      example:
-        1_pl: -10.5
-        1st: 25
-        2nd: 20
-        3rd: 18
-        4th: 15
-        a/e: 0.95
-        dist: 1m2f
-        dist_f: 10f
-        dist_m: '2012'
-        dist_y: '2200'
-        runners: 150
-        win_%: 0.17
-    ResultsStandardPage:
-      properties:
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
-          - type: 'null'
-          title: Results
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - results
-      - total
-      - limit
-      - skip
-      - query
-      title: ResultsStandardPage
     ResultStandard:
       properties:
         race_id:
@@ -1526,6 +1373,186 @@ components:
         tote_win: €8.50
         type: Hurdle
         winning_time_detail: 5m 44.90s (slow by 7.90s)
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    ResultsStandardPage:
+      properties:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsStandardPage
+    app__models__damsires__Distance:
+      properties:
+        dist:
+          type: string
+          title: Dist
+        dist_y:
+          type: string
+          title: Dist Y
+        dist_m:
+          type: string
+          title: Dist M
+        dist_f:
+          type: string
+          title: Dist F
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Distance
+      example:
+        1_pl: -10.5
+        1st: 25
+        2nd: 20
+        3rd: 18
+        4th: 15
+        a/e: 0.95
+        dist: 1m2f
+        dist_f: 10f
+        dist_m: '2012'
+        dist_y: '2200'
+        runners: 150
+        win_%: 0.17
+    DamsireClassAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        damsire:
+          type: string
+          title: Damsire
+        total_runners:
+          type: integer
+          title: Total Runners
+        classes:
+          items:
+            $ref: '#/components/schemas/app__models__damsires__Class'
+          type: array
+          title: Classes
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - damsire
+      - total_runners
+      - classes
+      - query
+      title: DamsireClassAnalysis
+      example:
+        classes:
+        - 1_pl: -15.0
+          1st: 30
+          2nd: 25
+          3rd: 22
+          4th: 18
+          a/e: 0.88
+          class: Class 1
+          runners: 200
+          win_%: 0.15
+        damsire: Sadler's Wells
+        id: dsi_3247825
+        query:
+        - - damsire_id
+          - dsi_3247825
+        total_runners: 500
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
   securitySchemes:
     HTTPBasic:
       type: http

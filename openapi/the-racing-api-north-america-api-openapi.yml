@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: The Racing Australia North America API
+  title: Racing North America API
   version: 1.4.3
   x-logo:
     url: https://www.theracingapi.com/static/images/logo_padded.png
@@ -19,7 +19,16 @@ paths:
       tags:
       - North America
       summary: The Racing API Meets
-      description: '<h4>Get a list of North American race meets</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + North America regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] North America regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</td></tr></tbody></table>'
+      description: 'Get a list of North American race meets
+
+
+        Min. Required PlanFree + North America regional add-on
+
+
+        Rate Limit5 requests per second
+
+
+        Add-ons[Required] North America regional add-on: users on any plan can subscribe to this add-on for £49.99 per month. Contact support@theracingapi.com for information.'
       operationId: meets_v1_north_america_meets_get
       security:
       - HTTPBasic: []
@@ -151,7 +160,16 @@ paths:
       tags:
       - North America
       summary: The Racing API Meet Entries
-      description: '<h4>Get entries for a North American meet</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + North America regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] North America regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</td></tr></tbody></table>'
+      description: 'Get entries for a North American meet
+
+
+        Min. Required PlanFree + North America regional add-on
+
+
+        Rate Limit5 requests per second
+
+
+        Add-ons[Required] North America regional add-on: users on any plan can subscribe to this add-on for £49.99 per month. Contact support@theracingapi.com for information.'
       operationId: meet_entries_v1_north_america_meets__meet_id__entries_get
       security:
       - HTTPBasic: []
@@ -249,7 +267,16 @@ paths:
       tags:
       - North America
       summary: The Racing API Meet Results
-      description: '<h4>Get results for a North American meet</h4><table><tbody><tr><td><b>Min. Required Plan</b></td><td>Free + North America regional add-on</td></tr><tr><td><b>Rate Limit</b></td><td>5 requests per second</td></tr><tr><td><b>Add-ons</b></td><td><b>[Required] North America regional add-on</b>: users on any plan can subscribe to this add-on for £49.99 per month. Contact <a href=''mailto:support@theracingapi.com''>support@theracingapi.com</a> for information.</td></tr></tbody></table>'
+      description: 'Get results for a North American meet
+
+
+        Min. Required PlanFree + North America regional add-on
+
+
+        Rate Limit5 requests per second
+
+
+        Add-ons[Required] North America regional add-on: users on any plan can subscribe to this add-on for £49.99 per month. Contact support@theracingapi.com for information.'
       operationId: meet_results_v1_north_america_meets__meet_id__results_get
       security:
       - HTTPBasic: []
@@ -344,6 +371,226 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Entries:
+      properties:
+        meet_id:
+          type: string
+          title: Meet Id
+        track_id:
+          type: string
+          title: Track Id
+        track_name:
+          type: string
+          title: Track Name
+        country:
+          type: string
+          title: Country
+        date:
+          type: string
+          title: Date
+        races:
+          items:
+            $ref: '#/components/schemas/app__models__na_entries__Race'
+          type: array
+          title: Races
+        weather:
+          anyOf:
+          - $ref: '#/components/schemas/app__models__na_entries__Weather'
+          - type: 'null'
+      type: object
+      required:
+      - meet_id
+      - track_id
+      - track_name
+      - country
+      - date
+      - races
+      title: Entries
+      example:
+        country: USA
+        date: '2026-02-01'
+        meet_id: AQU_1769922000000
+        races:
+        - age_restriction: '03'
+          age_restriction_description: 3 Year Olds
+          breed: Thoroughbred
+          changes: []
+          course_type: D
+          course_type_class: D
+          distance_description: 6 1/2 Furlongs
+          distance_unit: F
+          distance_value: 6
+          grade: ''
+          has_finished: false
+          has_results: false
+          is_cancelled: false
+          max_claim_price: 0
+          min_claim_price: 0
+          mtp: -315
+          post_time: 12:40 PM
+          post_time_long: '63600000'
+          purse: 80000
+          race_class: MAIDEN SPECIAL WEIGHT
+          race_key:
+            day_evening: D
+            race_number: '1'
+          race_name: ''
+          race_pools:
+          - maximum_wager_amount: 10000.0
+            minimum_box_amount: 1.0
+            minimum_wager_amount: 2.0
+            minimum_wheel_amount: 1.0
+            pool_code: WN
+            pool_name: Win
+            race_list: '1'
+          race_restriction: ''
+          race_type: MSW
+          race_type_description: MAIDEN SPECIAL WEIGHT
+          runners:
+          - claiming: 0
+            coupled_type: ''
+            dam_name: Criminal Mischief
+            dam_sire_name: Into Mischief
+            description: ''
+            equipment: Blk-O
+            horse_name: Felonious
+            jockey:
+              alias: Santana R Jr
+              first_name: Ricardo
+              first_name_initial: R
+              id: jky_na_408144
+              last_name: Santana, Jr.
+              middle_name: ''
+              type: JE
+            medication: L
+            morning_line_odds: 5/2
+            post_pos: '1'
+            program_number: '1'
+            program_number_stripped: 1
+            registration_number: '23009154'
+            scratch_indicator: N
+            sire_name: Charlatan
+            trainer:
+              alias: Pletcher Todd A
+              first_name: Todd
+              first_name_initial: T
+              id: trn_na_1029078
+              last_name: Pletcher
+              middle_name: A.
+              type: TE
+            weight: '122'
+          sex_restriction: ''
+          sex_restriction_description: Open
+          surface_description: Dirt
+          time_zone: E
+          tote_track_id: AQU
+          track_condition: FT
+          track_name: AQUEDUCT
+        track_id: AQU
+        track_name: Aqueduct
+        weather:
+          current_weather_description: Clear
+          forecast_high: '45'
+          forecast_low: '32'
+          forecast_precipitation: '10'
+          forecast_weather_description: Partly Cloudy
+    app__models__na_entries__Jockey:
+      properties:
+        id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Id
+        alias:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Alias
+        first_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: First Name
+        first_name_initial:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: First Name Initial
+        last_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Last Name
+        middle_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Middle Name
+        type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Type
+      type: object
+      title: Jockey
+      example:
+        alias: Santana R Jr
+        first_name: Ricardo
+        first_name_initial: R
+        id: jky_na_408144
+        last_name: Santana, Jr.
+        middle_name: ''
+        type: JE
+    app__models__na_results__Weather:
+      properties:
+        current_temperature:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Current Temperature
+        current_weather_description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Current Weather Description
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+        forecast_high:
+          anyOf:
+          - type: integer
+          - type: string
+          - type: 'null'
+          title: Forecast High
+        forecast_low:
+          anyOf:
+          - type: integer
+          - type: string
+          - type: 'null'
+          title: Forecast Low
+        forecast_precipitation:
+          anyOf:
+          - type: integer
+          - type: string
+          - type: 'null'
+          title: Forecast Precipitation
+        forecast_weather_description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Forecast Weather Description
+      type: object
+      title: Weather
+      example:
+        current_temperature: '52'
+        current_weather_description: Partly Cloudy
+        date: '2026-02-01'
+        forecast_high: '58'
+        forecast_low: '42'
+        forecast_precipitation: '10'
+        forecast_weather_description: Mostly Sunny
     Results:
       properties:
         meet_id:
@@ -480,133 +727,6 @@ components:
           forecast_low: '42'
           forecast_precipitation: '10'
           forecast_weather_description: Mostly Sunny
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    app__models__na_results__Runner:
-      properties:
-        breeder_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Breeder Name
-        horse_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Horse Name
-        jockey_first_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Jockey First Name
-        jockey_first_name_initial:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Jockey First Name Initial
-        jockey_last_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Jockey Last Name
-        owner_first_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Owner First Name
-        owner_last_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Owner Last Name
-        place_payoff:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Place Payoff
-        program_number:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Program Number
-        program_number_stripped:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Program Number Stripped
-        show_payoff:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Show Payoff
-        sire_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sire Name
-        trainer_first_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Trainer First Name
-        trainer_last_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Trainer Last Name
-        weight_carried:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Weight Carried
-        win_payoff:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Win Payoff
-      type: object
-      title: Runner
-      example:
-        breeder_name: Brittlyn Inc
-        horse_name: Louisiana Wildlife
-        jockey_first_name: Paco
-        jockey_first_name_initial: P
-        jockey_last_name: Lopez
-        owner_first_name: ''
-        owner_last_name: Lovern, Jason and Lovern, Pamela Belk
-        place_payoff: 2.1
-        program_number: '1'
-        program_number_stripped: 1
-        show_payoff: 2.1
-        sire_name: Star Guitar
-        trainer_first_name: Antonio
-        trainer_last_name: Alberto
-        weight_carried: '122'
-        win_payoff: 3.0
     RaceKey:
       properties:
         race_number:
@@ -624,275 +744,55 @@ components:
       example:
         day_evening: D
         race_number: '1'
-    app__models__na_entries__Jockey:
+    WagerType:
       properties:
-        id:
+        wager_type:
           anyOf:
           - type: string
           - type: 'null'
-          title: Id
-        alias:
+          title: Wager Type
+        wager_description:
           anyOf:
           - type: string
           - type: 'null'
-          title: Alias
-        first_name:
+          title: Wager Description
+        base_amount:
           anyOf:
           - type: string
           - type: 'null'
-          title: First Name
-        first_name_initial:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: First Name Initial
-        last_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Last Name
-        middle_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Middle Name
+          title: Base Amount
+      type: object
+      title: WagerType
+      example:
+        base_amount: '1.00'
+        wager_description: Exacta
+        wager_type: E
+    Change:
+      properties:
         type:
           anyOf:
           - type: string
           - type: 'null'
           title: Type
+        text:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Text
       type: object
-      title: Jockey
+      title: Change
       example:
-        alias: Santana R Jr
-        first_name: Ricardo
-        first_name_initial: R
-        id: jky_na_408144
-        last_name: Santana, Jr.
-        middle_name: ''
-        type: JE
-    Fraction:
+        text: Horse scratched due to injury
+        type: Scratch
+    HTTPValidationError:
       properties:
-        fraction_1:
-          anyOf:
-          - $ref: '#/components/schemas/TimeData'
-          - type: 'null'
-        fraction_2:
-          anyOf:
-          - $ref: '#/components/schemas/TimeData'
-          - type: 'null'
-        fraction_3:
-          anyOf:
-          - $ref: '#/components/schemas/TimeData'
-          - type: 'null'
-        fraction_4:
-          anyOf:
-          - $ref: '#/components/schemas/TimeData'
-          - type: 'null'
-        fraction_5:
-          anyOf:
-          - $ref: '#/components/schemas/TimeData'
-          - type: 'null'
-        winning_time:
-          anyOf:
-          - $ref: '#/components/schemas/TimeData'
-          - type: 'null'
-      type: object
-      title: Fraction
-      example:
-        fraction_1:
-          hundredths: 60
-          minutes: 0
-          seconds: 22
-          time_in_hundredths: :22.60
-        fraction_2:
-          hundredths: 18
-          minutes: 0
-          seconds: 46
-          time_in_hundredths: :46.18
-        fraction_3:
-          hundredths: 98
-          minutes: 0
-          seconds: 57
-          time_in_hundredths: :57.98
-        winning_time:
-          hundredths: 87
-          minutes: 1
-          seconds: 10
-          time_in_hundredths: '1:10.87'
-    app__models__na_results__Weather:
-      properties:
-        current_temperature:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Current Temperature
-        current_weather_description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Current Weather Description
-        date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date
-        forecast_high:
-          anyOf:
-          - type: integer
-          - type: string
-          - type: 'null'
-          title: Forecast High
-        forecast_low:
-          anyOf:
-          - type: integer
-          - type: string
-          - type: 'null'
-          title: Forecast Low
-        forecast_precipitation:
-          anyOf:
-          - type: integer
-          - type: string
-          - type: 'null'
-          title: Forecast Precipitation
-        forecast_weather_description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Forecast Weather Description
-      type: object
-      title: Weather
-      example:
-        current_temperature: '52'
-        current_weather_description: Partly Cloudy
-        date: '2026-02-01'
-        forecast_high: '58'
-        forecast_low: '42'
-        forecast_precipitation: '10'
-        forecast_weather_description: Mostly Sunny
-    Entries:
-      properties:
-        meet_id:
-          type: string
-          title: Meet Id
-        track_id:
-          type: string
-          title: Track Id
-        track_name:
-          type: string
-          title: Track Name
-        country:
-          type: string
-          title: Country
-        date:
-          type: string
-          title: Date
-        races:
+        detail:
           items:
-            $ref: '#/components/schemas/app__models__na_entries__Race'
+            $ref: '#/components/schemas/ValidationError'
           type: array
-          title: Races
-        weather:
-          anyOf:
-          - $ref: '#/components/schemas/app__models__na_entries__Weather'
-          - type: 'null'
+          title: Detail
       type: object
-      required:
-      - meet_id
-      - track_id
-      - track_name
-      - country
-      - date
-      - races
-      title: Entries
-      example:
-        country: USA
-        date: '2026-02-01'
-        meet_id: AQU_1769922000000
-        races:
-        - age_restriction: '03'
-          age_restriction_description: 3 Year Olds
-          breed: Thoroughbred
-          changes: []
-          course_type: D
-          course_type_class: D
-          distance_description: 6 1/2 Furlongs
-          distance_unit: F
-          distance_value: 6
-          grade: ''
-          has_finished: false
-          has_results: false
-          is_cancelled: false
-          max_claim_price: 0
-          min_claim_price: 0
-          mtp: -315
-          post_time: 12:40 PM
-          post_time_long: '63600000'
-          purse: 80000
-          race_class: MAIDEN SPECIAL WEIGHT
-          race_key:
-            day_evening: D
-            race_number: '1'
-          race_name: ''
-          race_pools:
-          - maximum_wager_amount: 10000.0
-            minimum_box_amount: 1.0
-            minimum_wager_amount: 2.0
-            minimum_wheel_amount: 1.0
-            pool_code: WN
-            pool_name: Win
-            race_list: '1'
-          race_restriction: ''
-          race_type: MSW
-          race_type_description: MAIDEN SPECIAL WEIGHT
-          runners:
-          - claiming: 0
-            coupled_type: ''
-            dam_name: Criminal Mischief
-            dam_sire_name: Into Mischief
-            description: ''
-            equipment: Blk-O
-            horse_name: Felonious
-            jockey:
-              alias: Santana R Jr
-              first_name: Ricardo
-              first_name_initial: R
-              id: jky_na_408144
-              last_name: Santana, Jr.
-              middle_name: ''
-              type: JE
-            medication: L
-            morning_line_odds: 5/2
-            post_pos: '1'
-            program_number: '1'
-            program_number_stripped: 1
-            registration_number: '23009154'
-            scratch_indicator: N
-            sire_name: Charlatan
-            trainer:
-              alias: Pletcher Todd A
-              first_name: Todd
-              first_name_initial: T
-              id: trn_na_1029078
-              last_name: Pletcher
-              middle_name: A.
-              type: TE
-            weight: '122'
-          sex_restriction: ''
-          sex_restriction_description: Open
-          surface_description: Dirt
-          time_zone: E
-          tote_track_id: AQU
-          track_condition: FT
-          track_name: AQUEDUCT
-        track_id: AQU
-        track_name: Aqueduct
-        weather:
-          current_weather_description: Clear
-          forecast_high: '45'
-          forecast_low: '32'
-          forecast_precipitation: '10'
-          forecast_weather_description: Partly Cloudy
+      title: HTTPValidationError
     app__models__na_results__Race:
       properties:
         age_restriction:
@@ -1141,6 +1041,588 @@ components:
         - base_amount: '1.00'
           wager_description: Exacta
           wager_type: E
+    app__models__na_entries__Trainer:
+      properties:
+        id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Id
+        alias:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Alias
+        first_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: First Name
+        first_name_initial:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: First Name Initial
+        last_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Last Name
+        middle_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Middle Name
+        type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Type
+      type: object
+      title: Trainer
+      example:
+        alias: Pletcher Todd A
+        first_name: Todd
+        first_name_initial: T
+        id: trn_na_1029078
+        last_name: Pletcher
+        middle_name: A.
+        type: TE
+    TimeData:
+      properties:
+        minutes:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Minutes
+        seconds:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Seconds
+        hundredths:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Hundredths
+        milliseconds:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Milliseconds
+        fifths:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Fifths
+        str_fifths:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Str Fifths
+        time_in_fifths:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Time In Fifths
+        time_in_hundredths:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Time In Hundredths
+      type: object
+      title: TimeData
+      example:
+        fifths: 4
+        hundredths: 87
+        milliseconds: 870
+        minutes: 1
+        seconds: 10
+        str_fifths: ''
+        time_in_fifths: 1:10<sup>4</sup>
+        time_in_hundredths: '1:10.87'
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    HorsePool:
+      properties:
+        pool_type_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Pool Type Name
+        amount:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Amount
+        fractional_odds:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Fractional Odds
+        dollar:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dollar
+      type: object
+      title: HorsePool
+      example:
+        amount: '5000'
+        dollar: '3.50'
+        fractional_odds: 5/2
+        pool_type_name: Win
+    app__models__na_meets__Meet:
+      properties:
+        country:
+          type: string
+          title: Country
+        date:
+          type: string
+          title: Date
+        meet_id:
+          type: string
+          title: Meet Id
+        track_id:
+          type: string
+          title: Track Id
+        track_name:
+          type: string
+          title: Track Name
+      type: object
+      required:
+      - country
+      - date
+      - meet_id
+      - track_id
+      - track_name
+      title: Meet
+      example:
+        country: USA
+        date: '2026-02-01'
+        meet_id: AQU_1769922000000
+        track_id: AQU
+        track_name: Aqueduct
+    app__models__na_results__Runner:
+      properties:
+        breeder_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Breeder Name
+        horse_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Horse Name
+        jockey_first_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jockey First Name
+        jockey_first_name_initial:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jockey First Name Initial
+        jockey_last_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jockey Last Name
+        owner_first_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Owner First Name
+        owner_last_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Owner Last Name
+        place_payoff:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Place Payoff
+        program_number:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Program Number
+        program_number_stripped:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Program Number Stripped
+        show_payoff:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Show Payoff
+        sire_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sire Name
+        trainer_first_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer First Name
+        trainer_last_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer Last Name
+        weight_carried:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Weight Carried
+        win_payoff:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Win Payoff
+      type: object
+      title: Runner
+      example:
+        breeder_name: Brittlyn Inc
+        horse_name: Louisiana Wildlife
+        jockey_first_name: Paco
+        jockey_first_name_initial: P
+        jockey_last_name: Lopez
+        owner_first_name: ''
+        owner_last_name: Lovern, Jason and Lovern, Pamela Belk
+        place_payoff: 2.1
+        program_number: '1'
+        program_number_stripped: 1
+        show_payoff: 2.1
+        sire_name: Star Guitar
+        trainer_first_name: Antonio
+        trainer_last_name: Alberto
+        weight_carried: '122'
+        win_payoff: 3.0
+    Payoff:
+      properties:
+        base_amount:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Base Amount
+        carryover:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Carryover
+        number_of_rights:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Number Of Rights
+        number_of_tickets_bet:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Number Of Tickets Bet
+        payoff_amount:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Payoff Amount
+        total_pool:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Total Pool
+        wager_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Wager Name
+        wager_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Wager Type
+        winning_numbers:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Winning Numbers
+      type: object
+      title: Payoff
+      example:
+        base_amount: 0.0
+        carryover: 0.0
+        number_of_rights: 0
+        number_of_tickets_bet: 100
+        payoff_amount: '2.40'
+        total_pool: 75,589.00
+        wager_name: Exacta
+        wager_type: E
+        winning_numbers: 1-4
+    app__models__na_meets__Meets:
+      properties:
+        meets:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/app__models__na_meets__Meet'
+            type: array
+          - type: 'null'
+          title: Meets
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - limit
+      - skip
+      - query
+      title: Meets
+      example:
+        limit: 50
+        meets:
+        - country: USA
+          date: '2026-02-01'
+          meet_id: AQU_1769922000000
+          track_id: AQU
+          track_name: Aqueduct
+        - country: USA
+          date: '2026-02-01'
+          meet_id: FG_1769922000000
+          track_id: FG
+          track_name: Fair Grounds
+        query:
+        - - date
+          - '2026-02-01'
+        skip: 0
+    Fraction:
+      properties:
+        fraction_1:
+          anyOf:
+          - $ref: '#/components/schemas/TimeData'
+          - type: 'null'
+        fraction_2:
+          anyOf:
+          - $ref: '#/components/schemas/TimeData'
+          - type: 'null'
+        fraction_3:
+          anyOf:
+          - $ref: '#/components/schemas/TimeData'
+          - type: 'null'
+        fraction_4:
+          anyOf:
+          - $ref: '#/components/schemas/TimeData'
+          - type: 'null'
+        fraction_5:
+          anyOf:
+          - $ref: '#/components/schemas/TimeData'
+          - type: 'null'
+        winning_time:
+          anyOf:
+          - $ref: '#/components/schemas/TimeData'
+          - type: 'null'
+      type: object
+      title: Fraction
+      example:
+        fraction_1:
+          hundredths: 60
+          minutes: 0
+          seconds: 22
+          time_in_hundredths: :22.60
+        fraction_2:
+          hundredths: 18
+          minutes: 0
+          seconds: 46
+          time_in_hundredths: :46.18
+        fraction_3:
+          hundredths: 98
+          minutes: 0
+          seconds: 57
+          time_in_hundredths: :57.98
+        winning_time:
+          hundredths: 87
+          minutes: 1
+          seconds: 10
+          time_in_hundredths: '1:10.87'
+    app__models__na_entries__Runner:
+      properties:
+        claiming:
+          anyOf:
+          - type: integer
+          - type: string
+          - type: 'null'
+          title: Claiming
+        coupled_type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Coupled Type
+        dam_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dam Name
+        dam_sire_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dam Sire Name
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Description
+        equipment:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Equipment
+        handicapper_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Handicapper Name
+        horse_data_pools:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/HorsePool'
+            type: array
+          - type: 'null'
+          title: Horse Data Pools
+        horse_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Horse Name
+        jockey:
+          anyOf:
+          - $ref: '#/components/schemas/app__models__na_entries__Jockey'
+          - type: 'null'
+        live_odds:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Live Odds
+        medication:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Medication
+        morning_line_odds:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Morning Line Odds
+        post_pos:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Post Pos
+        program_number:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Program Number
+        program_number_stripped:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          title: Program Number Stripped
+        registration_number:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Registration Number
+        scratch_indicator:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Scratch Indicator
+        sire_name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sire Name
+        trainer:
+          anyOf:
+          - $ref: '#/components/schemas/app__models__na_entries__Trainer'
+          - type: 'null'
+        weight:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Weight
+      type: object
+      title: Runner
+      example:
+        claiming: 0
+        coupled_type: ''
+        dam_name: Criminal Mischief
+        dam_sire_name: Into Mischief
+        description: ''
+        equipment: Blk-O
+        horse_name: Felonious
+        jockey:
+          alias: Santana R Jr
+          first_name: Ricardo
+          first_name_initial: R
+          id: jky_na_408144
+          last_name: Santana, Jr.
+          middle_name: ''
+          type: JE
+        medication: L
+        morning_line_odds: 5/2
+        post_pos: '1'
+        program_number: '1'
+        program_number_stripped: 1
+        registration_number: '23009154'
+        scratch_indicator: N
+        sire_name: Charlatan
+        trainer:
+          alias: Pletcher Todd A
+          first_name: Todd
+          first_name_initial: T
+          id: trn_na_1029078
+          last_name: Pletcher
+          middle_name: A.
+          type: TE
+        weight: '122'
     app__models__na_entries__Race:
       properties:
         age_restriction:
@@ -1401,76 +1883,44 @@ components:
         tote_track_id: AQU
         track_condition: FT
         track_name: AQUEDUCT
-    TimeData:
+    app__models__na_entries__Weather:
       properties:
-        minutes:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Minutes
-        seconds:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Seconds
-        hundredths:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Hundredths
-        milliseconds:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Milliseconds
-        fifths:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Fifths
-        str_fifths:
+        forecast_weather_description:
           anyOf:
           - type: string
           - type: 'null'
-          title: Str Fifths
-        time_in_fifths:
+          title: Forecast Weather Description
+        forecast_high:
+          anyOf:
+          - type: integer
+          - type: string
+          - type: 'null'
+          title: Forecast High
+        forecast_low:
+          anyOf:
+          - type: integer
+          - type: string
+          - type: 'null'
+          title: Forecast Low
+        forecast_precipitation:
+          anyOf:
+          - type: integer
+          - type: string
+          - type: 'null'
+          title: Forecast Precipitation
+        current_weather_description:
           anyOf:
           - type: string
           - type: 'null'
-          title: Time In Fifths
-        time_in_hundredths:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Time In Hundredths
+          title: Current Weather Description
       type: object
-      title: TimeData
+      title: Weather
       example:
-        fifths: 4
-        hundredths: 87
-        milliseconds: 870
-        minutes: 1
-        seconds: 10
-        str_fifths: ''
-        time_in_fifths: 1:10<sup>4</sup>
-        time_in_hundredths: '1:10.87'
-    Change:
-      properties:
-        type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Type
-        text:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Text
-      type: object
-      title: Change
-      example:
-        text: Horse scratched due to injury
-        type: Scratch
+        current_weather_description: Clear
+        forecast_high: '45'
+        forecast_low: '32'
+        forecast_precipitation: '10'
+        forecast_weather_description: Partly Cloudy
     RacePool:
       properties:
         maximum_wager_amount:
@@ -1518,429 +1968,6 @@ components:
         pool_code: WN
         pool_name: Win
         race_list: '1'
-    app__models__na_entries__Runner:
-      properties:
-        claiming:
-          anyOf:
-          - type: integer
-          - type: string
-          - type: 'null'
-          title: Claiming
-        coupled_type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Coupled Type
-        dam_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dam Name
-        dam_sire_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dam Sire Name
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Description
-        equipment:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Equipment
-        handicapper_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Handicapper Name
-        horse_data_pools:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/HorsePool'
-            type: array
-          - type: 'null'
-          title: Horse Data Pools
-        horse_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Horse Name
-        jockey:
-          anyOf:
-          - $ref: '#/components/schemas/app__models__na_entries__Jockey'
-          - type: 'null'
-        live_odds:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Live Odds
-        medication:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Medication
-        morning_line_odds:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Morning Line Odds
-        post_pos:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Post Pos
-        program_number:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Program Number
-        program_number_stripped:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Program Number Stripped
-        registration_number:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Registration Number
-        scratch_indicator:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Scratch Indicator
-        sire_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sire Name
-        trainer:
-          anyOf:
-          - $ref: '#/components/schemas/app__models__na_entries__Trainer'
-          - type: 'null'
-        weight:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Weight
-      type: object
-      title: Runner
-      example:
-        claiming: 0
-        coupled_type: ''
-        dam_name: Criminal Mischief
-        dam_sire_name: Into Mischief
-        description: ''
-        equipment: Blk-O
-        horse_name: Felonious
-        jockey:
-          alias: Santana R Jr
-          first_name: Ricardo
-          first_name_initial: R
-          id: jky_na_408144
-          last_name: Santana, Jr.
-          middle_name: ''
-          type: JE
-        medication: L
-        morning_line_odds: 5/2
-        post_pos: '1'
-        program_number: '1'
-        program_number_stripped: 1
-        registration_number: '23009154'
-        scratch_indicator: N
-        sire_name: Charlatan
-        trainer:
-          alias: Pletcher Todd A
-          first_name: Todd
-          first_name_initial: T
-          id: trn_na_1029078
-          last_name: Pletcher
-          middle_name: A.
-          type: TE
-        weight: '122'
-    app__models__na_meets__Meets:
-      properties:
-        meets:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/app__models__na_meets__Meet'
-            type: array
-          - type: 'null'
-          title: Meets
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - limit
-      - skip
-      - query
-      title: Meets
-      example:
-        limit: 50
-        meets:
-        - country: USA
-          date: '2026-02-01'
-          meet_id: AQU_1769922000000
-          track_id: AQU
-          track_name: Aqueduct
-        - country: USA
-          date: '2026-02-01'
-          meet_id: FG_1769922000000
-          track_id: FG
-          track_name: Fair Grounds
-        query:
-        - - date
-          - '2026-02-01'
-        skip: 0
-    app__models__na_meets__Meet:
-      properties:
-        country:
-          type: string
-          title: Country
-        date:
-          type: string
-          title: Date
-        meet_id:
-          type: string
-          title: Meet Id
-        track_id:
-          type: string
-          title: Track Id
-        track_name:
-          type: string
-          title: Track Name
-      type: object
-      required:
-      - country
-      - date
-      - meet_id
-      - track_id
-      - track_name
-      title: Meet
-      example:
-        country: USA
-        date: '2026-02-01'
-        meet_id: AQU_1769922000000
-        track_id: AQU
-        track_name: Aqueduct
-    WagerType:
-      properties:
-        wager_type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Wager Type
-        wager_description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Wager Description
-        base_amount:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Base Amount
-      type: object
-      title: WagerType
-      example:
-        base_amount: '1.00'
-        wager_description: Exacta
-        wager_type: E
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    HorsePool:
-      properties:
-        pool_type_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Pool Type Name
-        amount:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Amount
-        fractional_odds:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Fractional Odds
-        dollar:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dollar
-      type: object
-      title: HorsePool
-      example:
-        amount: '5000'
-        dollar: '3.50'
-        fractional_odds: 5/2
-        pool_type_name: Win
-    Payoff:
-      properties:
-        base_amount:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Base Amount
-        carryover:
-          anyOf:
-          - type: number
-          - type: 'null'
-          title: Carryover
-        number_of_rights:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Number Of Rights
-        number_of_tickets_bet:
-          anyOf:
-          - type: integer
-          - type: 'null'
-          title: Number Of Tickets Bet
-        payoff_amount:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Payoff Amount
-        total_pool:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Total Pool
-        wager_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Wager Name
-        wager_type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Wager Type
-        winning_numbers:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Winning Numbers
-      type: object
-      title: Payoff
-      example:
-        base_amount: 0.0
-        carryover: 0.0
-        number_of_rights: 0
-        number_of_tickets_bet: 100
-        payoff_amount: '2.40'
-        total_pool: 75,589.00
-        wager_name: Exacta
-        wager_type: E
-        winning_numbers: 1-4
-    app__models__na_entries__Trainer:
-      properties:
-        id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Id
-        alias:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Alias
-        first_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: First Name
-        first_name_initial:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: First Name Initial
-        last_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Last Name
-        middle_name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Middle Name
-        type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Type
-      type: object
-      title: Trainer
-      example:
-        alias: Pletcher Todd A
-        first_name: Todd
-        first_name_initial: T
-        id: trn_na_1029078
-        last_name: Pletcher
-        middle_name: A.
-        type: TE
-    app__models__na_entries__Weather:
-      properties:
-        forecast_weather_description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Forecast Weather Description
-        forecast_high:
-          anyOf:
-          - type: integer
-          - type: string
-          - type: 'null'
-          title: Forecast High
-        forecast_low:
-          anyOf:
-          - type: integer
-          - type: string
-          - type: 'null'
-          title: Forecast Low
-        forecast_precipitation:
-          anyOf:
-          - type: integer
-          - type: string
-          - type: 'null'
-          title: Forecast Precipitation
-        current_weather_description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Current Weather Description
-      type: object
-      title: Weather
-      example:
-        current_weather_description: Clear
-        forecast_high: '45'
-        forecast_low: '32'
-        forecast_precipitation: '10'
-        forecast_weather_description: Partly Cloudy
   securitySchemes:
     HTTPBasic:
       type: http
