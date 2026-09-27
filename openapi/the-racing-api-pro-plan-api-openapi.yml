@@ -120,6 +120,62 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    OddsHistory:
+      properties:
+        bookmaker:
+          type: string
+          title: Bookmaker
+        fractional:
+          type: string
+          title: Fractional
+        decimal:
+          type: string
+          title: Decimal
+        ew_places:
+          type: string
+          title: Ew Places
+        ew_denom:
+          type: string
+          title: Ew Denom
+        updated:
+          type: string
+          title: Updated
+        history:
+          anyOf:
+          - items: {}
+            type: array
+          - type: 'null'
+          title: History
+          default: []
+      type: object
+      required:
+      - bookmaker
+      - fractional
+      - decimal
+      - ew_places
+      - ew_denom
+      - updated
+      title: OddsHistory
+      example:
+        bookmaker: Bet365
+        decimal: '6.0'
+        ew_denom: '5'
+        ew_places: '3'
+        fractional: 5/1
+        history:
+        - changed_at: '2026-02-06T12:00:00+00:00'
+          decimal: '7.0'
+          fractional: 6/1
+        updated: '2026-02-06 13:30:00'
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     RacecardOddsPro:
       properties:
         race_id:
@@ -412,124 +468,6 @@ components:
         type: Flat
         verdict: This looks a good opportunity for promising 4yo MAJESTIC VALOUR to get back to winning ways.
         weather: ''
-    RunnerPrevTrainer:
-      properties:
-        trainer:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Trainer
-          default: ''
-        trainer_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Trainer Id
-          default: ''
-        change_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Change Date
-          default: ''
-      type: object
-      title: RunnerPrevTrainer
-      example:
-        change_date: '2024-03-01'
-        trainer: John Smith
-        trainer_id: trn_123456
-    RunnerMedical:
-      properties:
-        date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date
-          default: ''
-        type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Type
-          default: ''
-      type: object
-      title: RunnerMedical
-      example:
-        date: '2024-06-15'
-        type: Wind surgery
-    OddsHistory:
-      properties:
-        bookmaker:
-          type: string
-          title: Bookmaker
-        fractional:
-          type: string
-          title: Fractional
-        decimal:
-          type: string
-          title: Decimal
-        ew_places:
-          type: string
-          title: Ew Places
-        ew_denom:
-          type: string
-          title: Ew Denom
-        updated:
-          type: string
-          title: Updated
-        history:
-          anyOf:
-          - items: {}
-            type: array
-          - type: 'null'
-          title: History
-          default: []
-      type: object
-      required:
-      - bookmaker
-      - fractional
-      - decimal
-      - ew_places
-      - ew_denom
-      - updated
-      title: OddsHistory
-      example:
-        bookmaker: Bet365
-        decimal: '6.0'
-        ew_denom: '5'
-        ew_places: '3'
-        fractional: 5/1
-        history:
-        - changed_at: '2026-02-06T12:00:00+00:00'
-          decimal: '7.0'
-          fractional: 6/1
-        updated: '2026-02-06 13:30:00'
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     RunnerPrevOwner:
       properties:
         owner:
@@ -556,6 +494,44 @@ components:
         change_date: '2024-01-15'
         owner: Previous Racing Ltd
         owner_id: own_123456
+    RunnerStableTour:
+      properties:
+        quote:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Quote
+          default: ''
+      type: object
+      title: RunnerStableTour
+      example:
+        quote: He's been working well at home and we're hopeful.
+    RunnerPrevTrainer:
+      properties:
+        trainer:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer
+          default: ''
+        trainer_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer Id
+          default: ''
+        change_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Change Date
+          default: ''
+      type: object
+      title: RunnerPrevTrainer
+      example:
+        change_date: '2024-03-01'
+        trainer: John Smith
+        trainer_id: trn_123456
     RunnerOddsPro:
       properties:
         horse_id:
@@ -918,32 +894,25 @@ components:
         ts: '83'
         wind_surgery: ''
         wind_surgery_run: ''
-    RunnerTrainer14Days:
+    RunnerMedical:
       properties:
-        runs:
+        date:
           anyOf:
           - type: string
           - type: 'null'
-          title: Runs
+          title: Date
           default: ''
-        wins:
+        type:
           anyOf:
           - type: string
           - type: 'null'
-          title: Wins
-          default: ''
-        percent:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Percent
+          title: Type
           default: ''
       type: object
-      title: RunnerTrainer14Days
+      title: RunnerMedical
       example:
-        percent: '20'
-        runs: '25'
-        wins: '5'
+        date: '2024-06-15'
+        type: Wind surgery
     RunnerQuote:
       properties:
         date:
@@ -1019,27 +988,58 @@ components:
         quote: He ran a great race and showed his class.
         race: King George VI
         race_id: rac_12345678
-    RunnerStableTour:
+    RunnerTrainer14Days:
       properties:
-        quote:
+        runs:
           anyOf:
           - type: string
           - type: 'null'
-          title: Quote
+          title: Runs
+          default: ''
+        wins:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Wins
+          default: ''
+        percent:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Percent
           default: ''
       type: object
-      title: RunnerStableTour
+      title: RunnerTrainer14Days
       example:
-        quote: He's been working well at home and we're hopeful.
-    HTTPValidationError:
+        percent: '20'
+        runs: '25'
+        wins: '5'
+    ValidationError:
       properties:
-        detail:
+        loc:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Detail
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
       type: object
-      title: HTTPValidationError
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
   securitySchemes:
     HTTPBasic:
       type: http

@@ -828,6 +828,130 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ResultsStandardPage:
+      properties:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsStandardPage
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    app__models__damsires__Distance:
+      properties:
+        dist:
+          type: string
+          title: Dist
+        dist_y:
+          type: string
+          title: Dist Y
+        dist_m:
+          type: string
+          title: Dist M
+        dist_f:
+          type: string
+          title: Dist F
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Distance
+      example:
+        1_pl: -10.5
+        1st: 25
+        2nd: 20
+        3rd: 18
+        4th: 15
+        a/e: 0.95
+        dist: 1m2f
+        dist_f: 10f
+        dist_m: '2012'
+        dist_y: '2200'
+        runners: 150
+        win_%: 0.17
+    Damsires:
+      properties:
+        search_results:
+          items:
+            $ref: '#/components/schemas/Damsire'
+          type: array
+          title: Search Results
+      type: object
+      required:
+      - search_results
+      title: Damsires
+      example:
+        search_results:
+        - id: dsi_296611
+          name: Danehill
+        - id: dsi_3527125
+          name: Dansili (GB)
     RunnerStandard:
       properties:
         horse_id:
@@ -1015,6 +1139,53 @@ components:
         tsr: '64'
         weight: 11-12
         weight_lbs: '166'
+    DamsireClassAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        damsire:
+          type: string
+          title: Damsire
+        total_runners:
+          type: integer
+          title: Total Runners
+        classes:
+          items:
+            $ref: '#/components/schemas/app__models__damsires__Class'
+          type: array
+          title: Classes
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - damsire
+      - total_runners
+      - classes
+      - query
+      title: DamsireClassAnalysis
+      example:
+        classes:
+        - 1_pl: -15.0
+          1st: 30
+          2nd: 25
+          3rd: 22
+          4th: 18
+          a/e: 0.88
+          class: Class 1
+          runners: 200
+          win_%: 0.15
+        damsire: Sadler's Wells
+        id: dsi_3247825
+        query:
+        - - damsire_id
+          - dsi_3247825
+        total_runners: 500
     Damsire:
       properties:
         id:
@@ -1033,124 +1204,6 @@ components:
       example:
         id: dsi_296611
         name: Danehill
-    app__models__damsires__Class:
-      properties:
-        class:
-          type: string
-          title: Class
-        runners:
-          type: integer
-          title: Runners
-        1st:
-          type: integer
-          title: 1st place finishes
-        2nd:
-          type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - class
-      - runners
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: Class
-      example:
-        1_pl: -15.0
-        1st: 30
-        2nd: 25
-        3rd: 22
-        4th: 18
-        a/e: 0.88
-        class: Class 1
-        runners: 200
-        win_%: 0.15
-    Damsires:
-      properties:
-        search_results:
-          items:
-            $ref: '#/components/schemas/Damsire'
-          type: array
-          title: Search Results
-      type: object
-      required:
-      - search_results
-      title: Damsires
-      example:
-        search_results:
-        - id: dsi_296611
-          name: Danehill
-        - id: dsi_3527125
-          name: Dansili (GB)
-    DamsireDistanceAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        damsire:
-          type: string
-          title: Damsire
-        total_runners:
-          type: integer
-          title: Total Runners
-        distances:
-          items:
-            $ref: '#/components/schemas/app__models__damsires__Distance'
-          type: array
-          title: Distances
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - damsire
-      - total_runners
-      - distances
-      - query
-      title: DamsireDistanceAnalysis
-      example:
-        damsire: Sadler's Wells
-        distances:
-        - 1_pl: -10.5
-          1st: 25
-          2nd: 20
-          3rd: 18
-          4th: 15
-          a/e: 0.95
-          dist: 1m2f
-          dist_f: 10f
-          dist_m: '2012'
-          dist_y: '2200'
-          runners: 150
-          win_%: 0.17
-        id: dsi_3247825
-        query:
-        - - damsire_id
-          - dsi_3247825
-        total_runners: 500
     ResultStandard:
       properties:
         race_id:
@@ -1373,50 +1426,22 @@ components:
         tote_win: €8.50
         type: Hurdle
         winning_time_detail: 5m 44.90s (slow by 7.90s)
-    ValidationError:
+    DamsireDistanceAnalysis:
       properties:
-        loc:
+        id:
+          type: string
+          title: Id
+        damsire:
+          type: string
+          title: Damsire
+        total_runners:
+          type: integer
+          title: Total Runners
+        distances:
           items:
-            anyOf:
-            - type: string
-            - type: integer
+            $ref: '#/components/schemas/app__models__damsires__Distance'
           type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    ResultsStandardPage:
-      properties:
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
-          - type: 'null'
-          title: Results
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
+          title: Distances
         query:
           items:
             items: {}
@@ -1425,26 +1450,37 @@ components:
           title: Query
       type: object
       required:
-      - results
-      - total
-      - limit
-      - skip
+      - id
+      - damsire
+      - total_runners
+      - distances
       - query
-      title: ResultsStandardPage
-    app__models__damsires__Distance:
+      title: DamsireDistanceAnalysis
+      example:
+        damsire: Sadler's Wells
+        distances:
+        - 1_pl: -10.5
+          1st: 25
+          2nd: 20
+          3rd: 18
+          4th: 15
+          a/e: 0.95
+          dist: 1m2f
+          dist_f: 10f
+          dist_m: '2012'
+          dist_y: '2200'
+          runners: 150
+          win_%: 0.17
+        id: dsi_3247825
+        query:
+        - - damsire_id
+          - dsi_3247825
+        total_runners: 500
+    app__models__damsires__Class:
       properties:
-        dist:
+        class:
           type: string
-          title: Dist
-        dist_y:
-          type: string
-          title: Dist Y
-        dist_m:
-          type: string
-          title: Dist M
-        dist_f:
-          type: string
-          title: Dist F
+          title: Class
         runners:
           type: integer
           title: Runners
@@ -1471,10 +1507,7 @@ components:
           title: One unit p/l at SP
       type: object
       required:
-      - dist
-      - dist_y
-      - dist_m
-      - dist_f
+      - class
       - runners
       - 1st
       - 2nd
@@ -1483,76 +1516,43 @@ components:
       - a/e
       - win_%
       - 1_pl
-      title: Distance
+      title: Class
       example:
-        1_pl: -10.5
-        1st: 25
-        2nd: 20
-        3rd: 18
-        4th: 15
-        a/e: 0.95
-        dist: 1m2f
-        dist_f: 10f
-        dist_m: '2012'
-        dist_y: '2200'
-        runners: 150
-        win_%: 0.17
-    DamsireClassAnalysis:
+        1_pl: -15.0
+        1st: 30
+        2nd: 25
+        3rd: 22
+        4th: 18
+        a/e: 0.88
+        class: Class 1
+        runners: 200
+        win_%: 0.15
+    ValidationError:
       properties:
-        id:
-          type: string
-          title: Id
-        damsire:
-          type: string
-          title: Damsire
-        total_runners:
-          type: integer
-          title: Total Runners
-        classes:
+        loc:
           items:
-            $ref: '#/components/schemas/app__models__damsires__Class'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Classes
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
       type: object
       required:
-      - id
-      - damsire
-      - total_runners
-      - classes
-      - query
-      title: DamsireClassAnalysis
-      example:
-        classes:
-        - 1_pl: -15.0
-          1st: 30
-          2nd: 25
-          3rd: 22
-          4th: 18
-          a/e: 0.88
-          class: Class 1
-          runners: 200
-          win_%: 0.15
-        damsire: Sadler's Wells
-        id: dsi_3247825
-        query:
-        - - damsire_id
-          - dsi_3247825
-        total_runners: 500
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
+      - loc
+      - msg
+      - type
+      title: ValidationError
   securitySchemes:
     HTTPBasic:
       type: http

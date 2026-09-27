@@ -229,6 +229,31 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    Region:
+      properties:
+        region:
+          type: string
+          title: Region
+        region_code:
+          type: string
+          title: Region Code
+      type: object
+      required:
+      - region
+      - region_code
+      title: Region
+      example:
+        region: Great Britain
+        region_code: gb
     app__models__courses__Course:
       properties:
         id:
@@ -255,22 +280,21 @@ components:
         id: crs_52
         region: Great Britain
         region_code: gb
-    Region:
+    CoursesPage:
       properties:
-        region:
-          type: string
-          title: Region
-        region_code:
-          type: string
-          title: Region Code
+        courses:
+          items:
+            $ref: '#/components/schemas/app__models__courses__Course'
+          type: array
+          title: Courses
+        total:
+          type: integer
+          title: Total
       type: object
       required:
-      - region
-      - region_code
-      title: Region
-      example:
-        region: Great Britain
-        region_code: gb
+      - courses
+      - total
+      title: CoursesPage
     ValidationError:
       properties:
         loc:
@@ -297,30 +321,6 @@ components:
       - msg
       - type
       title: ValidationError
-    CoursesPage:
-      properties:
-        courses:
-          items:
-            $ref: '#/components/schemas/app__models__courses__Course'
-          type: array
-          title: Courses
-        total:
-          type: integer
-          title: Total
-      type: object
-      required:
-      - courses
-      - total
-      title: CoursesPage
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
   securitySchemes:
     HTTPBasic:
       type: http
