@@ -1282,352 +1282,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    OddsHistory:
-      properties:
-        bookmaker:
-          type: string
-          title: Bookmaker
-        fractional:
-          type: string
-          title: Fractional
-        decimal:
-          type: string
-          title: Decimal
-        ew_places:
-          type: string
-          title: Ew Places
-        ew_denom:
-          type: string
-          title: Ew Denom
-        updated:
-          type: string
-          title: Updated
-        history:
-          anyOf:
-          - items: {}
-            type: array
-          - type: 'null'
-          title: History
-          default: []
-      type: object
-      required:
-      - bookmaker
-      - fractional
-      - decimal
-      - ew_places
-      - ew_denom
-      - updated
-      title: OddsHistory
-      example:
-        bookmaker: Bet365
-        decimal: '6.0'
-        ew_denom: '5'
-        ew_places: '3'
-        fractional: 5/1
-        history:
-        - changed_at: '2026-02-06T12:00:00+00:00'
-          decimal: '7.0'
-          fractional: 6/1
-        updated: '2026-02-06 13:30:00'
-    RunnerPrevOwner:
-      properties:
-        owner:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Owner
-          default: ''
-        owner_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Owner Id
-          default: ''
-        change_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Change Date
-          default: ''
-      type: object
-      title: RunnerPrevOwner
-      example:
-        change_date: '2024-01-15'
-        owner: Previous Racing Ltd
-        owner_id: own_123456
-    RunnerPrevTrainer:
-      properties:
-        trainer:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Trainer
-          default: ''
-        trainer_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Trainer Id
-          default: ''
-        change_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Change Date
-          default: ''
-      type: object
-      title: RunnerPrevTrainer
-      example:
-        change_date: '2024-03-01'
-        trainer: John Smith
-        trainer_id: trn_123456
-    RunnerTrainer14Days:
-      properties:
-        runs:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Runs
-          default: ''
-        wins:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Wins
-          default: ''
-        percent:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Percent
-          default: ''
-      type: object
-      title: RunnerTrainer14Days
-      example:
-        percent: '20'
-        runs: '25'
-        wins: '5'
-    ResultBasic:
-      properties:
-        race_id:
-          type: string
-          title: Race Id
-        date:
-          type: string
-          title: Date
-        region:
-          type: string
-          title: Region
-        course:
-          type: string
-          title: Course
-        course_id:
-          type: string
-          title: Course Id
-        'off':
-          type: string
-          title: 'Off'
-        off_dt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Off Dt
-          default: ''
-        race_name:
-          type: string
-          title: Race Name
-        type:
-          type: string
-          title: Type
-        class:
-          type: string
-          title: Class
-        pattern:
-          type: string
-          title: Pattern
-        rating_band:
-          type: string
-          title: Rating Band
-        age_band:
-          type: string
-          title: Age Band
-        sex_rest:
-          type: string
-          title: Sex Rest
-        dist:
-          type: string
-          title: Dist
-        dist_y:
-          type: string
-          title: Dist Y
-        dist_m:
-          type: string
-          title: Dist M
-        dist_f:
-          type: string
-          title: Dist F
-        going:
-          type: string
-          title: Going
-        surface:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Surface
-          default: ''
-        jumps:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Jumps
-          default: ''
-        runners:
-          items:
-            $ref: '#/components/schemas/app__models__result__RunnerBasic'
-          type: array
-          title: Runners
-        winning_time_detail:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Winning Time Detail
-          default: ''
-        comments:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Comments
-          default: ''
-        non_runners:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Non Runners
-          default: ''
-        tote_win:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Tote Win
-          default: ''
-        tote_pl:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Tote Pl
-          default: ''
-        tote_ex:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Tote Ex
-          default: ''
-        tote_csf:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Tote Csf
-          default: ''
-        tote_tricast:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Tote Tricast
-          default: ''
-        tote_trifecta:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Tote Trifecta
-          default: ''
-      type: object
-      required:
-      - race_id
-      - date
-      - region
-      - course
-      - course_id
-      - 'off'
-      - race_name
-      - type
-      - class
-      - pattern
-      - rating_band
-      - age_band
-      - sex_rest
-      - dist
-      - dist_y
-      - dist_m
-      - dist_f
-      - going
-      - runners
-      title: ResultBasic
-      example:
-        age_band: 4yo+
-        class: ''
-        comments: ''
-        course: Ballinrobe (IRE)
-        course_id: crs_4550
-        date: '2025-08-11'
-        dist: 2m7f
-        dist_f: 23f
-        dist_m: '4625'
-        dist_y: '5058'
-        going: Good
-        jumps: 12 hurdles
-        non_runners: Diamonds Diva (reserve), Great Rainbow (reserve), Loughrask Rainbow (reserve)
-        'off': '8:25'
-        off_dt: '2025-08-11T20:25:00+01:00'
-        pattern: ''
-        race_id: rac_11715730
-        race_name: J.J. Burke Peugeot Handicap Hurdle
-        rating_band: 0-100
-        region: IRE
-        runners:
-        - age: '8'
-          btn: '0'
-          comment: Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)
-          dam: Save Me The Waltz (FR)
-          dam_id: dam_4189605
-          damsire: Halling
-          damsire_id: dsi_675241
-          draw: ''
-          headgear: v
-          horse: Mephisto (IRE)
-          horse_id: hrs_19359270
-          jockey: Shane Fitzgerald
-          jockey_claim_lbs: '0'
-          jockey_id: jky_302916
-          number: '2'
-          or: '98'
-          ovr_btn: '0'
-          owner: Restricted Movement Syndicate
-          owner_id: own_1204876
-          position: '1'
-          prize: €5900
-          rpr: '105'
-          sex: G
-          silk_url: https://www.url-for-silk.com/svg/456789.svg
-          sire: Kendargent (FR)
-          sire_id: sir_4514419
-          sp: 15/2
-          sp_dec: '8.50'
-          time: '5:44.90'
-          trainer: Gerard Keane
-          trainer_id: trn_86382
-          tsr: '64'
-          weight: 11-12
-          weight_lbs: '166'
-        sex_rest: ''
-        surface: Turf
-        tote_csf: €300.55
-        tote_ex: €253.10
-        tote_pl: €2.30 €5.80 €4.20
-        tote_tricast: €5228.29
-        tote_trifecta: ''
-        tote_win: €8.50
-        type: Hurdle
-        winning_time_detail: 5m 44.90s (slow by 7.90s)
     RacecardsOddsPage:
       properties:
         racecards:
@@ -1658,11 +1312,11 @@ components:
       - skip
       - query
       title: RacecardsOddsPage
-    RacecardsBasicPage:
+    RacecardsOddsProPage:
       properties:
         racecards:
           items:
-            $ref: '#/components/schemas/RacecardBasic'
+            $ref: '#/components/schemas/RacecardOddsPro'
           type: array
           title: Racecards
         total:
@@ -1687,7 +1341,33 @@ components:
       - limit
       - skip
       - query
-      title: RacecardsBasicPage
+      title: RacecardsOddsProPage
+    RunnerPrevOwner:
+      properties:
+        owner:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Owner
+          default: ''
+        owner_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Owner Id
+          default: ''
+        change_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Change Date
+          default: ''
+      type: object
+      title: RunnerPrevOwner
+      example:
+        change_date: '2024-01-15'
+        owner: Previous Racing Ltd
+        owner_id: own_123456
     app__models__result__RunnerBasic:
       properties:
         horse_id:
@@ -1868,15 +1548,933 @@ components:
         tsr: '64'
         weight: 11-12
         weight_lbs: '166'
-    ResultsBasicPage:
+    app__models__racecards__RunnerBasic:
       properties:
-        results:
+        horse:
+          type: string
+          title: Horse
+        horse_id:
+          type: string
+          title: Horse Id
+        age:
+          type: string
+          title: Age
+        sex:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex
+        sex_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex Code
+        colour:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Colour
+        region:
+          type: string
+          title: Region
+        dam:
+          type: string
+          title: Dam
+        dam_id:
+          type: string
+          title: Dam Id
+        sire:
+          type: string
+          title: Sire
+        sire_id:
+          type: string
+          title: Sire Id
+        damsire:
+          type: string
+          title: Damsire
+        damsire_id:
+          type: string
+          title: Damsire Id
+        trainer:
+          type: string
+          title: Trainer
+        trainer_id:
+          type: string
+          title: Trainer Id
+        owner:
+          type: string
+          title: Owner
+        owner_id:
+          type: string
+          title: Owner Id
+        number:
+          type: string
+          title: Number
+        draw:
+          type: string
+          title: Draw
+        headgear:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Headgear
+        lbs:
+          type: string
+          title: Lbs
+        ofr:
+          type: string
+          title: Ofr
+        jockey:
+          type: string
+          title: Jockey
+        jockey_id:
+          type: string
+          title: Jockey Id
+        last_run:
+          type: string
+          title: Last Run
+        form:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Form
+      type: object
+      required:
+      - horse
+      - horse_id
+      - age
+      - sex
+      - sex_code
+      - colour
+      - region
+      - dam
+      - dam_id
+      - sire
+      - sire_id
+      - damsire
+      - damsire_id
+      - trainer
+      - trainer_id
+      - owner
+      - owner_id
+      - number
+      - draw
+      - headgear
+      - lbs
+      - ofr
+      - jockey
+      - jockey_id
+      - last_run
+      - form
+      title: RunnerBasic
+      example:
+        age: '6'
+        colour: b
+        dam: Lerici
+        dam_id: dam_4823441
+        damsire: Woodman
+        damsire_id: dsi_2126229
+        draw: '8'
+        form: 3-7880
+        headgear: ''
+        horse: Pistoletto
+        horse_id: hrs_18092480
+        jockey: Adam Tracey(7)
+        jockey_id: jky_301290
+        last_run: '25'
+        lbs: '140'
+        number: '1'
+        ofr: '75'
+        owner: J A Thompson & S Russell
+        owner_id: own_1227828
+        region: USA
+        sex: gelding
+        sex_code: G
+        sire: War Front
+        sire_id: sir_4544750
+        trainer: John Ryan
+        trainer_id: trn_160758
+    RunnerQuote:
+      properties:
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+          default: ''
+        horse:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Horse
+          default: ''
+        horse_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Horse Id
+          default: ''
+        race:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race
+          default: ''
+        race_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Id
+          default: ''
+        course:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course
+          default: ''
+        course_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course Id
+          default: ''
+        distance_f:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Distance F
+          default: ''
+        distance_y:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Distance Y
+          default: ''
+        quote:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Quote
+          default: ''
+      type: object
+      title: RunnerQuote
+      example:
+        course: Ascot
+        course_id: crs_52
+        date: '2024-06-15'
+        distance_f: 12f
+        distance_y: '2640'
+        horse: Frankel
+        horse_id: hrs_5344171
+        quote: He ran a great race and showed his class.
+        race: King George VI
+        race_id: rac_12345678
+    RacecardOdds:
+      properties:
+        race_id:
+          type: string
+          title: Race Id
+        course:
+          type: string
+          title: Course
+        course_id:
+          type: string
+          title: Course Id
+        date:
+          type: string
+          title: Date
+        off_time:
+          type: string
+          title: Off Time
+        off_dt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Dt
+          default: ''
+        race_name:
+          type: string
+          title: Race Name
+        distance_round:
+          type: string
+          title: Distance Round
+        distance:
+          type: string
+          title: Distance
+        distance_f:
+          type: string
+          title: Distance F
+        region:
+          type: string
+          title: Region
+        pattern:
+          type: string
+          title: Pattern
+        sex_restriction:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex Restriction
+          default: ''
+        race_class:
+          type: string
+          title: Race Class
+        type:
+          type: string
+          title: Type
+        age_band:
+          type: string
+          title: Age Band
+        rating_band:
+          type: string
+          title: Rating Band
+        prize:
+          type: string
+          title: Prize
+        field_size:
+          type: string
+          title: Field Size
+        going_detailed:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Going Detailed
+        rail_movements:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Rail Movements
+        stalls:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Stalls
+        weather:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Weather
+        going:
+          type: string
+          title: Going
+        surface:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Surface
+        jumps:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jumps
+          default: ''
+        runners:
+          items:
+            $ref: '#/components/schemas/app__models__racecards__RunnerOdds'
+          type: array
+          title: Runners
+        big_race:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Big Race
+          default: false
+        is_abandoned:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Abandoned
+          default: false
+        tip:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tip
+          default: ''
+        verdict:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Verdict
+          default: ''
+        betting_forecast:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Betting Forecast
+          default: ''
+        race_status:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Status
+          default: ''
+      type: object
+      required:
+      - race_id
+      - course
+      - course_id
+      - date
+      - off_time
+      - race_name
+      - distance_round
+      - distance
+      - distance_f
+      - region
+      - pattern
+      - race_class
+      - type
+      - age_band
+      - rating_band
+      - prize
+      - field_size
+      - going_detailed
+      - rail_movements
+      - stalls
+      - weather
+      - going
+      - surface
+      - runners
+      title: RacecardOdds
+      example:
+        age_band: 4yo+
+        betting_forecast: 3/1 Snowthorn, 4/1 King Alloy, 6/1 I P O Bros, 10/1 Team Happy
+        big_race: false
+        course: Brighton
+        course_id: crs_182
+        date: '2023-05-02'
+        distance: 6f210y
+        distance_f: '7.0'
+        distance_round: 7f
+        field_size: '9'
+        going: Good To Firm
+        going_detailed: ''
+        is_abandoned: false
+        jumps: ''
+        off_dt: '2023-05-02T13:50:00+01:00'
+        off_time: '1:50'
+        pattern: ''
+        prize: £4,606
+        race_class: Class 5
+        race_id: rac_10880272
+        race_name: At The Races App Form Study Apprentice Handicap
+        race_status: ''
+        rail_movements: ''
+        rating_band: 0-75
+        region: GB
+        runners:
+        - age: '6'
+          breeder: Tada Nobutaka
+          colour: b
+          comment: Very useful in his prime but seems to have lost his way this year
+          dam: Lerici
+          dam_id: dam_4823441
+          dam_region: USA
+          damsire: Woodman
+          damsire_id: dsi_2126229
+          damsire_region: USA
+          dob: '2017-04-22'
+          draw: '8'
+          form: 3-7880
+          headgear: ''
+          headgear_run: ''
+          horse: Pistoletto
+          horse_id: hrs_18092480
+          jockey: Adam Tracey(7)
+          jockey_id: jky_301290
+          last_run: '25'
+          lbs: '140'
+          medical: []
+          number: '1'
+          odds:
+          - bookmaker: Bet365
+            decimal: '9'
+            ew_denom: '5'
+            ew_places: '3'
+            fractional: '8'
+            updated: '2023-05-02 12:36:43'
+          - bookmaker: Paddy Power
+            decimal: '8.5'
+            ew_denom: '5'
+            ew_places: '3'
+            fractional: 15/2
+            updated: '2023-05-02 12:36:43'
+          ofr: '75'
+          owner: J A Thompson & S Russell
+          owner_id: own_1227828
+          past_results_flags: []
+          prev_owners:
+          - change_date: '2021-08-07'
+            owner: G McGladery, J A Thompson & S Russell
+            owner_id: own_1191676
+          prev_trainers:
+          - change_date: '2020-09-26'
+            trainer: A P O'Brien
+            trainer_id: trn_71802
+          quotes:
+          - course: Newmarket
+            course_id: crs_988
+            date: '2019-10-11'
+            distance_f: '5'
+            distance_y: '1100'
+            horse: Pistoletto
+            horse_id: hrs_18092480
+            quote: He travelled nicely into the race - Kevin Buckley.
+            race: Cornwallis Stakes (Group 3)
+            race_id: rac_9618089
+          region: USA
+          rpr: '82'
+          sex: gelding
+          sex_code: G
+          silk_url: https://www.url-for-silk.com/svg/456789.svg
+          sire: War Front
+          sire_id: sir_4544750
+          sire_region: USA
+          spotlight: Very useful in his prime but seems to have lost his way this year; sure to appreciate today's ease in grade.
+          stable_tour: []
+          trainer: John Ryan
+          trainer_14_days:
+            percent: '0'
+            runs: '5'
+            wins: '0'
+          trainer_id: trn_160758
+          trainer_location: Newmarket, Suffolk
+          trainer_rtf: ''
+          ts: '81'
+          wind_surgery: ''
+          wind_surgery_run: ''
+        sex_restriction: ''
+        stalls: ''
+        surface: Turf
+        tip: Team Happy
+        type: Flat
+        verdict: Many of these arrive with something to prove but TEAM HAPPY has shown signs of a revival lately and might exploit a good mark.
+        weather: ''
+    RacecardSummary:
+      properties:
+        date:
+          type: string
+          title: Date
+        region:
+          type: string
+          title: Region
+        course_id:
+          type: string
+          title: Course Id
+        course:
+          type: string
+          title: Course
+        race_id:
+          type: string
+          title: Race Id
+        race_name:
+          type: string
+          title: Race Name
+        race_class:
+          type: string
+          title: Race Class
+        off_time:
+          type: string
+          title: Off Time
+        off_dt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Dt
+          default: ''
+        big_race:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Big Race
+          default: false
+        is_abandoned:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Abandoned
+          default: false
+      type: object
+      required:
+      - date
+      - region
+      - course_id
+      - course
+      - race_id
+      - race_name
+      - race_class
+      - off_time
+      title: RacecardSummary
+      example:
+        big_race: false
+        course: Bahrain
+        course_id: crs_22594
+        date: '2026-02-06'
+        is_abandoned: false
+        off_dt: '2026-02-06T14:00:00+00:00'
+        off_time: '2:00'
+        race_class: ''
+        race_id: rac_11868129
+        race_name: Race 3 (Conditions Race) (Turf)
+        region: BHR
+    app__models__racecards__RunnerOdds:
+      properties:
+        horse_id:
+          type: string
+          title: Horse Id
+        horse:
+          type: string
+          title: Horse
+        dob:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dob
+        age:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Age
+        sex:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex
+        sex_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex Code
+        colour:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Colour
+        region:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Region
+        breeder:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Breeder
+        dam:
+          type: string
+          title: Dam
+        dam_id:
+          type: string
+          title: Dam Id
+        dam_region:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dam Region
+          default: ''
+        sire:
+          type: string
+          title: Sire
+        sire_id:
+          type: string
+          title: Sire Id
+        sire_region:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sire Region
+          default: ''
+        damsire:
+          type: string
+          title: Damsire
+        damsire_id:
+          type: string
+          title: Damsire Id
+        damsire_region:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Damsire Region
+          default: ''
+        trainer:
+          type: string
+          title: Trainer
+        trainer_id:
+          type: string
+          title: Trainer Id
+        trainer_location:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer Location
+          default: ''
+        trainer_14_days:
+          anyOf:
+          - $ref: '#/components/schemas/RunnerTrainer14Days'
+          - type: 'null'
+          default: {}
+        owner:
+          type: string
+          title: Owner
+        owner_id:
+          type: string
+          title: Owner Id
+        prev_trainers:
           anyOf:
           - items:
-              $ref: '#/components/schemas/ResultBasic'
+              $ref: '#/components/schemas/RunnerPrevTrainer'
             type: array
           - type: 'null'
-          title: Results
+          title: Prev Trainers
+          default: []
+        prev_owners:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/RunnerPrevOwner'
+            type: array
+          - type: 'null'
+          title: Prev Owners
+          default: []
+        comment:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Comment
+          default: ''
+        spotlight:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Spotlight
+          default: ''
+        quotes:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/RunnerQuote'
+            type: array
+          - type: 'null'
+          title: Quotes
+          default: []
+        stable_tour:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/RunnerStableTour'
+            type: array
+          - type: 'null'
+          title: Stable Tour
+          default: []
+        medical:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/RunnerMedical'
+            type: array
+          - type: 'null'
+          title: Medical
+          default: []
+        number:
+          type: string
+          title: Number
+        draw:
+          type: string
+          title: Draw
+        headgear:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Headgear
+          default: ''
+        headgear_run:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Headgear Run
+          default: ''
+        wind_surgery:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Wind Surgery
+          default: ''
+        wind_surgery_run:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Wind Surgery Run
+          default: ''
+        past_results_flags:
+          anyOf:
+          - items:
+              type: string
+            type: array
+          - type: 'null'
+          title: Past Results Flags
+          default: []
+        lbs:
+          type: string
+          title: Lbs
+        ofr:
+          type: string
+          title: Ofr
+        rpr:
+          type: string
+          title: Rpr
+        ts:
+          type: string
+          title: Ts
+        jockey:
+          type: string
+          title: Jockey
+        jockey_id:
+          type: string
+          title: Jockey Id
+        silk_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Silk Url
+          default: ''
+        last_run:
+          type: string
+          title: Last Run
+        form:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Form
+        trainer_rtf:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer Rtf
+        odds:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/OddsNoHistory'
+            type: array
+          - type: 'null'
+          title: Odds
+          default: []
+      type: object
+      required:
+      - horse_id
+      - horse
+      - dob
+      - age
+      - sex
+      - sex_code
+      - colour
+      - region
+      - breeder
+      - dam
+      - dam_id
+      - sire
+      - sire_id
+      - damsire
+      - damsire_id
+      - trainer
+      - trainer_id
+      - owner
+      - owner_id
+      - number
+      - draw
+      - lbs
+      - ofr
+      - rpr
+      - ts
+      - jockey
+      - jockey_id
+      - last_run
+      - form
+      - trainer_rtf
+      title: RunnerOdds
+      example:
+        age: '6'
+        breeder: Tada Nobutaka
+        colour: b
+        comment: Very useful in his prime but seems to have lost his way this year
+        dam: Lerici
+        dam_id: dam_4823441
+        dam_region: USA
+        damsire: Woodman
+        damsire_id: dsi_2126229
+        damsire_region: USA
+        dob: '2017-04-22'
+        draw: '8'
+        form: 3-7880
+        headgear: ''
+        headgear_run: ''
+        horse: Pistoletto
+        horse_id: hrs_18092480
+        jockey: Adam Tracey(7)
+        jockey_id: jky_301290
+        last_run: '25'
+        lbs: '140'
+        medical: []
+        number: '1'
+        odds:
+        - bookmaker: Bet365
+          decimal: '9'
+          ew_denom: '5'
+          ew_places: '3'
+          fractional: '8'
+          updated: '2023-05-02 12:36:43'
+        - bookmaker: Paddy Power
+          decimal: '8.5'
+          ew_denom: '5'
+          ew_places: '3'
+          fractional: 15/2
+          updated: '2023-05-02 12:36:43'
+        ofr: '75'
+        owner: J A Thompson & S Russell
+        owner_id: own_1227828
+        past_results_flags: []
+        prev_owners:
+        - change_date: '2021-08-07'
+          owner: G McGladery, J A Thompson & S Russell
+          owner_id: own_1191676
+        prev_trainers:
+        - change_date: '2020-09-26'
+          trainer: A P O'Brien
+          trainer_id: trn_71802
+        quotes:
+        - course: Newmarket
+          course_id: crs_988
+          date: '2019-10-11'
+          distance_f: '5'
+          distance_y: '1100'
+          horse: Pistoletto
+          horse_id: hrs_18092480
+          quote: He travelled nicely into the race - Kevin Buckley.
+          race: Cornwallis Stakes (Group 3)
+          race_id: rac_9618089
+        region: USA
+        rpr: '82'
+        sex: gelding
+        sex_code: G
+        silk_url: https://www.url-for-silk.com/svg/456789.svg
+        sire: War Front
+        sire_id: sir_4544750
+        sire_region: USA
+        spotlight: Very useful in his prime but seems to have lost his way this year; sure to appreciate today's ease in grade.
+        stable_tour: []
+        trainer: John Ryan
+        trainer_14_days:
+          percent: '0'
+          runs: '5'
+          wins: '0'
+        trainer_id: trn_160758
+        trainer_location: Newmarket, Suffolk
+        trainer_rtf: ''
+        ts: '81'
+        wind_surgery: ''
+        wind_surgery_run: ''
+    RacecardsPage:
+      properties:
+        racecards:
+          items:
+            $ref: '#/components/schemas/Racecard'
+          type: array
+          title: Racecards
         total:
           type: integer
           title: Total
@@ -1894,12 +2492,31 @@ components:
           title: Query
       type: object
       required:
-      - results
+      - racecards
       - total
       - limit
       - skip
       - query
-      title: ResultsBasicPage
+      title: RacecardsPage
+    RunnerMedical:
+      properties:
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+          default: ''
+        type:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Type
+          default: ''
+      type: object
+      title: RunnerMedical
+      example:
+        date: '2024-06-15'
+        type: Wind surgery
     app__models__racecards__Runner:
       properties:
         horse_id:
@@ -2233,6 +2850,641 @@ components:
         ts: '81'
         wind_surgery: ''
         wind_surgery_run: ''
+    Racecard:
+      properties:
+        race_id:
+          type: string
+          title: Race Id
+        course:
+          type: string
+          title: Course
+        course_id:
+          type: string
+          title: Course Id
+        date:
+          type: string
+          title: Date
+        off_time:
+          type: string
+          title: Off Time
+        off_dt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Dt
+          default: ''
+        race_name:
+          type: string
+          title: Race Name
+        distance_round:
+          type: string
+          title: Distance Round
+        distance:
+          type: string
+          title: Distance
+        distance_f:
+          type: string
+          title: Distance F
+        region:
+          type: string
+          title: Region
+        pattern:
+          type: string
+          title: Pattern
+        sex_restriction:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex Restriction
+          default: ''
+        race_class:
+          type: string
+          title: Race Class
+        type:
+          type: string
+          title: Type
+        age_band:
+          type: string
+          title: Age Band
+        rating_band:
+          type: string
+          title: Rating Band
+        prize:
+          type: string
+          title: Prize
+        field_size:
+          type: string
+          title: Field Size
+        going_detailed:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Going Detailed
+        rail_movements:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Rail Movements
+        stalls:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Stalls
+        weather:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Weather
+        going:
+          type: string
+          title: Going
+        surface:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Surface
+        runners:
+          items:
+            $ref: '#/components/schemas/app__models__racecards__Runner'
+          type: array
+          title: Runners
+        big_race:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Big Race
+          default: false
+        is_abandoned:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Abandoned
+          default: false
+        race_status:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Status
+          default: ''
+      type: object
+      required:
+      - race_id
+      - course
+      - course_id
+      - date
+      - off_time
+      - race_name
+      - distance_round
+      - distance
+      - distance_f
+      - region
+      - pattern
+      - race_class
+      - type
+      - age_band
+      - rating_band
+      - prize
+      - field_size
+      - going_detailed
+      - rail_movements
+      - stalls
+      - weather
+      - going
+      - surface
+      - runners
+      title: Racecard
+      example:
+        age_band: 4yo+
+        big_race: false
+        course: Brighton
+        course_id: crs_182
+        date: '2023-05-02'
+        distance: 6f210y
+        distance_f: '7.0'
+        distance_round: 7f
+        field_size: '9'
+        going: Good To Firm
+        going_detailed: ''
+        is_abandoned: false
+        off_dt: '2023-05-02T13:50:00+01:00'
+        off_time: '1:50'
+        pattern: ''
+        prize: £4,606
+        race_class: Class 5
+        race_id: rac_10880272
+        race_name: At The Races App Form Study Apprentice Handicap
+        race_status: ''
+        rail_movements: ''
+        rating_band: 0-75
+        region: GB
+        runners:
+        - age: '6'
+          breeder: Tada Nobutaka
+          colour: b
+          dam: Lerici
+          dam_id: dam_4823441
+          damsire: Woodman
+          damsire_id: dsi_2126229
+          dob: '2017-04-22'
+          draw: '8'
+          form: 3-7880
+          headgear: ''
+          horse: Pistoletto
+          horse_id: hrs_18092480
+          jockey: Adam Tracey(7)
+          jockey_id: jky_301290
+          last_run: '25'
+          lbs: '140'
+          number: '1'
+          ofr: '75'
+          owner: J A Thompson & S Russell
+          owner_id: own_1227828
+          region: USA
+          rpr: '82'
+          sex: gelding
+          sex_code: G
+          sire: War Front
+          sire_id: sir_4544750
+          trainer: John Ryan
+          trainer_id: trn_160758
+          ts: '81'
+        sex_restriction: ''
+        stalls: ''
+        surface: Turf
+        type: Flat
+        weather: ''
+    RacecardsSummary:
+      properties:
+        racecard_summaries:
+          items:
+            $ref: '#/components/schemas/RacecardSummary'
+          type: array
+          title: Racecard Summaries
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - racecard_summaries
+      - query
+      title: RacecardsSummary
+      example:
+        query:
+        - - date
+          - '2026-02-06'
+        racecard_summaries:
+        - big_race: false
+          course: Bahrain
+          course_id: crs_22594
+          date: '2026-02-06'
+          is_abandoned: false
+          off_dt: '2026-02-06T14:00:00+00:00'
+          off_time: '2:00'
+          race_class: ''
+          race_id: rac_11868129
+          race_name: Race 3 (Conditions Race) (Turf)
+          region: BHR
+        - big_race: false
+          course: Bangor-on-Dee
+          course_id: crs_104
+          date: '2026-02-06'
+          is_abandoned: true
+          off_dt: '2026-02-06T13:25:00+00:00'
+          off_time: '1:25'
+          race_class: Class 4
+          race_id: rac_62443901
+          race_name: Alfa Aggregates Products Mares' Handicap Chase
+          region: GB
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ResultsBasicPage:
+      properties:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultBasic'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsBasicPage
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    RunnerPrevTrainer:
+      properties:
+        trainer:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer
+          default: ''
+        trainer_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Trainer Id
+          default: ''
+        change_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Change Date
+          default: ''
+      type: object
+      title: RunnerPrevTrainer
+      example:
+        change_date: '2024-03-01'
+        trainer: John Smith
+        trainer_id: trn_123456
+    ResultBasic:
+      properties:
+        race_id:
+          type: string
+          title: Race Id
+        date:
+          type: string
+          title: Date
+        region:
+          type: string
+          title: Region
+        course:
+          type: string
+          title: Course
+        course_id:
+          type: string
+          title: Course Id
+        'off':
+          type: string
+          title: 'Off'
+        off_dt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Dt
+          default: ''
+        race_name:
+          type: string
+          title: Race Name
+        type:
+          type: string
+          title: Type
+        class:
+          type: string
+          title: Class
+        pattern:
+          type: string
+          title: Pattern
+        rating_band:
+          type: string
+          title: Rating Band
+        age_band:
+          type: string
+          title: Age Band
+        sex_rest:
+          type: string
+          title: Sex Rest
+        dist:
+          type: string
+          title: Dist
+        dist_y:
+          type: string
+          title: Dist Y
+        dist_m:
+          type: string
+          title: Dist M
+        dist_f:
+          type: string
+          title: Dist F
+        going:
+          type: string
+          title: Going
+        surface:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Surface
+          default: ''
+        jumps:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jumps
+          default: ''
+        runners:
+          items:
+            $ref: '#/components/schemas/app__models__result__RunnerBasic'
+          type: array
+          title: Runners
+        winning_time_detail:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Winning Time Detail
+          default: ''
+        comments:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Comments
+          default: ''
+        non_runners:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Non Runners
+          default: ''
+        tote_win:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Win
+          default: ''
+        tote_pl:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Pl
+          default: ''
+        tote_ex:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Ex
+          default: ''
+        tote_csf:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Csf
+          default: ''
+        tote_tricast:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Tricast
+          default: ''
+        tote_trifecta:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tote Trifecta
+          default: ''
+      type: object
+      required:
+      - race_id
+      - date
+      - region
+      - course
+      - course_id
+      - 'off'
+      - race_name
+      - type
+      - class
+      - pattern
+      - rating_band
+      - age_band
+      - sex_rest
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
+      - going
+      - runners
+      title: ResultBasic
+      example:
+        age_band: 4yo+
+        class: ''
+        comments: ''
+        course: Ballinrobe (IRE)
+        course_id: crs_4550
+        date: '2025-08-11'
+        dist: 2m7f
+        dist_f: 23f
+        dist_m: '4625'
+        dist_y: '5058'
+        going: Good
+        jumps: 12 hurdles
+        non_runners: Diamonds Diva (reserve), Great Rainbow (reserve), Loughrask Rainbow (reserve)
+        'off': '8:25'
+        off_dt: '2025-08-11T20:25:00+01:00'
+        pattern: ''
+        race_id: rac_11715730
+        race_name: J.J. Burke Peugeot Handicap Hurdle
+        rating_band: 0-100
+        region: IRE
+        runners:
+        - age: '8'
+          btn: '0'
+          comment: Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)
+          dam: Save Me The Waltz (FR)
+          dam_id: dam_4189605
+          damsire: Halling
+          damsire_id: dsi_675241
+          draw: ''
+          headgear: v
+          horse: Mephisto (IRE)
+          horse_id: hrs_19359270
+          jockey: Shane Fitzgerald
+          jockey_claim_lbs: '0'
+          jockey_id: jky_302916
+          number: '2'
+          or: '98'
+          ovr_btn: '0'
+          owner: Restricted Movement Syndicate
+          owner_id: own_1204876
+          position: '1'
+          prize: €5900
+          rpr: '105'
+          sex: G
+          silk_url: https://www.url-for-silk.com/svg/456789.svg
+          sire: Kendargent (FR)
+          sire_id: sir_4514419
+          sp: 15/2
+          sp_dec: '8.50'
+          time: '5:44.90'
+          trainer: Gerard Keane
+          trainer_id: trn_86382
+          tsr: '64'
+          weight: 11-12
+          weight_lbs: '166'
+        sex_rest: ''
+        surface: Turf
+        tote_csf: €300.55
+        tote_ex: €253.10
+        tote_pl: €2.30 €5.80 €4.20
+        tote_tricast: €5228.29
+        tote_trifecta: ''
+        tote_win: €8.50
+        type: Hurdle
+        winning_time_detail: 5m 44.90s (slow by 7.90s)
+    OddsHistory:
+      properties:
+        bookmaker:
+          type: string
+          title: Bookmaker
+        fractional:
+          type: string
+          title: Fractional
+        decimal:
+          type: string
+          title: Decimal
+        ew_places:
+          type: string
+          title: Ew Places
+        ew_denom:
+          type: string
+          title: Ew Denom
+        updated:
+          type: string
+          title: Updated
+        history:
+          anyOf:
+          - items: {}
+            type: array
+          - type: 'null'
+          title: History
+          default: []
+      type: object
+      required:
+      - bookmaker
+      - fractional
+      - decimal
+      - ew_places
+      - ew_denom
+      - updated
+      title: OddsHistory
+      example:
+        bookmaker: Bet365
+        decimal: '6.0'
+        ew_denom: '5'
+        ew_places: '3'
+        fractional: 5/1
+        history:
+        - changed_at: '2026-02-06T12:00:00+00:00'
+          decimal: '7.0'
+          fractional: 6/1
+        updated: '2026-02-06 13:30:00'
+    RunnerTrainer14Days:
+      properties:
+        runs:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Runs
+          default: ''
+        wins:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Wins
+          default: ''
+        percent:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Percent
+          default: ''
+      type: object
+      title: RunnerTrainer14Days
+      example:
+        percent: '20'
+        runs: '25'
+        wins: '5'
     RunnerOddsPro:
       properties:
         horse_id:
@@ -2595,357 +3847,72 @@ components:
         ts: '83'
         wind_surgery: ''
         wind_surgery_run: ''
-    app__models__racecards__RunnerOdds:
+    RacecardsBasicPage:
       properties:
-        horse_id:
-          type: string
-          title: Horse Id
-        horse:
-          type: string
-          title: Horse
-        dob:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dob
-        age:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Age
-        sex:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex
-        sex_code:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex Code
-        colour:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Colour
-        region:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Region
-        breeder:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Breeder
-        dam:
-          type: string
-          title: Dam
-        dam_id:
-          type: string
-          title: Dam Id
-        dam_region:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dam Region
-          default: ''
-        sire:
-          type: string
-          title: Sire
-        sire_id:
-          type: string
-          title: Sire Id
-        sire_region:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sire Region
-          default: ''
-        damsire:
-          type: string
-          title: Damsire
-        damsire_id:
-          type: string
-          title: Damsire Id
-        damsire_region:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Damsire Region
-          default: ''
-        trainer:
-          type: string
-          title: Trainer
-        trainer_id:
-          type: string
-          title: Trainer Id
-        trainer_location:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Trainer Location
-          default: ''
-        trainer_14_days:
-          anyOf:
-          - $ref: '#/components/schemas/RunnerTrainer14Days'
-          - type: 'null'
-          default: {}
-        owner:
-          type: string
-          title: Owner
-        owner_id:
-          type: string
-          title: Owner Id
-        prev_trainers:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/RunnerPrevTrainer'
+        racecards:
+          items:
+            $ref: '#/components/schemas/RacecardBasic'
+          type: array
+          title: Racecards
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
             type: array
-          - type: 'null'
-          title: Prev Trainers
-          default: []
-        prev_owners:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/RunnerPrevOwner'
-            type: array
-          - type: 'null'
-          title: Prev Owners
-          default: []
-        comment:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Comment
-          default: ''
-        spotlight:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Spotlight
-          default: ''
-        quotes:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/RunnerQuote'
-            type: array
-          - type: 'null'
-          title: Quotes
-          default: []
-        stable_tour:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/RunnerStableTour'
-            type: array
-          - type: 'null'
-          title: Stable Tour
-          default: []
-        medical:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/RunnerMedical'
-            type: array
-          - type: 'null'
-          title: Medical
-          default: []
-        number:
-          type: string
-          title: Number
-        draw:
-          type: string
-          title: Draw
-        headgear:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Headgear
-          default: ''
-        headgear_run:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Headgear Run
-          default: ''
-        wind_surgery:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Wind Surgery
-          default: ''
-        wind_surgery_run:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Wind Surgery Run
-          default: ''
-        past_results_flags:
-          anyOf:
-          - items:
-              type: string
-            type: array
-          - type: 'null'
-          title: Past Results Flags
-          default: []
-        lbs:
-          type: string
-          title: Lbs
-        ofr:
-          type: string
-          title: Ofr
-        rpr:
-          type: string
-          title: Rpr
-        ts:
-          type: string
-          title: Ts
-        jockey:
-          type: string
-          title: Jockey
-        jockey_id:
-          type: string
-          title: Jockey Id
-        silk_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Silk Url
-          default: ''
-        last_run:
-          type: string
-          title: Last Run
-        form:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Form
-        trainer_rtf:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Trainer Rtf
-        odds:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/OddsNoHistory'
-            type: array
-          - type: 'null'
-          title: Odds
-          default: []
+          type: array
+          title: Query
       type: object
       required:
-      - horse_id
-      - horse
-      - dob
-      - age
-      - sex
-      - sex_code
-      - colour
-      - region
-      - breeder
-      - dam
-      - dam_id
-      - sire
-      - sire_id
-      - damsire
-      - damsire_id
-      - trainer
-      - trainer_id
-      - owner
-      - owner_id
-      - number
-      - draw
-      - lbs
-      - ofr
-      - rpr
-      - ts
-      - jockey
-      - jockey_id
-      - last_run
-      - form
-      - trainer_rtf
-      title: RunnerOdds
+      - racecards
+      - total
+      - limit
+      - skip
+      - query
+      title: RacecardsBasicPage
+    OddsNoHistory:
+      properties:
+        bookmaker:
+          type: string
+          title: Bookmaker
+        fractional:
+          type: string
+          title: Fractional
+        decimal:
+          type: string
+          title: Decimal
+        ew_places:
+          type: string
+          title: Ew Places
+        ew_denom:
+          type: string
+          title: Ew Denom
+        updated:
+          type: string
+          title: Updated
+      type: object
+      required:
+      - bookmaker
+      - fractional
+      - decimal
+      - ew_places
+      - ew_denom
+      - updated
+      title: OddsNoHistory
       example:
-        age: '6'
-        breeder: Tada Nobutaka
-        colour: b
-        comment: Very useful in his prime but seems to have lost his way this year
-        dam: Lerici
-        dam_id: dam_4823441
-        dam_region: USA
-        damsire: Woodman
-        damsire_id: dsi_2126229
-        damsire_region: USA
-        dob: '2017-04-22'
-        draw: '8'
-        form: 3-7880
-        headgear: ''
-        headgear_run: ''
-        horse: Pistoletto
-        horse_id: hrs_18092480
-        jockey: Adam Tracey(7)
-        jockey_id: jky_301290
-        last_run: '25'
-        lbs: '140'
-        medical: []
-        number: '1'
-        odds:
-        - bookmaker: Bet365
-          decimal: '9'
-          ew_denom: '5'
-          ew_places: '3'
-          fractional: '8'
-          updated: '2023-05-02 12:36:43'
-        - bookmaker: Paddy Power
-          decimal: '8.5'
-          ew_denom: '5'
-          ew_places: '3'
-          fractional: 15/2
-          updated: '2023-05-02 12:36:43'
-        ofr: '75'
-        owner: J A Thompson & S Russell
-        owner_id: own_1227828
-        past_results_flags: []
-        prev_owners:
-        - change_date: '2021-08-07'
-          owner: G McGladery, J A Thompson & S Russell
-          owner_id: own_1191676
-        prev_trainers:
-        - change_date: '2020-09-26'
-          trainer: A P O'Brien
-          trainer_id: trn_71802
-        quotes:
-        - course: Newmarket
-          course_id: crs_988
-          date: '2019-10-11'
-          distance_f: '5'
-          distance_y: '1100'
-          horse: Pistoletto
-          horse_id: hrs_18092480
-          quote: He travelled nicely into the race - Kevin Buckley.
-          race: Cornwallis Stakes (Group 3)
-          race_id: rac_9618089
-        region: USA
-        rpr: '82'
-        sex: gelding
-        sex_code: G
-        silk_url: https://www.url-for-silk.com/svg/456789.svg
-        sire: War Front
-        sire_id: sir_4544750
-        sire_region: USA
-        spotlight: Very useful in his prime but seems to have lost his way this year; sure to appreciate today's ease in grade.
-        stable_tour: []
-        trainer: John Ryan
-        trainer_14_days:
-          percent: '0'
-          runs: '5'
-          wins: '0'
-        trainer_id: trn_160758
-        trainer_location: Newmarket, Suffolk
-        trainer_rtf: ''
-        ts: '81'
-        wind_surgery: ''
-        wind_surgery_run: ''
+        bookmaker: Bet365
+        decimal: '6.0'
+        ew_denom: '5'
+        ew_places: '3'
+        fractional: 5/1
+        updated: '2026-02-06 13:30:00'
     RacecardBasic:
       properties:
         race_id:
@@ -3088,117 +4055,6 @@ components:
         sex_restriction: ''
         surface: Turf
         type: Flat
-    OddsNoHistory:
-      properties:
-        bookmaker:
-          type: string
-          title: Bookmaker
-        fractional:
-          type: string
-          title: Fractional
-        decimal:
-          type: string
-          title: Decimal
-        ew_places:
-          type: string
-          title: Ew Places
-        ew_denom:
-          type: string
-          title: Ew Denom
-        updated:
-          type: string
-          title: Updated
-      type: object
-      required:
-      - bookmaker
-      - fractional
-      - decimal
-      - ew_places
-      - ew_denom
-      - updated
-      title: OddsNoHistory
-      example:
-        bookmaker: Bet365
-        decimal: '6.0'
-        ew_denom: '5'
-        ew_places: '3'
-        fractional: 5/1
-        updated: '2026-02-06 13:30:00'
-    RacecardsSummary:
-      properties:
-        racecard_summaries:
-          items:
-            $ref: '#/components/schemas/RacecardSummary'
-          type: array
-          title: Racecard Summaries
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - racecard_summaries
-      - query
-      title: RacecardsSummary
-      example:
-        query:
-        - - date
-          - '2026-02-06'
-        racecard_summaries:
-        - big_race: false
-          course: Bahrain
-          course_id: crs_22594
-          date: '2026-02-06'
-          is_abandoned: false
-          off_dt: '2026-02-06T14:00:00+00:00'
-          off_time: '2:00'
-          race_class: ''
-          race_id: rac_11868129
-          race_name: Race 3 (Conditions Race) (Turf)
-          region: BHR
-        - big_race: false
-          course: Bangor-on-Dee
-          course_id: crs_104
-          date: '2026-02-06'
-          is_abandoned: true
-          off_dt: '2026-02-06T13:25:00+00:00'
-          off_time: '1:25'
-          race_class: Class 4
-          race_id: rac_62443901
-          race_name: Alfa Aggregates Products Mares' Handicap Chase
-          region: GB
-    RacecardsOddsProPage:
-      properties:
-        racecards:
-          items:
-            $ref: '#/components/schemas/RacecardOddsPro'
-          type: array
-          title: Racecards
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - racecards
-      - total
-      - limit
-      - skip
-      - query
-      title: RacecardsOddsProPage
     RunnerStableTour:
       properties:
         quote:
@@ -3211,681 +4067,6 @@ components:
       title: RunnerStableTour
       example:
         quote: He's been working well at home and we're hopeful.
-    RunnerMedical:
-      properties:
-        date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date
-          default: ''
-        type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Type
-          default: ''
-      type: object
-      title: RunnerMedical
-      example:
-        date: '2024-06-15'
-        type: Wind surgery
-    Racecard:
-      properties:
-        race_id:
-          type: string
-          title: Race Id
-        course:
-          type: string
-          title: Course
-        course_id:
-          type: string
-          title: Course Id
-        date:
-          type: string
-          title: Date
-        off_time:
-          type: string
-          title: Off Time
-        off_dt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Off Dt
-          default: ''
-        race_name:
-          type: string
-          title: Race Name
-        distance_round:
-          type: string
-          title: Distance Round
-        distance:
-          type: string
-          title: Distance
-        distance_f:
-          type: string
-          title: Distance F
-        region:
-          type: string
-          title: Region
-        pattern:
-          type: string
-          title: Pattern
-        sex_restriction:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex Restriction
-          default: ''
-        race_class:
-          type: string
-          title: Race Class
-        type:
-          type: string
-          title: Type
-        age_band:
-          type: string
-          title: Age Band
-        rating_band:
-          type: string
-          title: Rating Band
-        prize:
-          type: string
-          title: Prize
-        field_size:
-          type: string
-          title: Field Size
-        going_detailed:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Going Detailed
-        rail_movements:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Rail Movements
-        stalls:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Stalls
-        weather:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Weather
-        going:
-          type: string
-          title: Going
-        surface:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Surface
-        runners:
-          items:
-            $ref: '#/components/schemas/app__models__racecards__Runner'
-          type: array
-          title: Runners
-        big_race:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Big Race
-          default: false
-        is_abandoned:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Abandoned
-          default: false
-        race_status:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race Status
-          default: ''
-      type: object
-      required:
-      - race_id
-      - course
-      - course_id
-      - date
-      - off_time
-      - race_name
-      - distance_round
-      - distance
-      - distance_f
-      - region
-      - pattern
-      - race_class
-      - type
-      - age_band
-      - rating_band
-      - prize
-      - field_size
-      - going_detailed
-      - rail_movements
-      - stalls
-      - weather
-      - going
-      - surface
-      - runners
-      title: Racecard
-      example:
-        age_band: 4yo+
-        big_race: false
-        course: Brighton
-        course_id: crs_182
-        date: '2023-05-02'
-        distance: 6f210y
-        distance_f: '7.0'
-        distance_round: 7f
-        field_size: '9'
-        going: Good To Firm
-        going_detailed: ''
-        is_abandoned: false
-        off_dt: '2023-05-02T13:50:00+01:00'
-        off_time: '1:50'
-        pattern: ''
-        prize: £4,606
-        race_class: Class 5
-        race_id: rac_10880272
-        race_name: At The Races App Form Study Apprentice Handicap
-        race_status: ''
-        rail_movements: ''
-        rating_band: 0-75
-        region: GB
-        runners:
-        - age: '6'
-          breeder: Tada Nobutaka
-          colour: b
-          dam: Lerici
-          dam_id: dam_4823441
-          damsire: Woodman
-          damsire_id: dsi_2126229
-          dob: '2017-04-22'
-          draw: '8'
-          form: 3-7880
-          headgear: ''
-          horse: Pistoletto
-          horse_id: hrs_18092480
-          jockey: Adam Tracey(7)
-          jockey_id: jky_301290
-          last_run: '25'
-          lbs: '140'
-          number: '1'
-          ofr: '75'
-          owner: J A Thompson & S Russell
-          owner_id: own_1227828
-          region: USA
-          rpr: '82'
-          sex: gelding
-          sex_code: G
-          sire: War Front
-          sire_id: sir_4544750
-          trainer: John Ryan
-          trainer_id: trn_160758
-          ts: '81'
-        sex_restriction: ''
-        stalls: ''
-        surface: Turf
-        type: Flat
-        weather: ''
-    app__models__racecards__RunnerBasic:
-      properties:
-        horse:
-          type: string
-          title: Horse
-        horse_id:
-          type: string
-          title: Horse Id
-        age:
-          type: string
-          title: Age
-        sex:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex
-        sex_code:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex Code
-        colour:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Colour
-        region:
-          type: string
-          title: Region
-        dam:
-          type: string
-          title: Dam
-        dam_id:
-          type: string
-          title: Dam Id
-        sire:
-          type: string
-          title: Sire
-        sire_id:
-          type: string
-          title: Sire Id
-        damsire:
-          type: string
-          title: Damsire
-        damsire_id:
-          type: string
-          title: Damsire Id
-        trainer:
-          type: string
-          title: Trainer
-        trainer_id:
-          type: string
-          title: Trainer Id
-        owner:
-          type: string
-          title: Owner
-        owner_id:
-          type: string
-          title: Owner Id
-        number:
-          type: string
-          title: Number
-        draw:
-          type: string
-          title: Draw
-        headgear:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Headgear
-        lbs:
-          type: string
-          title: Lbs
-        ofr:
-          type: string
-          title: Ofr
-        jockey:
-          type: string
-          title: Jockey
-        jockey_id:
-          type: string
-          title: Jockey Id
-        last_run:
-          type: string
-          title: Last Run
-        form:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Form
-      type: object
-      required:
-      - horse
-      - horse_id
-      - age
-      - sex
-      - sex_code
-      - colour
-      - region
-      - dam
-      - dam_id
-      - sire
-      - sire_id
-      - damsire
-      - damsire_id
-      - trainer
-      - trainer_id
-      - owner
-      - owner_id
-      - number
-      - draw
-      - headgear
-      - lbs
-      - ofr
-      - jockey
-      - jockey_id
-      - last_run
-      - form
-      title: RunnerBasic
-      example:
-        age: '6'
-        colour: b
-        dam: Lerici
-        dam_id: dam_4823441
-        damsire: Woodman
-        damsire_id: dsi_2126229
-        draw: '8'
-        form: 3-7880
-        headgear: ''
-        horse: Pistoletto
-        horse_id: hrs_18092480
-        jockey: Adam Tracey(7)
-        jockey_id: jky_301290
-        last_run: '25'
-        lbs: '140'
-        number: '1'
-        ofr: '75'
-        owner: J A Thompson & S Russell
-        owner_id: own_1227828
-        region: USA
-        sex: gelding
-        sex_code: G
-        sire: War Front
-        sire_id: sir_4544750
-        trainer: John Ryan
-        trainer_id: trn_160758
-    RacecardOdds:
-      properties:
-        race_id:
-          type: string
-          title: Race Id
-        course:
-          type: string
-          title: Course
-        course_id:
-          type: string
-          title: Course Id
-        date:
-          type: string
-          title: Date
-        off_time:
-          type: string
-          title: Off Time
-        off_dt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Off Dt
-          default: ''
-        race_name:
-          type: string
-          title: Race Name
-        distance_round:
-          type: string
-          title: Distance Round
-        distance:
-          type: string
-          title: Distance
-        distance_f:
-          type: string
-          title: Distance F
-        region:
-          type: string
-          title: Region
-        pattern:
-          type: string
-          title: Pattern
-        sex_restriction:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex Restriction
-          default: ''
-        race_class:
-          type: string
-          title: Race Class
-        type:
-          type: string
-          title: Type
-        age_band:
-          type: string
-          title: Age Band
-        rating_band:
-          type: string
-          title: Rating Band
-        prize:
-          type: string
-          title: Prize
-        field_size:
-          type: string
-          title: Field Size
-        going_detailed:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Going Detailed
-        rail_movements:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Rail Movements
-        stalls:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Stalls
-        weather:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Weather
-        going:
-          type: string
-          title: Going
-        surface:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Surface
-        jumps:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Jumps
-          default: ''
-        runners:
-          items:
-            $ref: '#/components/schemas/app__models__racecards__RunnerOdds'
-          type: array
-          title: Runners
-        big_race:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Big Race
-          default: false
-        is_abandoned:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Abandoned
-          default: false
-        tip:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Tip
-          default: ''
-        verdict:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Verdict
-          default: ''
-        betting_forecast:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Betting Forecast
-          default: ''
-        race_status:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race Status
-          default: ''
-      type: object
-      required:
-      - race_id
-      - course
-      - course_id
-      - date
-      - off_time
-      - race_name
-      - distance_round
-      - distance
-      - distance_f
-      - region
-      - pattern
-      - race_class
-      - type
-      - age_band
-      - rating_band
-      - prize
-      - field_size
-      - going_detailed
-      - rail_movements
-      - stalls
-      - weather
-      - going
-      - surface
-      - runners
-      title: RacecardOdds
-      example:
-        age_band: 4yo+
-        betting_forecast: 3/1 Snowthorn, 4/1 King Alloy, 6/1 I P O Bros, 10/1 Team Happy
-        big_race: false
-        course: Brighton
-        course_id: crs_182
-        date: '2023-05-02'
-        distance: 6f210y
-        distance_f: '7.0'
-        distance_round: 7f
-        field_size: '9'
-        going: Good To Firm
-        going_detailed: ''
-        is_abandoned: false
-        jumps: ''
-        off_dt: '2023-05-02T13:50:00+01:00'
-        off_time: '1:50'
-        pattern: ''
-        prize: £4,606
-        race_class: Class 5
-        race_id: rac_10880272
-        race_name: At The Races App Form Study Apprentice Handicap
-        race_status: ''
-        rail_movements: ''
-        rating_band: 0-75
-        region: GB
-        runners:
-        - age: '6'
-          breeder: Tada Nobutaka
-          colour: b
-          comment: Very useful in his prime but seems to have lost his way this year
-          dam: Lerici
-          dam_id: dam_4823441
-          dam_region: USA
-          damsire: Woodman
-          damsire_id: dsi_2126229
-          damsire_region: USA
-          dob: '2017-04-22'
-          draw: '8'
-          form: 3-7880
-          headgear: ''
-          headgear_run: ''
-          horse: Pistoletto
-          horse_id: hrs_18092480
-          jockey: Adam Tracey(7)
-          jockey_id: jky_301290
-          last_run: '25'
-          lbs: '140'
-          medical: []
-          number: '1'
-          odds:
-          - bookmaker: Bet365
-            decimal: '9'
-            ew_denom: '5'
-            ew_places: '3'
-            fractional: '8'
-            updated: '2023-05-02 12:36:43'
-          - bookmaker: Paddy Power
-            decimal: '8.5'
-            ew_denom: '5'
-            ew_places: '3'
-            fractional: 15/2
-            updated: '2023-05-02 12:36:43'
-          ofr: '75'
-          owner: J A Thompson & S Russell
-          owner_id: own_1227828
-          past_results_flags: []
-          prev_owners:
-          - change_date: '2021-08-07'
-            owner: G McGladery, J A Thompson & S Russell
-            owner_id: own_1191676
-          prev_trainers:
-          - change_date: '2020-09-26'
-            trainer: A P O'Brien
-            trainer_id: trn_71802
-          quotes:
-          - course: Newmarket
-            course_id: crs_988
-            date: '2019-10-11'
-            distance_f: '5'
-            distance_y: '1100'
-            horse: Pistoletto
-            horse_id: hrs_18092480
-            quote: He travelled nicely into the race - Kevin Buckley.
-            race: Cornwallis Stakes (Group 3)
-            race_id: rac_9618089
-          region: USA
-          rpr: '82'
-          sex: gelding
-          sex_code: G
-          silk_url: https://www.url-for-silk.com/svg/456789.svg
-          sire: War Front
-          sire_id: sir_4544750
-          sire_region: USA
-          spotlight: Very useful in his prime but seems to have lost his way this year; sure to appreciate today's ease in grade.
-          stable_tour: []
-          trainer: John Ryan
-          trainer_14_days:
-            percent: '0'
-            runs: '5'
-            wins: '0'
-          trainer_id: trn_160758
-          trainer_location: Newmarket, Suffolk
-          trainer_rtf: ''
-          ts: '81'
-          wind_surgery: ''
-          wind_surgery_run: ''
-        sex_restriction: ''
-        stalls: ''
-        surface: Turf
-        tip: Team Happy
-        type: Flat
-        verdict: Many of these arrive with something to prove but TEAM HAPPY has shown signs of a revival lately and might exploit a good mark.
-        weather: ''
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     RacecardOddsPro:
       properties:
         race_id:
@@ -4178,187 +4359,6 @@ components:
         type: Flat
         verdict: This looks a good opportunity for promising 4yo MAJESTIC VALOUR to get back to winning ways.
         weather: ''
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    RacecardsPage:
-      properties:
-        racecards:
-          items:
-            $ref: '#/components/schemas/Racecard'
-          type: array
-          title: Racecards
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - racecards
-      - total
-      - limit
-      - skip
-      - query
-      title: RacecardsPage
-    RunnerQuote:
-      properties:
-        date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date
-          default: ''
-        horse:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Horse
-          default: ''
-        horse_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Horse Id
-          default: ''
-        race:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race
-          default: ''
-        race_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race Id
-          default: ''
-        course:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Course
-          default: ''
-        course_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Course Id
-          default: ''
-        distance_f:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Distance F
-          default: ''
-        distance_y:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Distance Y
-          default: ''
-        quote:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Quote
-          default: ''
-      type: object
-      title: RunnerQuote
-      example:
-        course: Ascot
-        course_id: crs_52
-        date: '2024-06-15'
-        distance_f: 12f
-        distance_y: '2640'
-        horse: Frankel
-        horse_id: hrs_5344171
-        quote: He ran a great race and showed his class.
-        race: King George VI
-        race_id: rac_12345678
-    RacecardSummary:
-      properties:
-        date:
-          type: string
-          title: Date
-        region:
-          type: string
-          title: Region
-        course_id:
-          type: string
-          title: Course Id
-        course:
-          type: string
-          title: Course
-        race_id:
-          type: string
-          title: Race Id
-        race_name:
-          type: string
-          title: Race Name
-        race_class:
-          type: string
-          title: Race Class
-        off_time:
-          type: string
-          title: Off Time
-        off_dt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Off Dt
-          default: ''
-        big_race:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Big Race
-          default: false
-        is_abandoned:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Abandoned
-          default: false
-      type: object
-      required:
-      - date
-      - region
-      - course_id
-      - course
-      - race_id
-      - race_name
-      - race_class
-      - off_time
-      title: RacecardSummary
-      example:
-        big_race: false
-        course: Bahrain
-        course_id: crs_22594
-        date: '2026-02-06'
-        is_abandoned: false
-        off_dt: '2026-02-06T14:00:00+00:00'
-        off_time: '2:00'
-        race_class: ''
-        race_id: rac_11868129
-        race_name: Race 3 (Conditions Race) (Turf)
-        region: BHR
   securitySchemes:
     HTTPBasic:
       type: http

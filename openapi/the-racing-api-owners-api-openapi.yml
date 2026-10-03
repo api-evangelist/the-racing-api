@@ -1281,47 +1281,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ResultsStandardPage:
-      properties:
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
-          - type: 'null'
-          title: Results
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - results
-      - total
-      - limit
-      - skip
-      - query
-      title: ResultsStandardPage
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
     app__models__owners__Distance:
       properties:
         dist:
@@ -1388,104 +1347,6 @@ components:
         dist_y: '1760'
         runners: 1279
         win_%: 0.19
-    OwnerJockeyAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        owner:
-          type: string
-          title: Owner
-        total_runners:
-          type: integer
-          title: Total Runners
-        jockeys:
-          items:
-            $ref: '#/components/schemas/app__models__owners__Jockey'
-          type: array
-          title: Jockeys
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - owner
-      - total_runners
-      - jockeys
-      - query
-      title: OwnerJockeyAnalysis
-      example:
-        id: own_199380
-        jockeys:
-        - 1_pl: 40.0
-          1st: 150
-          2nd: 90
-          3rd: 80
-          4th: 60
-          a/e: 1.02
-          jockey: William Buick
-          jockey_id: jky_257379
-          runners: 600
-          win_%: 0.25
-        owner: Godolphin
-        query:
-        - - owner_id
-          - own_199380
-        total_runners: 5938
-    OwnerDistanceAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        owner:
-          type: string
-          title: Owner
-        total_runners:
-          type: integer
-          title: Total Runners
-        distances:
-          items:
-            $ref: '#/components/schemas/app__models__owners__Distance'
-          type: array
-          title: Distances
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - owner
-      - total_runners
-      - distances
-      - query
-      title: OwnerDistanceAnalysis
-      example:
-        distances:
-        - 1_pl: 10.27
-          1st: 239
-          2nd: 144
-          3rd: 163
-          4th: 114
-          a/e: 0.99
-          dist: 1m
-          dist_f: 8f
-          dist_m: '1609'
-          dist_y: '1760'
-          runners: 1279
-          win_%: 0.19
-        id: own_199380
-        owner: Godolphin
-        query:
-        - - owner_id
-          - own_199380
-        total_runners: 5938
     Owners:
       properties:
         search_results:
@@ -1503,110 +1364,24 @@ components:
           name: Godolphin
         - id: own_724272
           name: Miss J Deadman & S Barrow
-    OwnerTrainerAnalysis:
+    app__models__owners__Owner:
       properties:
         id:
           type: string
           title: Id
-        owner:
-          type: string
-          title: Owner
-        total_runners:
-          type: integer
-          title: Total Runners
-        trainers:
-          items:
-            $ref: '#/components/schemas/app__models__owners__Trainer'
-          type: array
-          title: Trainers
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
       type: object
       required:
       - id
-      - owner
-      - total_runners
-      - trainers
-      - query
-      title: OwnerTrainerAnalysis
+      - name
+      title: Owner
       example:
         id: own_199380
-        owner: Godolphin
-        query:
-        - - owner_id
-          - own_199380
-        total_runners: 5938
-        trainers:
-        - 1_pl: 50.0
-          1st: 200
-          2nd: 120
-          3rd: 100
-          4th: 80
-          a/e: 1.05
-          runners: 800
-          trainer: Charlie Appleby
-          trainer_id: trn_255042
-          win_%: 0.25
-    app__models__owners__Trainer:
-      properties:
-        trainer_id:
-          type: string
-          title: Trainer Id
-        trainer:
-          type: string
-          title: Trainer
-        runners:
-          type: integer
-          title: Runners
-        1st:
-          type: integer
-          title: 1st place finishes
-        2nd:
-          type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - trainer_id
-      - trainer
-      - runners
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: Trainer
-      example:
-        1_pl: 50.0
-        1st: 200
-        2nd: 120
-        3rd: 100
-        4th: 80
-        a/e: 1.05
-        runners: 800
-        trainer: Charlie Appleby
-        trainer_id: trn_255042
-        win_%: 0.25
+        name: Godolphin
     app__models__owners__Course:
       properties:
         course:
@@ -1668,73 +1443,6 @@ components:
         region: GB
         runners: 500
         win_%: 0.2
-    OwnerCourseAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        owner:
-          type: string
-          title: Owner
-        total_runners:
-          type: integer
-          title: Total Runners
-        courses:
-          items:
-            $ref: '#/components/schemas/app__models__owners__Course'
-          type: array
-          title: Courses
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - owner
-      - total_runners
-      - courses
-      - query
-      title: OwnerCourseAnalysis
-      example:
-        courses:
-        - 1_pl: 15.0
-          1st: 100
-          2nd: 80
-          3rd: 60
-          4th: 50
-          a/e: 1.02
-          course: Newmarket
-          course_id: crs_988
-          region: GB
-          runners: 500
-          win_%: 0.2
-        id: own_199380
-        owner: Godolphin
-        query:
-        - - owner_id
-          - own_199380
-        total_runners: 5938
-    app__models__owners__Owner:
-      properties:
-        id:
-          type: string
-          title: Id
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-      type: object
-      required:
-      - id
-      - name
-      title: Owner
-      example:
-        id: own_199380
-        name: Godolphin
     app__models__owners__Jockey:
       properties:
         jockey_id:
@@ -1790,6 +1498,62 @@ components:
         jockey: William Buick
         jockey_id: jky_257379
         runners: 600
+        win_%: 0.25
+    app__models__owners__Trainer:
+      properties:
+        trainer_id:
+          type: string
+          title: Trainer Id
+        trainer:
+          type: string
+          title: Trainer
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - trainer_id
+      - trainer
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Trainer
+      example:
+        1_pl: 50.0
+        1st: 200
+        2nd: 120
+        3rd: 100
+        4th: 80
+        a/e: 1.05
+        runners: 800
+        trainer: Charlie Appleby
+        trainer_id: trn_255042
         win_%: 0.25
     RunnerStandard:
       properties:
@@ -1978,6 +1742,268 @@ components:
         tsr: '64'
         weight: 11-12
         weight_lbs: '166'
+    ResultsStandardPage:
+      properties:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsStandardPage
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    OwnerTrainerAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        owner:
+          type: string
+          title: Owner
+        total_runners:
+          type: integer
+          title: Total Runners
+        trainers:
+          items:
+            $ref: '#/components/schemas/app__models__owners__Trainer'
+          type: array
+          title: Trainers
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - owner
+      - total_runners
+      - trainers
+      - query
+      title: OwnerTrainerAnalysis
+      example:
+        id: own_199380
+        owner: Godolphin
+        query:
+        - - owner_id
+          - own_199380
+        total_runners: 5938
+        trainers:
+        - 1_pl: 50.0
+          1st: 200
+          2nd: 120
+          3rd: 100
+          4th: 80
+          a/e: 1.05
+          runners: 800
+          trainer: Charlie Appleby
+          trainer_id: trn_255042
+          win_%: 0.25
+    OwnerJockeyAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        owner:
+          type: string
+          title: Owner
+        total_runners:
+          type: integer
+          title: Total Runners
+        jockeys:
+          items:
+            $ref: '#/components/schemas/app__models__owners__Jockey'
+          type: array
+          title: Jockeys
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - owner
+      - total_runners
+      - jockeys
+      - query
+      title: OwnerJockeyAnalysis
+      example:
+        id: own_199380
+        jockeys:
+        - 1_pl: 40.0
+          1st: 150
+          2nd: 90
+          3rd: 80
+          4th: 60
+          a/e: 1.02
+          jockey: William Buick
+          jockey_id: jky_257379
+          runners: 600
+          win_%: 0.25
+        owner: Godolphin
+        query:
+        - - owner_id
+          - own_199380
+        total_runners: 5938
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    OwnerCourseAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        owner:
+          type: string
+          title: Owner
+        total_runners:
+          type: integer
+          title: Total Runners
+        courses:
+          items:
+            $ref: '#/components/schemas/app__models__owners__Course'
+          type: array
+          title: Courses
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - owner
+      - total_runners
+      - courses
+      - query
+      title: OwnerCourseAnalysis
+      example:
+        courses:
+        - 1_pl: 15.0
+          1st: 100
+          2nd: 80
+          3rd: 60
+          4th: 50
+          a/e: 1.02
+          course: Newmarket
+          course_id: crs_988
+          region: GB
+          runners: 500
+          win_%: 0.2
+        id: own_199380
+        owner: Godolphin
+        query:
+        - - owner_id
+          - own_199380
+        total_runners: 5938
+    OwnerDistanceAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        owner:
+          type: string
+          title: Owner
+        total_runners:
+          type: integer
+          title: Total Runners
+        distances:
+          items:
+            $ref: '#/components/schemas/app__models__owners__Distance'
+          type: array
+          title: Distances
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - owner
+      - total_runners
+      - distances
+      - query
+      title: OwnerDistanceAnalysis
+      example:
+        distances:
+        - 1_pl: 10.27
+          1st: 239
+          2nd: 144
+          3rd: 163
+          4th: 114
+          a/e: 0.99
+          dist: 1m
+          dist_f: 8f
+          dist_m: '1609'
+          dist_y: '1760'
+          runners: 1279
+          win_%: 0.19
+        id: own_199380
+        owner: Godolphin
+        query:
+        - - owner_id
+          - own_199380
+        total_runners: 5938
     ResultStandard:
       properties:
         race_id:
@@ -2200,32 +2226,6 @@ components:
         tote_win: €8.50
         type: Hurdle
         winning_time_detail: 5m 44.90s (slow by 7.90s)
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
   securitySchemes:
     HTTPBasic:
       type: http
