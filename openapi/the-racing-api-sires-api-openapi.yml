@@ -828,88 +828,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    app__models__sires__Distance:
+    ResultsStandardPage:
       properties:
-        dist:
-          type: string
-          title: Dist
-        dist_y:
-          type: string
-          title: Dist Y
-        dist_m:
-          type: string
-          title: Dist M
-        dist_f:
-          type: string
-          title: Dist F
-        runners:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
           type: integer
-          title: Runners
-        1st:
+          title: Total
+        limit:
           type: integer
-          title: 1st place finishes
-        2nd:
+          title: Limit
+        skip:
           type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - dist
-      - dist_y
-      - dist_m
-      - dist_f
-      - runners
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: Distance
-      example:
-        1_pl: 5.83
-        1st: 4
-        2nd: 10
-        3rd: 5
-        4th: 5
-        a/e: 0.45
-        dist: 7f
-        dist_f: 7f
-        dist_m: '1400.0'
-        dist_y: '1540'
-        runners: 75
-        win_%: 0.05
-    SireClassAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        sire:
-          type: string
-          title: Sire
-        total_runners:
-          type: integer
-          title: Total Runners
-        classes:
-          items:
-            $ref: '#/components/schemas/app__models__sires__Class'
-          type: array
-          title: Classes
+          title: Skip
         query:
           items:
             items: {}
@@ -918,42 +854,38 @@ components:
           title: Query
       type: object
       required:
-      - id
-      - sire
-      - total_runners
-      - classes
+      - results
+      - total
+      - limit
+      - skip
       - query
-      title: SireClassAnalysis
-      example:
-        classes:
-        - 1_pl: -35.97
-          1st: 15
-          2nd: 23
-          3rd: 24
-          4th: 27
-          a/e: 0.53
-          class: Class 2
-          runners: 225
-          win_%: 0.07
-        - 1_pl: -5.0
-          1st: 7
-          2nd: 10
-          3rd: 9
-          4th: 12
-          a/e: 0.79
-          class: Class 1
-          runners: 78
-          win_%: 0.09
-        id: sir_5245191
-        query:
-        - - race_class
-          - class_1
-        - - race_class
-          - class_2
-        - - sire_id
-          - sir_5245191
-        sire: Excelebration (IRE)
-        total_runners: 303
+      title: ResultsStandardPage
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     RunnerStandard:
       properties:
         horse_id:
@@ -1141,56 +1073,6 @@ components:
         tsr: '64'
         weight: 11-12
         weight_lbs: '166'
-    ResultsStandardPage:
-      properties:
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
-          - type: 'null'
-          title: Results
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - results
-      - total
-      - limit
-      - skip
-      - query
-      title: ResultsStandardPage
-    Sire:
-      properties:
-        id:
-          type: string
-          title: Id
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-      type: object
-      required:
-      - id
-      - name
-      title: Sire
-      example:
-        id: sir_5344171
-        name: Frankel (GB)
     Sires:
       properties:
         search_results:
@@ -1208,56 +1090,6 @@ components:
           name: Frankel (GB)
         - id: sir_3722383
           name: Galileo (IRE)
-    SireDistanceAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        sire:
-          type: string
-          title: Sire
-        total_runners:
-          type: integer
-          title: Total Runners
-        distances:
-          items:
-            $ref: '#/components/schemas/app__models__sires__Distance'
-          type: array
-          title: Distances
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - sire
-      - total_runners
-      - distances
-      - query
-      title: SireDistanceAnalysis
-      example:
-        distances:
-        - 1_pl: 5.83
-          1st: 4
-          2nd: 10
-          3rd: 5
-          4th: 5
-          a/e: 0.45
-          dist: 7f
-          dist_f: 7f
-          dist_m: '1400.0'
-          dist_y: '1540'
-          runners: 75
-          win_%: 0.05
-        id: sir_5245191
-        query:
-        - - sire_id
-          - sir_5245191
-        sire: Excelebration (IRE)
-        total_runners: 303
     app__models__sires__Class:
       properties:
         class:
@@ -1309,6 +1141,116 @@ components:
         class: Class 2
         runners: 225
         win_%: 0.07
+    SireClassAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        sire:
+          type: string
+          title: Sire
+        total_runners:
+          type: integer
+          title: Total Runners
+        classes:
+          items:
+            $ref: '#/components/schemas/app__models__sires__Class'
+          type: array
+          title: Classes
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - sire
+      - total_runners
+      - classes
+      - query
+      title: SireClassAnalysis
+      example:
+        classes:
+        - 1_pl: -35.97
+          1st: 15
+          2nd: 23
+          3rd: 24
+          4th: 27
+          a/e: 0.53
+          class: Class 2
+          runners: 225
+          win_%: 0.07
+        - 1_pl: -5.0
+          1st: 7
+          2nd: 10
+          3rd: 9
+          4th: 12
+          a/e: 0.79
+          class: Class 1
+          runners: 78
+          win_%: 0.09
+        id: sir_5245191
+        query:
+        - - race_class
+          - class_1
+        - - race_class
+          - class_2
+        - - sire_id
+          - sir_5245191
+        sire: Excelebration (IRE)
+        total_runners: 303
+    SireDistanceAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        sire:
+          type: string
+          title: Sire
+        total_runners:
+          type: integer
+          title: Total Runners
+        distances:
+          items:
+            $ref: '#/components/schemas/app__models__sires__Distance'
+          type: array
+          title: Distances
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - sire
+      - total_runners
+      - distances
+      - query
+      title: SireDistanceAnalysis
+      example:
+        distances:
+        - 1_pl: 5.83
+          1st: 4
+          2nd: 10
+          3rd: 5
+          4th: 5
+          a/e: 0.45
+          dist: 7f
+          dist_f: 7f
+          dist_m: '1400.0'
+          dist_y: '1540'
+          runners: 75
+          win_%: 0.05
+        id: sir_5245191
+        query:
+        - - sire_id
+          - sir_5245191
+        sire: Excelebration (IRE)
+        total_runners: 303
     HTTPValidationError:
       properties:
         detail:
@@ -1318,32 +1260,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     ResultStandard:
       properties:
         race_id:
@@ -1566,6 +1482,90 @@ components:
         tote_win: €8.50
         type: Hurdle
         winning_time_detail: 5m 44.90s (slow by 7.90s)
+    app__models__sires__Distance:
+      properties:
+        dist:
+          type: string
+          title: Dist
+        dist_y:
+          type: string
+          title: Dist Y
+        dist_m:
+          type: string
+          title: Dist M
+        dist_f:
+          type: string
+          title: Dist F
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Distance
+      example:
+        1_pl: 5.83
+        1st: 4
+        2nd: 10
+        3rd: 5
+        4th: 5
+        a/e: 0.45
+        dist: 7f
+        dist_f: 7f
+        dist_m: '1400.0'
+        dist_y: '1540'
+        runners: 75
+        win_%: 0.05
+    Sire:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: Sire
+      example:
+        id: sir_5344171
+        name: Frankel (GB)
   securitySchemes:
     HTTPBasic:
       type: http

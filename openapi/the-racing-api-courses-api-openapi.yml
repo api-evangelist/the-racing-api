@@ -229,6 +229,47 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    CoursesPage:
+      properties:
+        courses:
+          items:
+            $ref: '#/components/schemas/app__models__courses__Course'
+          type: array
+          title: Courses
+        total:
+          type: integer
+          title: Total
+      type: object
+      required:
+      - courses
+      - total
+      title: CoursesPage
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     app__models__courses__Course:
       properties:
         id:
@@ -280,47 +321,6 @@ components:
           title: Detail
       type: object
       title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    CoursesPage:
-      properties:
-        courses:
-          items:
-            $ref: '#/components/schemas/app__models__courses__Course'
-          type: array
-          title: Courses
-        total:
-          type: integer
-          title: Total
-      type: object
-      required:
-      - courses
-      - total
-      title: CoursesPage
   securitySchemes:
     HTTPBasic:
       type: http

@@ -828,11 +828,125 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    app__models__damsires__Class:
+    ResultsStandardPage:
       properties:
-        class:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsStandardPage
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
           type: string
-          title: Class
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    DamsireClassAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        damsire:
+          type: string
+          title: Damsire
+        total_runners:
+          type: integer
+          title: Total Runners
+        classes:
+          items:
+            $ref: '#/components/schemas/app__models__damsires__Class'
+          type: array
+          title: Classes
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - damsire
+      - total_runners
+      - classes
+      - query
+      title: DamsireClassAnalysis
+      example:
+        classes:
+        - 1_pl: -15.0
+          1st: 30
+          2nd: 25
+          3rd: 22
+          4th: 18
+          a/e: 0.88
+          class: Class 1
+          runners: 200
+          win_%: 0.15
+        damsire: Sadler's Wells
+        id: dsi_3247825
+        query:
+        - - damsire_id
+          - dsi_3247825
+        total_runners: 500
+    app__models__damsires__Distance:
+      properties:
+        dist:
+          type: string
+          title: Dist
+        dist_y:
+          type: string
+          title: Dist Y
+        dist_m:
+          type: string
+          title: Dist M
+        dist_f:
+          type: string
+          title: Dist F
         runners:
           type: integer
           title: Runners
@@ -859,7 +973,10 @@ components:
           title: One unit p/l at SP
       type: object
       required:
-      - class
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
       - runners
       - 1st
       - 2nd
@@ -868,85 +985,20 @@ components:
       - a/e
       - win_%
       - 1_pl
-      title: Class
+      title: Distance
       example:
-        1_pl: -15.0
-        1st: 30
-        2nd: 25
-        3rd: 22
-        4th: 18
-        a/e: 0.88
-        class: Class 1
-        runners: 200
-        win_%: 0.15
-    DamsireDistanceAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        damsire:
-          type: string
-          title: Damsire
-        total_runners:
-          type: integer
-          title: Total Runners
-        distances:
-          items:
-            $ref: '#/components/schemas/app__models__damsires__Distance'
-          type: array
-          title: Distances
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - damsire
-      - total_runners
-      - distances
-      - query
-      title: DamsireDistanceAnalysis
-      example:
-        damsire: Sadler's Wells
-        distances:
-        - 1_pl: -10.5
-          1st: 25
-          2nd: 20
-          3rd: 18
-          4th: 15
-          a/e: 0.95
-          dist: 1m2f
-          dist_f: 10f
-          dist_m: '2012'
-          dist_y: '2200'
-          runners: 150
-          win_%: 0.17
-        id: dsi_3247825
-        query:
-        - - damsire_id
-          - dsi_3247825
-        total_runners: 500
-    Damsire:
-      properties:
-        id:
-          type: string
-          title: Id
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-      type: object
-      required:
-      - id
-      - name
-      title: Damsire
-      example:
-        id: dsi_296611
-        name: Danehill
+        1_pl: -10.5
+        1st: 25
+        2nd: 20
+        3rd: 18
+        4th: 15
+        a/e: 0.95
+        dist: 1m2f
+        dist_f: 10f
+        dist_m: '2012'
+        dist_y: '2200'
+        runners: 150
+        win_%: 0.17
     RunnerStandard:
       properties:
         horse_id:
@@ -1134,52 +1186,29 @@ components:
         tsr: '64'
         weight: 11-12
         weight_lbs: '166'
-    ResultsStandardPage:
+    Damsire:
       properties:
-        results:
+        id:
+          type: string
+          title: Id
+        name:
           anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
+          - type: string
           - type: 'null'
-          title: Results
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
+          title: Name
       type: object
       required:
-      - results
-      - total
-      - limit
-      - skip
-      - query
-      title: ResultsStandardPage
-    app__models__damsires__Distance:
+      - id
+      - name
+      title: Damsire
+      example:
+        id: dsi_296611
+        name: Danehill
+    app__models__damsires__Class:
       properties:
-        dist:
+        class:
           type: string
-          title: Dist
-        dist_y:
-          type: string
-          title: Dist Y
-        dist_m:
-          type: string
-          title: Dist M
-        dist_f:
-          type: string
-          title: Dist F
+          title: Class
         runners:
           type: integer
           title: Runners
@@ -1206,10 +1235,7 @@ components:
           title: One unit p/l at SP
       type: object
       required:
-      - dist
-      - dist_y
-      - dist_m
-      - dist_f
+      - class
       - runners
       - 1st
       - 2nd
@@ -1218,20 +1244,17 @@ components:
       - a/e
       - win_%
       - 1_pl
-      title: Distance
+      title: Class
       example:
-        1_pl: -10.5
-        1st: 25
-        2nd: 20
-        3rd: 18
-        4th: 15
-        a/e: 0.95
-        dist: 1m2f
-        dist_f: 10f
-        dist_m: '2012'
-        dist_y: '2200'
-        runners: 150
-        win_%: 0.17
+        1_pl: -15.0
+        1st: 30
+        2nd: 25
+        3rd: 22
+        4th: 18
+        a/e: 0.88
+        class: Class 1
+        runners: 200
+        win_%: 0.15
     Damsires:
       properties:
         search_results:
@@ -1249,7 +1272,16 @@ components:
           name: Danehill
         - id: dsi_3527125
           name: Dansili (GB)
-    DamsireClassAnalysis:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    DamsireDistanceAnalysis:
       properties:
         id:
           type: string
@@ -1260,11 +1292,11 @@ components:
         total_runners:
           type: integer
           title: Total Runners
-        classes:
+        distances:
           items:
-            $ref: '#/components/schemas/app__models__damsires__Class'
+            $ref: '#/components/schemas/app__models__damsires__Distance'
           type: array
-          title: Classes
+          title: Distances
         query:
           items:
             items: {}
@@ -1276,61 +1308,29 @@ components:
       - id
       - damsire
       - total_runners
-      - classes
+      - distances
       - query
-      title: DamsireClassAnalysis
+      title: DamsireDistanceAnalysis
       example:
-        classes:
-        - 1_pl: -15.0
-          1st: 30
-          2nd: 25
-          3rd: 22
-          4th: 18
-          a/e: 0.88
-          class: Class 1
-          runners: 200
-          win_%: 0.15
         damsire: Sadler's Wells
+        distances:
+        - 1_pl: -10.5
+          1st: 25
+          2nd: 20
+          3rd: 18
+          4th: 15
+          a/e: 0.95
+          dist: 1m2f
+          dist_f: 10f
+          dist_m: '2012'
+          dist_y: '2200'
+          runners: 150
+          win_%: 0.17
         id: dsi_3247825
         query:
         - - damsire_id
           - dsi_3247825
         total_runners: 500
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     ResultStandard:
       properties:
         race_id:

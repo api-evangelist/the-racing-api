@@ -1509,22 +1509,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    TrainerDistanceAnalysis:
+    ResultsStandardPage:
       properties:
-        id:
-          type: string
-          title: Id
-        trainer:
-          type: string
-          title: Trainer
-        total_runners:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
           type: integer
-          title: Total Runners
-        distances:
-          items:
-            $ref: '#/components/schemas/app__models__trainers__Distance'
-          type: array
-          title: Distances
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
         query:
           items:
             items: {}
@@ -1533,32 +1535,55 @@ components:
           title: Query
       type: object
       required:
-      - id
-      - trainer
-      - total_runners
-      - distances
+      - results
+      - total
+      - limit
+      - skip
       - query
-      title: TrainerDistanceAnalysis
+      title: ResultsStandardPage
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    Trainers:
+      properties:
+        search_results:
+          items:
+            $ref: '#/components/schemas/app__models__trainers__Trainer'
+          type: array
+          title: Search Results
+      type: object
+      required:
+      - search_results
+      title: Trainers
       example:
-        distances:
-        - 1_pl: -59.87
-          1st: 77
-          2nd: 43
-          3rd: 52
-          4th: 32
-          a/e: 0.93
-          dist: 1m
-          dist_f: 8f
-          dist_m: '1609'
-          dist_y: '1760'
-          runners: 373
-          win_%: 0.21
-        id: trn_255042
-        query:
-        - - trainer_id
-          - trn_255042
-        total_runners: 1862
-        trainer: Charlie Appleby
+        search_results:
+        - id: trn_30735
+          name: William Haggas
+        - id: trn_91413
+          name: David Pipe
     app__models__trainers__Trainer:
       properties:
         id:
@@ -1577,6 +1602,62 @@ components:
       example:
         id: trn_255042
         name: Charlie Appleby
+    TrainerHorseAgeAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        trainer:
+          type: string
+          title: Trainer
+        total_runners:
+          type: integer
+          title: Total Runners
+        horse_ages:
+          items:
+            $ref: '#/components/schemas/HorseAges'
+          type: array
+          title: Horse Ages
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - trainer
+      - total_runners
+      - horse_ages
+      - query
+      title: TrainerHorseAgeAnalysis
+      example:
+        horse_ages:
+        - 1_pl: -0.68
+          1st: 156
+          2nd: 106
+          3rd: 87
+          4th: 60
+          a/e: 0.99
+          horse_age: '3'
+          runners: 749
+          win_%: 0.21
+        - 1_pl: 18.12
+          1st: 124
+          2nd: 61
+          3rd: 68
+          4th: 39
+          a/e: 1.02
+          horse_age: '2'
+          runners: 439
+          win_%: 0.28
+        id: trn_255042
+        query:
+        - - trainer_id
+          - trn_255042
+        total_runners: 1862
+        trainer: Charlie Appleby
     app__models__trainers__Course:
       properties:
         course:
@@ -1638,281 +1719,6 @@ components:
         region: GB
         runners: 200
         win_%: 0.23
-    TrainerOwnerAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        trainer:
-          type: string
-          title: Trainer
-        total_runners:
-          type: integer
-          title: Total Runners
-        owners:
-          items:
-            $ref: '#/components/schemas/app__models__trainers__Owner'
-          type: array
-          title: Owners
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - trainer
-      - total_runners
-      - owners
-      - query
-      title: TrainerOwnerAnalysis
-      example:
-        id: trn_255042
-        owners:
-        - 1_pl: 25.0
-          1st: 120
-          2nd: 80
-          3rd: 60
-          4th: 40
-          a/e: 1.02
-          owner: Godolphin
-          owner_id: own_199380
-          runners: 500
-          win_%: 0.24
-        query:
-        - - trainer_id
-          - trn_255042
-        total_runners: 1862
-        trainer: Charlie Appleby
-    TrainerCourseAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        trainer:
-          type: string
-          title: Trainer
-        total_runners:
-          type: integer
-          title: Total Runners
-        courses:
-          items:
-            $ref: '#/components/schemas/app__models__trainers__Course'
-          type: array
-          title: Courses
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - trainer
-      - total_runners
-      - courses
-      - query
-      title: TrainerCourseAnalysis
-      example:
-        courses:
-        - 1_pl: 15.5
-          1st: 45
-          2nd: 30
-          3rd: 25
-          4th: 20
-          a/e: 1.05
-          course: Newmarket
-          course_id: crs_988
-          region: GB
-          runners: 200
-          win_%: 0.23
-        id: trn_255042
-        query:
-        - - trainer_id
-          - trn_255042
-        total_runners: 1862
-        trainer: Charlie Appleby
-    TrainerHorseAgeAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        trainer:
-          type: string
-          title: Trainer
-        total_runners:
-          type: integer
-          title: Total Runners
-        horse_ages:
-          items:
-            $ref: '#/components/schemas/HorseAges'
-          type: array
-          title: Horse Ages
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - trainer
-      - total_runners
-      - horse_ages
-      - query
-      title: TrainerHorseAgeAnalysis
-      example:
-        horse_ages:
-        - 1_pl: -0.68
-          1st: 156
-          2nd: 106
-          3rd: 87
-          4th: 60
-          a/e: 0.99
-          horse_age: '3'
-          runners: 749
-          win_%: 0.21
-        - 1_pl: 18.12
-          1st: 124
-          2nd: 61
-          3rd: 68
-          4th: 39
-          a/e: 1.02
-          horse_age: '2'
-          runners: 439
-          win_%: 0.28
-        id: trn_255042
-        query:
-        - - trainer_id
-          - trn_255042
-        total_runners: 1862
-        trainer: Charlie Appleby
-    app__models__trainers__Distance:
-      properties:
-        dist:
-          type: string
-          title: Dist
-        dist_y:
-          type: string
-          title: Dist Y
-        dist_m:
-          type: string
-          title: Dist M
-        dist_f:
-          type: string
-          title: Dist F
-        runners:
-          type: integer
-          title: Runners
-        1st:
-          type: integer
-          title: 1st place finishes
-        2nd:
-          type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - dist
-      - dist_y
-      - dist_m
-      - dist_f
-      - runners
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: Distance
-      example:
-        1_pl: -59.87
-        1st: 77
-        2nd: 43
-        3rd: 52
-        4th: 32
-        a/e: 0.93
-        dist: 1m
-        dist_f: 8f
-        dist_m: '1609'
-        dist_y: '1760'
-        runners: 373
-        win_%: 0.21
-    app__models__trainers__Owner:
-      properties:
-        owner_id:
-          type: string
-          title: Owner Id
-        owner:
-          type: string
-          title: Owner
-        runners:
-          type: integer
-          title: Runners
-        1st:
-          type: integer
-          title: 1st place finishes
-        2nd:
-          type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - owner_id
-      - owner
-      - runners
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: Owner
-      example:
-        1_pl: 25.0
-        1st: 120
-        2nd: 80
-        3rd: 60
-        4th: 40
-        a/e: 1.02
-        owner: Godolphin
-        owner_id: own_199380
-        runners: 500
-        win_%: 0.24
     RunnerStandard:
       properties:
         horse_id:
@@ -2100,111 +1906,14 @@ components:
         tsr: '64'
         weight: 11-12
         weight_lbs: '166'
-    ResultsStandardPage:
+    app__models__trainers__Owner:
       properties:
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
-          - type: 'null'
-          title: Results
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - results
-      - total
-      - limit
-      - skip
-      - query
-      title: ResultsStandardPage
-    TrainerJockeyAnalysis:
-      properties:
-        id:
+        owner_id:
           type: string
-          title: Id
-        trainer:
+          title: Owner Id
+        owner:
           type: string
-          title: Trainer
-        total_runners:
-          type: integer
-          title: Total Runners
-        jockeys:
-          items:
-            $ref: '#/components/schemas/app__models__trainers__Jockey'
-          type: array
-          title: Jockeys
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - id
-      - trainer
-      - total_runners
-      - jockeys
-      - query
-      title: TrainerJockeyAnalysis
-      example:
-        id: trn_255042
-        jockeys:
-        - 1_pl: 50.62
-          1st: 260
-          2nd: 148
-          3rd: 143
-          4th: 88
-          a/e: 1.01
-          jockey: William Buick
-          jockey_id: jky_257379
-          runners: 1038
-          win_%: 0.25
-        query:
-        - - trainer_id
-          - trn_255042
-        total_runners: 1862
-        trainer: Charlie Appleby
-    Trainers:
-      properties:
-        search_results:
-          items:
-            $ref: '#/components/schemas/app__models__trainers__Trainer'
-          type: array
-          title: Search Results
-      type: object
-      required:
-      - search_results
-      title: Trainers
-      example:
-        search_results:
-        - id: trn_30735
-          name: William Haggas
-        - id: trn_91413
-          name: David Pipe
-    app__models__trainers__Jockey:
-      properties:
-        jockey_id:
-          type: string
-          title: Jockey Id
-        jockey:
-          type: string
-          title: Jockey
+          title: Owner
         runners:
           type: integer
           title: Runners
@@ -2231,8 +1940,8 @@ components:
           title: One unit p/l at SP
       type: object
       required:
-      - jockey_id
-      - jockey
+      - owner_id
+      - owner
       - runners
       - 1st
       - 2nd
@@ -2241,18 +1950,240 @@ components:
       - a/e
       - win_%
       - 1_pl
-      title: Jockey
+      title: Owner
       example:
-        1_pl: 50.62
-        1st: 260
-        2nd: 148
-        3rd: 143
-        4th: 88
-        a/e: 1.01
-        jockey: William Buick
-        jockey_id: jky_257379
-        runners: 1038
-        win_%: 0.25
+        1_pl: 25.0
+        1st: 120
+        2nd: 80
+        3rd: 60
+        4th: 40
+        a/e: 1.02
+        owner: Godolphin
+        owner_id: own_199380
+        runners: 500
+        win_%: 0.24
+    TrainerOwnerAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        trainer:
+          type: string
+          title: Trainer
+        total_runners:
+          type: integer
+          title: Total Runners
+        owners:
+          items:
+            $ref: '#/components/schemas/app__models__trainers__Owner'
+          type: array
+          title: Owners
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - trainer
+      - total_runners
+      - owners
+      - query
+      title: TrainerOwnerAnalysis
+      example:
+        id: trn_255042
+        owners:
+        - 1_pl: 25.0
+          1st: 120
+          2nd: 80
+          3rd: 60
+          4th: 40
+          a/e: 1.02
+          owner: Godolphin
+          owner_id: own_199380
+          runners: 500
+          win_%: 0.24
+        query:
+        - - trainer_id
+          - trn_255042
+        total_runners: 1862
+        trainer: Charlie Appleby
+    app__models__trainers__Distance:
+      properties:
+        dist:
+          type: string
+          title: Dist
+        dist_y:
+          type: string
+          title: Dist Y
+        dist_m:
+          type: string
+          title: Dist M
+        dist_f:
+          type: string
+          title: Dist F
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Distance
+      example:
+        1_pl: -59.87
+        1st: 77
+        2nd: 43
+        3rd: 52
+        4th: 32
+        a/e: 0.93
+        dist: 1m
+        dist_f: 8f
+        dist_m: '1609'
+        dist_y: '1760'
+        runners: 373
+        win_%: 0.21
+    TrainerCourseAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        trainer:
+          type: string
+          title: Trainer
+        total_runners:
+          type: integer
+          title: Total Runners
+        courses:
+          items:
+            $ref: '#/components/schemas/app__models__trainers__Course'
+          type: array
+          title: Courses
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - trainer
+      - total_runners
+      - courses
+      - query
+      title: TrainerCourseAnalysis
+      example:
+        courses:
+        - 1_pl: 15.5
+          1st: 45
+          2nd: 30
+          3rd: 25
+          4th: 20
+          a/e: 1.05
+          course: Newmarket
+          course_id: crs_988
+          region: GB
+          runners: 200
+          win_%: 0.23
+        id: trn_255042
+        query:
+        - - trainer_id
+          - trn_255042
+        total_runners: 1862
+        trainer: Charlie Appleby
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    TrainerDistanceAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        trainer:
+          type: string
+          title: Trainer
+        total_runners:
+          type: integer
+          title: Total Runners
+        distances:
+          items:
+            $ref: '#/components/schemas/app__models__trainers__Distance'
+          type: array
+          title: Distances
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - trainer
+      - total_runners
+      - distances
+      - query
+      title: TrainerDistanceAnalysis
+      example:
+        distances:
+        - 1_pl: -59.87
+          1st: 77
+          2nd: 43
+          3rd: 52
+          4th: 32
+          a/e: 0.93
+          dist: 1m
+          dist_f: 8f
+          dist_m: '1609'
+          dist_y: '1760'
+          runners: 373
+          win_%: 0.21
+        id: trn_255042
+        query:
+        - - trainer_id
+          - trn_255042
+        total_runners: 1862
+        trainer: Charlie Appleby
     HorseAges:
       properties:
         horse_age:
@@ -2304,41 +2235,54 @@ components:
         horse_age: '3'
         runners: 749
         win_%: 0.21
-    HTTPValidationError:
+    TrainerJockeyAnalysis:
       properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
+        id:
           type: string
-          title: Message
-        type:
+          title: Id
+        trainer:
           type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
+          title: Trainer
+        total_runners:
+          type: integer
+          title: Total Runners
+        jockeys:
+          items:
+            $ref: '#/components/schemas/app__models__trainers__Jockey'
+          type: array
+          title: Jockeys
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
       type: object
       required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+      - id
+      - trainer
+      - total_runners
+      - jockeys
+      - query
+      title: TrainerJockeyAnalysis
+      example:
+        id: trn_255042
+        jockeys:
+        - 1_pl: 50.62
+          1st: 260
+          2nd: 148
+          3rd: 143
+          4th: 88
+          a/e: 1.01
+          jockey: William Buick
+          jockey_id: jky_257379
+          runners: 1038
+          win_%: 0.25
+        query:
+        - - trainer_id
+          - trn_255042
+        total_runners: 1862
+        trainer: Charlie Appleby
     ResultStandard:
       properties:
         race_id:
@@ -2561,6 +2505,62 @@ components:
         tote_win: €8.50
         type: Hurdle
         winning_time_detail: 5m 44.90s (slow by 7.90s)
+    app__models__trainers__Jockey:
+      properties:
+        jockey_id:
+          type: string
+          title: Jockey Id
+        jockey:
+          type: string
+          title: Jockey
+        runners:
+          type: integer
+          title: Runners
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - jockey_id
+      - jockey
+      - runners
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Jockey
+      example:
+        1_pl: 50.62
+        1st: 260
+        2nd: 148
+        3rd: 143
+        4th: 88
+        a/e: 1.01
+        jockey: William Buick
+        jockey_id: jky_257379
+        runners: 1038
+        win_%: 0.25
   securitySchemes:
     HTTPBasic:
       type: http

@@ -814,6 +814,166 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ResultsStandardPage:
+      properties:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsStandardPage
+    HorsePro:
+      properties:
+        id:
+          type: string
+          title: Id
+        breeder:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Breeder
+          default: ''
+        colour:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Colour
+          default: ''
+        colour_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Colour Code
+          default: ''
+        dam:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dam
+          default: ''
+        dam_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dam Id
+          default: ''
+        damsire:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Damsire
+          default: ''
+        damsire_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Damsire Id
+          default: ''
+        dob:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dob
+          default: ''
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+          default: ''
+        sex:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex
+          default: ''
+        sex_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex Code
+          default: ''
+        sire:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sire
+          default: ''
+        sire_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sire Id
+          default: ''
+      type: object
+      required:
+      - id
+      title: HorsePro
+      example:
+        breeder: Juddmonte Farms Ltd
+        colour: b
+        colour_code: B
+        dam: Kind (IRE)
+        dam_id: dam_4087006
+        damsire: Danehill
+        damsire_id: dsi_296611
+        dob: '2008-02-11'
+        id: hrs_5344171
+        name: Frankel (GB)
+        sex: horse
+        sex_code: H
+        sire: Galileo (IRE)
+        sire_id: sir_3722383
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     HorseDistanceTimeAnalysis:
       properties:
         id:
@@ -901,114 +1061,6 @@ components:
         sire: Gregorian (IRE)
         sire_id: sir_5494055
         total_runs: 16
-    Horses:
-      properties:
-        search_results:
-          items:
-            $ref: '#/components/schemas/Horse'
-          type: array
-          title: Search Results
-      type: object
-      required:
-      - search_results
-      title: Horses
-      example:
-        search_results:
-        - dam: Kind (IRE)
-          dam_id: dam_4087006
-          damsire: Danehill
-          damsire_id: dsi_296611
-          id: hrs_5344171
-          name: Frankel (GB)
-          sire: Galileo (IRE)
-          sire_id: sir_3722383
-        - dam: February Sun (GB)
-          dam_id: dam_5505549
-          damsire: Monsun (GER)
-          damsire_id: dsi_593768
-          id: hrs_33375363
-          name: Sunny Frankel (GB)
-          sire: Frankel (GB)
-          sire_id: sir_5344171
-    Distances:
-      properties:
-        dist:
-          type: string
-          title: Distance
-        dist_y:
-          type: string
-          title: Distance yards
-        dist_m:
-          type: string
-          title: Distance metres
-        dist_f:
-          type: string
-          title: Distance furlongs
-        times:
-          items:
-            $ref: '#/components/schemas/TimesGoing'
-          type: array
-          title: Times
-        runs:
-          type: integer
-          title: Runs
-        1st:
-          type: integer
-          title: 1st place finishes
-        2nd:
-          type: integer
-          title: 2nd place finishes
-        3rd:
-          type: integer
-          title: 3rd place finishes
-        4th:
-          type: integer
-          title: 4th place finishes
-        a/e:
-          type: number
-          title: Actual/expected
-        win_%:
-          type: number
-          title: Win percentage (decimal)
-        1_pl:
-          type: number
-          title: One unit p/l at SP
-      type: object
-      required:
-      - dist
-      - dist_y
-      - dist_m
-      - dist_f
-      - times
-      - runs
-      - 1st
-      - 2nd
-      - 3rd
-      - 4th
-      - a/e
-      - win_%
-      - 1_pl
-      title: Distances
-      example:
-        1_pl: -5.0
-        1st: 1
-        2nd: 2
-        3rd: 0
-        4th: 0
-        a/e: 0.5
-        dist: 6f
-        dist_f: 6f
-        dist_m: '1225'
-        dist_y: '1340'
-        runs: 11
-        times:
-        - course: Chelmsford (AW)
-          date: '2022-04-28'
-          going: Standard
-          position: '7'
-          region: GB
-          time: '1:11.94'
-        win_%: 0.09
     RunnerStandard:
       properties:
         horse_id:
@@ -1196,211 +1248,6 @@ components:
         tsr: '64'
         weight: 11-12
         weight_lbs: '166'
-    ResultsStandardPage:
-      properties:
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
-          - type: 'null'
-          title: Results
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - results
-      - total
-      - limit
-      - skip
-      - query
-      title: ResultsStandardPage
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    HorsePro:
-      properties:
-        id:
-          type: string
-          title: Id
-        breeder:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Breeder
-          default: ''
-        colour:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Colour
-          default: ''
-        colour_code:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Colour Code
-          default: ''
-        dam:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dam
-          default: ''
-        dam_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dam Id
-          default: ''
-        damsire:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Damsire
-          default: ''
-        damsire_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Damsire Id
-          default: ''
-        dob:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dob
-          default: ''
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-          default: ''
-        sex:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex
-          default: ''
-        sex_code:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex Code
-          default: ''
-        sire:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sire
-          default: ''
-        sire_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sire Id
-          default: ''
-      type: object
-      required:
-      - id
-      title: HorsePro
-      example:
-        breeder: Juddmonte Farms Ltd
-        colour: b
-        colour_code: B
-        dam: Kind (IRE)
-        dam_id: dam_4087006
-        damsire: Danehill
-        damsire_id: dsi_296611
-        dob: '2008-02-11'
-        id: hrs_5344171
-        name: Frankel (GB)
-        sex: horse
-        sex_code: H
-        sire: Galileo (IRE)
-        sire_id: sir_3722383
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
-    TimesGoing:
-      properties:
-        date:
-          type: string
-          title: Date
-        region:
-          type: string
-          title: Region
-        course:
-          type: string
-          title: Course
-        time:
-          type: string
-          title: Time
-        going:
-          type: string
-          title: Going
-        position:
-          type: string
-          title: Position
-      type: object
-      required:
-      - date
-      - region
-      - course
-      - time
-      - going
-      - position
-      title: TimesGoing
-      example:
-        course: Chelmsford (AW)
-        date: '2022-04-28'
-        going: Standard
-        position: '7'
-        region: GB
-        time: '1:11.94'
     Horse:
       properties:
         id:
@@ -1461,6 +1308,80 @@ components:
         name: Frankel (GB)
         sire: Galileo (IRE)
         sire_id: sir_3722383
+    Horses:
+      properties:
+        search_results:
+          items:
+            $ref: '#/components/schemas/Horse'
+          type: array
+          title: Search Results
+      type: object
+      required:
+      - search_results
+      title: Horses
+      example:
+        search_results:
+        - dam: Kind (IRE)
+          dam_id: dam_4087006
+          damsire: Danehill
+          damsire_id: dsi_296611
+          id: hrs_5344171
+          name: Frankel (GB)
+          sire: Galileo (IRE)
+          sire_id: sir_3722383
+        - dam: February Sun (GB)
+          dam_id: dam_5505549
+          damsire: Monsun (GER)
+          damsire_id: dsi_593768
+          id: hrs_33375363
+          name: Sunny Frankel (GB)
+          sire: Frankel (GB)
+          sire_id: sir_5344171
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    TimesGoing:
+      properties:
+        date:
+          type: string
+          title: Date
+        region:
+          type: string
+          title: Region
+        course:
+          type: string
+          title: Course
+        time:
+          type: string
+          title: Time
+        going:
+          type: string
+          title: Going
+        position:
+          type: string
+          title: Position
+      type: object
+      required:
+      - date
+      - region
+      - course
+      - time
+      - going
+      - position
+      title: TimesGoing
+      example:
+        course: Chelmsford (AW)
+        date: '2022-04-28'
+        going: Standard
+        position: '7'
+        region: GB
+        time: '1:11.94'
     ResultStandard:
       properties:
         race_id:
@@ -1683,6 +1604,85 @@ components:
         tote_win: €8.50
         type: Hurdle
         winning_time_detail: 5m 44.90s (slow by 7.90s)
+    Distances:
+      properties:
+        dist:
+          type: string
+          title: Distance
+        dist_y:
+          type: string
+          title: Distance yards
+        dist_m:
+          type: string
+          title: Distance metres
+        dist_f:
+          type: string
+          title: Distance furlongs
+        times:
+          items:
+            $ref: '#/components/schemas/TimesGoing'
+          type: array
+          title: Times
+        runs:
+          type: integer
+          title: Runs
+        1st:
+          type: integer
+          title: 1st place finishes
+        2nd:
+          type: integer
+          title: 2nd place finishes
+        3rd:
+          type: integer
+          title: 3rd place finishes
+        4th:
+          type: integer
+          title: 4th place finishes
+        a/e:
+          type: number
+          title: Actual/expected
+        win_%:
+          type: number
+          title: Win percentage (decimal)
+        1_pl:
+          type: number
+          title: One unit p/l at SP
+      type: object
+      required:
+      - dist
+      - dist_y
+      - dist_m
+      - dist_f
+      - times
+      - runs
+      - 1st
+      - 2nd
+      - 3rd
+      - 4th
+      - a/e
+      - win_%
+      - 1_pl
+      title: Distances
+      example:
+        1_pl: -5.0
+        1st: 1
+        2nd: 2
+        3rd: 0
+        4th: 0
+        a/e: 0.5
+        dist: 6f
+        dist_f: 6f
+        dist_m: '1225'
+        dist_y: '1340'
+        runs: 11
+        times:
+        - course: Chelmsford (AW)
+          date: '2022-04-28'
+          going: Standard
+          position: '7'
+          region: GB
+          time: '1:11.94'
+        win_%: 0.09
   securitySchemes:
     HTTPBasic:
       type: http

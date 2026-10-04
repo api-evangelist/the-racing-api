@@ -120,6 +120,399 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    RacecardOddsPro:
+      properties:
+        race_id:
+          type: string
+          title: Race Id
+        course:
+          type: string
+          title: Course
+        course_id:
+          type: string
+          title: Course Id
+        date:
+          type: string
+          title: Date
+        off_time:
+          type: string
+          title: Off Time
+        off_dt:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Off Dt
+          default: ''
+        race_name:
+          type: string
+          title: Race Name
+        distance_round:
+          type: string
+          title: Distance Round
+        distance:
+          type: string
+          title: Distance
+        distance_f:
+          type: string
+          title: Distance F
+        region:
+          type: string
+          title: Region
+        pattern:
+          type: string
+          title: Pattern
+        sex_restriction:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex Restriction
+          default: ''
+        race_class:
+          type: string
+          title: Race Class
+        type:
+          type: string
+          title: Type
+        age_band:
+          type: string
+          title: Age Band
+        rating_band:
+          type: string
+          title: Rating Band
+        prize:
+          type: string
+          title: Prize
+        field_size:
+          type: string
+          title: Field Size
+        going_detailed:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Going Detailed
+        rail_movements:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Rail Movements
+        stalls:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Stalls
+        weather:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Weather
+        going:
+          type: string
+          title: Going
+        surface:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Surface
+        jumps:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jumps
+          default: ''
+        runners:
+          items:
+            $ref: '#/components/schemas/RunnerOddsPro'
+          type: array
+          title: Runners
+        big_race:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Big Race
+          default: false
+        is_abandoned:
+          anyOf:
+          - type: boolean
+          - type: 'null'
+          title: Is Abandoned
+          default: false
+        tip:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Tip
+          default: ''
+        verdict:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Verdict
+          default: ''
+        betting_forecast:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Betting Forecast
+          default: ''
+        race_status:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Status
+          default: ''
+      type: object
+      required:
+      - race_id
+      - course
+      - course_id
+      - date
+      - off_time
+      - race_name
+      - distance_round
+      - distance
+      - distance_f
+      - region
+      - pattern
+      - race_class
+      - type
+      - age_band
+      - rating_band
+      - prize
+      - field_size
+      - going_detailed
+      - rail_movements
+      - stalls
+      - weather
+      - going
+      - surface
+      - runners
+      title: RacecardOddsPro
+      example:
+        age_band: 3yo+
+        betting_forecast: 6/4 Majestic Valour, 9/2 Sea Diamond, 6/1 Autumn Vibes, 7/1 Lucky Ranger
+        big_race: false
+        course: Sha Tin
+        course_id: crs_10816
+        date: '2026-01-11'
+        distance: 6f
+        distance_f: '6.0'
+        distance_round: 6f
+        field_size: '12'
+        going: Good
+        going_detailed: 'TURF: GOOD TO FIRM'
+        is_abandoned: false
+        jumps: ''
+        off_dt: '2026-01-11T05:00:00+00:00'
+        off_time: '5:00'
+        pattern: ''
+        prize: £62,459
+        race_class: ''
+        race_id: rac_11845223
+        race_name: Wu Kai Sha Handicap (Div I) (Class 4) (3yo+) (Course C+3) (Turf)
+        race_status: ''
+        rail_movements: ''
+        rating_band: ''
+        region: HK
+        runners:
+        - age: '9'
+          breeder: Scea Haras De Saint Pair
+          colour: b/br
+          comment: Much better known as a miler but begins the new campaign on a very tempting mark
+          dam: Trois Lunes
+          dam_id: dam_5583571
+          dam_region: FR
+          damsire: Manduro
+          damsire_id: dsi_4247215
+          damsire_region: GER
+          dob: '2014-02-27'
+          draw: '9'
+          form: 60500-
+          headgear: ''
+          headgear_run: ''
+          horse: Trais Fluors
+          horse_id: hrs_8192583
+          jockey: Rose Dawes(5)
+          jockey_id: jky_301152
+          last_run: '192'
+          lbs: '139'
+          medical: []
+          number: '2'
+          odds:
+          - bookmaker: Bet365
+            decimal: '4.33'
+            ew_denom: '5'
+            ew_places: '3'
+            fractional: 10/3
+            history: []
+            updated: '2023-05-02 12:36:43'
+          - bookmaker: Betfair Exchange
+            decimal: '4.5'
+            ew_denom: ''
+            ew_places: ''
+            fractional: 7/2
+            history: []
+            updated: '2023-05-02 12:36:43'
+          ofr: '74'
+          owner: M Channon
+          owner_id: own_31504
+          past_results_flags: []
+          prev_owners:
+          - change_date: '2021-09-06'
+            owner: Lee Harris
+            owner_id: own_1182044
+          - change_date: '2021-03-22'
+            owner: Robert Ng
+            owner_id: own_466920
+          prev_trainers:
+          - change_date: '2023-03-24'
+            trainer: Mick Channon
+            trainer_id: trn_42084
+          - change_date: '2021-03-22'
+            trainer: K J Condon
+            trainer_id: trn_137160
+          - change_date: '2019-10-23'
+            trainer: A Fabre
+            trainer_id: trn_9837
+          quotes:
+          - course: Sandown
+            course_id: crs_1404
+            date: '2021-06-12'
+            distance_f: '8'
+            distance_y: '1760'
+            horse: Trais Fluors
+            horse_id: hrs_8192583
+            quote: He was suited by the better ground here, which was key - Silvestre de Sousa, rider.
+            race: Play Coral Racing-Super-Series For Free Handicap
+            race_id: rac_10204649
+          region: GB
+          rpr: '85'
+          sex: gelding
+          sex_code: G
+          silk_url: https://www.url-for-silk.com/svg/456789.svg
+          sire: Dansili
+          sire_id: sir_3527125
+          sire_region: GB
+          spotlight: Steadily regressive 9yo who is much better known as a miler and ended last season with two down-the-field runs; begins the new campaign on a tempting mark, though, and can't be ruled out.
+          stable_tour: []
+          trainer: Jack Channon
+          trainer_14_days:
+            percent: '31'
+            runs: '16'
+            wins: '5'
+          trainer_id: trn_361449
+          trainer_location: West Ilsley, Berks
+          trainer_rtf: '71'
+          ts: '83'
+          wind_surgery: ''
+          wind_surgery_run: ''
+        sex_restriction: ''
+        stalls: ''
+        surface: Turf
+        tip: Majestic Valour
+        type: Flat
+        verdict: This looks a good opportunity for promising 4yo MAJESTIC VALOUR to get back to winning ways.
+        weather: ''
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    RunnerQuote:
+      properties:
+        date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Date
+          default: ''
+        horse:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Horse
+          default: ''
+        horse_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Horse Id
+          default: ''
+        race:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race
+          default: ''
+        race_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Race Id
+          default: ''
+        course:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course
+          default: ''
+        course_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Course Id
+          default: ''
+        distance_f:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Distance F
+          default: ''
+        distance_y:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Distance Y
+          default: ''
+        quote:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Quote
+          default: ''
+      type: object
+      title: RunnerQuote
+      example:
+        course: Ascot
+        course_id: crs_52
+        date: '2024-06-15'
+        distance_f: 12f
+        distance_y: '2640'
+        horse: Frankel
+        horse_id: hrs_5344171
+        quote: He ran a great race and showed his class.
+        race: King George VI
+        race_id: rac_12345678
     RunnerOddsPro:
       properties:
         horse_id:
@@ -482,51 +875,6 @@ components:
         ts: '83'
         wind_surgery: ''
         wind_surgery_run: ''
-    RunnerMedical:
-      properties:
-        date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date
-          default: ''
-        type:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Type
-          default: ''
-      type: object
-      title: RunnerMedical
-      example:
-        date: '2024-06-15'
-        type: Wind surgery
-    RunnerPrevOwner:
-      properties:
-        owner:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Owner
-          default: ''
-        owner_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Owner Id
-          default: ''
-        change_date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Change Date
-          default: ''
-      type: object
-      title: RunnerPrevOwner
-      example:
-        change_date: '2024-01-15'
-        owner: Previous Racing Ltd
-        owner_id: own_123456
     RunnerStableTour:
       properties:
         quote:
@@ -539,6 +887,15 @@ components:
       title: RunnerStableTour
       example:
         quote: He's been working well at home and we're hopeful.
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     OddsHistory:
       properties:
         bookmaker:
@@ -586,116 +943,6 @@ components:
           decimal: '7.0'
           fractional: 6/1
         updated: '2026-02-06 13:30:00'
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    RunnerQuote:
-      properties:
-        date:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Date
-          default: ''
-        horse:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Horse
-          default: ''
-        horse_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Horse Id
-          default: ''
-        race:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race
-          default: ''
-        race_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race Id
-          default: ''
-        course:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Course
-          default: ''
-        course_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Course Id
-          default: ''
-        distance_f:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Distance F
-          default: ''
-        distance_y:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Distance Y
-          default: ''
-        quote:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Quote
-          default: ''
-      type: object
-      title: RunnerQuote
-      example:
-        course: Ascot
-        course_id: crs_52
-        date: '2024-06-15'
-        distance_f: 12f
-        distance_y: '2640'
-        horse: Frankel
-        horse_id: hrs_5344171
-        quote: He ran a great race and showed his class.
-        race: King George VI
-        race_id: rac_12345678
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     RunnerTrainer14Days:
       properties:
         runs:
@@ -722,298 +969,25 @@ components:
         percent: '20'
         runs: '25'
         wins: '5'
-    RacecardOddsPro:
+    RunnerMedical:
       properties:
-        race_id:
-          type: string
-          title: Race Id
-        course:
-          type: string
-          title: Course
-        course_id:
-          type: string
-          title: Course Id
         date:
-          type: string
+          anyOf:
+          - type: string
+          - type: 'null'
           title: Date
-        off_time:
-          type: string
-          title: Off Time
-        off_dt:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Off Dt
           default: ''
-        race_name:
-          type: string
-          title: Race Name
-        distance_round:
-          type: string
-          title: Distance Round
-        distance:
-          type: string
-          title: Distance
-        distance_f:
-          type: string
-          title: Distance F
-        region:
-          type: string
-          title: Region
-        pattern:
-          type: string
-          title: Pattern
-        sex_restriction:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex Restriction
-          default: ''
-        race_class:
-          type: string
-          title: Race Class
         type:
-          type: string
+          anyOf:
+          - type: string
+          - type: 'null'
           title: Type
-        age_band:
-          type: string
-          title: Age Band
-        rating_band:
-          type: string
-          title: Rating Band
-        prize:
-          type: string
-          title: Prize
-        field_size:
-          type: string
-          title: Field Size
-        going_detailed:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Going Detailed
-        rail_movements:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Rail Movements
-        stalls:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Stalls
-        weather:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Weather
-        going:
-          type: string
-          title: Going
-        surface:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Surface
-        jumps:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Jumps
-          default: ''
-        runners:
-          items:
-            $ref: '#/components/schemas/RunnerOddsPro'
-          type: array
-          title: Runners
-        big_race:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Big Race
-          default: false
-        is_abandoned:
-          anyOf:
-          - type: boolean
-          - type: 'null'
-          title: Is Abandoned
-          default: false
-        tip:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Tip
-          default: ''
-        verdict:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Verdict
-          default: ''
-        betting_forecast:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Betting Forecast
-          default: ''
-        race_status:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Race Status
           default: ''
       type: object
-      required:
-      - race_id
-      - course
-      - course_id
-      - date
-      - off_time
-      - race_name
-      - distance_round
-      - distance
-      - distance_f
-      - region
-      - pattern
-      - race_class
-      - type
-      - age_band
-      - rating_band
-      - prize
-      - field_size
-      - going_detailed
-      - rail_movements
-      - stalls
-      - weather
-      - going
-      - surface
-      - runners
-      title: RacecardOddsPro
+      title: RunnerMedical
       example:
-        age_band: 3yo+
-        betting_forecast: 6/4 Majestic Valour, 9/2 Sea Diamond, 6/1 Autumn Vibes, 7/1 Lucky Ranger
-        big_race: false
-        course: Sha Tin
-        course_id: crs_10816
-        date: '2026-01-11'
-        distance: 6f
-        distance_f: '6.0'
-        distance_round: 6f
-        field_size: '12'
-        going: Good
-        going_detailed: 'TURF: GOOD TO FIRM'
-        is_abandoned: false
-        jumps: ''
-        off_dt: '2026-01-11T05:00:00+00:00'
-        off_time: '5:00'
-        pattern: ''
-        prize: £62,459
-        race_class: ''
-        race_id: rac_11845223
-        race_name: Wu Kai Sha Handicap (Div I) (Class 4) (3yo+) (Course C+3) (Turf)
-        race_status: ''
-        rail_movements: ''
-        rating_band: ''
-        region: HK
-        runners:
-        - age: '9'
-          breeder: Scea Haras De Saint Pair
-          colour: b/br
-          comment: Much better known as a miler but begins the new campaign on a very tempting mark
-          dam: Trois Lunes
-          dam_id: dam_5583571
-          dam_region: FR
-          damsire: Manduro
-          damsire_id: dsi_4247215
-          damsire_region: GER
-          dob: '2014-02-27'
-          draw: '9'
-          form: 60500-
-          headgear: ''
-          headgear_run: ''
-          horse: Trais Fluors
-          horse_id: hrs_8192583
-          jockey: Rose Dawes(5)
-          jockey_id: jky_301152
-          last_run: '192'
-          lbs: '139'
-          medical: []
-          number: '2'
-          odds:
-          - bookmaker: Bet365
-            decimal: '4.33'
-            ew_denom: '5'
-            ew_places: '3'
-            fractional: 10/3
-            history: []
-            updated: '2023-05-02 12:36:43'
-          - bookmaker: Betfair Exchange
-            decimal: '4.5'
-            ew_denom: ''
-            ew_places: ''
-            fractional: 7/2
-            history: []
-            updated: '2023-05-02 12:36:43'
-          ofr: '74'
-          owner: M Channon
-          owner_id: own_31504
-          past_results_flags: []
-          prev_owners:
-          - change_date: '2021-09-06'
-            owner: Lee Harris
-            owner_id: own_1182044
-          - change_date: '2021-03-22'
-            owner: Robert Ng
-            owner_id: own_466920
-          prev_trainers:
-          - change_date: '2023-03-24'
-            trainer: Mick Channon
-            trainer_id: trn_42084
-          - change_date: '2021-03-22'
-            trainer: K J Condon
-            trainer_id: trn_137160
-          - change_date: '2019-10-23'
-            trainer: A Fabre
-            trainer_id: trn_9837
-          quotes:
-          - course: Sandown
-            course_id: crs_1404
-            date: '2021-06-12'
-            distance_f: '8'
-            distance_y: '1760'
-            horse: Trais Fluors
-            horse_id: hrs_8192583
-            quote: He was suited by the better ground here, which was key - Silvestre de Sousa, rider.
-            race: Play Coral Racing-Super-Series For Free Handicap
-            race_id: rac_10204649
-          region: GB
-          rpr: '85'
-          sex: gelding
-          sex_code: G
-          silk_url: https://www.url-for-silk.com/svg/456789.svg
-          sire: Dansili
-          sire_id: sir_3527125
-          sire_region: GB
-          spotlight: Steadily regressive 9yo who is much better known as a miler and ended last season with two down-the-field runs; begins the new campaign on a tempting mark, though, and can't be ruled out.
-          stable_tour: []
-          trainer: Jack Channon
-          trainer_14_days:
-            percent: '31'
-            runs: '16'
-            wins: '5'
-          trainer_id: trn_361449
-          trainer_location: West Ilsley, Berks
-          trainer_rtf: '71'
-          ts: '83'
-          wind_surgery: ''
-          wind_surgery_run: ''
-        sex_restriction: ''
-        stalls: ''
-        surface: Turf
-        tip: Majestic Valour
-        type: Flat
-        verdict: This looks a good opportunity for promising 4yo MAJESTIC VALOUR to get back to winning ways.
-        weather: ''
+        date: '2024-06-15'
+        type: Wind surgery
     RunnerPrevTrainer:
       properties:
         trainer:
@@ -1040,6 +1014,32 @@ components:
         change_date: '2024-03-01'
         trainer: John Smith
         trainer_id: trn_123456
+    RunnerPrevOwner:
+      properties:
+        owner:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Owner
+          default: ''
+        owner_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Owner Id
+          default: ''
+        change_date:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Change Date
+          default: ''
+      type: object
+      title: RunnerPrevOwner
+      example:
+        change_date: '2024-01-15'
+        owner: Previous Racing Ltd
+        owner_id: own_123456
   securitySchemes:
     HTTPBasic:
       type: http

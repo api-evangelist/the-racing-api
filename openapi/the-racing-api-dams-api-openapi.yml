@@ -828,39 +828,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Dams:
+    ResultsStandardPage:
       properties:
-        search_results:
-          items:
-            $ref: '#/components/schemas/Dam'
-          type: array
-          title: Search Results
-      type: object
-      required:
-      - search_results
-      title: Dams
-      example:
-        search_results:
-        - id: dam_4087006
-          name: Kind (IRE)
-        - id: dam_5297166
-          name: Homepage (GB)
-    DamDistanceAnalysis:
-      properties:
-        id:
-          type: string
-          title: Id
-        dam:
-          type: string
-          title: Dam
-        total_runners:
+        results:
+          anyOf:
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
+          - type: 'null'
+          title: Results
+        total:
           type: integer
-          title: Total Runners
-        distances:
-          items:
-            $ref: '#/components/schemas/app__models__dams__Distance'
-          type: array
-          title: Distances
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
         query:
           items:
             items: {}
@@ -869,79 +854,38 @@ components:
           title: Query
       type: object
       required:
-      - id
-      - dam
-      - total_runners
-      - distances
+      - results
+      - total
+      - limit
+      - skip
       - query
-      title: DamDistanceAnalysis
-      example:
-        dam: Danehill Destiny (IRE)
-        distances:
-        - 1_pl: -5.5
-          1st: 8
-          2nd: 6
-          3rd: 5
-          4th: 4
-          a/e: 0.85
-          dist: 1m
-          dist_f: 8f
-          dist_m: '1609'
-          dist_y: '1760'
-          runners: 50
-          win_%: 0.16
-        id: dam_5741323
-        query:
-        - - dam_id
-          - dam_5741323
-        total_runners: 45
-    DamClassAnalysis:
+      title: ResultsStandardPage
+    ValidationError:
       properties:
-        id:
-          type: string
-          title: Id
-        dam:
-          type: string
-          title: Dam
-        total_runners:
-          type: integer
-          title: Total Runners
-        classes:
+        loc:
           items:
-            $ref: '#/components/schemas/app__models__dams__Class'
+            anyOf:
+            - type: string
+            - type: integer
           type: array
-          title: Classes
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
       type: object
       required:
-      - id
-      - dam
-      - total_runners
-      - classes
-      - query
-      title: DamClassAnalysis
-      example:
-        classes:
-        - 1_pl: -2.0
-          1st: 5
-          2nd: 4
-          3rd: 3
-          4th: 2
-          a/e: 0.9
-          class: Class 1
-          runners: 30
-          win_%: 0.17
-        dam: Danehill Destiny (IRE)
-        id: dam_5741323
-        query:
-        - - dam_id
-          - dam_5741323
-        total_runners: 45
+      - loc
+      - msg
+      - type
+      title: ValidationError
     RunnerStandard:
       properties:
         horse_id:
@@ -1129,24 +1073,22 @@ components:
         tsr: '64'
         weight: 11-12
         weight_lbs: '166'
-    ResultsStandardPage:
+    DamDistanceAnalysis:
       properties:
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
-          - type: 'null'
-          title: Results
-        total:
+        id:
+          type: string
+          title: Id
+        dam:
+          type: string
+          title: Dam
+        total_runners:
           type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
+          title: Total Runners
+        distances:
+          items:
+            $ref: '#/components/schemas/app__models__dams__Distance'
+          type: array
+          title: Distances
         query:
           items:
             items: {}
@@ -1155,12 +1097,50 @@ components:
           title: Query
       type: object
       required:
-      - results
-      - total
-      - limit
-      - skip
+      - id
+      - dam
+      - total_runners
+      - distances
       - query
-      title: ResultsStandardPage
+      title: DamDistanceAnalysis
+      example:
+        dam: Danehill Destiny (IRE)
+        distances:
+        - 1_pl: -5.5
+          1st: 8
+          2nd: 6
+          3rd: 5
+          4th: 4
+          a/e: 0.85
+          dist: 1m
+          dist_f: 8f
+          dist_m: '1609'
+          dist_y: '1760'
+          runners: 50
+          win_%: 0.16
+        id: dam_5741323
+        query:
+        - - dam_id
+          - dam_5741323
+        total_runners: 45
+    Dam:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: Dam
+      example:
+        id: dam_4087006
+        name: Kind (IRE)
     app__models__dams__Class:
       properties:
         class:
@@ -1212,24 +1192,15 @@ components:
         class: Class 1
         runners: 30
         win_%: 0.17
-    Dam:
+    HTTPValidationError:
       properties:
-        id:
-          type: string
-          title: Id
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
       type: object
-      required:
-      - id
-      - name
-      title: Dam
-      example:
-        id: dam_4087006
-        name: Kind (IRE)
+      title: HTTPValidationError
     app__models__dams__Distance:
       properties:
         dist:
@@ -1296,41 +1267,6 @@ components:
         dist_y: '1760'
         runners: 50
         win_%: 0.16
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
     ResultStandard:
       properties:
         race_id:
@@ -1553,6 +1489,70 @@ components:
         tote_win: €8.50
         type: Hurdle
         winning_time_detail: 5m 44.90s (slow by 7.90s)
+    Dams:
+      properties:
+        search_results:
+          items:
+            $ref: '#/components/schemas/Dam'
+          type: array
+          title: Search Results
+      type: object
+      required:
+      - search_results
+      title: Dams
+      example:
+        search_results:
+        - id: dam_4087006
+          name: Kind (IRE)
+        - id: dam_5297166
+          name: Homepage (GB)
+    DamClassAnalysis:
+      properties:
+        id:
+          type: string
+          title: Id
+        dam:
+          type: string
+          title: Dam
+        total_runners:
+          type: integer
+          title: Total Runners
+        classes:
+          items:
+            $ref: '#/components/schemas/app__models__dams__Class'
+          type: array
+          title: Classes
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
+      type: object
+      required:
+      - id
+      - dam
+      - total_runners
+      - classes
+      - query
+      title: DamClassAnalysis
+      example:
+        classes:
+        - 1_pl: -2.0
+          1st: 5
+          2nd: 4
+          3rd: 3
+          4th: 2
+          a/e: 0.9
+          class: Class 1
+          runners: 30
+          win_%: 0.17
+        dam: Danehill Destiny (IRE)
+        id: dam_5741323
+        query:
+        - - dam_id
+          - dam_5741323
+        total_runners: 45
   securitySchemes:
     HTTPBasic:
       type: http
