@@ -353,6 +353,10 @@ apis:
   - type: JSONLD
     url: json-ld/the-racing-api-context.jsonld
 common:
+  - type: Plans
+    url: plans/the-racing-api-plans-pricing.yml
+  - type: FinOps
+    url: finops/the-racing-api-finops.yml
   - type: AgenticAccess
     url: agentic-access/the-racing-api-agentic-access.yml
   - type: DomainSecurity
