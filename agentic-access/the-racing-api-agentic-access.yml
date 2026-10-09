@@ -1,6 +1,12 @@
-generated: '2026-07-15'
+generated: '2026-09-24'
 method: generated
-source: openapi/the-racing-api-openapi.yml
+source: openapi/the-racing-api-australia-api-openapi.yml, openapi/the-racing-api-courses-api-openapi.yml,
+  openapi/the-racing-api-dams-api-openapi.yml, openapi/the-racing-api-damsires-api-openapi.yml,
+  openapi/the-racing-api-horses-api-openapi.yml, openapi/the-racing-api-jockeys-api-openapi.yml,
+  openapi/the-racing-api-north-america-api-openapi.yml, openapi/the-racing-api-odds-api-openapi.yml,
+  openapi/the-racing-api-owners-api-openapi.yml, openapi/the-racing-api-pro-plan-api-openapi.yml,
+  openapi/the-racing-api-racecards-api-openapi.yml, openapi/the-racing-api-results-api-openapi.yml,
+  openapi/the-racing-api-sires-api-openapi.yml, openapi/the-racing-api-trainers-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
@@ -12,6 +18,36 @@ summary:
     read: 58
   human_in_the_loop_required: 0
 operations:
+- path: /v1/australia/meets
+  method: get
+  operationId: meets_v1_australia_meets_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/australia/meets/{meet_id}/races
+  method: get
+  operationId: races_by_meet_v1_australia_meets__meet_id__races_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/australia/meets/{meet_id}/races/{race_number}
+  method: get
+  operationId: race_v1_australia_meets__meet_id__races__race_number__get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /v1/courses/regions
   method: get
   operationId: regions_v1_courses_regions_get
@@ -222,6 +258,36 @@ operations:
     token:
       max-ttl: 3600
     audit: none
+- path: /v1/north-america/meets
+  method: get
+  operationId: meets_v1_north_america_meets_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/north-america/meets/{meet_id}/entries
+  method: get
+  operationId: meet_entries_v1_north_america_meets__meet_id__entries_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/north-america/meets/{meet_id}/results
+  method: get
+  operationId: meet_results_v1_north_america_meets__meet_id__results_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
 - path: /v1/odds/{race_id}/{horse_id}
   method: get
   operationId: odds_runner_v1_odds__race_id___horse_id__get
@@ -285,6 +351,16 @@ operations:
 - path: /v1/owners/{owner_id}/analysis/trainers
   method: get
   operationId: owner_trainer_analysis_v1_owners__owner_id__analysis_trainers_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /v1/racecards/{race_id}/pro
+  method: get
+  operationId: race_pro_v1_racecards__race_id__pro_get
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -365,16 +441,6 @@ operations:
 - path: /v1/racecards/{race_id}/standard
   method: get
   operationId: race_standard_v1_racecards__race_id__standard_get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v1/racecards/{race_id}/pro
-  method: get
-  operationId: race_pro_v1_racecards__race_id__pro_get
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -525,66 +591,6 @@ operations:
 - path: /v1/trainers/{trainer_id}/analysis/owners
   method: get
   operationId: trainer_owner_analysis_v1_trainers__trainer_id__analysis_owners_get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v1/north-america/meets
-  method: get
-  operationId: meets_v1_north_america_meets_get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v1/north-america/meets/{meet_id}/entries
-  method: get
-  operationId: meet_entries_v1_north_america_meets__meet_id__entries_get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v1/north-america/meets/{meet_id}/results
-  method: get
-  operationId: meet_results_v1_north_america_meets__meet_id__results_get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v1/australia/meets
-  method: get
-  operationId: meets_v1_australia_meets_get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v1/australia/meets/{meet_id}/races
-  method: get
-  operationId: races_by_meet_v1_australia_meets__meet_id__races_get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /v1/australia/meets/{meet_id}/races/{race_number}
-  method: get
-  operationId: race_v1_australia_meets__meet_id__races__race_number__get
   x-agentic-access:
     action-class: connected
     consequence: read
