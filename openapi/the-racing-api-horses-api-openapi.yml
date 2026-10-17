@@ -814,166 +814,42 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    ResultsStandardPage:
+    TimesGoing:
       properties:
-        results:
-          anyOf:
-          - items:
-              $ref: '#/components/schemas/ResultStandard'
-            type: array
-          - type: 'null'
-          title: Results
-        total:
-          type: integer
-          title: Total
-        limit:
-          type: integer
-          title: Limit
-        skip:
-          type: integer
-          title: Skip
-        query:
-          items:
-            items: {}
-            type: array
-          type: array
-          title: Query
-      type: object
-      required:
-      - results
-      - total
-      - limit
-      - skip
-      - query
-      title: ResultsStandardPage
-    HorsePro:
-      properties:
-        id:
+        date:
           type: string
-          title: Id
-        breeder:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Breeder
-          default: ''
-        colour:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Colour
-          default: ''
-        colour_code:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Colour Code
-          default: ''
-        dam:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dam
-          default: ''
-        dam_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dam Id
-          default: ''
-        damsire:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Damsire
-          default: ''
-        damsire_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Damsire Id
-          default: ''
-        dob:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Dob
-          default: ''
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Name
-          default: ''
-        sex:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex
-          default: ''
-        sex_code:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sex Code
-          default: ''
-        sire:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sire
-          default: ''
-        sire_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Sire Id
-          default: ''
+          title: Date
+        region:
+          type: string
+          title: Region
+        course:
+          type: string
+          title: Course
+        time:
+          type: string
+          title: Time
+        going:
+          type: string
+          title: Going
+        position:
+          type: string
+          title: Position
       type: object
       required:
-      - id
-      title: HorsePro
+      - date
+      - region
+      - course
+      - time
+      - going
+      - position
+      title: TimesGoing
       example:
-        breeder: Juddmonte Farms Ltd
-        colour: b
-        colour_code: B
-        dam: Kind (IRE)
-        dam_id: dam_4087006
-        damsire: Danehill
-        damsire_id: dsi_296611
-        dob: '2008-02-11'
-        id: hrs_5344171
-        name: Frankel (GB)
-        sex: horse
-        sex_code: H
-        sire: Galileo (IRE)
-        sire_id: sir_3722383
-    ValidationError:
-      properties:
-        loc:
-          items:
-            anyOf:
-            - type: string
-            - type: integer
-          type: array
-          title: Location
-        msg:
-          type: string
-          title: Message
-        type:
-          type: string
-          title: Error Type
-        input:
-          title: Input
-        ctx:
-          type: object
-          title: Context
-      type: object
-      required:
-      - loc
-      - msg
-      - type
-      title: ValidationError
+        course: Chelmsford (AW)
+        date: '2022-04-28'
+        going: Standard
+        position: '7'
+        region: GB
+        time: '1:11.94'
     HorseDistanceTimeAnalysis:
       properties:
         id:
@@ -1061,193 +937,38 @@ components:
         sire: Gregorian (IRE)
         sire_id: sir_5494055
         total_runs: 16
-    RunnerStandard:
+    ResultsStandardPage:
       properties:
-        horse_id:
-          type: string
-          title: Horse Id
-        horse:
-          type: string
-          title: Horse
-        sp:
-          type: string
-          title: Sp
-        sp_dec:
-          type: string
-          title: Sp Dec
-        bsp:
+        results:
           anyOf:
-          - type: string
+          - items:
+              $ref: '#/components/schemas/ResultStandard'
+            type: array
           - type: 'null'
-          title: Bsp
-          default: ''
-        number:
-          type: string
-          title: Number
-        position:
-          type: string
-          title: Position
-        draw:
-          type: string
-          title: Draw
-        btn:
-          type: string
-          title: Btn
-        ovr_btn:
-          type: string
-          title: Ovr Btn
-        age:
-          type: string
-          title: Age
-        sex:
-          type: string
-          title: Sex
-        weight:
-          type: string
-          title: Weight
-        weight_lbs:
-          type: string
-          title: Weight Lbs
-        headgear:
-          type: string
-          title: Headgear
-        time:
-          type: string
-          title: Time
-        or:
-          type: string
-          title: Or
-        rpr:
-          type: string
-          title: Rpr
-        tsr:
-          type: string
-          title: Tsr
-        prize:
-          type: string
-          title: Prize
-        jockey:
-          type: string
-          title: Jockey
-        jockey_claim_lbs:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Jockey Claim Lbs
-          default: '0'
-        jockey_id:
-          type: string
-          title: Jockey Id
-        trainer:
-          type: string
-          title: Trainer
-        trainer_id:
-          type: string
-          title: Trainer Id
-        owner:
-          type: string
-          title: Owner
-        owner_id:
-          type: string
-          title: Owner Id
-        sire:
-          type: string
-          title: Sire
-        sire_id:
-          type: string
-          title: Sire Id
-        dam:
-          type: string
-          title: Dam
-        dam_id:
-          type: string
-          title: Dam Id
-        damsire:
-          type: string
-          title: Damsire
-        damsire_id:
-          type: string
-          title: Damsire Id
-        comment:
-          type: string
-          title: Comment
-        silk_url:
-          anyOf:
-          - type: string
-          - type: 'null'
-          title: Silk Url
-          default: ''
+          title: Results
+        total:
+          type: integer
+          title: Total
+        limit:
+          type: integer
+          title: Limit
+        skip:
+          type: integer
+          title: Skip
+        query:
+          items:
+            items: {}
+            type: array
+          type: array
+          title: Query
       type: object
       required:
-      - horse_id
-      - horse
-      - sp
-      - sp_dec
-      - number
-      - position
-      - draw
-      - btn
-      - ovr_btn
-      - age
-      - sex
-      - weight
-      - weight_lbs
-      - headgear
-      - time
-      - or
-      - rpr
-      - tsr
-      - prize
-      - jockey
-      - jockey_id
-      - trainer
-      - trainer_id
-      - owner
-      - owner_id
-      - sire
-      - sire_id
-      - dam
-      - dam_id
-      - damsire
-      - damsire_id
-      - comment
-      title: RunnerStandard
-      example:
-        age: '8'
-        bsp: '11.26'
-        btn: '0'
-        comment: Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)
-        dam: Save Me The Waltz (FR)
-        dam_id: dam_4189605
-        damsire: Halling
-        damsire_id: dsi_675241
-        draw: ''
-        headgear: v
-        horse: Mephisto (IRE)
-        horse_id: hrs_19359270
-        jockey: Shane Fitzgerald
-        jockey_claim_lbs: '0'
-        jockey_id: jky_302916
-        number: '2'
-        or: '98'
-        ovr_btn: '0'
-        owner: Restricted Movement Syndicate
-        owner_id: own_1204876
-        position: '1'
-        prize: €5900
-        rpr: '105'
-        sex: G
-        silk_url: https://www.url-for-silk.com/svg/456789.svg
-        sire: Kendargent (FR)
-        sire_id: sir_4514419
-        sp: 15/2
-        sp_dec: '8.50'
-        time: '5:44.90'
-        trainer: Gerard Keane
-        trainer_id: trn_86382
-        tsr: '64'
-        weight: 11-12
-        weight_lbs: '166'
+      - results
+      - total
+      - limit
+      - skip
+      - query
+      title: ResultsStandardPage
     Horse:
       properties:
         id:
@@ -1308,6 +1029,15 @@ components:
         name: Frankel (GB)
         sire: Galileo (IRE)
         sire_id: sir_3722383
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     Horses:
       properties:
         search_results:
@@ -1337,51 +1067,6 @@ components:
           name: Sunny Frankel (GB)
           sire: Frankel (GB)
           sire_id: sir_5344171
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
-    TimesGoing:
-      properties:
-        date:
-          type: string
-          title: Date
-        region:
-          type: string
-          title: Region
-        course:
-          type: string
-          title: Course
-        time:
-          type: string
-          title: Time
-        going:
-          type: string
-          title: Going
-        position:
-          type: string
-          title: Position
-      type: object
-      required:
-      - date
-      - region
-      - course
-      - time
-      - going
-      - position
-      title: TimesGoing
-      example:
-        course: Chelmsford (AW)
-        date: '2022-04-28'
-        going: Standard
-        position: '7'
-        region: GB
-        time: '1:11.94'
     ResultStandard:
       properties:
         race_id:
@@ -1604,6 +1289,321 @@ components:
         tote_win: €8.50
         type: Hurdle
         winning_time_detail: 5m 44.90s (slow by 7.90s)
+    RunnerStandard:
+      properties:
+        horse_id:
+          type: string
+          title: Horse Id
+        horse:
+          type: string
+          title: Horse
+        sp:
+          type: string
+          title: Sp
+        sp_dec:
+          type: string
+          title: Sp Dec
+        bsp:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Bsp
+          default: ''
+        number:
+          type: string
+          title: Number
+        position:
+          type: string
+          title: Position
+        draw:
+          type: string
+          title: Draw
+        btn:
+          type: string
+          title: Btn
+        ovr_btn:
+          type: string
+          title: Ovr Btn
+        age:
+          type: string
+          title: Age
+        sex:
+          type: string
+          title: Sex
+        weight:
+          type: string
+          title: Weight
+        weight_lbs:
+          type: string
+          title: Weight Lbs
+        headgear:
+          type: string
+          title: Headgear
+        time:
+          type: string
+          title: Time
+        or:
+          type: string
+          title: Or
+        rpr:
+          type: string
+          title: Rpr
+        tsr:
+          type: string
+          title: Tsr
+        prize:
+          type: string
+          title: Prize
+        jockey:
+          type: string
+          title: Jockey
+        jockey_claim_lbs:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Jockey Claim Lbs
+          default: '0'
+        jockey_id:
+          type: string
+          title: Jockey Id
+        trainer:
+          type: string
+          title: Trainer
+        trainer_id:
+          type: string
+          title: Trainer Id
+        owner:
+          type: string
+          title: Owner
+        owner_id:
+          type: string
+          title: Owner Id
+        sire:
+          type: string
+          title: Sire
+        sire_id:
+          type: string
+          title: Sire Id
+        dam:
+          type: string
+          title: Dam
+        dam_id:
+          type: string
+          title: Dam Id
+        damsire:
+          type: string
+          title: Damsire
+        damsire_id:
+          type: string
+          title: Damsire Id
+        comment:
+          type: string
+          title: Comment
+        silk_url:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Silk Url
+          default: ''
+      type: object
+      required:
+      - horse_id
+      - horse
+      - sp
+      - sp_dec
+      - number
+      - position
+      - draw
+      - btn
+      - ovr_btn
+      - age
+      - sex
+      - weight
+      - weight_lbs
+      - headgear
+      - time
+      - or
+      - rpr
+      - tsr
+      - prize
+      - jockey
+      - jockey_id
+      - trainer
+      - trainer_id
+      - owner
+      - owner_id
+      - sire
+      - sire_id
+      - dam
+      - dam_id
+      - damsire
+      - damsire_id
+      - comment
+      title: RunnerStandard
+      example:
+        age: '8'
+        bsp: '11.26'
+        btn: '0'
+        comment: Held up in rear - headway 3 out - went third after 2 out - challenging when not fluent last - led home turn - ridden clear final furlong(op 13/2)
+        dam: Save Me The Waltz (FR)
+        dam_id: dam_4189605
+        damsire: Halling
+        damsire_id: dsi_675241
+        draw: ''
+        headgear: v
+        horse: Mephisto (IRE)
+        horse_id: hrs_19359270
+        jockey: Shane Fitzgerald
+        jockey_claim_lbs: '0'
+        jockey_id: jky_302916
+        number: '2'
+        or: '98'
+        ovr_btn: '0'
+        owner: Restricted Movement Syndicate
+        owner_id: own_1204876
+        position: '1'
+        prize: €5900
+        rpr: '105'
+        sex: G
+        silk_url: https://www.url-for-silk.com/svg/456789.svg
+        sire: Kendargent (FR)
+        sire_id: sir_4514419
+        sp: 15/2
+        sp_dec: '8.50'
+        time: '5:44.90'
+        trainer: Gerard Keane
+        trainer_id: trn_86382
+        tsr: '64'
+        weight: 11-12
+        weight_lbs: '166'
+    HorsePro:
+      properties:
+        id:
+          type: string
+          title: Id
+        breeder:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Breeder
+          default: ''
+        colour:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Colour
+          default: ''
+        colour_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Colour Code
+          default: ''
+        dam:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dam
+          default: ''
+        dam_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dam Id
+          default: ''
+        damsire:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Damsire
+          default: ''
+        damsire_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Damsire Id
+          default: ''
+        dob:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Dob
+          default: ''
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Name
+          default: ''
+        sex:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex
+          default: ''
+        sex_code:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sex Code
+          default: ''
+        sire:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sire
+          default: ''
+        sire_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Sire Id
+          default: ''
+      type: object
+      required:
+      - id
+      title: HorsePro
+      example:
+        breeder: Juddmonte Farms Ltd
+        colour: b
+        colour_code: B
+        dam: Kind (IRE)
+        dam_id: dam_4087006
+        damsire: Danehill
+        damsire_id: dsi_296611
+        dob: '2008-02-11'
+        id: hrs_5344171
+        name: Frankel (GB)
+        sex: horse
+        sex_code: H
+        sire: Galileo (IRE)
+        sire_id: sir_3722383
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
     Distances:
       properties:
         dist:

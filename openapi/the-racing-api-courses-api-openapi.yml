@@ -244,6 +244,31 @@ components:
       - courses
       - total
       title: CoursesPage
+    Region:
+      properties:
+        region:
+          type: string
+          title: Region
+        region_code:
+          type: string
+          title: Region Code
+      type: object
+      required:
+      - region
+      - region_code
+      title: Region
+      example:
+        region: Great Britain
+        region_code: gb
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
     ValidationError:
       properties:
         loc:
@@ -296,31 +321,6 @@ components:
         id: crs_52
         region: Great Britain
         region_code: gb
-    Region:
-      properties:
-        region:
-          type: string
-          title: Region
-        region_code:
-          type: string
-          title: Region Code
-      type: object
-      required:
-      - region
-      - region_code
-      title: Region
-      example:
-        region: Great Britain
-        region_code: gb
-    HTTPValidationError:
-      properties:
-        detail:
-          items:
-            $ref: '#/components/schemas/ValidationError'
-          type: array
-          title: Detail
-      type: object
-      title: HTTPValidationError
   securitySchemes:
     HTTPBasic:
       type: http
